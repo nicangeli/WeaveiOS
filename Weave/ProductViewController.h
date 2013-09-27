@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Collection.h"
 
-@interface ProductViewController : UIViewController
+@interface ProductViewController : UIViewController {
+    Collection *shoeCollection;
+}
+
+-(IBAction)likeItem:(id)sender;
+-(IBAction)dislikeItem:(id)sender;
 
 @end

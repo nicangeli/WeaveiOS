@@ -16,6 +16,7 @@
 		894CE98217F5CD880021307A /* shoe7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97A17F5CD880021307A /* shoe7.jpg */; };
 		894CE98317F5CD880021307A /* shoe8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97B17F5CD880021307A /* shoe8.jpg */; };
 		894CE98617F5D3290021307A /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CE98517F5D3290021307A /* ProductViewController.m */; };
+		894CE98917F5DD210021307A /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CE98817F5DD210021307A /* Collection.m */; };
 		89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7142E17F5A7B6006F1E09 /* Foundation.framework */; };
 		89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */; };
 		89E7143317F5A7B6006F1E09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143217F5A7B6006F1E09 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		894CE97B17F5CD880021307A /* shoe8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe8.jpg; path = shoes/shoe8.jpg; sourceTree = "<group>"; };
 		894CE98417F5D3290021307A /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
 		894CE98517F5D3290021307A /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		894CE98717F5DD200021307A /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
+		894CE98817F5DD210021307A /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 		89E7142B17F5A7B6006F1E09 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E7142E17F5A7B6006F1E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +156,8 @@
 				89E7144017F5A7B6006F1E09 /* Main.storyboard */,
 				89E7144317F5A7B6006F1E09 /* ViewController.h */,
 				89E7144417F5A7B6006F1E09 /* ViewController.m */,
+				894CE98717F5DD200021307A /* Collection.h */,
+				894CE98817F5DD210021307A /* Collection.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
 				894CE98517F5D3290021307A /* ProductViewController.m */,
 				89E7144617F5A7B6006F1E09 /* Images.xcassets */,
@@ -299,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E7144517F5A7B6006F1E09 /* ViewController.m in Sources */,
+				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
 				894CE98617F5D3290021307A /* ProductViewController.m in Sources */,
 				89E7143B17F5A7B6006F1E09 /* main.m in Sources */,
