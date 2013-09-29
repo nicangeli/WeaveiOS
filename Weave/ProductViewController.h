@@ -11,9 +11,12 @@
 
 @interface ProductViewController : UIViewController {
     Collection *shoeCollection;
+    CGPoint startLocation;
 }
 
 -(IBAction)likeItem:(id)sender;
 -(IBAction)dislikeItem:(id)sender;
+
+-(void)updateImageView:(UIImageView *)imageView withImageNamed:(NSString *)name;
 
 @end

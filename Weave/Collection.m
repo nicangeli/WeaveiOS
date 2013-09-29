@@ -14,7 +14,6 @@
 {
     self = [super init];
     if(self != nil) {
-        NSLog(@"I am being called");
         products = [[NSMutableArray alloc] initWithObjects:@"shoe1.jpg", @"shoe2.jpg", @"shoe3.jpg", @"shoe4.jpg", @"shoe5.jpg", @"shoe6.jpg", @"shoe7.jpg", @"shoe8.jpg", nil];
     }
     return self;

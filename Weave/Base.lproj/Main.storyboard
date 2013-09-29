@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EkM-SZ-sj8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mtx-nu-SId">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-AM-2Pg">
-                                <rect key="frame" x="76" y="432" width="46" height="30"/>
+                                <rect key="frame" x="40" y="408" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dislike">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,8 +27,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-CR-gDk">
-                                <rect key="frame" x="200" y="432" width="46" height="30"/>
+                                <rect key="frame" x="234" y="407" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Like">
                                     <color key="titleColor" red="1" green="0.11702704279958653" blue="0.18017699926397357" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,9 +38,14 @@
                                     <action selector="likeItem:" destination="sif-dr-Mrf" eventType="touchUpInside" id="2XW-I5-XLF"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shoe1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ifP-cV-c9t">
+                            <imageView tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shoe1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ifP-cV-c9t">
                                 <rect key="frame" x="40" y="182" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iBd-Mh-A0h" appends="YES" id="loz-f7-V6p"/>
+                                    <outletCollection property="gestureRecognizers" destination="flI-eY-bVV" appends="YES" id="alj-fW-bdB"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -47,6 +53,16 @@
                     <navigationItem key="navigationItem" title="Weave" id="u99-fz-UI5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="iBd-Mh-A0h">
+                    <connections>
+                        <action selector="handlePinch:" destination="sif-dr-Mrf" id="4vc-nd-ZFH"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="flI-eY-bVV">
+                    <connections>
+                        <action selector="handlePan:" destination="sif-dr-Mrf" id="BIp-rx-ePJ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="856" y="157"/>
         </scene>
@@ -75,6 +91,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
