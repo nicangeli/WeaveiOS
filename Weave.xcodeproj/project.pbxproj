@@ -279,6 +279,23 @@
 			name = new_in;
 			sourceTree = "<group>";
 		};
+		893D30A917FA394E00D820D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				894CE98417F5D3290021307A /* ProductViewController.h */,
+				894CE98517F5D3290021307A /* ProductViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		893D30AA17FA396400D820D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89E7144017F5A7B6006F1E09 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		894CE96317F5CD450021307A /* shoes */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,12 +345,11 @@
 		89E7143417F5A7B6006F1E09 /* Weave */ = {
 			isa = PBXGroup;
 			children = (
+				893D30AA17FA396400D820D1 /* Views */,
+				893D30A917FA394E00D820D1 /* Controllers */,
 				893D305017F9CDEA00D820D1 /* Models */,
 				89E7143D17F5A7B6006F1E09 /* AppDelegate.h */,
 				89E7143E17F5A7B6006F1E09 /* AppDelegate.m */,
-				89E7144017F5A7B6006F1E09 /* Main.storyboard */,
-				894CE98417F5D3290021307A /* ProductViewController.h */,
-				894CE98517F5D3290021307A /* ProductViewController.m */,
 				89E7144617F5A7B6006F1E09 /* Images.xcassets */,
 				89E7143517F5A7B6006F1E09 /* Supporting Files */,
 			);
