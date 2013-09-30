@@ -30,6 +30,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     shoeCollection = [[Collection alloc] init];
+    UIImage *product = [UIImage imageNamed:@"shoe1.jpg"];
+    UIImageView *productView = [[UIImageView alloc]initWithImage:product];
+    [productView setTag:1001];
+    productView.frame = CGRectMake(productView.frame.origin.x+50, productView.frame.origin.y+30, 200, 200);
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002];
+    [imageView addSubview:productView];  
     
 }
 

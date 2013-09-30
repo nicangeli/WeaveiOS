@@ -21,6 +21,7 @@
 		893D304417F8EC1000D820D1 /* tinder7.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303C17F8EC1000D820D1 /* tinder7.png */; };
 		893D304517F8EC1000D820D1 /* tinder8.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303D17F8EC1000D820D1 /* tinder8.png */; };
 		893D304717F9B50C00D820D1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D304617F9B50C00D820D1 /* QuartzCore.framework */; };
+		893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D304C17F9C6AB00D820D1 /* polaroid.png */; };
 		894CE97C17F5CD880021307A /* shoe1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97417F5CD880021307A /* shoe1.jpg */; };
 		894CE97D17F5CD880021307A /* shoe2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97517F5CD880021307A /* shoe2.jpg */; };
 		894CE97E17F5CD880021307A /* shoe3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97617F5CD880021307A /* shoe3.jpg */; };
@@ -72,6 +73,7 @@
 		893D303C17F8EC1000D820D1 /* tinder7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder7.png; path = ../../../Dropbox/weave/tinder7.png; sourceTree = "<group>"; };
 		893D303D17F8EC1000D820D1 /* tinder8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder8.png; path = ../../../Dropbox/weave/tinder8.png; sourceTree = "<group>"; };
 		893D304617F9B50C00D820D1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		893D304C17F9C6AB00D820D1 /* polaroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = polaroid.png; path = ../../../Dropbox/weave/polaroid.png; sourceTree = "<group>"; };
 		894CE97417F5CD880021307A /* shoe1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe1.jpg; path = shoes/shoe1.jpg; sourceTree = "<group>"; };
 		894CE97517F5CD880021307A /* shoe2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe2.jpg; path = shoes/shoe2.jpg; sourceTree = "<group>"; };
 		894CE97617F5CD880021307A /* shoe3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe3.jpg; path = shoes/shoe3.jpg; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				893D304C17F9C6AB00D820D1 /* polaroid.png */,
 				893D303617F8EC1000D820D1 /* tinder1.png */,
 				893D303717F8EC1000D820D1 /* tinder2.png */,
 				893D303817F8EC1000D820D1 /* tinder3.png */,
@@ -322,6 +325,7 @@
 				893D304517F8EC1000D820D1 /* tinder8.png in Resources */,
 				894CE98217F5CD880021307A /* shoe7.jpg in Resources */,
 				894CE98117F5CD880021307A /* shoe6.jpg in Resources */,
+				893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */,
 				893D302F17F8E20100D820D1 /* dislike.png in Resources */,
 				893D303517F8E54000D820D1 /* info.png in Resources */,
 				894CE98017F5CD880021307A /* shoe5.jpg in Resources */,

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-AM-2Pg">
-                                <rect key="frame" x="40" y="370" width="90" height="92"/>
+                                <rect key="frame" x="65" y="370" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dislike" image="cross.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-CR-gDk">
-                                <rect key="frame" x="205" y="369" width="90" height="92"/>
+                                <rect key="frame" x="196" y="370" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
@@ -38,35 +38,42 @@
                                     <action selector="likeItem:" destination="sif-dr-Mrf" eventType="touchUpInside" id="2XW-I5-XLF"/>
                                 </connections>
                             </button>
-                            <imageView tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tinder1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ifP-cV-c9t">
-                                <rect key="frame" x="27" y="84" width="280" height="264"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="hKu-4h-3kd">
+                                <rect key="frame" x="135" y="368" width="61" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="polaroid.png" translatesAutoresizingMaskIntoConstraints="NO" id="fcT-2f-oWE">
+                                <rect key="frame" x="23" y="72" width="289" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="iBd-Mh-A0h" appends="YES" id="loz-f7-V6p"/>
-                                    <outletCollection property="gestureRecognizers" destination="flI-eY-bVV" appends="YES" id="alj-fW-bdB"/>
+                                    <outletCollection property="gestureRecognizers" destination="UqJ-nb-CUV" appends="YES" id="EN7-Vw-An8"/>
+                                    <outletCollection property="gestureRecognizers" destination="03D-4q-Jfo" appends="YES" id="wf8-CU-T4H"/>
                                 </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="hKu-4h-3kd">
-                                <rect key="frame" x="129" y="367" width="76" height="88"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shoes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gv8-Yq-H5g">
+                                <rect key="frame" x="140" y="320" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weave" id="u99-fz-UI5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="iBd-Mh-A0h">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="UqJ-nb-CUV">
                     <connections>
-                        <action selector="handlePinch:" destination="sif-dr-Mrf" id="4vc-nd-ZFH"/>
-                    </connections>
-                </pinchGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="flI-eY-bVV">
-                    <connections>
-                        <action selector="handlePan:" destination="sif-dr-Mrf" id="BIp-rx-ePJ"/>
+                        <action selector="handlePan:" destination="sif-dr-Mrf" id="dik-ac-9EH"/>
                     </connections>
                 </panGestureRecognizer>
+                <pinchGestureRecognizer id="03D-4q-Jfo">
+                    <connections>
+                        <action selector="handlePinch:" destination="sif-dr-Mrf" id="4NS-ke-eQs"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="856" y="157"/>
         </scene>
@@ -93,7 +100,7 @@
         <image name="cross.png" width="163" height="198"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
-        <image name="tinder1.png" width="598" height="629"/>
+        <image name="polaroid.png" width="477" height="557"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
