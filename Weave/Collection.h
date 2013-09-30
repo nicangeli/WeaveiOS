@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Product.h"
 
 @interface Collection : NSObject {
     NSMutableArray *products;
 }
 
--(NSString *)getRandomShoe;
+-(Product *)getRandomShoe;
 
 @end

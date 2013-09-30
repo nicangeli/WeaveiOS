@@ -8,6 +8,7 @@
 
 #import "ProductViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Product.h"
 
 @interface ProductViewController ()
 
@@ -30,12 +31,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     shoeCollection = [[Collection alloc] init];
+    /*
+        Add the product as an image to the polaroid root view (subview so it moves with drag)
+     */
     UIImage *product = [UIImage imageNamed:@"shoe1.jpg"];
     UIImageView *productView = [[UIImageView alloc]initWithImage:product];
     [productView setTag:1001];
     productView.frame = CGRectMake(productView.frame.origin.x+50, productView.frame.origin.y+30, 200, 200);
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002];
-    [imageView addSubview:productView];  
+    [imageView addSubview:productView];
+    
+    /*
+        Add label for product price and title etc. As subview so it moves with pan
+     */
+    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 250, 250, 15)];
+    [productLabel setText:@"Shoes"];
+    [imageView addSubview:productLabel];
     
 }
 
@@ -51,8 +62,8 @@
     NSLog(@"Liking Item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
-    NSString *image = [shoeCollection getRandomShoe];
-    [self updateImageView:imageView withImageNamed:image];
+    Product *p = [shoeCollection getRandomShoe];
+    [self updateImageView:imageView withImageNamed:[p getImageUrl]];
     
 }
 
@@ -60,8 +71,8 @@
 {
     NSLog(@"Disliking item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-    NSString *image = [shoeCollection getRandomShoe];
-    [self updateImageView:imageView withImageNamed:image];
+    Product *p = [shoeCollection getRandomShoe];
+    [self updateImageView:imageView withImageNamed:[p getImageUrl]];
 
 
 }
