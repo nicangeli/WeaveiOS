@@ -7,6 +7,7 @@
 //
 
 #import "ProductViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ProductViewController ()
 
@@ -41,6 +42,7 @@
 
 -(IBAction)likeItem:(id)sender
 {
+    NSLog(@"Liking Item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
     NSString *image = [shoeCollection getRandomShoe];
@@ -50,6 +52,7 @@
 
 -(IBAction)dislikeItem:(id)sender
 {
+    NSLog(@"Disliking item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     NSString *image = [shoeCollection getRandomShoe];
     [self updateImageView:imageView withImageNamed:image];
@@ -64,21 +67,87 @@
 
 
 -(IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
-    if(recognizer.state == UIGestureRecognizerStateBegan) {
+    UIImage *likeImage = [UIImage imageNamed:@"like.png"];
+    UIImage *dislikeImage = [UIImage imageNamed:@"dislike.png"];
+    UIImageView *likeImageView = [[UIImageView alloc] initWithImage:likeImage];
+    UIImageView *dislikeImageView = [[UIImageView alloc] initWithImage:dislikeImage];
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
+    
+    if(recognizer.state == UIGestureRecognizerStateBegan) { // we have started to "move" the image around
         startLocation = recognizer.view.center;
     }
+    
+    //imageView.transform = CGAffineTransformMakeRotation(recognizer.view.center.x/(217));
+    
     CGPoint translation = [recognizer translationInView:self.view];
-    NSLog(@"%f, %f", translation.x, translation.y);
     //translation.x and translation.y are the distance that they've moved
-    recognizer.view.center = CGPointMake(recognizer.view.center.x + (translation.x), recognizer.view.center.y + (translation.y));
+    // Are we moving left or right?
+    CGPoint newLocation = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y + translation.y);
+    BOOL like;
+    if(newLocation.x < startLocation.x) {
+        // we must be moving left of origin
+        for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
+            [subView removeFromSuperview];
+        }
+        like = NO;
+        [imageView addSubview:dislikeImageView]; // add the like image to the view
+       // NSLog(@"%f, %f", dislikeImageView.center.x, dislikeImageView.center.y);
+        dislikeImageView.alpha = 50/newLocation.x;
+
+    } else if(newLocation.x > startLocation.x) {
+        // we must be moving right of origin
+        for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
+            [subView removeFromSuperview];
+        }
+        like = YES;
+        [imageView addSubview:likeImageView]; // add the like image to the view
+        /*
+            Update the opactiy of like button depending on drag distance
+         */
+        likeImageView.alpha = 0.2;
+        if(newLocation.x > 200) {
+            likeImageView.alpha = 0.3;
+        }
+        if(newLocation.x > 220) {
+            likeImageView.alpha = 0.4;
+        }
+        if(newLocation.x > 240) {
+            likeImageView.alpha = 0.5;
+        }
+        if(newLocation.x > 260) {
+            likeImageView.alpha = 0.6;
+        }
+        if(newLocation.x > 270) {
+            likeImageView.alpha = 1;
+        }
+    }
+    recognizer.view.center = newLocation;
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
     
-    if(recognizer.state == UIGestureRecognizerStateEnded) {
-        CGPoint finalPosition = CGPointMake(recognizer.view.center.x, recognizer.view.center.y);
-        NSLog(@"Start x: %f y: %f", startLocation.x, startLocation.y);
-        NSLog(@"Final x: %f y: %f", finalPosition.x, finalPosition.y);
-        recognizer.view.center = startLocation;
-        [self likeItem:nil];
+    if(recognizer.state == UIGestureRecognizerStateEnded) { // we have "let go" of the image
+        for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
+            [subView removeFromSuperview];
+        }
+        
+        // have we dragged the picture far enough away from the origin to justify the
+        BOOL movedEnough = YES;
+        NSLog(@"Final location: %f, %f", recognizer.view.center.x, recognizer.view.center.y);
+        if(recognizer.view.center.x < 270.0 && like){
+            NSLog(@"Not moved far enough like to justify ");
+            movedEnough = NO;
+        }
+        if(recognizer.view.center.x > 57 && !like) {
+            NSLog(@"Not moved far enough dislike to justify");
+            movedEnough = NO;
+        }
+        recognizer.view.center = startLocation; // move the image back to the start
+        if(like && movedEnough) {
+            NSLog(@"Moved enough to like");
+            [self likeItem:nil]; // trigger the event that happens when you click on like
+        } else if(!like && movedEnough) {
+            NSLog(@"Moved enough to dislike");
+            [self dislikeItem:nil];
+        }
     }
 }
 

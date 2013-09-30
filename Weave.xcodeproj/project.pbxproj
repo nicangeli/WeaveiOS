@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
+		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
+		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
+		893D303417F8E54000D820D1 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303117F8E54000D820D1 /* heart.png */; };
+		893D303517F8E54000D820D1 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303217F8E54000D820D1 /* info.png */; };
+		893D303E17F8EC1000D820D1 /* tinder1.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303617F8EC1000D820D1 /* tinder1.png */; };
+		893D303F17F8EC1000D820D1 /* tinder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303717F8EC1000D820D1 /* tinder2.png */; };
+		893D304017F8EC1000D820D1 /* tinder3.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303817F8EC1000D820D1 /* tinder3.png */; };
+		893D304117F8EC1000D820D1 /* tinder4.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303917F8EC1000D820D1 /* tinder4.png */; };
+		893D304217F8EC1000D820D1 /* tinder5.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303A17F8EC1000D820D1 /* tinder5.png */; };
+		893D304317F8EC1000D820D1 /* tinder6.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303B17F8EC1000D820D1 /* tinder6.png */; };
+		893D304417F8EC1000D820D1 /* tinder7.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303C17F8EC1000D820D1 /* tinder7.png */; };
+		893D304517F8EC1000D820D1 /* tinder8.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303D17F8EC1000D820D1 /* tinder8.png */; };
+		893D304717F9B50C00D820D1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D304617F9B50C00D820D1 /* QuartzCore.framework */; };
 		894CE97C17F5CD880021307A /* shoe1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97417F5CD880021307A /* shoe1.jpg */; };
 		894CE97D17F5CD880021307A /* shoe2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97517F5CD880021307A /* shoe2.jpg */; };
 		894CE97E17F5CD880021307A /* shoe3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 894CE97617F5CD880021307A /* shoe3.jpg */; };
@@ -44,6 +58,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
+		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
+		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
+		893D303117F8E54000D820D1 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = ../../../Dropbox/weave/heart.png; sourceTree = "<group>"; };
+		893D303217F8E54000D820D1 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = ../../../Dropbox/weave/info.png; sourceTree = "<group>"; };
+		893D303617F8EC1000D820D1 /* tinder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder1.png; path = ../../../Dropbox/weave/tinder1.png; sourceTree = "<group>"; };
+		893D303717F8EC1000D820D1 /* tinder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder2.png; path = ../../../Dropbox/weave/tinder2.png; sourceTree = "<group>"; };
+		893D303817F8EC1000D820D1 /* tinder3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder3.png; path = ../../../Dropbox/weave/tinder3.png; sourceTree = "<group>"; };
+		893D303917F8EC1000D820D1 /* tinder4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder4.png; path = ../../../Dropbox/weave/tinder4.png; sourceTree = "<group>"; };
+		893D303A17F8EC1000D820D1 /* tinder5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder5.png; path = ../../../Dropbox/weave/tinder5.png; sourceTree = "<group>"; };
+		893D303B17F8EC1000D820D1 /* tinder6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder6.png; path = ../../../Dropbox/weave/tinder6.png; sourceTree = "<group>"; };
+		893D303C17F8EC1000D820D1 /* tinder7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder7.png; path = ../../../Dropbox/weave/tinder7.png; sourceTree = "<group>"; };
+		893D303D17F8EC1000D820D1 /* tinder8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tinder8.png; path = ../../../Dropbox/weave/tinder8.png; sourceTree = "<group>"; };
+		893D304617F9B50C00D820D1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		894CE97417F5CD880021307A /* shoe1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe1.jpg; path = shoes/shoe1.jpg; sourceTree = "<group>"; };
 		894CE97517F5CD880021307A /* shoe2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe2.jpg; path = shoes/shoe2.jpg; sourceTree = "<group>"; };
 		894CE97617F5CD880021307A /* shoe3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoe3.jpg; path = shoes/shoe3.jpg; sourceTree = "<group>"; };
@@ -81,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893D304717F9B50C00D820D1 /* QuartzCore.framework in Frameworks */,
 				89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */,
 				89E7143317F5A7B6006F1E09 /* UIKit.framework in Frameworks */,
 				89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */,
@@ -137,6 +166,7 @@
 		89E7142D17F5A7B6006F1E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				893D304617F9B50C00D820D1 /* QuartzCore.framework */,
 				89E7142E17F5A7B6006F1E09 /* Foundation.framework */,
 				89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */,
 				89E7143217F5A7B6006F1E09 /* UIKit.framework */,
@@ -164,6 +194,19 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				893D303617F8EC1000D820D1 /* tinder1.png */,
+				893D303717F8EC1000D820D1 /* tinder2.png */,
+				893D303817F8EC1000D820D1 /* tinder3.png */,
+				893D303917F8EC1000D820D1 /* tinder4.png */,
+				893D303A17F8EC1000D820D1 /* tinder5.png */,
+				893D303B17F8EC1000D820D1 /* tinder6.png */,
+				893D303C17F8EC1000D820D1 /* tinder7.png */,
+				893D303D17F8EC1000D820D1 /* tinder8.png */,
+				893D303017F8E54000D820D1 /* cross.png */,
+				893D303117F8E54000D820D1 /* heart.png */,
+				893D303217F8E54000D820D1 /* info.png */,
+				893D302E17F8E20100D820D1 /* dislike.png */,
+				893D302C17F8DC0600D820D1 /* like.png */,
 				894CE96317F5CD450021307A /* shoes */,
 				89E7146317F5A86C006F1E09 /* weave.png */,
 				89E7143617F5A7B6006F1E09 /* Weave-Info.plist */,
@@ -268,16 +311,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893D303417F8E54000D820D1 /* heart.png in Resources */,
+				893D304217F8EC1000D820D1 /* tinder5.png in Resources */,
+				893D304117F8EC1000D820D1 /* tinder4.png in Resources */,
+				893D303E17F8EC1000D820D1 /* tinder1.png in Resources */,
+				893D304317F8EC1000D820D1 /* tinder6.png in Resources */,
+				893D303317F8E54000D820D1 /* cross.png in Resources */,
+				893D304017F8EC1000D820D1 /* tinder3.png in Resources */,
 				894CE97E17F5CD880021307A /* shoe3.jpg in Resources */,
+				893D304517F8EC1000D820D1 /* tinder8.png in Resources */,
 				894CE98217F5CD880021307A /* shoe7.jpg in Resources */,
 				894CE98117F5CD880021307A /* shoe6.jpg in Resources */,
+				893D302F17F8E20100D820D1 /* dislike.png in Resources */,
+				893D303517F8E54000D820D1 /* info.png in Resources */,
 				894CE98017F5CD880021307A /* shoe5.jpg in Resources */,
 				89E7146417F5A86C006F1E09 /* weave.png in Resources */,
 				894CE97D17F5CD880021307A /* shoe2.jpg in Resources */,
 				894CE97F17F5CD880021307A /* shoe4.jpg in Resources */,
 				894CE98317F5CD880021307A /* shoe8.jpg in Resources */,
 				894CE97C17F5CD880021307A /* shoe1.jpg in Resources */,
+				893D303F17F8EC1000D820D1 /* tinder2.png in Resources */,
+				893D304417F8EC1000D820D1 /* tinder7.png in Resources */,
 				89E7144717F5A7B6006F1E09 /* Images.xcassets in Resources */,
+				893D302D17F8DC0600D820D1 /* like.png in Resources */,
 				89E7143917F5A7B6006F1E09 /* InfoPlist.strings in Resources */,
 				89E7144217F5A7B6006F1E09 /* Main.storyboard in Resources */,
 			);

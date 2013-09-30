@@ -14,7 +14,7 @@
 {
     self = [super init];
     if(self != nil) {
-        products = [[NSMutableArray alloc] initWithObjects:@"shoe1.jpg", @"shoe2.jpg", @"shoe3.jpg", @"shoe4.jpg", @"shoe5.jpg", @"shoe6.jpg", @"shoe7.jpg", @"shoe8.jpg", nil];
+        products = [[NSMutableArray alloc] initWithObjects:@"tinder1.png", @"tinder2.png", @"tinder3.png", @"tinder4.png", @"tinder5.png", @"tinder6.png", @"tinder7.png", @"tinder8.png", nil];
     }
     return self;
 }
@@ -22,8 +22,6 @@
 -(NSString *)getRandomShoe
 {
     NSUInteger randomIndex = arc4random() % [products count];
-    NSLog(@"RANDOM INDEX");
-    NSLog(@"%d", randomIndex);
     return [products objectAtIndex:randomIndex];
 }
 
