@@ -7,6 +7,7 @@
 //
 
 #import "LikesPageViewController.h"
+#import "AppDelegate.h"
 
 @interface LikesPageViewController ()
 
@@ -26,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"i am loaded");
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Likes *l = [delegate likes];
+    NSLog(@"%d", [l count]);
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,22 +46,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+    #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Likes *l = [delegate likes];
     // Return the number of rows in the section.
-    return 0;
+    NSLog(@"%d",[l count]);
+    return [l count];
 }
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Likes *l = [delegate likes];
+    static NSString *CellIdentifier = @"ProductCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell.
+    cell.textLabel.text = [[l objectAtIndex:indexPath.row] getTitle];
+    return cell;
+}
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -65,6 +85,7 @@
     
     return cell;
 }
+ */
 
 /*
 // Override to support conditional editing of the table view.

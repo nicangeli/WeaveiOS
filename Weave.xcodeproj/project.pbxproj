@@ -295,9 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				894CE98417F5D3290021307A /* ProductViewController.h */,
+				894CE98517F5D3290021307A /* ProductViewController.m */,
 				8925453317FB1FC7001A6D68 /* LikesPageViewController.h */,
 				8925453417FB1FC7001A6D68 /* LikesPageViewController.m */,
-				894CE98517F5D3290021307A /* ProductViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

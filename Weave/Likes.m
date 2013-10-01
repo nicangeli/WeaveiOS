@@ -49,4 +49,15 @@
     NSLog(@"%d", [likedProducts count]);
 }
 
+-(NSInteger)count
+{
+    return [likedProducts count];
+}
+
+-(Product *)objectAtIndex:(NSUInteger)index
+{
+    return [likedProducts objectAtIndex:index];
+}
+
+
 @end
