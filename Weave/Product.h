@@ -23,5 +23,8 @@
 -(NSString *)getImageUrl;
 -(NSString *)getTitle;
 -(NSString *)getType;
+-(NSString *)getPrice;
+-(NSString *)getBrand;
+-(NSString *)getUrl;
 
 @end

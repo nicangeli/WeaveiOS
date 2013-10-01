@@ -39,5 +39,20 @@
     return type;
 }
 
+-(NSString *)getPrice
+{
+    return price;
+}
+
+-(NSString *)getBrand
+{
+    return brand;
+}
+
+-(NSString *)getUrl
+{
+    return url;
+}
+
 
 @end

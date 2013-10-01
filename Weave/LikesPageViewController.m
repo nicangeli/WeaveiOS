@@ -48,7 +48,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -72,20 +71,26 @@
     }
     
     // Configure the cell.
-    cell.textLabel.text = [[l objectAtIndex:indexPath.row] getTitle];
+    //cell.textLabel.text = [[l objectAtIndex:indexPath.row] getTitle];
+    //cell.detailTextLabel.text = [[l objectAtIndex:indexPath.row] getPrice];
+    Product *p = [l objectAtIndex:indexPath.row];
+    UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
+    thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
+    
+    UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
+    titleLabel.text = [p getTitle];
+    
+    UILabel *typeLabel = (UILabel *)[cell viewWithTag:102];
+    typeLabel.text = [p getType];
+    
+    UILabel *brandLabel = (UILabel *)[cell viewWithTag:103];
+    brandLabel.text = [p getBrand];
+    
+    UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
+    priceLavel.text = [p getPrice];
+    
     return cell;
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
- */
 
 /*
 // Override to support conditional editing of the table view.
