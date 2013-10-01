@@ -10,6 +10,7 @@
 		8925452E17FB065D001A6D68 /* weave-nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925452C17FB065D001A6D68 /* weave-nav.png */; };
 		8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925452D17FB065D001A6D68 /* weave-nav@2x.png */; };
 		8925453217FB0D0F001A6D68 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453117FB0D0F001A6D68 /* Likes.m */; };
+		8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453417FB1FC7001A6D68 /* LikesPageViewController.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -110,6 +111,8 @@
 		8925452D17FB065D001A6D68 /* weave-nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weave-nav@2x.png"; sourceTree = "<group>"; };
 		8925453017FB0D0F001A6D68 /* Likes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Likes.h; sourceTree = "<group>"; };
 		8925453117FB0D0F001A6D68 /* Likes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Likes.m; sourceTree = "<group>"; };
+		8925453317FB1FC7001A6D68 /* LikesPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesPageViewController.h; sourceTree = "<group>"; };
+		8925453417FB1FC7001A6D68 /* LikesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesPageViewController.m; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				894CE98417F5D3290021307A /* ProductViewController.h */,
+				8925453317FB1FC7001A6D68 /* LikesPageViewController.h */,
+				8925453417FB1FC7001A6D68 /* LikesPageViewController.m */,
 				894CE98517F5D3290021307A /* ProductViewController.m */,
 			);
 			name = Controllers;
@@ -580,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				893D305317F9CE0900D820D1 /* Product.m in Sources */,
