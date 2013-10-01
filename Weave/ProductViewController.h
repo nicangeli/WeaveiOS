@@ -10,7 +10,7 @@
 #import "Collection.h"
 
 @interface ProductViewController : UIViewController {
-    Collection *shoeCollection;
+    Collection *products;
     CGPoint startLocation;
 }
 

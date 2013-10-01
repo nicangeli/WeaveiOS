@@ -30,22 +30,32 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    shoeCollection = [[Collection alloc] init];
+    products = [[Collection alloc] init];
+    Product *p = [products getNextProduct];
     /*
         Add the product as an image to the polaroid root view (subview so it moves with drag)
      */
-    UIImage *product = [UIImage imageNamed:@"shoe1.jpg"];
+    UIImage *product = [UIImage imageNamed:[p getImageUrl]];
     UIImageView *productView = [[UIImageView alloc]initWithImage:product];
     [productView setTag:1001];
-    productView.frame = CGRectMake(productView.frame.origin.x+50, productView.frame.origin.y+30, 200, 200);
+    //productView.contentMode = UIViewContentModeScaleAspectFit;
+    //productView.frame = CGRectMake(productView.frame.origin.x+48, productView.frame.origin.y+34, 255, 260);
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002];
     [imageView addSubview:productView];
+    productView.contentMode = UIViewContentModeScaleAspectFit;
     
+    CGRect frame = imageView.frame;
+    frame.size.width = 260;
+    frame.size.height = 255;
+    productView.frame = frame;
+    productView.center = CGPointMake(168,162);
+    
+   // NSLog(@"%f, %f", product.size.width, product.size.height);
     /*
         Add label for product price and title etc. As subview so it moves with pan
      */
-    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 250, 250, 15)];
-    [productLabel setText:@"Shoes"];
+    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(145, 325, 250, 15)];
+    [productLabel setText:[p getTitle]];
     [imageView addSubview:productLabel];
     
 }
@@ -62,7 +72,7 @@
     NSLog(@"Liking Item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
-    Product *p = [shoeCollection getRandomShoe];
+    Product *p = [products getNextProduct];
     [self updateImageView:imageView withImageNamed:[p getImageUrl]];
     
 }
@@ -71,7 +81,7 @@
 {
     NSLog(@"Disliking item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-    Product *p = [shoeCollection getRandomShoe];
+    Product *p = [products getNextProduct];
     [self updateImageView:imageView withImageNamed:[p getImageUrl]];
 
 

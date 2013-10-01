@@ -35,10 +35,13 @@
     return self;
 }
 
--(Product *)getRandomShoe
+
+-(Product *)getNextProduct
 {
-    NSUInteger randomIndex = arc4random() % [products count];
-    return [products objectAtIndex:randomIndex];
+    NSUInteger index = arc4random() % [products count];
+    Product *p = [products objectAtIndex:index];
+    [products removeObject:p];
+    return p;
 }
 
 

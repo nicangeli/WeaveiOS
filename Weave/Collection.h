@@ -13,6 +13,6 @@
     NSMutableArray *products;
 }
 
--(Product *)getRandomShoe;
+-(Product *)getNextProduct;
 
 @end

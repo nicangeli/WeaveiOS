@@ -30,5 +30,9 @@
     return imageUrl;
 }
 
+-(NSString *)getTitle {
+    return title;
+}
+
 
 @end
