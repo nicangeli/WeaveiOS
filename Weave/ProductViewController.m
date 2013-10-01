@@ -9,6 +9,8 @@
 #import "ProductViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Product.h"
+#import "Likes.h"
+#import "AppDelegate.h"
 
 @interface ProductViewController ()
 
@@ -34,17 +36,18 @@
 	// Do any additional setup after loading the view.
     products = [[Collection alloc] init];
     Product *p = [products getNextProduct];
+    currentProduct = p;
     
     /*
         Add the product as an image to the polaroid root view (subview so it moves with drag)
      */
-    UIImage *product = [UIImage imageNamed:[p getImageUrl]];
-    UIImageView *productView = [[UIImageView alloc]initWithImage:product];
+    UIImage *product = [UIImage imageNamed:[p getImageUrl]]; // image of the product on top of pile
+    UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
     [productView setTag:1001];
 
-    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002];
-    [imageView addSubview:productView];
-    productView.contentMode = UIViewContentModeScaleAspectFit;
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002]; //the polaroid that sits on top of the stack
+    [imageView addSubview:productView]; // add product on top of pile to the polaroid
+    productView.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
     
     CGRect frame = imageView.frame;
     frame.size.width = 260;
@@ -70,7 +73,6 @@
         [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
     }
 
-    [self.view bringSubviewToFront:productLabel];
     
 }
 
@@ -83,22 +85,24 @@
 
 -(IBAction)likeItem:(id)sender
 {
-    NSLog(@"Liking Item");
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Likes *l = [delegate likes];
+    [l addProduct:currentProduct];
+    [l print];
+    
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
     Product *p = [products getNextProduct];
+    currentProduct = p;
     [self updateImageView:imageView forProduct:p];
-    
 }
 
 -(IBAction)dislikeItem:(id)sender
 {
-    NSLog(@"Disliking item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     Product *p = [products getNextProduct];
+    currentProduct = p;
     [self updateImageView:imageView forProduct:p];
-
-
 }
 
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product

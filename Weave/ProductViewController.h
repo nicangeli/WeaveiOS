@@ -12,6 +12,7 @@
 @interface ProductViewController : UIViewController {
     Collection *products;
     CGPoint startLocation;
+    Product *currentProduct;
 }
 
 -(IBAction)likeItem:(id)sender;
