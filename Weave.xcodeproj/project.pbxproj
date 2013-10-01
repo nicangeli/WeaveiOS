@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8925452E17FB065D001A6D68 /* weave-nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925452C17FB065D001A6D68 /* weave-nav.png */; };
+		8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925452D17FB065D001A6D68 /* weave-nav@2x.png */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -103,6 +105,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8925452C17FB065D001A6D68 /* weave-nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weave-nav.png"; sourceTree = "<group>"; };
+		8925452D17FB065D001A6D68 /* weave-nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weave-nav@2x.png"; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8925452C17FB065D001A6D68 /* weave-nav.png */,
+				8925452D17FB065D001A6D68 /* weave-nav@2x.png */,
 				893D30A717F9DF5800D820D1 /* new_in.json */,
 				893D305417F9D88C00D820D1 /* new_in */,
 				893D304E17F9C99A00D820D1 /* polaroid-view.png */,
@@ -506,6 +512,7 @@
 				893D308717F9D89E00D820D1 /* new_in10.jpg in Resources */,
 				893D30A817F9DF5800D820D1 /* new_in.json in Resources */,
 				893D30A017F9D89E00D820D1 /* new_in35.jpg in Resources */,
+				8925452E17FB065D001A6D68 /* weave-nav.png in Resources */,
 				893D30A317F9D89E00D820D1 /* new_in38.jpg in Resources */,
 				893D308E17F9D89E00D820D1 /* new_in17.jpg in Resources */,
 				893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */,
@@ -545,6 +552,7 @@
 				893D308117F9D89E00D820D1 /* new_in4.jpg in Resources */,
 				893D308017F9D89E00D820D1 /* new_in3.jpg in Resources */,
 				893D309C17F9D89E00D820D1 /* new_in31.jpg in Resources */,
+				8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */,
 				89E7143917F5A7B6006F1E09 /* InfoPlist.strings in Resources */,
 				89E7144217F5A7B6006F1E09 /* Main.storyboard in Resources */,
 				893D309617F9D89E00D820D1 /* new_in25.jpg in Resources */,

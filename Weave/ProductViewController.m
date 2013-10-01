@@ -29,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+
 	// Do any additional setup after loading the view.
     products = [[Collection alloc] init];
     Product *p = [products getNextProduct];
@@ -46,18 +48,28 @@
     
     CGRect frame = imageView.frame;
     frame.size.width = 260;
-    frame.size.height = 255;
+    frame.size.height = 250;
     productView.frame = frame;
-    productView.center = CGPointMake(168,162);
+    productView.center = CGPointMake(168,157); // move the image view to the middle of the polaroid
     
     /*
         Add label for product price and title etc. As subview so it moves with pan
      */
     UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
-    [productLabel setCenter:CGPointMake(self.view.frame.size.width / 2, imageView.frame.size.height-50)];
     [productLabel setTag:1003];
-    [productLabel setText:[p getTitle]];
+    [productLabel setText:[p getType]];
     [imageView addSubview:productLabel];
+    if([[p getType] length] < 10) {
+        NSLog(@"Less than 10");
+        [productLabel setCenter:CGPointMake(220, imageView.frame.size.height-50)];
+    } else if([[p getType] length] < 16) {
+        NSLog(@"Less than 16");
+        [productLabel setCenter:CGPointMake(200, imageView.frame.size.height-50)];
+    } else{
+        NSLog(@"More than 16");
+        [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
+    }
+
     [self.view bringSubviewToFront:productLabel];
     
 }
@@ -92,7 +104,7 @@
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
     [imageView setImage:[UIImage imageNamed:[product getImageUrl]]];
-    [self updateLabelsForProduct:product];
+    [self updateLabelsForProduct:product inImageView:imageView];
 }
 
 
@@ -193,10 +205,22 @@
     return YES;
 }
 
--(void)updateLabelsForProduct:(Product *)product
+-(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView
 {
     UILabel *label = (UILabel *)[self.view viewWithTag:1003]; // 1003 is the label that holds the title
-    [label setText:[product getTitle]];
+    [label setText:[product getType]];
+    if([[product getType] length] < 10) {
+        NSLog(@"Less than 10");
+        [label setCenter:CGPointMake(220, imageView.frame.size.height+60)];
+    } else if([[product getType] length] < 16) {
+        NSLog(@"Less than 16");
+        [label setCenter:CGPointMake(200, imageView.frame.size.height+60)];
+    } else{
+        NSLog(@"More than 16");
+        [label setCenter:CGPointMake(180, imageView.frame.size.height+60)];
+    }
+    [self.view bringSubviewToFront:label];
+
 }
 
 

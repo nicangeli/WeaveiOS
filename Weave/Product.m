@@ -34,5 +34,10 @@
     return title;
 }
 
+-(NSString *)getType
+{
+    return type;
+}
+
 
 @end

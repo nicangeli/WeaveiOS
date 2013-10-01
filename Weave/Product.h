@@ -22,5 +22,6 @@
 
 -(NSString *)getImageUrl;
 -(NSString *)getTitle;
+-(NSString *)getType;
 
 @end

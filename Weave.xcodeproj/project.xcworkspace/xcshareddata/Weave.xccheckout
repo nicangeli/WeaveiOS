@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B8F972C7-729B-4611-8E79-21F620D39C26</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Weave</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5FC71D0E-C46B-4EDB-A117-AA7061626AC6</key>
+		<string>ssh://github.com/nicangeli/WeaveiOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Weave.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5FC71D0E-C46B-4EDB-A117-AA7061626AC6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/nicangeli/WeaveiOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5FC71D0E-C46B-4EDB-A117-AA7061626AC6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5FC71D0E-C46B-4EDB-A117-AA7061626AC6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Weave</string>
+		</dict>
+	</array>
+</dict>
+</plist>
