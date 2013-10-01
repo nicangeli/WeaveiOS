@@ -32,14 +32,14 @@
 	// Do any additional setup after loading the view.
     products = [[Collection alloc] init];
     Product *p = [products getNextProduct];
+    
     /*
         Add the product as an image to the polaroid root view (subview so it moves with drag)
      */
     UIImage *product = [UIImage imageNamed:[p getImageUrl]];
     UIImageView *productView = [[UIImageView alloc]initWithImage:product];
     [productView setTag:1001];
-    //productView.contentMode = UIViewContentModeScaleAspectFit;
-    //productView.frame = CGRectMake(productView.frame.origin.x+48, productView.frame.origin.y+34, 255, 260);
+
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002];
     [imageView addSubview:productView];
     productView.contentMode = UIViewContentModeScaleAspectFit;
@@ -50,13 +50,15 @@
     productView.frame = frame;
     productView.center = CGPointMake(168,162);
     
-   // NSLog(@"%f, %f", product.size.width, product.size.height);
     /*
         Add label for product price and title etc. As subview so it moves with pan
      */
-    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(145, 325, 250, 15)];
+    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
+    [productLabel setCenter:CGPointMake(self.view.frame.size.width / 2, imageView.frame.size.height-50)];
+    [productLabel setTag:1003];
     [productLabel setText:[p getTitle]];
     [imageView addSubview:productLabel];
+    [self.view bringSubviewToFront:productLabel];
     
 }
 
@@ -73,7 +75,7 @@
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
     Product *p = [products getNextProduct];
-    [self updateImageView:imageView withImageNamed:[p getImageUrl]];
+    [self updateImageView:imageView forProduct:p];
     
 }
 
@@ -82,14 +84,15 @@
     NSLog(@"Disliking item");
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     Product *p = [products getNextProduct];
-    [self updateImageView:imageView withImageNamed:[p getImageUrl]];
+    [self updateImageView:imageView forProduct:p];
 
 
 }
 
--(void)updateImageView:(UIImageView *)imageView withImageNamed:(NSString *)name
+-(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
-    [imageView setImage:[UIImage imageNamed:name]];
+    [imageView setImage:[UIImage imageNamed:[product getImageUrl]]];
+    [self updateLabelsForProduct:product];
 }
 
 
@@ -190,28 +193,11 @@
     return YES;
 }
 
-/*
- -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
- CGPoint pt = [[touches anyObject] locationInView:self];
- startLocation = pt;
- }
- 
- -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
- CGPoint pt = [[touches anyObject] locationInView:self];
- CGFloat dx = pt.x - startLocation.x;
- CGFloat dy = pt.y - startLocation.y;
- CGPoint newCenter = CGPointMake(self.center.x + dx, self.center.y + dy);
- self.center = newCenter;
- }
- 
- -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
- {
- CGPoint pt = [[touches anyObject] locationInView:self];
- NSLog(@"Start Location: %f %f End location: %f %f", startLocation.x, startLocation.y, pt.x, pt.y);
- startLocation = pt;
- 
- }
- */
+-(void)updateLabelsForProduct:(Product *)product
+{
+    UILabel *label = (UILabel *)[self.view viewWithTag:1003]; // 1003 is the label that holds the title
+    [label setText:[product getTitle]];
+}
 
 
 

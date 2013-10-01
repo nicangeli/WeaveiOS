@@ -17,6 +17,6 @@
 -(IBAction)likeItem:(id)sender;
 -(IBAction)dislikeItem:(id)sender;
 
--(void)updateImageView:(UIImageView *)imageView withImageNamed:(NSString *)name;
+-(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product;
 
 @end
