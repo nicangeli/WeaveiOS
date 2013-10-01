@@ -43,6 +43,11 @@
     [likedProducts removeObject:product];
 }
 
+-(void)removeProductAtIndex:(NSInteger )index
+{
+    [likedProducts removeObjectAtIndex:index];
+}
+
 -(void)print
 {
     NSLog(@"Printing");
