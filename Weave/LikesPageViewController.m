@@ -76,6 +76,7 @@
     Product *p = [l objectAtIndex:indexPath.row];
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
     thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
+    thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
     titleLabel.text = [p getTitle];
@@ -89,7 +90,16 @@
     UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
     priceLavel.text = [p getPrice];
     
+    UIButton *moreDetailsButton = (UIButton *)[cell viewWithTag:105];
+    moreDetailsButton.accessibilityHint = [p getUrl];
+    
+    [moreDetailsButton addTarget:self action:@selector(moreDetailsPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
+}
+
+-(void)moreDetailsPressed:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[sender accessibilityHint]]];
 }
 
 /*
