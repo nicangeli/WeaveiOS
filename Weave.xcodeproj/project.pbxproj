@@ -11,6 +11,7 @@
 		8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925452D17FB065D001A6D68 /* weave-nav@2x.png */; };
 		8925453217FB0D0F001A6D68 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453117FB0D0F001A6D68 /* Likes.m */; };
 		8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453417FB1FC7001A6D68 /* LikesPageViewController.m */; };
+		8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8925453617FC32DF001A6D68 /* CoreData.framework */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -113,6 +114,7 @@
 		8925453117FB0D0F001A6D68 /* Likes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Likes.m; sourceTree = "<group>"; };
 		8925453317FB1FC7001A6D68 /* LikesPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesPageViewController.h; sourceTree = "<group>"; };
 		8925453417FB1FC7001A6D68 /* LikesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesPageViewController.m; sourceTree = "<group>"; };
+		8925453617FC32DF001A6D68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */,
 				893D304717F9B50C00D820D1 /* QuartzCore.framework in Frameworks */,
 				89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */,
 				89E7143317F5A7B6006F1E09 /* UIKit.framework in Frameworks */,
@@ -347,6 +350,7 @@
 		89E7142D17F5A7B6006F1E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8925453617FC32DF001A6D68 /* CoreData.framework */,
 				893D304617F9B50C00D820D1 /* QuartzCore.framework */,
 				89E7142E17F5A7B6006F1E09 /* Foundation.framework */,
 				89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */,
