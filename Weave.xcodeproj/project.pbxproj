@@ -12,6 +12,7 @@
 		8925453217FB0D0F001A6D68 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453117FB0D0F001A6D68 /* Likes.m */; };
 		8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453417FB1FC7001A6D68 /* LikesPageViewController.m */; };
 		8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8925453617FC32DF001A6D68 /* CoreData.framework */; };
+		8925453D17FC34BD001A6D68 /* Weave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8925453B17FC34BD001A6D68 /* Weave.xcdatamodeld */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -115,6 +116,7 @@
 		8925453317FB1FC7001A6D68 /* LikesPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesPageViewController.h; sourceTree = "<group>"; };
 		8925453417FB1FC7001A6D68 /* LikesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesPageViewController.m; sourceTree = "<group>"; };
 		8925453617FC32DF001A6D68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8925453C17FC34BD001A6D68 /* Weave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weave.xcdatamodel; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				89E7143E17F5A7B6006F1E09 /* AppDelegate.m */,
 				89E7144617F5A7B6006F1E09 /* Images.xcassets */,
 				89E7143517F5A7B6006F1E09 /* Supporting Files */,
+				8925453B17FC34BD001A6D68 /* Weave.xcdatamodeld */,
 			);
 			path = Weave;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 			files = (
 				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
+				8925453D17FC34BD001A6D68 /* Weave.xcdatamodeld in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				893D305317F9CE0900D820D1 /* Product.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
@@ -816,6 +820,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8925453B17FC34BD001A6D68 /* Weave.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8925453C17FC34BD001A6D68 /* Weave.xcdatamodel */,
+			);
+			currentVersion = 8925453C17FC34BD001A6D68 /* Weave.xcdatamodel */;
+			path = Weave.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 89E7142317F5A7B6006F1E09 /* Project object */;
 }
