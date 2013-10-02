@@ -50,16 +50,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSLog(@"num of rows called now");
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Likes *l = [delegate likes];
+    Likes *likes = [Likes instance];
     // Return the number of rows in the section.
-    NSLog(@"items num %d", [l count]);
+    NSLog(@"items num %d", [likes count]);
     
-    return [l count];
+    return [likes count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Likes *l = [delegate likes];
+    Likes *likes = [Likes instance];
     static NSString *CellIdentifier = @"ProductCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -69,10 +67,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell.
-    //cell.textLabel.text = [[l objectAtIndex:indexPath.row] getTitle];
-    //cell.detailTextLabel.text = [[l objectAtIndex:indexPath.row] getPrice];
-    Product *p = [l objectAtIndex:indexPath.row];
+
+    Product *p = [likes objectAtIndex:indexPath.row];
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
     thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
     thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
@@ -114,12 +110,11 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Likes *l = [delegate likes];
+    Likes *likes = [Likes instance];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [l removeProductAtIndex:indexPath.row];
+        [likes removeProductAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
     }

@@ -7,25 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "Likes.h"
 
 @implementation AppDelegate
-
--(Likes *)likes {
-    return likes;
-}
-
--(void)setLikes:(Likes *)myLikes {
-    likes = myLikes;
-}
-
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSLog(@"Instantiating likes");
-    likes = [Likes instance];
     return YES;
 }
 

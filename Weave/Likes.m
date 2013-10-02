@@ -13,7 +13,7 @@
 
 + (Likes *)instance // singleton pattern
 {
-    static Likes *likes;
+    static Likes *likes = nil;
     
     @synchronized(self)
     {

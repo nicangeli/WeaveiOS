@@ -9,14 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Likes.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    Likes *likes;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
--(Likes *)likes;
--(void)setLikes:(Likes *)myLikes;
-
 
 @end

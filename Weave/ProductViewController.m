@@ -40,8 +40,7 @@
 -(void)loadLikes {
     NSString *path = [self dataFilePath];
     NSLog(@"%@", path);
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
+    Likes *likes = [Likes instance];
     // Do any additional setup after loading the view.
     products = [[Collection alloc] init];
 
@@ -55,7 +54,7 @@
         {
             NSLog(@"%@", [p getUrl]);
         }
-        [delegate setLikes:oldLikes];
+        [likes setLikes:[oldLikes getLikes]];
 
         [unarchiver finishDecoding];
         //[[delegate likes] getLikes] = [oldLikes getLikes];
@@ -118,10 +117,9 @@
 
 -(IBAction)likeItem:(id)sender
 {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Likes *l = [delegate likes];
-    [l addProduct:currentProduct];
-    [l print];
+    Likes *likes = [Likes instance];
+    [likes addProduct:currentProduct];
+    [likes print];
     
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
@@ -269,10 +267,9 @@
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     /* get likes from appdelegate */
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Likes *l = [delegate likes];
-    NSLog(@"I am saving %d to the plist", [l count]);
-    [archiver encodeObject:l forKey:@"Likes"];
+    Likes *likes = [Likes instance];
+    NSLog(@"I am saving %d to the plist", [likes count]);
+    [archiver encodeObject:likes forKey:@"Likes"];
     [archiver finishEncoding];
     [data writeToFile:[self dataFilePath] atomically:YES];
 }
