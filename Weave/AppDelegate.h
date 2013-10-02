@@ -16,5 +16,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 -(Likes *)likes;
+-(void)setLikes:(Likes *)myLikes;
+
 
 @end

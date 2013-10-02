@@ -27,11 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"i am loaded");
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Likes *l = [delegate likes];
-    NSLog(@"%d", [l count]);
-    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -54,10 +49,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"num of rows called now");
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     Likes *l = [delegate likes];
     // Return the number of rows in the section.
-    NSLog(@"%d",[l count]);
+    NSLog(@"items num %d", [l count]);
+    
     return [l count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

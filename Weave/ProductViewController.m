@@ -28,13 +28,50 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if((self = [super initWithCoder:aDecoder])) {
+        NSLog(@"Loading likes");
+        [self loadLikes];
+    }
+       return self;
+}
+
+-(void)loadLikes {
+    NSString *path = [self dataFilePath];
+    NSLog(@"%@", path);
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    // Do any additional setup after loading the view.
+    products = [[Collection alloc] init];
+
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSLog(@"A file exists here...");
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
+        for(Product *p in [oldLikes getLikes])
+        {
+            NSLog(@"%@", [p getUrl]);
+        }
+        [delegate setLikes:oldLikes];
+
+        [unarchiver finishDecoding];
+        //[[delegate likes] getLikes] = [oldLikes getLikes];
+    } else {
+        NSLog(@"A file does not exist here");
+        
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+    //NSLog(@"Documents folder is %@", [self documentsDirectory]);
+    //NSLog(@"Data file is: %@", [self dataFilePath]);
 
-	// Do any additional setup after loading the view.
-    products = [[Collection alloc] init];
     Product *p = [products getNextProduct];
     currentProduct = p;
     
@@ -63,16 +100,12 @@
     [productLabel setText:[p getType]];
     [imageView addSubview:productLabel];
     if([[p getType] length] < 10) {
-        NSLog(@"Less than 10");
         [productLabel setCenter:CGPointMake(220, imageView.frame.size.height-50)];
     } else if([[p getType] length] < 16) {
-        NSLog(@"Less than 16");
         [productLabel setCenter:CGPointMake(200, imageView.frame.size.height-50)];
     } else{
-        NSLog(@"More than 16");
         [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
     }
-
     
 }
 
@@ -94,6 +127,7 @@
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
     Product *p = [products getNextProduct];
     currentProduct = p;
+    [self saveLikes];
     [self updateImageView:imageView forProduct:p];
 }
 
@@ -177,26 +211,32 @@
         
         // have we dragged the picture far enough away from the origin to justify the
         BOOL movedEnough = YES;
-        NSLog(@"Final location: %f, %f", recognizer.view.center.x, recognizer.view.center.y);
         if(recognizer.view.center.x < 270.0 && like){
-            NSLog(@"Not moved far enough like to justify ");
             movedEnough = NO;
         }
         if(recognizer.view.center.x > 57 && !like) {
-            NSLog(@"Not moved far enough dislike to justify");
             movedEnough = NO;
         }
         recognizer.view.center = startLocation; // move the image back to the start
         if(like && movedEnough) {
-            NSLog(@"Moved enough to like");
             [self likeItem:nil]; // trigger the event that happens when you click on like
         } else if(!like && movedEnough) {
-            NSLog(@"Moved enough to dislike");
             [self dislikeItem:nil];
         }
     }
 }
 
+- (NSString *)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return documentsDirectory;
+}
+
+- (NSString *)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
+}
 
 -(IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
 {
@@ -214,20 +254,27 @@
     UILabel *label = (UILabel *)[self.view viewWithTag:1003]; // 1003 is the label that holds the title
     [label setText:[product getType]];
     if([[product getType] length] < 10) {
-        NSLog(@"Less than 10");
         [label setCenter:CGPointMake(220, imageView.frame.size.height+60)];
     } else if([[product getType] length] < 16) {
-        NSLog(@"Less than 16");
         [label setCenter:CGPointMake(200, imageView.frame.size.height+60)];
     } else{
-        NSLog(@"More than 16");
         [label setCenter:CGPointMake(180, imageView.frame.size.height+60)];
     }
     [self.view bringSubviewToFront:label];
 
 }
 
-
-
+-(void)saveLikes
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    /* get likes from appdelegate */
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Likes *l = [delegate likes];
+    NSLog(@"I am saving %d to the plist", [l count]);
+    [archiver encodeObject:l forKey:@"Likes"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
+}
 
 @end

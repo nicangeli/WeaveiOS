@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Product : NSObject {
+@interface Product : NSObject <NSCoding> {
     NSString *title;
     NSString *url;
     NSString *price;

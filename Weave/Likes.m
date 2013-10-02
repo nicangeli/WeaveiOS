@@ -11,7 +11,7 @@
 
 @implementation Likes
 
-+ (Likes *)likes // singleton pattern
++ (Likes *)instance // singleton pattern
 {
     static Likes *likes;
     
@@ -25,8 +25,21 @@
     }
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:likedProducts forKey:@"LikedProducts"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super init])) {
+        likedProducts = [aDecoder decodeObjectForKey:@"LikedProducts"];
+    }
+    return self;
+}
 
 -(void)addProduct:(Product *)product {
+    NSLog(@"Add product called");
     if(!likedProducts) {
         likedProducts = [[NSMutableArray alloc] init];
     }
@@ -36,6 +49,17 @@
 
 -(NSMutableArray *)getLikes {
     return likedProducts;
+}
+-(void)setLikes:(NSMutableArray *)likes
+{
+    NSLog(@"Set likes is called");
+    NSLog(@"Liked: %@", [[likes objectAtIndex:0] getBrand]);
+    if(!likedProducts)
+    {
+        likedProducts = likes;
+    } else {
+        likedProducts = [[NSMutableArray alloc] initWithArray:likes];
+    }
 }
 
 -(void)removeProduct:(Product *)product

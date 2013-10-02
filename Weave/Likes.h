@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Product.h"
 
-@interface Likes : NSObject {
+@interface Likes : NSObject <NSCoding> {
     NSMutableArray *likedProducts;
 }
 
-+(Likes *)likes;
++(Likes *)instance;
 
 -(NSMutableArray *)getLikes;
+-(void)setLikes:(NSMutableArray *)likes;
 -(void)addProduct:(Product *)product;
 -(void)removeProduct:(Product *)product;
 -(void)removeProductAtIndex:(NSInteger )index;

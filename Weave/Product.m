@@ -26,6 +26,32 @@
     return self;
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:title forKey:@"title"];
+    [aCoder encodeObject:url forKey:@"url"];
+    [aCoder encodeObject:price forKey:@"price"];
+    [aCoder encodeObject:shop forKey:@"shop"];
+    [aCoder encodeObject:brand forKey:@"brand"];
+    [aCoder encodeObject:type forKey:@"type"];
+    [aCoder encodeObject:imageUrl forKey:@"imageUrl"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super init])) {
+        title = [aDecoder decodeObjectForKey:@"title"];
+        url   = [aDecoder decodeObjectForKey:@"url"];
+        price = [aDecoder decodeObjectForKey:@"price"];
+        shop = [aDecoder decodeObjectForKey:@"shop"];
+        brand = [aDecoder decodeObjectForKey:@"brand"];
+        type = [aDecoder decodeObjectForKey:@"type"];
+        imageUrl = [aDecoder decodeObjectForKey:@"imageUrl"];
+        
+    }
+    return self;
+}
+
 -(NSString *)getImageUrl {
     return imageUrl;
 }
