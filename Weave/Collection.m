@@ -30,7 +30,6 @@
             [products addObject:p];
             
         }
-       // products = [[NSMutableArray alloc] initWithObjects:@"shoe1.jpg", @"shoe2.jpg", @"shoe3.jpg", @"shoe4.jpg", @"shoe5.jpg", @"shoe6.jpg", @"shoe7.jpg", @"shoe8.jpg", nil];
     }
     return self;
 }
@@ -38,6 +37,9 @@
 
 -(Product *)getNextProduct
 {
+    if([products count] == 0) {
+        return nil;
+    }
     NSUInteger index = arc4random() % [products count];
     Product *p = [products objectAtIndex:index];
     [products removeObject:p];

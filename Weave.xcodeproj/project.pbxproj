@@ -13,6 +13,8 @@
 		8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453417FB1FC7001A6D68 /* LikesPageViewController.m */; };
 		8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8925453617FC32DF001A6D68 /* CoreData.framework */; };
 		8925453D17FC34BD001A6D68 /* Weave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8925453B17FC34BD001A6D68 /* Weave.xcdatamodeld */; };
+		8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453F17FD9518001A6D68 /* NoLikesViewController.m */; };
+		8925454417FDAF16001A6D68 /* English.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454317FDAF16001A6D68 /* English.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -117,6 +119,10 @@
 		8925453417FB1FC7001A6D68 /* LikesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesPageViewController.m; sourceTree = "<group>"; };
 		8925453617FC32DF001A6D68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8925453C17FC34BD001A6D68 /* Weave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weave.xcdatamodel; sourceTree = "<group>"; };
+		8925453E17FD9518001A6D68 /* NoLikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoLikesViewController.h; sourceTree = "<group>"; };
+		8925453F17FD9518001A6D68 /* NoLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoLikesViewController.m; sourceTree = "<group>"; };
+		8925454217FDAF16001A6D68 /* English.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = English.h; sourceTree = "<group>"; };
+		8925454317FDAF16001A6D68 /* English.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = English.m; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -235,6 +241,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8925454117FDAEFD001A6D68 /* Locales */ = {
+			isa = PBXGroup;
+			children = (
+				8925454217FDAF16001A6D68 /* English.h */,
+				8925454317FDAF16001A6D68 /* English.m */,
+			);
+			name = Locales;
+			sourceTree = "<group>";
+		};
 		893D305017F9CDEA00D820D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +316,8 @@
 			children = (
 				894CE98417F5D3290021307A /* ProductViewController.h */,
 				894CE98517F5D3290021307A /* ProductViewController.m */,
+				8925453E17FD9518001A6D68 /* NoLikesViewController.h */,
+				8925453F17FD9518001A6D68 /* NoLikesViewController.m */,
 				8925453317FB1FC7001A6D68 /* LikesPageViewController.h */,
 				8925453417FB1FC7001A6D68 /* LikesPageViewController.m */,
 			);
@@ -365,6 +382,7 @@
 		89E7143417F5A7B6006F1E09 /* Weave */ = {
 			isa = PBXGroup;
 			children = (
+				8925454117FDAEFD001A6D68 /* Locales */,
 				893D30AA17FA396400D820D1 /* Views */,
 				893D30A917FA394E00D820D1 /* Controllers */,
 				893D305017F9CDEA00D820D1 /* Models */,
@@ -595,12 +613,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8925454417FDAF16001A6D68 /* English.m in Sources */,
 				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				8925453D17FC34BD001A6D68 /* Weave.xcdatamodeld in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				893D305317F9CE0900D820D1 /* Product.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
+				8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */,
 				894CE98617F5D3290021307A /* ProductViewController.m in Sources */,
 				89E7143B17F5A7B6006F1E09 /* main.m in Sources */,
 			);

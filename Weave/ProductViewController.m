@@ -11,6 +11,7 @@
 #import "Product.h"
 #import "Likes.h"
 #import "AppDelegate.h"
+#import "English.h"
 
 @interface ProductViewController ()
 
@@ -31,7 +32,6 @@
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     if((self = [super initWithCoder:aDecoder])) {
-        NSLog(@"Loading likes");
         [self loadLikes];
     }
        return self;
@@ -46,22 +46,19 @@
 
     
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"A file exists here...");
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
-        for(Product *p in [oldLikes getLikes])
-        {
-            NSLog(@"%@", [p getUrl]);
-        }
         [likes setLikes:[oldLikes getLikes]];
 
         [unarchiver finishDecoding];
         //[[delegate likes] getLikes] = [oldLikes getLikes];
-    } else {
-        NSLog(@"A file does not exist here");
-        
     }
+}
+- (NSString *)GetUUID {
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    return (__bridge NSString *)(string);
 }
 
 - (void)viewDidLoad
@@ -73,7 +70,6 @@
 
     Product *p = [products getNextProduct];
     currentProduct = p;
-    
     /*
         Add the product as an image to the polaroid root view (subview so it moves with drag)
      */
@@ -117,6 +113,20 @@
 
 -(IBAction)likeItem:(id)sender
 {
+    English *english = [English instance];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if (! [defaults boolForKey:@"likeAlertShownButton"]) {
+        // display alert...
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.likeAlertTitleButton
+                                                        message:english.likeAlertMessageButton
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Got it"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [defaults setBool:YES forKey:@"likeAlertShownButton"];
+    }
+    
     Likes *likes = [Likes instance];
     [likes addProduct:currentProduct];
     [likes print];
@@ -124,6 +134,9 @@
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
     Product *p = [products getNextProduct];
+    if(p == nil) {
+        [self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+    }
     currentProduct = p;
     [self saveLikes];
     [self updateImageView:imageView forProduct:p];
@@ -131,8 +144,25 @@
 
 -(IBAction)dislikeItem:(id)sender
 {
+    English *english = [English instance];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if (! [defaults boolForKey:@"dislikeAlertShownButton"]) {
+        // display alert...
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.dislikeAlertTitleButton
+                                                        message:english.dislikeAlertMessageButton
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Got it"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [defaults setBool:YES forKey:@"dislikeAlertShownButton"];
+    }
+    
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     Product *p = [products getNextProduct];
+    if(p == nil){
+        [self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+    }
     currentProduct = p;
     [self updateImageView:imageView forProduct:p];
 }
@@ -169,8 +199,10 @@
         }
         like = NO;
         [imageView addSubview:dislikeImageView]; // add the like image to the view
+        dislikeImageView.center = CGPointMake(220, 60);
+        dislikeImageView.transform = CGAffineTransformMakeRotation(1.0);
        // NSLog(@"%f, %f", dislikeImageView.center.x, dislikeImageView.center.y);
-        dislikeImageView.alpha = 50/newLocation.x;
+       // dislikeImageView.alpha = 50/newLocation.x;
 
     } else if(newLocation.x > startLocation.x) {
         // we must be moving right of origin
@@ -179,9 +211,12 @@
         }
         like = YES;
         [imageView addSubview:likeImageView]; // add the like image to the view
+        likeImageView.center = CGPointMake(40, 40);
+        likeImageView.transform = CGAffineTransformMakeRotation(-0.7);
+
         /*
             Update the opactiy of like button depending on drag distance
-         */
+         
         likeImageView.alpha = 0.2;
         if(newLocation.x > 200) {
             likeImageView.alpha = 0.3;
@@ -198,6 +233,7 @@
         if(newLocation.x > 270) {
             likeImageView.alpha = 1;
         }
+         */
     }
     recognizer.view.center = newLocation;
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -217,8 +253,34 @@
         }
         recognizer.view.center = startLocation; // move the image back to the start
         if(like && movedEnough) {
+            English *english = [English instance];
+            
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            if (! [defaults boolForKey:@"likeAlertShownSwipe"]) {
+                // display alert...
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.likeAlertTitleButton
+                                                                message:english.likeAlertMessageButton
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Got it"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                [defaults setBool:YES forKey:@"likeAlertShownSwipe"];
+            }
             [self likeItem:nil]; // trigger the event that happens when you click on like
         } else if(!like && movedEnough) {
+            English *english = [English instance];
+            
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            if (! [defaults boolForKey:@"dislikeAlertShownSwipe"]) {
+                // display alert...
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.dislikeAlertTitle
+                                                                message:english.dislikeAlertMessage
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Got it"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                [defaults setBool:YES forKey:@"dislikeAlertShownSwipe"];
+            }
             [self dislikeItem:nil];
         }
     }
