@@ -124,7 +124,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dislikeItem:" destination="sif-dr-Mrf" eventType="touchUpInside" id="sYs-Jz-MMg"/>
+                                    <action selector="hitDislikeButton:" destination="sif-dr-Mrf" eventType="touchUpInside" id="ygJ-oc-OI1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-CR-gDk">
@@ -136,7 +136,7 @@
                                     <color key="titleColor" red="1" green="0.11702704279958653" blue="0.18017699926397357" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="likeItem:" destination="sif-dr-Mrf" eventType="touchUpInside" id="2XW-I5-XLF"/>
+                                    <action selector="hitLikeButton:" destination="sif-dr-Mrf" eventType="touchUpInside" id="2BT-h8-5y9"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="polaroid.png" translatesAutoresizingMaskIntoConstraints="NO" id="vRU-oG-H1g">

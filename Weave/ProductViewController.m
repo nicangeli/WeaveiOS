@@ -110,8 +110,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(IBAction)likeItem:(id)sender
+-(IBAction)hitLikeButton:(id)sender
 {
     English *english = [English instance];
     
@@ -126,7 +125,30 @@
         [alert show];
         [defaults setBool:YES forKey:@"likeAlertShownButton"];
     }
+    [self likeItem];
+}
+
+-(IBAction)hitDislikeButton:(id)sender
+{
+    English *english = [English instance];
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if (! [defaults boolForKey:@"dislikeAlertShownButton"]) {
+        // display alert...
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.dislikeAlertTitleButton
+                                                        message:english.dislikeAlertMessageButton
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Got it"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [defaults setBool:YES forKey:@"dislikeAlertShownButton"];
+    }
+    [self dislikeItem];
+}
+
+
+-(void)likeItem
+{
     Likes *likes = [Likes instance];
     [likes addProduct:currentProduct];
     [likes print];
@@ -142,22 +164,8 @@
     [self updateImageView:imageView forProduct:p];
 }
 
--(IBAction)dislikeItem:(id)sender
+-(void)dislikeItem
 {
-    English *english = [English instance];
-    
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if (! [defaults boolForKey:@"dislikeAlertShownButton"]) {
-        // display alert...
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.dislikeAlertTitleButton
-                                                        message:english.dislikeAlertMessageButton
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Got it"
-                                              otherButtonTitles:nil];
-        [alert show];
-        [defaults setBool:YES forKey:@"dislikeAlertShownButton"];
-    }
-    
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     Product *p = [products getNextProduct];
     if(p == nil){
@@ -201,8 +209,6 @@
         [imageView addSubview:dislikeImageView]; // add the like image to the view
         dislikeImageView.center = CGPointMake(220, 60);
         dislikeImageView.transform = CGAffineTransformMakeRotation(1.0);
-       // NSLog(@"%f, %f", dislikeImageView.center.x, dislikeImageView.center.y);
-       // dislikeImageView.alpha = 50/newLocation.x;
 
     } else if(newLocation.x > startLocation.x) {
         // we must be moving right of origin
@@ -214,26 +220,6 @@
         likeImageView.center = CGPointMake(40, 40);
         likeImageView.transform = CGAffineTransformMakeRotation(-0.7);
 
-        /*
-            Update the opactiy of like button depending on drag distance
-         
-        likeImageView.alpha = 0.2;
-        if(newLocation.x > 200) {
-            likeImageView.alpha = 0.3;
-        }
-        if(newLocation.x > 220) {
-            likeImageView.alpha = 0.4;
-        }
-        if(newLocation.x > 240) {
-            likeImageView.alpha = 0.5;
-        }
-        if(newLocation.x > 260) {
-            likeImageView.alpha = 0.6;
-        }
-        if(newLocation.x > 270) {
-            likeImageView.alpha = 1;
-        }
-         */
     }
     recognizer.view.center = newLocation;
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -253,6 +239,10 @@
         }
         recognizer.view.center = startLocation; // move the image back to the start
         if(like && movedEnough) {
+            
+            /*
+                Display the like alert dialog only onece for swipe
+             */
             English *english = [English instance];
             
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -266,8 +256,12 @@
                 [alert show];
                 [defaults setBool:YES forKey:@"likeAlertShownSwipe"];
             }
-            [self likeItem:nil]; // trigger the event that happens when you click on like
+            [self likeItem]; // trigger the event that happens when you click on like
         } else if(!like && movedEnough) {
+            
+            /* 
+                Display the dislike swipe dialog only once
+             */
             English *english = [English instance];
             
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -281,7 +275,7 @@
                 [alert show];
                 [defaults setBool:YES forKey:@"dislikeAlertShownSwipe"];
             }
-            [self dislikeItem:nil];
+            [self dislikeItem];
         }
     }
 }

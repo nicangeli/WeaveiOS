@@ -15,8 +15,9 @@
     Product *currentProduct;
 }
 
--(IBAction)likeItem:(id)sender;
--(IBAction)dislikeItem:(id)sender;
+-(IBAction)hitDislikeButton:(id)sender;
+-(IBAction)hitLikeButton:(id)sender;
+
 
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView;
 
