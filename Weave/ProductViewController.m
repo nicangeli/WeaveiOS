@@ -12,6 +12,7 @@
 #import "Likes.h"
 #import "AppDelegate.h"
 #import "English.h"
+#import "ProductDetailViewController.h"
 
 @interface ProductViewController ()
 
@@ -297,6 +298,13 @@
     recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
     recognizer.scale = 1;
 }
+
+-(IBAction)hitInfoButton:(id)sender
+{
+    ProductDetailViewController *pvc = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:<#(NSBundle *)#>]
+    NSLog(@"Info Button Hit");
+}
+
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {

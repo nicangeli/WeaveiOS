@@ -17,6 +17,7 @@
 
 -(IBAction)hitDislikeButton:(id)sender;
 -(IBAction)hitLikeButton:(id)sender;
+-(IBAction)hitInfoButton:(id)sender;
 
 
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView;

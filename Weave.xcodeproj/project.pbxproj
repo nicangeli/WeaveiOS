@@ -15,6 +15,7 @@
 		8925453D17FC34BD001A6D68 /* Weave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8925453B17FC34BD001A6D68 /* Weave.xcdatamodeld */; };
 		8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453F17FD9518001A6D68 /* NoLikesViewController.m */; };
 		8925454417FDAF16001A6D68 /* English.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454317FDAF16001A6D68 /* English.m */; };
+		8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -123,6 +124,8 @@
 		8925453F17FD9518001A6D68 /* NoLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoLikesViewController.m; sourceTree = "<group>"; };
 		8925454217FDAF16001A6D68 /* English.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = English.h; sourceTree = "<group>"; };
 		8925454317FDAF16001A6D68 /* English.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = English.m; sourceTree = "<group>"; };
+		8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 			children = (
 				894CE98417F5D3290021307A /* ProductViewController.h */,
 				894CE98517F5D3290021307A /* ProductViewController.m */,
+				8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */,
+				8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */,
 				8925453E17FD9518001A6D68 /* NoLikesViewController.h */,
 				8925453F17FD9518001A6D68 /* NoLikesViewController.m */,
 				8925453317FB1FC7001A6D68 /* LikesPageViewController.h */,
@@ -619,6 +624,7 @@
 				8925453D17FC34BD001A6D68 /* Weave.xcdatamodeld in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				893D305317F9CE0900D820D1 /* Product.m in Sources */,
+				8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
 				8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */,
 				894CE98617F5D3290021307A /* ProductViewController.m in Sources */,
