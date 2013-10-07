@@ -6,18 +6,18 @@
 //  Copyright (c) 2013 Nicholas Angeli. All rights reserved.
 //
 
-#import "English.h"
+#import "Strings.h"
 
-@implementation English
+@implementation Strings
 
-+ (English *)instance // singleton pattern
++ (Strings *)instance // singleton pattern
 {
-    static English *english = nil;
+    static Strings *english = nil;
     
     @synchronized(self)
     {
         if (!english) {
-            english = [[English alloc] init];
+            english = [[Strings alloc] init];
         }
         
         return english;
@@ -36,6 +36,7 @@
         self.dislikeAlertTitleButton = @"Dislike item";
         self.dislikeAlertMessageButton = @"Clicking dislike means you'll never see this product again";
         self.dislikeAlertMessage = @"Swiping left dislikes a product";
+        self.baseAPIURL = @"http://localhost:3000/api/get";
     }
     return self;
 }

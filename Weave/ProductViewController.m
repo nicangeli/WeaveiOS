@@ -11,8 +11,9 @@
 #import "Product.h"
 #import "Likes.h"
 #import "AppDelegate.h"
-#import "English.h"
+#import "Strings.h"
 #import "ProductDetailViewController.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @interface ProductViewController ()
 
@@ -40,11 +41,9 @@
 
 -(void)loadLikes {
     NSString *path = [self dataFilePath];
-    NSLog(@"%@", path);
     Likes *likes = [Likes instance];
     // Do any additional setup after loading the view.
     products = [[Collection alloc] init];
-
     
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
@@ -55,16 +54,13 @@
         [unarchiver finishDecoding];
         //[[delegate likes] getLikes] = [oldLikes getLikes];
     }
-}
-- (NSString *)GetUUID {
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-    return (__bridge NSString *)(string);
+     
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"I have loaded the view");
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     //NSLog(@"Documents folder is %@", [self documentsDirectory]);
     //NSLog(@"Data file is: %@", [self dataFilePath]);
@@ -74,10 +70,16 @@
     /*
         Add the product as an image to the polaroid root view (subview so it moves with drag)
      */
+    // TODO call downloadFinished When Collection.m file finishes
+    
+}
+
+-(void)downloadFinished
+{
     UIImage *product = [UIImage imageNamed:[p getImageUrl]]; // image of the product on top of pile
     UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
     [productView setTag:1001];
-
+    
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002]; //the polaroid that sits on top of the stack
     [imageView addSubview:productView]; // add product on top of pile to the polaroid
     productView.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
@@ -89,20 +91,19 @@
     productView.center = CGPointMake(168,157); // move the image view to the middle of the polaroid
     
     /*
-        Add label for product price and title etc. As subview so it moves with pan
+     Add label for product price and title etc. As subview so it moves with pan
      */
     UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
     [productLabel setTag:1003];
-    [productLabel setText:[p getType]];
+    [productLabel setText:[currentProduct getType]];
     [imageView addSubview:productLabel];
-    if([[p getType] length] < 10) {
+    if([[currentProduct getType] length] < 10) {
         [productLabel setCenter:CGPointMake(220, imageView.frame.size.height-50)];
-    } else if([[p getType] length] < 16) {
+    } else if([[currentProduct getType] length] < 16) {
         [productLabel setCenter:CGPointMake(200, imageView.frame.size.height-50)];
     } else{
         [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,13 +114,13 @@
 
 -(IBAction)hitLikeButton:(id)sender
 {
-    English *english = [English instance];
+    Strings *s = [Strings instance];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if (! [defaults boolForKey:@"likeAlertShownButton"]) {
         // display alert...
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.likeAlertTitleButton
-                                                        message:english.likeAlertMessageButton
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.likeAlertTitleButton
+                                                        message:s.likeAlertMessageButton
                                                        delegate:nil
                                               cancelButtonTitle:@"Got it"
                                               otherButtonTitles:nil];
@@ -131,13 +132,13 @@
 
 -(IBAction)hitDislikeButton:(id)sender
 {
-    English *english = [English instance];
+    Strings *s = [Strings instance];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if (! [defaults boolForKey:@"dislikeAlertShownButton"]) {
         // display alert...
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.dislikeAlertTitleButton
-                                                        message:english.dislikeAlertMessageButton
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.dislikeAlertTitleButton
+                                                        message:s.dislikeAlertMessageButton
                                                        delegate:nil
                                               cancelButtonTitle:@"Got it"
                                               otherButtonTitles:nil];
@@ -244,13 +245,13 @@
             /*
                 Display the like alert dialog only onece for swipe
              */
-            English *english = [English instance];
+            Strings *s = [Strings instance];
             
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             if (! [defaults boolForKey:@"likeAlertShownSwipe"]) {
                 // display alert...
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.likeAlertTitleButton
-                                                                message:english.likeAlertMessageButton
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.likeAlertTitleButton
+                                                                message:s.likeAlertMessageButton
                                                                delegate:nil
                                                       cancelButtonTitle:@"Got it"
                                                       otherButtonTitles:nil];
@@ -263,13 +264,13 @@
             /* 
                 Display the dislike swipe dialog only once
              */
-            English *english = [English instance];
+            Strings *s = [Strings instance];
             
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             if (! [defaults boolForKey:@"dislikeAlertShownSwipe"]) {
                 // display alert...
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:english.dislikeAlertTitle
-                                                                message:english.dislikeAlertMessage
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.dislikeAlertTitle
+                                                                message:s.dislikeAlertMessage
                                                                delegate:nil
                                                       cancelButtonTitle:@"Got it"
                                                       otherButtonTitles:nil];
@@ -301,7 +302,7 @@
 
 -(IBAction)hitInfoButton:(id)sender
 {
-    ProductDetailViewController *pvc = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:<#(NSBundle *)#>]
+    ProductDetailViewController *pvc = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     NSLog(@"Info Button Hit");
 }
 

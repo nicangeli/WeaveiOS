@@ -8,6 +8,8 @@
 
 #import "Collection.h"
 #import "Product.h"
+#import "Strings.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @implementation Collection
 
@@ -15,7 +17,7 @@
 {
     self = [super init];
     if(self != nil) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"new_in" ofType:@"json"];
+       /* NSString *filePath = [[NSBundle mainBundle] pathForResource:@"new_in" ofType:@"json"];
         NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
         NSError *error;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
@@ -30,6 +32,8 @@
             [products addObject:p];
             
         }
+        */
+        [self loadNextCollection];
     }
     return self;
 }
@@ -44,6 +48,39 @@
     Product *p = [products objectAtIndex:index];
     [products removeObject:p];
     return p;
+}
+
+-(void)loadNextCollection
+{
+    Strings *s= [Strings instance];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    //NSDictionary *parameters = @{@"UDID": [self GetUUID]};
+    NSDictionary *parameters = @{@"UDID": @"afhifniaej"};
+    [manager POST:s.baseAPIURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"I have downloaded the data");
+
+        NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
+        for(NSDictionary *dic in jsonArray) {
+            Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
+            [products addObject:p];
+        }
+      
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+-(void)load
+{
+    
+}
+
+- (NSString *)GetUUID {
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    return (__bridge NSString *)(string);
 }
 
 

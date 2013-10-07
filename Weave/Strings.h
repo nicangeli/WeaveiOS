@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface English : NSObject
+@interface Strings : NSObject
 
 @property (nonatomic, strong) NSString *likeAlertMessage;
 @property (nonatomic, strong) NSString *likeAlertTitle;
@@ -20,7 +20,9 @@
 @property (nonatomic, strong) NSString *dislikeAlertMessageButton;
 @property (nonatomic, strong) NSString *dislikeAlertTitleButton;
 
-+(English *)instance;
+@property (nonatomic, strong) NSString *baseAPIURL;
+
++(Strings *)instance;
 
 
 @end
