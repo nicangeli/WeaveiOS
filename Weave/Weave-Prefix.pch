@@ -24,5 +24,6 @@
 #import <CoreServices/CoreServices.h>
 #endif
 
+#import "MBProgressHUD.h"
 // If using Core Data, you may also wish to append
 //#import <CoreData/CoreData.h>

@@ -41,12 +41,16 @@
 }
 
 -(void)loadLikes {
+    //Strings *s = [Strings instance];
+    //hud = [MBProgressHUD showHUDAddedTo:self.navigationController.presentedViewController.view animated:YES];
+    //hud.labelText = s.loadingText;
+
     NSString *path = [self dataFilePath];
     Likes *likes = [Likes instance];
     // Do any additional setup after loading the view.
     Collection *collection = [Collection instance];
     collection.calling = self;
-
+    
     [collection loadNextCollection];
     //products.calling = (ProductViewController *) self.view; // DELEGATE TODO
     
@@ -55,38 +59,29 @@
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
         [likes setLikes:[oldLikes getLikes]];
-
+        
         [unarchiver finishDecoding];
         //[[delegate likes] getLikes] = [oldLikes getLikes];
     }
-     
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"I have loaded the view");
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
-    //NSLog(@"Documents folder is %@", [self documentsDirectory]);
-    //NSLog(@"Data file is: %@", [self dataFilePath]);
-
-   /*
-        Add the product as an image to the polaroid root view (subview so it moves with drag)
-     */
-    // TODO call downloadFinished When Collection.m file finishes
+  
     
 }
 
 -(void)downloadFinished
 {
+    //[hud hide:YES];
+
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
-    NSLog(@"%@", [p getTitle]);
     currentProduct = p;
     
-   // NSLog(@"PRODUCT %@", [p getTitle]);
     
-    NSLog(@"Download finished called");
     UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [p getImageUrl]]]];
     //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile

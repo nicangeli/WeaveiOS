@@ -20,7 +20,6 @@
 -(void)addProduct:(Product *)product;
 -(void)removeProduct:(Product *)product;
 -(void)removeProductAtIndex:(NSInteger )index;
--(void)print;
 -(NSInteger )count;
 -(Product *)objectAtIndex:(NSUInteger)index;
 

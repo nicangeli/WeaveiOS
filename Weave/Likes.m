@@ -72,12 +72,6 @@
     [likedProducts removeObjectAtIndex:index];
 }
 
--(void)print
-{
-    NSLog(@"Printing");
-    NSLog(@"%d", [likedProducts count]);
-}
-
 -(NSInteger)count
 {
     return [likedProducts count];

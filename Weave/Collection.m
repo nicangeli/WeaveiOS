@@ -44,7 +44,9 @@
     Strings *s= [Strings instance];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
+    NSString *udid = [self GetUUID];
     NSDictionary *parameters = @{@"UDID": [self GetUUID]};
+    NSLog(@"%@", udid);
     //NSLog(@"%@", [self GetUUID]);
     //NSDictionary *parameters = @{@"UDID": @"nicholasangeli"};
     [manager POST:s.baseAPIURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -53,7 +55,7 @@
         NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
         for(NSDictionary *dic in jsonArray) {
             Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
-            NSLog(@"Made new product object: %@", [p getTitle]);
+            //NSLog(@"Made new product object: %@", [p getTitle]);
             if(!products) {
                 products = [[NSMutableArray alloc] initWithCapacity:20];
             }
@@ -70,9 +72,18 @@
 
 
 - (NSString *)GetUUID {
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-    return (__bridge NSString *)(string);
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults stringForKey:@"UDID"]) {
+        // display alert...
+        CFUUIDRef theUUID = CFUUIDCreate(NULL);
+        CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+        [defaults setObject:(__bridge id)(string) forKey:@"UDID"];
+    }
+    
+    return [defaults objectForKey:@"UDID"];
+    
+
 }
 
 

@@ -14,6 +14,7 @@
 @interface ProductViewController : UIViewController {
     CGPoint startLocation;
     Product *currentProduct;
+    MBProgressHUD *hud;
 }
 
 -(IBAction)hitDislikeButton:(id)sender;
