@@ -51,7 +51,10 @@
     Collection *collection = [Collection instance];
     collection.calling = self;
     
-    [collection loadNextCollection];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *arr = [defaults stringArrayForKey:@"brands"];
+    
+    [collection loadNextCollectionForBrands:arr];
     //products.calling = (ProductViewController *) self.view; // DELEGATE TODO
     
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -161,7 +164,6 @@
 {
     Likes *likes = [Likes instance];
     [likes addProduct:currentProduct];
-    [likes print];
     
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
@@ -346,7 +348,6 @@
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     /* get likes from appdelegate */
     Likes *likes = [Likes instance];
-    NSLog(@"I am saving %d to the plist", [likes count]);
     [archiver encodeObject:likes forKey:@"Likes"];
     [archiver finishEncoding];
     [data writeToFile:[self dataFilePath] atomically:YES];

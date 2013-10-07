@@ -305,7 +305,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="gPo-4Q-Rty" kind="relationship" relationship="rootViewController" id="A33-pC-U9m"/>
-                        <segue destination="Bhx-vY-ujz" kind="modal" identifier="noLikesLeft" id="MAz-ZM-MZR"/>
+                        <segue destination="Bhx-vY-ujz" kind="modal" identifier="NoLikesLeft" id="MAz-ZM-MZR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ3-bT-HcL" userLabel="First Responder" sceneMemberID="firstResponder"/>

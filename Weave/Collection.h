@@ -20,7 +20,7 @@
 
 +(Collection *)instance;
 -(Product *)getNextProduct;
--(void)loadNextCollection;
+-(void)loadNextCollectionForBrands:(NSArray *)brands;
 
 
 @end

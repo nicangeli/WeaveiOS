@@ -50,6 +50,7 @@
     } else {
         [image setImage:[UIImage imageNamed:@"topshop"] forState:UIControlStateNormal];
     }
+    [self updateBrands];
 }
 
 -(IBAction)asosClicked:(id)sender
@@ -61,6 +62,8 @@
     } else {
         [image setImage:[UIImage imageNamed:@"asos.png"] forState:UIControlStateNormal];
     }
+    [self updateBrands];
+
 }
 
 -(IBAction)hmClicked:(id)sender
@@ -72,6 +75,8 @@
     } else {
         [image setImage:[UIImage imageNamed:@"h&m.png"] forState:UIControlStateNormal];
     }
+    [self updateBrands];
+
 }
 
 -(IBAction)newlookClicked:(id)sender
@@ -83,6 +88,8 @@
     } else {
         [image setImage:[UIImage imageNamed:@"newlook.png"] forState:UIControlStateNormal];
     }
+    [self updateBrands];
+
 }
 
 -(IBAction)otherStoriesClicked:(id)sender
@@ -94,6 +101,30 @@
     } else {
         [image setImage:[UIImage imageNamed:@"otherstories.png"] forState:UIControlStateNormal];
     }
+    [self updateBrands];
+
+}
+
+-(void)updateBrands
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *brands = [[NSMutableArray alloc] initWithCapacity:5];
+        if(self.topshopClicked) {
+            [brands addObject:@"Topshop"];
+        }
+        if(self.asosClicked) {
+            [brands addObject:@"ASOS"];
+        }
+        if(self.hmClicked) {
+            [brands addObject:@"H&M"];
+        }
+        if(self.newlookClicked){
+            [brands addObject:@"New Look"];
+        }
+        if(self.otherStoriesClicked) {
+            [brands addObject:@"@ other Stories"];
+        }
+        [defaults setObject:brands forKey:@"brands"];
 }
 
 

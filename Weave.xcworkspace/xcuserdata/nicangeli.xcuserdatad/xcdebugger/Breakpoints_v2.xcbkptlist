@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weave/Collection.m"
-            timestampString = "402852319.733644"
+            timestampString = "402878197.028725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-loadNextCollection"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-loadNextCollectionForBrands:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weave/Collection.m"
-            timestampString = "402852319.733644"
+            timestampString = "402878197.028725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-loadNextCollection"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-loadNextCollectionForBrands:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -39,17 +39,30 @@
     return p;
 }
 
--(void)loadNextCollection
+-(void)loadNextCollectionForBrands:(NSArray *)brands
 {
     Strings *s= [Strings instance];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *paramaters;
+    if(![defaults stringArrayForKey:@"brands"]) {
+        paramaters = @{@"UDID": [self GetUUID]};
+    } else {
+        NSArray *keys = [NSArray arrayWithObjects:@"UDID", @"shops", nil];
+        NSArray *brands = [defaults stringArrayForKey:@"brands"];
+        NSString *b = [brands componentsJoinedByString:@","];
+        NSLog(@"%@", b);
+        NSArray *objects = [NSArray arrayWithObjects:[self GetUUID], b, nil];
+        paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     NSString *udid = [self GetUUID];
-    NSDictionary *parameters = @{@"UDID": [self GetUUID]};
-    NSLog(@"%@", udid);
+    ///NSDictionary *parameters = @{@"UDID": [self GetUUID]};
+    //NSLog(@"%@", udid);
     //NSLog(@"%@", [self GetUUID]);
     //NSDictionary *parameters = @{@"UDID": @"nicholasangeli"};
-    [manager POST:s.baseAPIURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:s.baseAPIURL parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"I have downloaded the data");
 
         NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
