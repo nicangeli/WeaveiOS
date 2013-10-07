@@ -13,30 +13,19 @@
 
 @implementation Collection
 
--(id)init
++(Collection *)instance
 {
-    self = [super init];
-    if(self != nil) {
-       /* NSString *filePath = [[NSBundle mainBundle] pathForResource:@"new_in" ofType:@"json"];
-        NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-        NSError *error;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-        
-        NSArray *items = [json valueForKeyPath:@"items"];
-        NSEnumerator *enumerator = [items objectEnumerator];
-        NSDictionary *item;
-        products = [[NSMutableArray alloc] initWithCapacity:41];
-        
-        while(item = (NSDictionary *)[enumerator nextObject]) {
-            Product *p = [[Product alloc] initWithTitle:[item objectForKey:@"title"] url:[item objectForKey:@"url"] price:[item objectForKey:@"price"] shop:[item objectForKey:@"shop"] brand:[item objectForKey:@"brand"] type:[item objectForKey:@"type"] imageUrl:[item objectForKey:@"imageUrl"]];
-            [products addObject:p];
-            
+    static Collection *collection = nil;
+    @synchronized(self)
+    {
+        if(!collection) {
+            collection = [[Collection alloc] init];
         }
-        */
-        [self loadNextCollection];
+        
+        return collection;
     }
-    return self;
 }
+
 
 
 -(Product *)getNextProduct
@@ -55,16 +44,22 @@
     Strings *s= [Strings instance];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    //NSDictionary *parameters = @{@"UDID": [self GetUUID]};
-    NSDictionary *parameters = @{@"UDID": @"afhifniaej"};
+    NSDictionary *parameters = @{@"UDID": [self GetUUID]};
+   // NSDictionary *parameters = @{@"UDID": @"nicholasangeli"};
     [manager POST:s.baseAPIURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"I have downloaded the data");
 
         NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
         for(NSDictionary *dic in jsonArray) {
             Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
+            NSLog(@"Made new product object: %@", [p getTitle]);
+            if(!products) {
+                products = [[NSMutableArray alloc] initWithCapacity:20];
+            }
             [products addObject:p];
         }
+        
+        [self.calling downloadFinished];
       
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -72,10 +67,6 @@
     }];
 }
 
--(void)load
-{
-    
-}
 
 - (NSString *)GetUUID {
     CFUUIDRef theUUID = CFUUIDCreate(NULL);

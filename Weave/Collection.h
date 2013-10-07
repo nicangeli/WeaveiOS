@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "Product.h"
+#import "ProductViewController.h"
+
+@class ProductViewController;
 
 @interface Collection : NSObject {
     NSMutableArray *products;
 }
 
+@property (nonatomic, strong) ProductViewController *calling;
+
++(Collection *)instance;
 -(Product *)getNextProduct;
+-(void)loadNextCollection;
+
 
 @end

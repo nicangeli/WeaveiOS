@@ -14,6 +14,7 @@
 #import "Strings.h"
 #import "ProductDetailViewController.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "Collection.h"
 
 @interface ProductViewController ()
 
@@ -43,7 +44,11 @@
     NSString *path = [self dataFilePath];
     Likes *likes = [Likes instance];
     // Do any additional setup after loading the view.
-    products = [[Collection alloc] init];
+    Collection *collection = [Collection instance];
+    collection.calling = self;
+
+    [collection loadNextCollection];
+    //products.calling = (ProductViewController *) self.view; // DELEGATE TODO
     
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
@@ -65,9 +70,7 @@
     //NSLog(@"Documents folder is %@", [self documentsDirectory]);
     //NSLog(@"Data file is: %@", [self dataFilePath]);
 
-    Product *p = [products getNextProduct];
-    currentProduct = p;
-    /*
+   /*
         Add the product as an image to the polaroid root view (subview so it moves with drag)
      */
     // TODO call downloadFinished When Collection.m file finishes
@@ -76,7 +79,17 @@
 
 -(void)downloadFinished
 {
-    UIImage *product = [UIImage imageNamed:[p getImageUrl]]; // image of the product on top of pile
+    Collection *collection = [Collection instance];
+    Product *p = [collection getNextProduct];
+    NSLog(@"%@", [p getTitle]);
+    currentProduct = p;
+    
+   // NSLog(@"PRODUCT %@", [p getTitle]);
+    
+    NSLog(@"Download finished called");
+    UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                              [NSURL URLWithString: [p getImageUrl]]]];
+    //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
     UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
     [productView setTag:1001];
     
@@ -157,7 +170,8 @@
     
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
-    Product *p = [products getNextProduct];
+    Collection *collection = [Collection instance];
+    Product *p = [collection getNextProduct];
     if(p == nil) {
         [self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
     }
@@ -169,7 +183,8 @@
 -(void)dislikeItem
 {
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-    Product *p = [products getNextProduct];
+    Collection *collection = [Collection instance];
+    Product *p = [collection getNextProduct];
     if(p == nil){
         [self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
     }
@@ -179,7 +194,10 @@
 
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
-    [imageView setImage:[UIImage imageNamed:[product getImageUrl]]];
+    NSLog(@"%@", [product getImageUrl]);
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                              [NSURL URLWithString: [product getImageUrl]]]];
+    [imageView setImage:image];
     [self updateLabelsForProduct:product inImageView:imageView];
 }
 
@@ -302,7 +320,7 @@
 
 -(IBAction)hitInfoButton:(id)sender
 {
-    ProductDetailViewController *pvc = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
+   // ProductDetailViewController *pvc = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     NSLog(@"Info Button Hit");
 }
 

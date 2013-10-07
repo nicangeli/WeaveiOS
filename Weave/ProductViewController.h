@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Collection.h"
 
+@class Collection;
+
 @interface ProductViewController : UIViewController {
-    Collection *products;
     CGPoint startLocation;
     Product *currentProduct;
 }
@@ -21,5 +22,6 @@
 
 
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView;
+-(void)downloadFinished;
 
 @end
