@@ -36,7 +36,7 @@
         self.dislikeAlertTitleButton = @"Dislike item";
         self.dislikeAlertMessageButton = @"Clicking dislike means you'll never see this product again";
         self.dislikeAlertMessage = @"Swiping left dislikes a product";
-        self.baseAPIURL = @"http://weaveuk.com/api/get";
+        self.baseAPIURL = @"http://www.weaveuk.com/api/get";
     }
     return self;
 }

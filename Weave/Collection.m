@@ -45,7 +45,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     NSDictionary *parameters = @{@"UDID": [self GetUUID]};
-   // NSDictionary *parameters = @{@"UDID": @"nicholasangeli"};
+    //NSLog(@"%@", [self GetUUID]);
+    //NSDictionary *parameters = @{@"UDID": @"nicholasangeli"};
     [manager POST:s.baseAPIURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"I have downloaded the data");
 
