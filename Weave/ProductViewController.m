@@ -54,6 +54,7 @@
     //hud.labelText = s.loadingText;
 
     NSString *path = [self dataFilePath];
+    NSLog(@"Path: %@", path);
     Likes *likes = [Likes instance];
     // Do any additional setup after loading the view.
     Collection *collection = [Collection instance];

@@ -72,7 +72,9 @@
 
     Product *p = [likes objectAtIndex:indexPath.row];
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
-    thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
+    //thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
+    thumbnailView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                               [NSURL URLWithString: [p getImageUrl]]]];
     thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
