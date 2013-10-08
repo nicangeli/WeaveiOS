@@ -54,16 +54,18 @@
 
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    
-    [mixpanel identify:[self GetUUID]];
+   
+   // [mixpanel.people increment:@"played" by:[NSNumber numberWithInt:1]];
     NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterFullStyle];
     NSLog(@"Opened App %@", dateString);
     
     [mixpanel track:@"App Opened" properties:@{@"timestamp": dateString}];
+    [mixpanel.people increment:@"played" by:[NSNumber numberWithInt:1]];
 }
-
+     
+     
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

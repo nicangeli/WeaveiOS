@@ -36,6 +36,7 @@
 {
     if((self = [super initWithCoder:aDecoder])) {
         [self loadLikes];
+        [[Mixpanel sharedInstance] track:@"Started Playing"];
     }
        return self;
 }

@@ -10,6 +10,7 @@
 #import "Product.h"
 #import "Strings.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "Mixpanel.h"
 
 @implementation Collection
 
@@ -45,23 +46,18 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *paramaters;
     if(![defaults stringArrayForKey:@"brands"]) {
-        paramaters = @{@"UDID": [self GetUUID]};
+        paramaters = @{@"UDID": [[Mixpanel sharedInstance] distinctId]};
     } else {
         NSArray *keys = [NSArray arrayWithObjects:@"UDID", @"shops", nil];
         NSArray *brands = [defaults stringArrayForKey:@"brands"];
         NSString *b = [brands componentsJoinedByString:@","];
         NSLog(@"%@", b);
-        NSArray *objects = [NSArray arrayWithObjects:[self GetUUID], b, nil];
+        NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
         paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    NSString *udid = [self GetUUID];
-    ///NSDictionary *parameters = @{@"UDID": [self GetUUID]};
-    //NSLog(@"%@", udid);
-    //NSLog(@"%@", [self GetUUID]);
-    //NSDictionary *parameters = @{@"UDID": @"nicholasangeli"};
     [manager POST:s.baseAPIURL parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"I have downloaded the data");
 
@@ -82,23 +78,5 @@
         NSLog(@"Error: %@", error);
     }];
 }
-
-
-- (NSString *)GetUUID {
-    
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults stringForKey:@"UDID"]) {
-        // display alert...
-        CFUUIDRef theUUID = CFUUIDCreate(NULL);
-        CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-        [defaults setObject:(__bridge id)(string) forKey:@"UDID"];
-    }
-    
-    return [defaults objectForKey:@"UDID"];
-    
-
-}
-
-
 
 @end

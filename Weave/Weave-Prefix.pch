@@ -25,5 +25,6 @@
 #endif
 
 #import "MBProgressHUD.h"
+#import "Mixpanel.h"
 // If using Core Data, you may also wish to append
 //#import <CoreData/CoreData.h>

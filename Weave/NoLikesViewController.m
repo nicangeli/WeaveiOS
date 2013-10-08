@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+    [[Mixpanel sharedInstance] track:@"Reached end of products"];
 	// Do any additional setup after loading the view.
 }
 
