@@ -28,10 +28,40 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults stringArrayForKey:@"brands"] count] != 0) {
+        NSArray *brands = [defaults stringArrayForKey:@"brands"];
+        NSLog(@"Seen some brands before: %@", brands);
+        for(NSString *brand in brands) {
+            NSLog(@"brand: %@", brand);
+            if([brand isEqualToString:@"Topshop"]) {
+                [self topshopClicked:nil];
+            }
+            if([brand isEqualToString:@"ASOS"]) {
+                [self asosClicked:nil];
+            }
+            if([brand isEqualToString:@"H&M"]) {
+                [self hmClicked:nil];
+            }
+            if([brand isEqualToString:@"New Look"]) {
+                [self newlookClicked:nil];
+            }
+            if([brand isEqualToString:@"& other Stories"]) {
+                [self otherStoriesClicked:nil];
+            }
+        }
+    } else {
+        NSLog(@"Count is zero");
+    }
 }
 
 - (void)didReceiveMemoryWarning

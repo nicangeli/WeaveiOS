@@ -15,6 +15,7 @@
 #import "ProductDetailViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Collection.h"
+#import "NoLikesViewController.h"
 
 @interface ProductViewController ()
 
@@ -35,7 +36,6 @@
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     if((self = [super initWithCoder:aDecoder])) {
-        [self loadLikes];
         [[Mixpanel sharedInstance] track:@"Started Playing"];
     }
        return self;
@@ -44,15 +44,6 @@
 
 
 -(void)loadLikes {
-   // Strings *s = [Strings instance];
-    
-    //hud = [[MBProgressHUD alloc] initWithView:self.tabBarController.view];
-    //[self.tabBarController.view addSubview:hud];
-
-    //[self.view addSubview:hud];
-    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.labelText = s.loadingText;
-
     NSString *path = [self dataFilePath];
     NSLog(@"Path: %@", path);
     Likes *likes = [Likes instance];
@@ -80,6 +71,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadLikes];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     NSLog(@"I am dislaying the HUD");
     Strings *s = [Strings instance];
@@ -93,6 +85,34 @@
     [hud hide:YES];
 
     Collection *collection = [Collection instance];
+    NSNumber *numProducts = [collection numberOfProducts];
+    if([numProducts isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        NSLog(@"NO PRODUCTS TO SHOW");
+        //[self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        /*
+        //NoLikesViewController *nlvc = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
+       // NoLikesViewController *nlvc = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:<#(NSString *)#>]
+       // NoLikesViewController *nlvc = [NoLikesViewController alloc] init
+        [[self.navigationController topViewController] presentViewController:nlvc animated:YES completion:nil];
+        
+       //[self.navigationController pushViewController:nlvc animated:YES];
+       // [[self.navigationController topViewController] presentViewController:nlvc animated:YES completion:nil];
+         */
+        NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+      
+        
+        
+        
+        [self.navigationController presentViewController:navController
+                                                animated:YES
+                                              completion:nil];
+    } else {
+        NSLog(@"%@", [collection numberOfProducts]);
+        [collection print];
+    }
     Product *p = [collection getNextProduct];
     currentProduct = p;
     
@@ -182,7 +202,7 @@
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     if(p == nil) {
-        [self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        [self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
     }
     currentProduct = p;
     [self saveLikes];
@@ -195,7 +215,7 @@
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     if(p == nil){
-        [self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        [self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
     }
     currentProduct = p;
     [self updateImageView:imageView forProduct:p];

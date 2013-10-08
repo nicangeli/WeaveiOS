@@ -19,7 +19,9 @@
 @property (nonatomic, strong) ProductViewController *calling;
 
 +(Collection *)instance;
+-(NSNumber *)numberOfProducts;
 -(Product *)getNextProduct;
+-(void)print;
 -(void)loadNextCollectionForBrands:(NSArray *)brands;
 
 

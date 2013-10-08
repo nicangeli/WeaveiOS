@@ -40,6 +40,10 @@
     return p;
 }
 
+-(NSNumber *)numberOfProducts {
+    return [NSNumber numberWithInt:[products count]];
+}
+
 -(void)loadNextCollectionForBrands:(NSArray *)brands
 {
     Strings *s= [Strings instance];
@@ -77,6 +81,13 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+-(void)print
+{
+    for(Product *p in products) {
+        NSLog(@"%@", [p getTitle]);
+    }
 }
 
 @end

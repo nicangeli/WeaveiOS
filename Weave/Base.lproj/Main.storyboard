@@ -14,7 +14,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="154" id="WDP-Yu-vMq">
-                                <rect key="frame" x="0.0" y="86" width="320" height="154"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="154"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDP-Yu-vMq" id="v18-CK-Rfj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
@@ -71,35 +71,10 @@
             </objects>
             <point key="canvasLocation" x="2503" y="99"/>
         </scene>
-        <!--Product Detail View Controller - Details View-->
-        <scene sceneID="mgo-xa-fzn">
-            <objects>
-                <viewController id="Lnj-pw-cAU" customClass="ProductDetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AFX-xJ-5Gs"/>
-                        <viewControllerLayoutGuide type="bottom" id="HK7-Mg-V1y"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UxG-wD-NCh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-J2-Pag">
-                                <rect key="frame" x="0.0" y="68" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Details View" id="CpI-oC-1Dw"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ewB-qu-R0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2423" y="733"/>
-        </scene>
-        <!--No Likes View Controller - Weave-->
+        <!--No Likes View Controller - Nothing Left-->
         <scene sceneID="Lq9-fL-7sd">
             <objects>
-                <viewController id="Bhx-vY-ujz" customClass="NoLikesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoLikes" id="Bhx-vY-ujz" customClass="NoLikesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qAu-RO-Y9F"/>
                         <viewControllerLayoutGuide type="bottom" id="mGv-qy-FLT"/>
@@ -108,27 +83,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oops..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-oi-e7A">
-                                <rect key="frame" x="138" y="178" width="56" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oh No!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-oi-e7A">
+                                <rect key="frame" x="90" y="140" width="140" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="44"/>
+                                <color key="textColor" red="0.93725490196078431" green="0.22745098039215686" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You've weaved us out!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-32-Bd7">
+                                <rect key="frame" x="66" y="198" width="189" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Come back tomorrow for more new in items from your favourite stores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-zm-5vb">
+                                <rect key="frame" x="37" y="302" width="246" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You've weaved us out!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-32-Bd7">
-                                <rect key="frame" x="74" y="285" width="173" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Weave" id="7r3-ar-2k1"/>
+                    <navigationItem key="navigationItem" title="Nothing Left" id="7r3-ar-2k1">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="PeV-Zv-bxV">
+                            <connections>
+                                <segue destination="sif-dr-Mrf" kind="push" id="5c3-w1-e3R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dt9-bn-eG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1382" y="-408"/>
+            <point key="canvasLocation" x="2392" y="674"/>
         </scene>
         <!--Product View Controller - Weave-->
         <scene sceneID="feL-58-pYM">
@@ -197,6 +185,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Bhx-vY-ujz" kind="push" identifier="NoLikesLeft" id="lOw-AB-gRF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="UqJ-nb-CUV">
@@ -281,7 +272,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sif-dr-Mrf" kind="push" id="RKw-3t-PVS"/>
+                                    <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="RKw-3t-PVS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -305,7 +296,6 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="gPo-4Q-Rty" kind="relationship" relationship="rootViewController" id="A33-pC-U9m"/>
-                        <segue destination="Bhx-vY-ujz" kind="modal" identifier="NoLikesLeft" id="MAz-ZM-MZR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ3-bT-HcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,4 +320,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="5c3-w1-e3R"/>
+    </inferredMetricsTieBreakers>
 </document>
