@@ -152,7 +152,7 @@
             [brands addObject:@"New Look"];
         }
         if(self.otherStoriesClicked) {
-            [brands addObject:@"@ other Stories"];
+            [brands addObject:@"& other Stories"];
         }
         [defaults setObject:brands forKey:@"brands"];
 }

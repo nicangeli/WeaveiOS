@@ -65,7 +65,13 @@
                             <outlet property="delegate" destination="m1o-gS-q28" id="2FB-Jx-isk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31"/>
+                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
+                        <barButtonItem key="leftBarButtonItem" title="Brands" id="9xb-4r-3nE">
+                            <connections>
+                                <segue destination="gPo-4Q-Rty" kind="push" id="D61-Cv-eMF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,9 +113,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nothing Left" id="7r3-ar-2k1">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="PeV-Zv-bxV">
+                        <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV">
                             <connections>
-                                <segue destination="sif-dr-Mrf" kind="push" id="5c3-w1-e3R"/>
+                                <segue destination="gPo-4Q-Rty" kind="push" id="zrh-xj-pld"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Likes" id="2eA-Fm-nV4">
@@ -126,7 +132,7 @@
         <!--Product View Controller - Weave-->
         <scene sceneID="feL-58-pYM">
             <objects>
-                <viewController id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductView" id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lCB-Rh-EIT"/>
                         <viewControllerLayoutGuide type="bottom" id="EkM-SZ-sj8"/>
@@ -283,7 +289,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="You Love?" id="1sV-33-ygX"/>
+                    <navigationItem key="navigationItem" title="You Love?" id="1sV-33-ygX">
+                        <barButtonItem key="leftBarButtonItem" id="f4r-Gj-VGr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Likes" id="Rmz-xi-dxZ">
+                            <connections>
+                                <segue destination="m1o-gS-q28" kind="push" id="9LF-5c-wYg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9r-Tq-cRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -326,7 +339,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gxU-mc-Qzz"/>
-        <segue reference="RKw-3t-PVS"/>
+        <segue reference="9LF-5c-wYg"/>
+        <segue reference="A33-pC-U9m"/>
     </inferredMetricsTieBreakers>
 </document>

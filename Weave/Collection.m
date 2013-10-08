@@ -56,7 +56,10 @@
         NSArray *brands = [defaults stringArrayForKey:@"brands"];
         NSString *b = [brands componentsJoinedByString:@","];
         NSLog(@"%@", b);
+        //        NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
         NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
+
+        //NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
         paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     }
     
@@ -66,6 +69,8 @@
         NSLog(@"I have downloaded the data");
 
         NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
+        NSLog(@"%@", jsonArray);
+
         for(NSDictionary *dic in jsonArray) {
             Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
             //NSLog(@"Made new product object: %@", [p getTitle]);
