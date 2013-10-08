@@ -27,6 +27,16 @@
 		893D30A817F9DF5800D820D1 /* new_in.json in Resources */ = {isa = PBXBuildFile; fileRef = 893D30A717F9DF5800D820D1 /* new_in.json */; };
 		894CE98617F5D3290021307A /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CE98517F5D3290021307A /* ProductViewController.m */; };
 		894CE98917F5DD210021307A /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CE98817F5DD210021307A /* Collection.m */; };
+		8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500018041F1C00E93D01 /* MPCJSONDataSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500218041F1C00E93D01 /* MPCJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500418041F1C00E93D01 /* MPCSerializedJSONData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8961501018041F1C00E93D01 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500718041F1C00E93D01 /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8961501118041F1C00E93D01 /* ODIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500A18041F1C00E93D01 /* ODIN.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8961501218041F1C00E93D01 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500C18041F1C00E93D01 /* Mixpanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
+		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
+		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
+		898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F17A118041794006A27DF /* SystemConfiguration.framework */; };
 		89907F5718030ED700140A77 /* BrandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89907F5618030ED700140A77 /* BrandsViewController.m */; };
 		89907F5A1803175E00140A77 /* topshop-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F581803175E00140A77 /* topshop-clicked.png */; };
 		89907F5B1803175E00140A77 /* topshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F591803175E00140A77 /* topshop.png */; };
@@ -96,6 +106,22 @@
 		894CE98517F5D3290021307A /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		894CE98717F5DD200021307A /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
 		894CE98817F5DD210021307A /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
+		89614FFF18041F1C00E93D01 /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
+		8961500018041F1C00E93D01 /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
+		8961500118041F1C00E93D01 /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
+		8961500218041F1C00E93D01 /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
+		8961500318041F1C00E93D01 /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
+		8961500418041F1C00E93D01 /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
+		8961500618041F1C00E93D01 /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		8961500718041F1C00E93D01 /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		8961500918041F1C00E93D01 /* ODIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIN.h; sourceTree = "<group>"; };
+		8961500A18041F1C00E93D01 /* ODIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIN.m; sourceTree = "<group>"; };
+		8961500B18041F1C00E93D01 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
+		8961500C18041F1C00E93D01 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
+		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		898F17A118041794006A27DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		89907F5518030ED700140A77 /* BrandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandsViewController.h; sourceTree = "<group>"; };
 		89907F5618030ED700140A77 /* BrandsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandsViewController.m; sourceTree = "<group>"; };
 		89907F581803175E00140A77 /* topshop-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshop-clicked.png"; sourceTree = "<group>"; };
@@ -133,6 +159,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */,
+				898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */,
+				898F179E18041776006A27DF /* AdSupport.framework in Frameworks */,
+				898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */,
 				8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */,
 				893D304717F9B50C00D820D1 /* QuartzCore.framework in Frameworks */,
 				89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */,
@@ -202,6 +232,57 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		89614FFC18041F1C00E93D01 /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				89614FFD18041F1C00E93D01 /* Library */,
+				8961500B18041F1C00E93D01 /* Mixpanel.h */,
+				8961500C18041F1C00E93D01 /* Mixpanel.m */,
+			);
+			path = Mixpanel;
+			sourceTree = "<group>";
+		};
+		89614FFD18041F1C00E93D01 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				89614FFE18041F1C00E93D01 /* JSON */,
+				8961500518041F1C00E93D01 /* NSData_Base64 */,
+				8961500818041F1C00E93D01 /* ODIN */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		89614FFE18041F1C00E93D01 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				89614FFF18041F1C00E93D01 /* MPCJSONDataSerializer.h */,
+				8961500018041F1C00E93D01 /* MPCJSONDataSerializer.m */,
+				8961500118041F1C00E93D01 /* MPCJSONSerializer.h */,
+				8961500218041F1C00E93D01 /* MPCJSONSerializer.m */,
+				8961500318041F1C00E93D01 /* MPCSerializedJSONData.h */,
+				8961500418041F1C00E93D01 /* MPCSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		8961500518041F1C00E93D01 /* NSData_Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				8961500618041F1C00E93D01 /* NSData+MPBase64.h */,
+				8961500718041F1C00E93D01 /* NSData+MPBase64.m */,
+			);
+			path = NSData_Base64;
+			sourceTree = "<group>";
+		};
+		8961500818041F1C00E93D01 /* ODIN */ = {
+			isa = PBXGroup;
+			children = (
+				8961500918041F1C00E93D01 /* ODIN.h */,
+				8961500A18041F1C00E93D01 /* ODIN.m */,
+			);
+			path = ODIN;
+			sourceTree = "<group>";
+		};
 		89E7142217F5A7B6006F1E09 = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +306,10 @@
 		89E7142D17F5A7B6006F1E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				898F17A118041794006A27DF /* SystemConfiguration.framework */,
+				898F179F18041783006A27DF /* CoreTelephony.framework */,
+				898F179D18041776006A27DF /* AdSupport.framework */,
+				898F179B1804176E006A27DF /* Accelerate.framework */,
 				8925453617FC32DF001A6D68 /* CoreData.framework */,
 				893D304617F9B50C00D820D1 /* QuartzCore.framework */,
 				89E7142E17F5A7B6006F1E09 /* Foundation.framework */,
@@ -239,6 +324,7 @@
 		89E7143417F5A7B6006F1E09 /* Weave */ = {
 			isa = PBXGroup;
 			children = (
+				89614FFC18041F1C00E93D01 /* Mixpanel */,
 				8925454117FDAEFD001A6D68 /* Locales */,
 				893D30AA17FA396400D820D1 /* Views */,
 				893D30A917FA394E00D820D1 /* Controllers */,
@@ -461,9 +547,15 @@
 				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
 				89907F5718030ED700140A77 /* BrandsViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
+				8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */,
+				8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */,
+				8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				893D305317F9CE0900D820D1 /* Product.m in Sources */,
 				8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */,
+				8961501218041F1C00E93D01 /* Mixpanel.m in Sources */,
+				8961501018041F1C00E93D01 /* NSData+MPBase64.m in Sources */,
+				8961501118041F1C00E93D01 /* ODIN.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
 				8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */,
 				894CE98617F5D3290021307A /* ProductViewController.m in Sources */,

@@ -53,7 +53,7 @@
     NSLog(@"num of rows called now");
     Likes *likes = [Likes instance];
     // Return the number of rows in the section.
-    NSLog(@"items num %d", [likes count]);
+    //NSLog(@"items num %d", [likes count]);
     
     return [likes count];
 }
