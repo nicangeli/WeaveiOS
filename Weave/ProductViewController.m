@@ -51,10 +51,7 @@
     Collection *collection = [Collection instance];
     collection.calling = self;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *arr = [defaults stringArrayForKey:@"brands"];
-    
-    [collection loadNextCollectionForBrands:arr];
+    [collection loadNextCollectionForBrands];
     //products.calling = (ProductViewController *) self.view; // DELEGATE TODO
     
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -185,31 +182,59 @@
 
 -(void)likeItem
 {
-    Likes *likes = [Likes instance];
-    [likes addProduct:currentProduct];
-    
-    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-    //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
+    Likes *likes = [Likes instance];
+    [likes addProduct:currentProduct];
     if(p == nil) {
-        [self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
+        UILabel *label = (UILabel *)[self.view viewWithTag:1003];
+        [imageView removeFromSuperview];
+        [label removeFromSuperview];
+        //for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
+         //   [subView removeFromSuperview];
+        //}
+        //[self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        // no products left, lets recall the API
+        [self loadLikes];
+        Strings *s = [Strings instance];
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = s.loadingText;
+       
+        
+    } else {
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
+        //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
+        currentProduct = p;
+        [self saveLikes];
+        [self updateImageView:imageView forProduct:p];
     }
-    currentProduct = p;
-    [self saveLikes];
-    [self updateImageView:imageView forProduct:p];
 }
 
 -(void)dislikeItem
 {
-    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     if(p == nil){
-        [self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
+        UILabel *label = (UILabel *)[self.view viewWithTag:1003];
+
+        [imageView removeFromSuperview];
+        [label removeFromSuperview];
+        //for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
+          //  [subView removeFromSuperview];
+        //}
+        //[self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+        // no products left, lets recall the API
+        [self loadLikes];
+        Strings *s = [Strings instance];
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = s.loadingText;
+    } else {
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
+        currentProduct = p;
+        [self updateImageView:imageView forProduct:p];
     }
-    currentProduct = p;
-    [self updateImageView:imageView forProduct:p];
 }
 
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product

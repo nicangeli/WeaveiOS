@@ -44,7 +44,7 @@
     return [NSNumber numberWithInt:[products count]];
 }
 
--(void)loadNextCollectionForBrands:(NSArray *)brands
+-(void)loadNextCollectionForBrands;
 {
     Strings *s= [Strings instance];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
