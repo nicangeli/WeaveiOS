@@ -41,9 +41,16 @@
        return self;
 }
 
+
+
 -(void)loadLikes {
-    //Strings *s = [Strings instance];
-    //hud = [MBProgressHUD showHUDAddedTo:self.navigationController.presentedViewController.view animated:YES];
+   // Strings *s = [Strings instance];
+    
+    //hud = [[MBProgressHUD alloc] initWithView:self.tabBarController.view];
+    //[self.tabBarController.view addSubview:hud];
+
+    //[self.view addSubview:hud];
+    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.labelText = s.loadingText;
 
     NSString *path = [self dataFilePath];
@@ -73,13 +80,16 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
-  
+    NSLog(@"I am dislaying the HUD");
+    Strings *s = [Strings instance];
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = s.loadingText;
     
 }
 
 -(void)downloadFinished
 {
-    //[hud hide:YES];
+    [hud hide:YES];
 
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
