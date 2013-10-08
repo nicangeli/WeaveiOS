@@ -71,13 +71,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadLikes];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadLikes];
     NSLog(@"I am dislaying the HUD");
     Strings *s = [Strings instance];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = s.loadingText;
-    
 }
 
 -(void)downloadFinished
@@ -88,24 +92,11 @@
     NSNumber *numProducts = [collection numberOfProducts];
     if([numProducts isEqualToNumber:[NSNumber numberWithInt:0]]) {
         NSLog(@"NO PRODUCTS TO SHOW");
-        //[self.navigationController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        /*
-        //NoLikesViewController *nlvc = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
-       // NoLikesViewController *nlvc = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:<#(NSString *)#>]
-       // NoLikesViewController *nlvc = [NoLikesViewController alloc] init
-        [[self.navigationController topViewController] presentViewController:nlvc animated:YES completion:nil];
         
-       //[self.navigationController pushViewController:nlvc animated:YES];
-       // [[self.navigationController topViewController] presentViewController:nlvc animated:YES completion:nil];
-         */
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-      
-        
-        
-        
         [self.navigationController presentViewController:navController
                                                 animated:YES
                                               completion:nil];
