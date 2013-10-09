@@ -69,6 +69,13 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults boolForKey:@"seenProductsInstructions"]) {
+        Strings *s = [Strings instance];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.productTitle message:s.productMessage delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
+        [alert show];
+        [defaults setBool:YES forKey:@"seenProductsInstructions"];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -99,10 +106,12 @@
                                               completion:nil];
     } else {
         NSLog(@"%@", [collection numberOfProducts]);
-        [collection print];
+        //[collection print];
     }
     Product *p = [collection getNextProduct];
     currentProduct = p;
+    
+    NSLog(@"Displaying first products: %@", [p getImageUrl]);
     
     
     UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
@@ -239,6 +248,7 @@
 
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
+    NSLog(@"Updating image view:");
     NSLog(@"%@", [product getImageUrl]);
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [product getImageUrl]]]];

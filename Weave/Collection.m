@@ -69,7 +69,7 @@
         NSLog(@"I have downloaded the data");
 
         NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
-        NSLog(@"%@", jsonArray);
+        //NSLog(@"%@", jsonArray);
 
         for(NSDictionary *dic in jsonArray) {
             Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
@@ -91,7 +91,7 @@
 -(void)print
 {
     for(Product *p in products) {
-        NSLog(@"%@", [p getTitle]);
+    //    NSLog(@"%@", [p getTitle]);
     }
 }
 

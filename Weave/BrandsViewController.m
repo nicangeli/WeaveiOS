@@ -7,6 +7,7 @@
 //
 
 #import "BrandsViewController.h"
+#import "Strings.h"
 
 @interface BrandsViewController ()
 
@@ -61,6 +62,13 @@
         }
     } else {
         NSLog(@"Count is zero");
+    }
+    
+    if(![defaults boolForKey:@"seenInstructions"]) {
+        Strings *s = [Strings instance];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.brandsTitle message:s.brandsMessage delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
+        [alert show];
+        [defaults setBool:YES forKey:@"seenInstructions"];
     }
 }
 

@@ -23,6 +23,11 @@
 @property (nonatomic, strong) NSString *baseAPIURL;
 @property (nonatomic, strong) NSString *loadingText;
 
+@property (nonatomic, strong) NSString *brandsTitle;
+@property (nonatomic, strong) NSString *brandsMessage;
+@property (nonatomic, strong) NSString *productTitle;
+@property (nonatomic, strong) NSString *productMessage;
+
 +(Strings *)instance;
 
 
