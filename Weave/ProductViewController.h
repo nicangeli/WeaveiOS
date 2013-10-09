@@ -15,6 +15,7 @@
     CGPoint startLocation;
     Product *currentProduct;
     MBProgressHUD *hud;
+    Reachability *reachability;
 }
 
 -(IBAction)hitDislikeButton:(id)sender;
@@ -24,5 +25,6 @@
 
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView;
 -(void)downloadFinished;
+
 
 @end

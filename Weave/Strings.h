@@ -28,6 +28,9 @@
 @property (nonatomic, strong) NSString *productTitle;
 @property (nonatomic, strong) NSString *productMessage;
 
+@property (nonatomic, strong) NSString *internetDownTitle;
+@property (nonatomic, strong) NSString *internetDownMessage;
+
 +(Strings *)instance;
 
 

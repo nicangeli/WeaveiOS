@@ -41,9 +41,8 @@
        return self;
 }
 
-
-
--(void)loadLikes {
+-(void)loadLikes
+{
     NSString *path = [self dataFilePath];
     NSLog(@"Path: %@", path);
     Likes *likes = [Likes instance];
@@ -86,6 +85,49 @@
     Strings *s = [Strings instance];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = s.loadingText;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    
+    //NSLog(@"Hello world");
+    reachability = [Reachability reachabilityForInternetConnection];
+    [self checkNetworkStatus:nil];
+    [reachability startNotifier];
+}
+
+- (void)checkNetworkStatus:(NSNotification *)notice
+{
+    Strings *s = [Strings instance];
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    switch(status) {
+        case NotReachable:
+        {
+            NSLog(@"Not reachable");
+            UIView *view = [self.view viewWithTag:1002];
+            [YRDropdownView showDropdownInView:view
+                                         title:s.internetDownTitle
+                                        detail:s.internetDownMessage];
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"Reachable via Wifi");
+            UIView *view = [self.view viewWithTag:1002];
+            [YRDropdownView hideDropdownInView:view];
+            Collection *c = [Collection instance];
+            c.calling = self;
+            [c loadNextCollectionForBrands];
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"Reachable via 3G");
+            UIView *view = [self.view viewWithTag:1002];
+            [YRDropdownView hideDropdownInView:view];
+            Collection *c = [Collection instance];
+            c.calling = self;
+            [c loadNextCollectionForBrands];
+            break;
+        }
+    }
 }
 
 -(void)downloadFinished

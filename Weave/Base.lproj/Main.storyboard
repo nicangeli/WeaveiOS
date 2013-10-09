@@ -339,7 +339,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9LF-5c-wYg"/>
         <segue reference="A33-pC-U9m"/>
+        <segue reference="iVo-ez-5yT"/>
     </inferredMetricsTieBreakers>
 </document>
