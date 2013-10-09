@@ -154,6 +154,13 @@
     
     UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [p getImageUrl]]]];
+    
+    while(product == nil) {
+        p = [collection getNextProduct];
+        product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                        [NSURL URLWithString: [p getImageUrl]]]];
+    }
+    
     //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
     UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
     [productView setTag:1001];
@@ -238,10 +245,7 @@
         UILabel *label = (UILabel *)[self.view viewWithTag:1003];
         [imageView removeFromSuperview];
         [label removeFromSuperview];
-        //for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
-         //   [subView removeFromSuperview];
-        //}
-        //[self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
+      
         // no products left, lets recall the API
         [self loadLikes];
         Strings *s = [Strings instance];
