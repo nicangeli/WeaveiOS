@@ -39,9 +39,9 @@
         self.baseAPIURL = @"http://www.weaveuk.com/api/get";
         self.loadingText = @"Weaving...";
         self.brandsTitle = @"Where do you shop?";
-        self.brandsMessage = @"Tap the logo of the brands you love to follow their new-in products daily";
+        self.brandsMessage = @"Tap the logo of the brands you love to quickly review their new-in products ";
         self.productTitle = @"Do you like?";
-        self.productMessage = @"Swipe or use the buttons to rate each product, do you love or hate it?";
+        self.productMessage = @"Swipe or use the buttons to review each product. If you like it - save it!";
         self.internetDownTitle = @"Network Connectivity";
         self.internetDownMessage = @"Oh no! Weave needs an internet connection to work!";
     }

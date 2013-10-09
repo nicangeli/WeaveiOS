@@ -38,16 +38,16 @@
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
 		898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F17A118041794006A27DF /* SystemConfiguration.framework */; };
 		89907F5718030ED700140A77 /* BrandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89907F5618030ED700140A77 /* BrandsViewController.m */; };
-		89907F5A1803175E00140A77 /* topshop-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F581803175E00140A77 /* topshop-clicked.png */; };
-		89907F5B1803175E00140A77 /* topshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F591803175E00140A77 /* topshop.png */; };
-		89907F5E180327E900140A77 /* asos-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F5C180327E900140A77 /* asos-clicked.png */; };
-		89907F5F180327E900140A77 /* asos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F5D180327E900140A77 /* asos.png */; };
-		89907F62180329E300140A77 /* h&m-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F60180329E300140A77 /* h&m-clicked.png */; };
-		89907F63180329E300140A77 /* h&m.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F61180329E300140A77 /* h&m.png */; };
-		89907F6618032F6B00140A77 /* newlook-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F6418032F6B00140A77 /* newlook-clicked.png */; };
-		89907F6718032F6B00140A77 /* newlook.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F6518032F6B00140A77 /* newlook.png */; };
-		89907F6A180331C400140A77 /* otherstories-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F68180331C400140A77 /* otherstories-clicked.png */; };
-		89907F6B180331C400140A77 /* otherstories.png in Resources */ = {isa = PBXBuildFile; fileRef = 89907F69180331C400140A77 /* otherstories.png */; };
+		89A0A2651805C37F00561148 /* asos-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A25B1805C37F00561148 /* asos-clicked.png */; };
+		89A0A2661805C37F00561148 /* asos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A25C1805C37F00561148 /* asos.png */; };
+		89A0A2671805C37F00561148 /* h&m-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A25D1805C37F00561148 /* h&m-clicked.png */; };
+		89A0A2681805C37F00561148 /* h&m.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A25E1805C37F00561148 /* h&m.png */; };
+		89A0A2691805C37F00561148 /* newlook-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A25F1805C37F00561148 /* newlook-clicked.png */; };
+		89A0A26A1805C37F00561148 /* newlook.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2601805C37F00561148 /* newlook.png */; };
+		89A0A26B1805C37F00561148 /* otherstories-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2611805C37F00561148 /* otherstories-clicked.png */; };
+		89A0A26C1805C37F00561148 /* otherstories.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2621805C37F00561148 /* otherstories.png */; };
+		89A0A26D1805C37F00561148 /* topshop-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2631805C37F00561148 /* topshop-clicked.png */; };
+		89A0A26E1805C37F00561148 /* topshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2641805C37F00561148 /* topshop.png */; };
 		89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7142E17F5A7B6006F1E09 /* Foundation.framework */; };
 		89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */; };
 		89E7143317F5A7B6006F1E09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143217F5A7B6006F1E09 /* UIKit.framework */; };
@@ -124,16 +124,16 @@
 		898F17A118041794006A27DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		89907F5518030ED700140A77 /* BrandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandsViewController.h; sourceTree = "<group>"; };
 		89907F5618030ED700140A77 /* BrandsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandsViewController.m; sourceTree = "<group>"; };
-		89907F581803175E00140A77 /* topshop-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshop-clicked.png"; sourceTree = "<group>"; };
-		89907F591803175E00140A77 /* topshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshop.png; sourceTree = "<group>"; };
-		89907F5C180327E900140A77 /* asos-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "asos-clicked.png"; sourceTree = "<group>"; };
-		89907F5D180327E900140A77 /* asos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asos.png; sourceTree = "<group>"; };
-		89907F60180329E300140A77 /* h&m-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&m-clicked.png"; sourceTree = "<group>"; };
-		89907F61180329E300140A77 /* h&m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&m.png"; sourceTree = "<group>"; };
-		89907F6418032F6B00140A77 /* newlook-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newlook-clicked.png"; sourceTree = "<group>"; };
-		89907F6518032F6B00140A77 /* newlook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlook.png; sourceTree = "<group>"; };
-		89907F68180331C400140A77 /* otherstories-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "otherstories-clicked.png"; sourceTree = "<group>"; };
-		89907F69180331C400140A77 /* otherstories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstories.png; sourceTree = "<group>"; };
+		89A0A25B1805C37F00561148 /* asos-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "asos-clicked.png"; sourceTree = "<group>"; };
+		89A0A25C1805C37F00561148 /* asos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asos.png; sourceTree = "<group>"; };
+		89A0A25D1805C37F00561148 /* h&m-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&m-clicked.png"; sourceTree = "<group>"; };
+		89A0A25E1805C37F00561148 /* h&m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&m.png"; sourceTree = "<group>"; };
+		89A0A25F1805C37F00561148 /* newlook-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newlook-clicked.png"; sourceTree = "<group>"; };
+		89A0A2601805C37F00561148 /* newlook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlook.png; sourceTree = "<group>"; };
+		89A0A2611805C37F00561148 /* otherstories-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "otherstories-clicked.png"; sourceTree = "<group>"; };
+		89A0A2621805C37F00561148 /* otherstories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstories.png; sourceTree = "<group>"; };
+		89A0A2631805C37F00561148 /* topshop-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshop-clicked.png"; sourceTree = "<group>"; };
+		89A0A2641805C37F00561148 /* topshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshop.png; sourceTree = "<group>"; };
 		89E7142B17F5A7B6006F1E09 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E7142E17F5A7B6006F1E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -340,16 +340,16 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				89907F68180331C400140A77 /* otherstories-clicked.png */,
-				89907F69180331C400140A77 /* otherstories.png */,
-				89907F6418032F6B00140A77 /* newlook-clicked.png */,
-				89907F6518032F6B00140A77 /* newlook.png */,
-				89907F60180329E300140A77 /* h&m-clicked.png */,
-				89907F61180329E300140A77 /* h&m.png */,
-				89907F5C180327E900140A77 /* asos-clicked.png */,
-				89907F5D180327E900140A77 /* asos.png */,
-				89907F581803175E00140A77 /* topshop-clicked.png */,
-				89907F591803175E00140A77 /* topshop.png */,
+				89A0A25B1805C37F00561148 /* asos-clicked.png */,
+				89A0A25C1805C37F00561148 /* asos.png */,
+				89A0A25D1805C37F00561148 /* h&m-clicked.png */,
+				89A0A25E1805C37F00561148 /* h&m.png */,
+				89A0A25F1805C37F00561148 /* newlook-clicked.png */,
+				89A0A2601805C37F00561148 /* newlook.png */,
+				89A0A2611805C37F00561148 /* otherstories-clicked.png */,
+				89A0A2621805C37F00561148 /* otherstories.png */,
+				89A0A2631805C37F00561148 /* topshop-clicked.png */,
+				89A0A2641805C37F00561148 /* topshop.png */,
 				8925452C17FB065D001A6D68 /* weave-nav.png */,
 				8925452D17FB065D001A6D68 /* weave-nav@2x.png */,
 				893D30A717F9DF5800D820D1 /* new_in.json */,
@@ -468,29 +468,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89907F6618032F6B00140A77 /* newlook-clicked.png in Resources */,
+				89A0A26B1805C37F00561148 /* otherstories-clicked.png in Resources */,
 				893D303417F8E54000D820D1 /* heart.png in Resources */,
+				89A0A26C1805C37F00561148 /* otherstories.png in Resources */,
+				89A0A26E1805C37F00561148 /* topshop.png in Resources */,
+				89A0A2661805C37F00561148 /* asos.png in Resources */,
 				893D304F17F9C99A00D820D1 /* polaroid-view.png in Resources */,
 				893D303317F8E54000D820D1 /* cross.png in Resources */,
 				893D30A817F9DF5800D820D1 /* new_in.json in Resources */,
 				8925452E17FB065D001A6D68 /* weave-nav.png in Resources */,
-				89907F6B180331C400140A77 /* otherstories.png in Resources */,
-				89907F63180329E300140A77 /* h&m.png in Resources */,
 				893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */,
+				89A0A2671805C37F00561148 /* h&m-clicked.png in Resources */,
 				893D302F17F8E20100D820D1 /* dislike.png in Resources */,
+				89A0A2681805C37F00561148 /* h&m.png in Resources */,
 				893D303517F8E54000D820D1 /* info.png in Resources */,
 				89E7146417F5A86C006F1E09 /* weave.png in Resources */,
 				89E7144717F5A7B6006F1E09 /* Images.xcassets in Resources */,
-				89907F62180329E300140A77 /* h&m-clicked.png in Resources */,
-				89907F6718032F6B00140A77 /* newlook.png in Resources */,
+				89A0A26A1805C37F00561148 /* newlook.png in Resources */,
 				893D302D17F8DC0600D820D1 /* like.png in Resources */,
-				89907F5F180327E900140A77 /* asos.png in Resources */,
-				89907F5B1803175E00140A77 /* topshop.png in Resources */,
 				8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */,
-				89907F5A1803175E00140A77 /* topshop-clicked.png in Resources */,
-				89907F5E180327E900140A77 /* asos-clicked.png in Resources */,
+				89A0A2651805C37F00561148 /* asos-clicked.png in Resources */,
+				89A0A26D1805C37F00561148 /* topshop-clicked.png in Resources */,
+				89A0A2691805C37F00561148 /* newlook-clicked.png in Resources */,
 				89E7143917F5A7B6006F1E09 /* InfoPlist.strings in Resources */,
-				89907F6A180331C400140A77 /* otherstories-clicked.png in Resources */,
 				89E7144217F5A7B6006F1E09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -218,7 +218,7 @@
             </objects>
             <point key="canvasLocation" x="1908" y="157"/>
         </scene>
-        <!--Brands View Controller - You Love?-->
+        <!--Brands View Controller - Follow Some Brands...-->
         <scene sceneID="Vd7-Gl-3Oy">
             <objects>
                 <viewController id="gPo-4Q-Rty" customClass="BrandsViewController" sceneMemberID="viewController">
@@ -231,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" tag="401" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="le3-dm-6Bk">
-                                <rect key="frame" x="25" y="45" width="280" height="83"/>
+                                <rect key="frame" x="30" y="66" width="270" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="topshop.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,7 +241,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="402" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wia-vJ-3Mr">
-                                <rect key="frame" x="-12" y="128" width="255" height="76"/>
+                                <rect key="frame" x="30" y="128" width="270" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="asos.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,7 +251,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="403" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfI-Pv-kpt">
-                                <rect key="frame" x="-12" y="201" width="290" height="87"/>
+                                <rect key="frame" x="30" y="197" width="270" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="h&amp;m.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="404" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ad4-Qy-Ylq">
-                                <rect key="frame" x="20" y="277" width="280" height="83"/>
+                                <rect key="frame" x="30" y="259" width="270" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="newlook.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="405" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxd-WL-IYP">
-                                <rect key="frame" x="10" y="339" width="300" height="89"/>
+                                <rect key="frame" x="30" y="327" width="270" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="otherstories.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -293,7 +293,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="You Love?" id="1sV-33-ygX">
+                    <navigationItem key="navigationItem" title="Follow Some Brands..." id="1sV-33-ygX">
                         <barButtonItem key="leftBarButtonItem" id="f4r-Gj-VGr"/>
                         <barButtonItem key="rightBarButtonItem" title="Likes" id="Rmz-xi-dxZ">
                             <connections>
@@ -326,16 +326,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="asos.png" width="447" height="134"/>
+        <image name="asos.png" width="447" height="82"/>
         <image name="cross.png" width="163" height="198"/>
-        <image name="h&amp;m.png" width="447" height="134"/>
+        <image name="h&amp;m.png" width="447" height="82"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
-        <image name="newlook.png" width="447" height="134"/>
-        <image name="otherstories.png" width="447" height="134"/>
+        <image name="newlook.png" width="447" height="82"/>
+        <image name="otherstories.png" width="447" height="82"/>
         <image name="polaroid-view.png" width="477" height="557"/>
         <image name="polaroid.png" width="477" height="557"/>
-        <image name="topshop.png" width="447" height="134"/>
+        <image name="topshop.png" width="447" height="82"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

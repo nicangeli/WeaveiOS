@@ -71,7 +71,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
         Strings *s = [Strings instance];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.productTitle message:s.productMessage delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.productTitle message:s.productMessage delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil];
         [alert show];
         [defaults setBool:YES forKey:@"seenProductsInstructions"];
     }
@@ -204,11 +204,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if (! [defaults boolForKey:@"likeAlertShownButton"]) {
         // display alert...
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.likeAlertTitleButton
-                                                        message:s.likeAlertMessageButton
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Got it"
-                                              otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.likeAlertTitleButton message:s.likeAlertMessageButton delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil];
         [alert show];
         [defaults setBool:YES forKey:@"likeAlertShownButton"];
     }
@@ -290,18 +286,30 @@
 
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
+    __block id p = product;
     NSLog(@"Updating image view:");
     Collection *collection = [Collection instance];
-    NSLog(@"%@", [product getImageUrl]);
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                              [NSURL URLWithString: [product getImageUrl]]]];
-    while(image == nil) {
-        product = [collection getNextProduct];
-        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                         [NSURL URLWithString: [product getImageUrl]]]];
-    }
-    [imageView setImage:image];
-    [self updateLabelsForProduct:product inImageView:imageView];
+    NSLog(@"%@", [p getImageUrl]);
+    UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
+    [MBProgressHUD showHUDAddedTo:v animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        // Do something...
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                                 [NSURL URLWithString: [p getImageUrl]]]];
+        while(image == nil) {
+            p = [collection getNextProduct];
+            image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                            [NSURL URLWithString: [p getImageUrl]]]];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:v animated:YES];
+            [imageView setImage:image];
+
+
+        });
+    });
+
+    [self updateLabelsForProduct:p inImageView:imageView];
 }
 
 
