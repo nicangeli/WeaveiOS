@@ -63,29 +63,53 @@
         paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     }
     
+    /**
+     * Do we have an internet connection?
+     */
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-
-    [manager POST:s.baseAPIURL parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"I have downloaded the data");
-
-        NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
-        //NSLog(@"%@", jsonArray);
-
-        for(NSDictionary *dic in jsonArray) {
-            Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
-            //NSLog(@"Made new product object: %@", [p getTitle]);
-            if(!products) {
-                products = [[NSMutableArray alloc] initWithCapacity:20];
-            }
-            [products addObject:p];
+    [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Status? %@", status);
+        if(status == AFNetworkReachabilityStatusNotReachable) {
+            // not reachable
+            NSLog(@"Not reachable...");
+        } else {
+            NSLog(@"Have internet...");
         }
-        
-        [self.calling downloadFinished];
-      
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
     }];
+    /*
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+        if(status == AFNetworkReachabilityStatusNotReachable) {
+            NSLog(@"No Internet Avaliable");
+        } else {
+            // must be reachable in some way
+            
+            [manager POST:s.baseAPIURL parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"I have downloaded the data");
+                
+                NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
+                //NSLog(@"%@", jsonArray);
+                
+                for(NSDictionary *dic in jsonArray) {
+                    Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
+                    //NSLog(@"Made new product object: %@", [p getTitle]);
+                    if(!products) {
+                        products = [[NSMutableArray alloc] initWithCapacity:20];
+                    }
+                    [products addObject:p];
+                }
+                
+                [self.calling downloadFinished];
+                
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+
+            
+        }
+    }];
+     */
 }
 
 -(void)print
