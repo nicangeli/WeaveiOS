@@ -89,7 +89,6 @@
     
     //NSLog(@"Hello world");
     reachability = [Reachability reachabilityForInternetConnection];
-    [self checkNetworkStatus:nil];
     [reachability startNotifier];
 }
 
@@ -100,7 +99,6 @@
     switch(status) {
         case NotReachable:
         {
-            NSLog(@"Not reachable");
             UIView *view = [self.view viewWithTag:1002];
             [YRDropdownView showDropdownInView:view
                                          title:s.internetDownTitle
@@ -109,7 +107,6 @@
         }
         case ReachableViaWiFi:
         {
-            NSLog(@"Reachable via Wifi");
             UIView *view = [self.view viewWithTag:1002];
             [YRDropdownView hideDropdownInView:view];
             Collection *c = [Collection instance];
@@ -119,7 +116,6 @@
         }
         case ReachableViaWWAN:
         {
-            NSLog(@"Reachable via 3G");
             UIView *view = [self.view viewWithTag:1002];
             [YRDropdownView hideDropdownInView:view];
             Collection *c = [Collection instance];
@@ -291,9 +287,15 @@
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
     NSLog(@"Updating image view:");
+    Collection *collection = [Collection instance];
     NSLog(@"%@", [product getImageUrl]);
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [product getImageUrl]]]];
+    while(image == nil) {
+        product = [collection getNextProduct];
+        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                         [NSURL URLWithString: [product getImageUrl]]]];
+    }
     [imageView setImage:image];
     [self updateLabelsForProduct:product inImageView:imageView];
 }
