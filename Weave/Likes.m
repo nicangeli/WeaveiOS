@@ -8,6 +8,10 @@
 
 #import "Likes.h"
 #import "Product.h"
+#import "MBProgressHUD.h"
+#import "Mixpanel.h"
+#import "Reachability.h"
+#import "YRDropdownView.h"
 
 @implementation Likes
 

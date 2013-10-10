@@ -7,6 +7,10 @@
 //
 
 #import "ProductDetailViewController.h"
+#import "MBProgressHUD.h"
+#import "Mixpanel.h"
+#import "Reachability.h"
+#import "YRDropdownView.h"
 
 @interface ProductDetailViewController ()
 
