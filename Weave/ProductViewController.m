@@ -67,6 +67,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
@@ -145,50 +146,51 @@
     } else {
         NSLog(@"%@", [collection numberOfProducts]);
         //[collection print];
-    }
-    Product *p = [collection getNextProduct];
-    currentProduct = p;
-    
-    NSLog(@"Displaying first products: %@", [p getImageUrl]);
-    
-    
-    UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+        Product *p = [collection getNextProduct];
+        currentProduct = p;
+        
+        NSLog(@"Displaying first products: %@", [p getImageUrl]);
+        
+        
+        UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                                   [NSURL URLWithString: [p getImageUrl]]]];
+        
+        while(product == nil) {
+            p = [collection getNextProduct];
+            product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [p getImageUrl]]]];
-    
-    while(product == nil) {
-        p = [collection getNextProduct];
-        product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                        [NSURL URLWithString: [p getImageUrl]]]];
+        }
+        
+        //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
+        UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
+        [productView setTag:1001];
+        
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002]; //the polaroid that sits on top of the stack
+        [imageView addSubview:productView]; // add product on top of pile to the polaroid
+        productView.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
+        
+        CGRect frame = imageView.frame;
+        frame.size.width = 260;
+        frame.size.height = 250;
+        productView.frame = frame;
+        productView.center = CGPointMake(168,157); // move the image view to the middle of the polaroid
+        
+        /*
+         Add label for product price and title etc. As subview so it moves with pan
+         */
+        UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
+        [productLabel setTag:1003];
+        [productLabel setText:[currentProduct getType]];
+        [imageView addSubview:productLabel];
+        if([[currentProduct getType] length] < 10) {
+            [productLabel setCenter:CGPointMake(220, imageView.frame.size.height-50)];
+        } else if([[currentProduct getType] length] < 16) {
+            [productLabel setCenter:CGPointMake(200, imageView.frame.size.height-50)];
+        } else{
+            [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
+        }
     }
-    
-    //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
-    UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
-    [productView setTag:1001];
-    
-    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002]; //the polaroid that sits on top of the stack
-    [imageView addSubview:productView]; // add product on top of pile to the polaroid
-    productView.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
-    
-    CGRect frame = imageView.frame;
-    frame.size.width = 260;
-    frame.size.height = 250;
-    productView.frame = frame;
-    productView.center = CGPointMake(168,157); // move the image view to the middle of the polaroid
-    
-    /*
-     Add label for product price and title etc. As subview so it moves with pan
-     */
-    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
-    [productLabel setTag:1003];
-    [productLabel setText:[currentProduct getType]];
-    [imageView addSubview:productLabel];
-    if([[currentProduct getType] length] < 10) {
-        [productLabel setCenter:CGPointMake(220, imageView.frame.size.height-50)];
-    } else if([[currentProduct getType] length] < 16) {
-        [productLabel setCenter:CGPointMake(200, imageView.frame.size.height-50)];
-    } else{
-        [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
-    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -298,6 +300,16 @@
                                                  [NSURL URLWithString: [p getImageUrl]]]];
         while(image == nil) {
             p = [collection getNextProduct];
+            if(p == nil) {
+                //skip to likes page
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
+                
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+                [self.navigationController presentViewController:navController
+                                                        animated:YES
+                                                      completion:nil];
+            }
             image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                             [NSURL URLWithString: [p getImageUrl]]]];
         }

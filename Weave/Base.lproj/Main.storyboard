@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8fz-qZ-OaQ">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -50,9 +51,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="105" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krJ-Md-Zrc">
-                                            <rect key="frame" x="170" y="104" width="86" height="30"/>
+                                            <rect key="frame" x="170" y="103" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="More Details">
+                                            <state key="normal" title="Buy">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -65,7 +66,13 @@
                             <outlet property="delegate" destination="m1o-gS-q28" id="2FB-Jx-isk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31"/>
+                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
+                        <barButtonItem key="leftBarButtonItem" title="Brands" id="0qH-ws-pLN">
+                            <connections>
+                                <segue destination="gPo-4Q-Rty" kind="push" id="kAK-hI-zKb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -343,7 +350,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="A33-pC-U9m"/>
+        <segue reference="kAK-hI-zKb"/>
         <segue reference="9LF-5c-wYg"/>
     </inferredMetricsTieBreakers>
 </document>

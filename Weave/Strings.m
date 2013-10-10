@@ -36,7 +36,7 @@
         self.dislikeAlertTitleButton = @"Great";
         self.dislikeAlertMessageButton = @"Clicking the heart indicates that you don't like this product.";
         self.dislikeAlertMessage = @"Swiping left indicates that you don't like this product.";
-        self.baseAPIURL = @"http://www.weaveuk.com/api/get";
+        self.baseAPIURL = @"http://localhost:3000/api/get";
         self.loadingText = @"Weaving...";
         self.brandsTitle = @"Where do you shop?";
         self.brandsMessage = @"Tap the logo of the brands you love to quickly review their new-in products ";
