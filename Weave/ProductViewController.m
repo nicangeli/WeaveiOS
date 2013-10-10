@@ -94,6 +94,7 @@
     
     //NSLog(@"Hello world");
     reachability = [Reachability reachabilityForInternetConnection];
+    [self checkNetworkStatus:nil];
     [reachability startNotifier];
 }
 
