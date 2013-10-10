@@ -98,7 +98,19 @@
 }
 
 -(void)moreDetailsPressed:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[sender accessibilityHint]]];
+    NSString *link = [sender accessibilityHint];
+    NSString *trimmedString;
+    if([link hasPrefix:@" "]) {
+        NSLog(@"I start with a space");
+    }
+    if([link hasPrefix:@"\r\n"]) {
+        NSLog(@"I start with newline characters");
+         trimmedString = [link stringByTrimmingCharactersInSet:
+                                   [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    } else {
+        trimmedString = link;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:trimmedString]];
 }
 
 
