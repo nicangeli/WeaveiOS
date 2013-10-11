@@ -11,10 +11,7 @@
 #import "Strings.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Mixpanel.h"
-#import "MBProgressHUD.h"
-#import "Mixpanel.h"
-#import "Reachability.h"
-#import "YRDropdownView.h"
+#import "NoLikesViewController.h"
 
 @implementation Collection
 
@@ -50,6 +47,7 @@
 
 -(void)loadNextCollectionForBrands;
 {
+    NSLog(@"LOAD NEXT COLLECTION FOR BRANDS IS CALLED");
     Strings *s= [Strings instance];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *paramaters;
@@ -89,6 +87,15 @@
                 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
            NSLog(@"Error: %@", error);
+            // handle the error on no network connection here
+            // we obviously have no network connection, but the API is down
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
+            
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+            [self.calling presentViewController:navController
+                                                    animated:YES
+                                                  completion:nil];
         }];
 }
 

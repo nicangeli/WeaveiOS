@@ -8,10 +8,6 @@
 
 #import "Likes.h"
 #import "Product.h"
-#import "MBProgressHUD.h"
-#import "Mixpanel.h"
-#import "Reachability.h"
-#import "YRDropdownView.h"
 
 @implementation Likes
 
@@ -57,7 +53,6 @@
 -(void)setLikes:(NSMutableArray *)likes
 {
     NSLog(@"Set likes is called");
-    NSLog(@"Liked: %@", [[likes objectAtIndex:0] getBrand]);
     if(!likedProducts)
     {
         likedProducts = likes;

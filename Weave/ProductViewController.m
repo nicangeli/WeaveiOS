@@ -16,10 +16,6 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Collection.h"
 #import "NoLikesViewController.h"
-#import "MBProgressHUD.h"
-#import "Mixpanel.h"
-#import "Reachability.h"
-#import "YRDropdownView.h"
 
 @interface ProductViewController ()
 
@@ -45,18 +41,57 @@
        return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+    [self loadLikes];
+    [self registerForNetworkEvents];
+    [self listenToNetwork];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults boolForKey:@"seenProductsInstructions"]) {
+        Strings *s = [Strings instance];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.productTitle message:s.productMessage delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil];
+        [alert show];
+        [defaults setBool:YES forKey:@"seenProductsInstructions"];
+    }
+    [self displayLoadingHUD];
+    [self checkNetworkStatus:nil];
+    [self getNextProducts];
+}
+
+-(void)listenToNetwork
+{
+    reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+}
+
+-(void)displayLoadingHUD
+{
+    Strings *s = [Strings instance];
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = s.loadingText;
+}
+
+-(void)registerForNetworkEvents
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+}
+
+
 -(void)loadLikes
 {
     NSString *path = [self dataFilePath];
     NSLog(@"Path: %@", path);
     Likes *likes = [Likes instance];
-    // Do any additional setup after loading the view.
-    Collection *collection = [Collection instance];
-    collection.calling = self;
-    
-    [collection loadNextCollectionForBrands];
-    //products.calling = (ProductViewController *) self.view; // DELEGATE TODO
-    
+   
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
@@ -68,69 +103,13 @@
     }
 }
 
-- (void)viewDidLoad
+-(void)getNextProducts
 {
-    [super viewDidLoad];
-    NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if(![defaults boolForKey:@"seenProductsInstructions"]) {
-        Strings *s = [Strings instance];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:s.productTitle message:s.productMessage delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil];
-        [alert show];
-        [defaults setBool:YES forKey:@"seenProductsInstructions"];
-    }
+    Collection *collection = [Collection instance];
+    collection.calling = self;
+    [collection loadNextCollectionForBrands];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self loadLikes];
-    NSLog(@"I am dislaying the HUD");
-    Strings *s = [Strings instance];
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = s.loadingText;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
-    
-    //NSLog(@"Hello world");
-    reachability = [Reachability reachabilityForInternetConnection];
-    [self checkNetworkStatus:nil];
-    [reachability startNotifier];
-}
-
-- (void)checkNetworkStatus:(NSNotification *)notice
-{
-    Strings *s = [Strings instance];
-    NetworkStatus status = [reachability currentReachabilityStatus];
-    switch(status) {
-        case NotReachable:
-        {
-            UIView *view = [self.view viewWithTag:1002];
-            [YRDropdownView showDropdownInView:view
-                                         title:s.internetDownTitle
-                                        detail:s.internetDownMessage];
-            break;
-        }
-        case ReachableViaWiFi:
-        {
-            UIView *view = [self.view viewWithTag:1002];
-            [YRDropdownView hideDropdownInView:view];
-            Collection *c = [Collection instance];
-            c.calling = self;
-            [c loadNextCollectionForBrands];
-            break;
-        }
-        case ReachableViaWWAN:
-        {
-            UIView *view = [self.view viewWithTag:1002];
-            [YRDropdownView hideDropdownInView:view];
-            Collection *c = [Collection instance];
-            c.calling = self;
-            [c loadNextCollectionForBrands];
-            break;
-        }
-    }
-}
 
 -(void)downloadFinished
 {
@@ -149,12 +128,14 @@
                                                 animated:YES
                                               completion:nil];
     } else {
-        NSLog(@"%@", [collection numberOfProducts]);
-        //[collection print];
+        NSLog(@"Number of products to show: %@", numProducts);
         Product *p = [collection getNextProduct];
         currentProduct = p;
         
         NSLog(@"Displaying first products: %@", [p getImageUrl]);
+        if(p == nil) {
+            NSLog(@"The product I am trying to display is null");
+        }
         
         
         UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
@@ -162,6 +143,7 @@
         
         while(product == nil) {
             p = [collection getNextProduct];
+            currentProduct = p;
             product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [p getImageUrl]]]];
         }
@@ -482,6 +464,40 @@
     [archiver encodeObject:likes forKey:@"Likes"];
     [archiver finishEncoding];
     [data writeToFile:[self dataFilePath] atomically:YES];
+}
+
+- (void)checkNetworkStatus:(NSNotification *)notice
+{
+    Strings *s = [Strings instance];
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    switch(status) {
+        case NotReachable:
+        {
+            UIView *view = [self.view viewWithTag:1002];
+            [YRDropdownView showDropdownInView:view
+                                         title:s.internetDownTitle
+                                        detail:s.internetDownMessage];
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            UIView *view = [self.view viewWithTag:1002];
+            [YRDropdownView hideDropdownInView:view];
+            //Collection *c = [Collection instance];
+            //c.calling = self;
+            //[c loadNextCollectionForBrands];
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            UIView *view = [self.view viewWithTag:1002];
+            [YRDropdownView hideDropdownInView:view];
+            //Collection *c = [Collection instance];
+            //c.calling = self;
+            //[c loadNextCollectionForBrands];
+            break;
+        }
+    }
 }
 
 @end
