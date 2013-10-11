@@ -69,8 +69,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-
-    Product *p = [likes objectAtIndex:indexPath.row];
+    int index  = [likes count] - indexPath.row -1;
+    Product *p = [likes objectAtIndex:index];
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
     //thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
     thumbnailView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
@@ -132,9 +132,32 @@
         // Delete the row from the data source
         [likes removeProductAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+        [self saveLikes];
     }
 
+}
+
+-(void)saveLikes
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    /* get likes from appdelegate */
+    Likes *likes = [Likes instance];
+    [archiver encodeObject:likes forKey:@"Likes"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
+}
+
+- (NSString *)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return documentsDirectory;
+}
+
+- (NSString *)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
 }
 
 /*

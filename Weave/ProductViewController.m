@@ -46,7 +46,6 @@
     [super viewDidLoad];
     NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
-    [self loadLikes];
     [self registerForNetworkEvents];
     [self listenToNetwork];
 
@@ -64,7 +63,7 @@
     }
     [self displayLoadingHUD];
     [self checkNetworkStatus:nil];
-    [self getNextProducts];
+    //[self getNextProducts];
 }
 
 -(void)listenToNetwork
@@ -85,23 +84,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
 }
 
-
--(void)loadLikes
-{
-    NSString *path = [self dataFilePath];
-    NSLog(@"Path: %@", path);
-    Likes *likes = [Likes instance];
-   
-    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
-        [likes setLikes:[oldLikes getLikes]];
-        
-        [unarchiver finishDecoding];
-        //[[delegate likes] getLikes] = [oldLikes getLikes];
-    }
-}
 
 -(void)getNextProducts
 {
@@ -147,6 +129,8 @@
             product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
                                               [NSURL URLWithString: [p getImageUrl]]]];
         }
+        
+        [self enableButtons];
         
         //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
         UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
@@ -221,22 +205,24 @@
 
 -(void)likeItem
 {
+    [self disableButtons];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     Likes *likes = [Likes instance];
     [likes addProduct:currentProduct];
     if(p == nil) {
+        NSLog(@"Reached the end of the items");
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
         UILabel *label = (UILabel *)[self.view viewWithTag:1003];
         [imageView removeFromSuperview];
         [label removeFromSuperview];
       
         // no products left, lets recall the API
-        [self loadLikes];
         Strings *s = [Strings instance];
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = s.loadingText;
-       
+        [self getNextProducts];
+
         
     } else {
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
@@ -249,23 +235,21 @@
 
 -(void)dislikeItem
 {
+    [self disableButtons];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     if(p == nil){
+        NSLog(@"Reached the end of the items");
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
         UILabel *label = (UILabel *)[self.view viewWithTag:1003];
 
         [imageView removeFromSuperview];
         [label removeFromSuperview];
-        //for(UIView *subView in imageView.subviews) { // get rid of the like and dislike image views
-          //  [subView removeFromSuperview];
-        //}
-        //[self.navigationController.topViewController performSegueWithIdentifier:@"NoLikesLeft" sender:self];
         // no products left, lets recall the API
-        [self loadLikes];
         Strings *s = [Strings instance];
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = s.loadingText;
+        [self getNextProducts];
     } else {
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
         currentProduct = p;
@@ -276,9 +260,7 @@
 -(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
 {
     __block id p = product;
-    NSLog(@"Updating image view:");
     Collection *collection = [Collection instance];
-    NSLog(@"%@", [p getImageUrl]);
     UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
     [MBProgressHUD showHUDAddedTo:v animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -301,6 +283,7 @@
                                             [NSURL URLWithString: [p getImageUrl]]]];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self enableButtons];
             [MBProgressHUD hideHUDForView:v animated:YES];
             [imageView setImage:image];
 
@@ -311,9 +294,27 @@
     [self updateLabelsForProduct:p inImageView:imageView];
 }
 
+-(void)enableButtons
+{
+    UIButton *like = (UIButton *)[self.view viewWithTag:3001];
+    [like setEnabled:YES];
+    
+    UIButton *dislike = (UIButton *)[self.view viewWithTag:3002];
+    [dislike setEnabled:YES];
+}
+
+-(void)disableButtons
+{
+    UIButton *like = (UIButton *)[self.view viewWithTag:3001];
+    [like setEnabled:NO];
+    UIButton *dislike = (UIButton *)[self.view viewWithTag:3002];
+    [dislike setEnabled:NO];
+}
+
 
 -(IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
-    UIImage *likeImage = [UIImage imageNamed:@"like.png"];
+    UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
+    [MBProgressHUD hideHUDForView:v animated:YES];    UIImage *likeImage = [UIImage imageNamed:@"like.png"];
     UIImage *dislikeImage = [UIImage imageNamed:@"dislike.png"];
     UIImageView *likeImageView = [[UIImageView alloc] initWithImage:likeImage];
     UIImageView *dislikeImageView = [[UIImageView alloc] initWithImage:dislikeImage];
@@ -468,36 +469,41 @@
 
 - (void)checkNetworkStatus:(NSNotification *)notice
 {
-    Strings *s = [Strings instance];
     NetworkStatus status = [reachability currentReachabilityStatus];
     switch(status) {
         case NotReachable:
         {
-            UIView *view = [self.view viewWithTag:1002];
-            [YRDropdownView showDropdownInView:view
-                                         title:s.internetDownTitle
-                                        detail:s.internetDownMessage];
+            [self showNetworkError];
             break;
         }
         case ReachableViaWiFi:
         {
-            UIView *view = [self.view viewWithTag:1002];
-            [YRDropdownView hideDropdownInView:view];
-            //Collection *c = [Collection instance];
-            //c.calling = self;
-            //[c loadNextCollectionForBrands];
+            [self hideNetworkError];
+            [self getNextProducts];
             break;
         }
         case ReachableViaWWAN:
         {
-            UIView *view = [self.view viewWithTag:1002];
-            [YRDropdownView hideDropdownInView:view];
-            //Collection *c = [Collection instance];
-            //c.calling = self;
-            //[c loadNextCollectionForBrands];
+            [self hideNetworkError];
+            [self getNextProducts];
             break;
         }
     }
+}
+
+-(void)showNetworkError
+{
+    Strings *s = [Strings instance];
+    UIView *view = [self.view viewWithTag:1002];
+    [YRDropdownView showDropdownInView:view
+                                 title:s.internetDownTitle
+                                detail:s.internetDownMessage];
+}
+
+-(void)hideNetworkError
+{
+    UIView *view = [self.view viewWithTag:1002];
+    [YRDropdownView hideDropdownInView:view];
 }
 
 @end

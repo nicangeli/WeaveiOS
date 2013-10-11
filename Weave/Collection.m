@@ -89,13 +89,15 @@
            NSLog(@"Error: %@", error);
             // handle the error on no network connection here
             // we obviously have no network connection, but the API is down
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+           /* UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
             
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
             [self.calling presentViewController:navController
                                                     animated:YES
                                                   completion:nil];
+            */
+            [self.calling showNetworkError];
         }];
 }
 

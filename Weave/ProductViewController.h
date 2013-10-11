@@ -26,5 +26,8 @@
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView;
 -(void)downloadFinished;
 
+-(void)showNetworkError;
+-(void)hideNetworkError;
+
 
 @end
