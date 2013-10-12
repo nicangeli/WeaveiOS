@@ -48,6 +48,7 @@
 		89A0A26C1805C37F00561148 /* otherstories.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2621805C37F00561148 /* otherstories.png */; };
 		89A0A26D1805C37F00561148 /* topshop-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2631805C37F00561148 /* topshop-clicked.png */; };
 		89A0A26E1805C37F00561148 /* topshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2641805C37F00561148 /* topshop.png */; };
+		89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AF6A351809F2F400DD74F0 /* Security.framework */; };
 		89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7142E17F5A7B6006F1E09 /* Foundation.framework */; };
 		89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */; };
 		89E7143317F5A7B6006F1E09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143217F5A7B6006F1E09 /* UIKit.framework */; };
@@ -134,6 +135,7 @@
 		89A0A2621805C37F00561148 /* otherstories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstories.png; sourceTree = "<group>"; };
 		89A0A2631805C37F00561148 /* topshop-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshop-clicked.png"; sourceTree = "<group>"; };
 		89A0A2641805C37F00561148 /* topshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshop.png; sourceTree = "<group>"; };
+		89AF6A351809F2F400DD74F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		89E7142B17F5A7B6006F1E09 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E7142E17F5A7B6006F1E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */,
 				898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */,
 				898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */,
 				898F179E18041776006A27DF /* AdSupport.framework in Frameworks */,
@@ -306,6 +309,7 @@
 		89E7142D17F5A7B6006F1E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89AF6A351809F2F400DD74F0 /* Security.framework */,
 				898F17A118041794006A27DF /* SystemConfiguration.framework */,
 				898F179F18041783006A27DF /* CoreTelephony.framework */,
 				898F179D18041776006A27DF /* AdSupport.framework */,
