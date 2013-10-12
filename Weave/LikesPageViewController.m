@@ -37,19 +37,27 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    // In a function that captures when a user navigates away from article
     [Flurry endTimedEvent:@"Products_Viewed" withParameters:nil]; // You can pass in additiona
+
+    
     Likes *likes = [Likes instance];
+    NSString *count = [NSString stringWithFormat:@"%d", [likes count]];
     NSDictionary *articleParams =
     [NSDictionary dictionaryWithObjectsAndKeys:
-     @"Number_Of_Likes", [likes count], // Capture author info
+     @"Num_Likes", count, // Capture author info
      nil];
     
-    [Flurry logEvent:@"Likes_Page_Loaded" withParameters:articleParams];
+    [Flurry logEvent:@"Likes_Viewed" withParameters:articleParams];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

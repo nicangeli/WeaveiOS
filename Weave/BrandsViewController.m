@@ -263,5 +263,13 @@
     return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowProducts"]) {
+        [Flurry logEvent:@"Show_Me_The_Clothes"];
+    }
+    
+}
+
 
 @end

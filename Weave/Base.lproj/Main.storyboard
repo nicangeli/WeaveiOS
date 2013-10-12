@@ -350,7 +350,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="9LF-5c-wYg"/>
         <segue reference="kAK-hI-zKb"/>
-        <segue reference="iVo-ez-5yT"/>
     </inferredMetricsTieBreakers>
 </document>
