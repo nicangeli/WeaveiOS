@@ -63,6 +63,10 @@
     }
     [self displayLoadingHUD];
     [self checkNetworkStatus:nil];
+    
+    [Flurry logEvent:@"Products_Viewed" timed:YES];
+    
+    //params or update existing ones here as well
     //[self getNextProducts];
 }
 
@@ -206,6 +210,13 @@
 -(void)likeItem
 {
     [self disableButtons];
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"Product_Title", [currentProduct getTitle], // Capture author info
+     @"Product_Brand", [currentProduct getBrand], // Capture user status
+     nil];
+    
+    [Flurry logEvent:@"Like_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     Likes *likes = [Likes instance];
@@ -236,6 +247,13 @@
 -(void)dislikeItem
 {
     [self disableButtons];
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"Product_Title", [currentProduct getTitle], // Capture author info
+     @"Product_Brand", [currentProduct getBrand], // Capture user status
+     nil];
+    
+    [Flurry logEvent:@"Dislike_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     if(p == nil){

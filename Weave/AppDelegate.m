@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Mixpanel.h"
 #define MIXPANEL_TOKEN @"631695be4a64754e91c244f279c83246"
+#define FLURRY_TOKEN @"ZP7ZN8QR3Q3SDPZGK5K6"
 
 
 @implementation AppDelegate
@@ -20,6 +21,8 @@
     // Initialize the library with your
     // Mixpanel project token, MIXPANEL_TOKEN
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:FLURRY_TOKEN];
     
     return YES;
 }

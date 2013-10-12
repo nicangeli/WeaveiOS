@@ -37,6 +37,20 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // In a function that captures when a user navigates away from article
+    [Flurry endTimedEvent:@"Products_Viewed" withParameters:nil]; // You can pass in additiona
+    Likes *likes = [Likes instance];
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"Number_Of_Likes", [likes count], // Capture author info
+     nil];
+    
+    [Flurry logEvent:@"Likes_Page_Loaded" withParameters:articleParams];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -99,6 +113,13 @@
 
 -(void)moreDetailsPressed:(UIButton *)sender {
     NSString *link = [sender accessibilityHint];
+    
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"url", link, // Capture author info
+     nil];
+    
+    [Flurry logEvent:@"Product_Shop_Visited" withParameters:articleParams];
     NSString *trimmedString;
     if([link hasPrefix:@" "]) {
         NSLog(@"I start with a space");

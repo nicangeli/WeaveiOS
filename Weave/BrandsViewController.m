@@ -104,8 +104,23 @@
     UIButton *image = (UIButton *)[self.view viewWithTag:401];
 
     if(self.topshopClicked) {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"Topshop", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Selected" withParameters:articleParams];
+
         [image setImage:[UIImage imageNamed:@"topshop-clicked.png"] forState:UIControlStateNormal];
     } else {
+        
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"Topshop", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Deselected" withParameters:articleParams];
+        
         [image setImage:[UIImage imageNamed:@"topshop"] forState:UIControlStateNormal];
     }
     [self updateBrands];
@@ -116,8 +131,23 @@
     self.asosClicked = !self.asosClicked;
     UIButton *image = (UIButton *)[self.view viewWithTag:402];
     if(self.asosClicked) {
+        
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"ASOS", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Selected" withParameters:articleParams];
+        
         [image setImage:[UIImage imageNamed:@"asos-clicked.png"] forState:UIControlStateNormal];
     } else {
+        
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"Topshop", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Deselected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"asos.png"] forState:UIControlStateNormal];
     }
     [self updateBrands];
@@ -129,8 +159,20 @@
     self.hmClicked = !self.hmClicked;
     UIButton *image = (UIButton *)[self.view viewWithTag:403];
     if(self.hmClicked) {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"H&M", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Selected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"h&m-clicked.png"] forState:UIControlStateNormal];
     } else {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"H&M", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Deselected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"h&m.png"] forState:UIControlStateNormal];
     }
     [self updateBrands];
@@ -142,8 +184,20 @@
     self.newlookClicked = !self.newlookClicked;
     UIButton *image = (UIButton *)[self.view viewWithTag:404];
     if(self.newlookClicked) {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"Newlook", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Selected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"newlook-clicked.png"] forState:UIControlStateNormal];
     } else {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"Newlook", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Deselected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"newlook.png"] forState:UIControlStateNormal];
     }
     [self updateBrands];
@@ -155,8 +209,20 @@
     self.otherStoriesClicked = !self.otherStoriesClicked;
     UIButton *image = (UIButton *)[self.view viewWithTag:405];
     if(self.otherStoriesClicked) {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"& Other Stories", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Selected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"otherstories-clicked.png"] forState:UIControlStateNormal];
     } else {
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Brand", @"& Other Stories", // Capture author info
+         nil];
+        
+        [Flurry logEvent:@"Brand_Deselected" withParameters:articleParams];
         [image setImage:[UIImage imageNamed:@"otherstories.png"] forState:UIControlStateNormal];
     }
     [self updateBrands];

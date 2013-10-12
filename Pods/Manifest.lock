@@ -19,18 +19,21 @@ PODS:
   - AFNetworking/Serialization (2.0.0)
   - AFNetworking/UIKit (2.0.0):
     - AFNetworking/NSURLConnection
+  - FlurrySDK (4.2.3)
   - MBProgressHUD (0.8)
   - Reachability (3.1.1)
   - YRDropdownView (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - FlurrySDK (~> 4.2.3)
   - MBProgressHUD (~> 0.8)
   - Reachability (~> 3.1.1)
   - YRDropdownView (~> 0.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 3fa983b1beaba69566a3374612511e2a6e3fe845
+  FlurrySDK: 20b3fd669eeafd005ca8ff65a1406d1befbc8031
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
   YRDropdownView: 6cd453679912af8d45cf73ea8d9e079885b99012

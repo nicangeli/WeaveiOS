@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Pods-FlurrySDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>Pods-MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -132,6 +137,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>758588203F744E61A8BE35C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7689C8889BC2412A921823CD</key>
 		<dict>
 			<key>primary</key>
@@ -163,6 +173,16 @@
 			<true/>
 		</dict>
 		<key>89E1A6B34D3A49FA9D8091D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89FA5628B3164B398C7ED823</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E2E0862FCB44DD0A37C6D52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -232,6 +252,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BE5499B8DBD0477391C1CF1D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BFD7EB86CE624E97B1E50625</key>
 		<dict>
 			<key>primary</key>
@@ -243,6 +268,11 @@
 			<true/>
 		</dict>
 		<key>C60FDEA0009A41A88A185B21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D15A0DE1960D46F88C2D5671</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -263,6 +293,11 @@
 			<true/>
 		</dict>
 		<key>DFF9A7393A8E48D7B55CDED9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E08D72BC738E49B3BCC80365</key>
 		<dict>
 			<key>primary</key>
 			<true/>
