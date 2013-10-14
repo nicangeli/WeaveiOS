@@ -48,6 +48,7 @@
 		89A0A26C1805C37F00561148 /* otherstories.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2621805C37F00561148 /* otherstories.png */; };
 		89A0A26D1805C37F00561148 /* topshop-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2631805C37F00561148 /* topshop-clicked.png */; };
 		89A0A26E1805C37F00561148 /* topshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A0A2641805C37F00561148 /* topshop.png */; };
+		89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A42ABB180B001D00195EB3 /* ImageDownloader.m */; };
 		89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AF6A351809F2F400DD74F0 /* Security.framework */; };
 		89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7142E17F5A7B6006F1E09 /* Foundation.framework */; };
 		89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */; };
@@ -135,6 +136,8 @@
 		89A0A2621805C37F00561148 /* otherstories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstories.png; sourceTree = "<group>"; };
 		89A0A2631805C37F00561148 /* topshop-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshop-clicked.png"; sourceTree = "<group>"; };
 		89A0A2641805C37F00561148 /* topshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshop.png; sourceTree = "<group>"; };
+		89A42ABA180B001D00195EB3 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		89A42ABB180B001D00195EB3 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		89AF6A351809F2F400DD74F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		89E7142B17F5A7B6006F1E09 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E7142E17F5A7B6006F1E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -215,6 +218,8 @@
 			children = (
 				89907F5518030ED700140A77 /* BrandsViewController.h */,
 				89907F5618030ED700140A77 /* BrandsViewController.m */,
+				89A42ABA180B001D00195EB3 /* ImageDownloader.h */,
+				89A42ABB180B001D00195EB3 /* ImageDownloader.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
 				894CE98517F5D3290021307A /* ProductViewController.m */,
 				8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */,
@@ -559,6 +564,7 @@
 				8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */,
 				8961501218041F1C00E93D01 /* Mixpanel.m in Sources */,
 				8961501018041F1C00E93D01 /* NSData+MPBase64.m in Sources */,
+				89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */,
 				8961501118041F1C00E93D01 /* ODIN.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
 				8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */,

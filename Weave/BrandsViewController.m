@@ -9,6 +9,7 @@
 #import "BrandsViewController.h"
 #import "Strings.h"
 #import "Likes.h"
+#import "ImageDownloader.h"
 
 @interface BrandsViewController ()
 
@@ -39,6 +40,8 @@
 {
     [super viewDidLoad];
     [self loadLikes];
+    //ImageDownloader *img = [[ImageDownloader alloc] init];
+    //[img downloadFile:@"http://marshaclarkandassociates.com/images/Lean_In_by_Sheryl_Sandberg.pdf"];
 
 	// Do any additional setup after loading the view.
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];

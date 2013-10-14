@@ -16,6 +16,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Collection.h"
 #import "NoLikesViewController.h"
+#import "ImageDownloader.h"
 
 @interface ProductViewController ()
 
@@ -48,7 +49,7 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     [self registerForNetworkEvents];
     [self listenToNetwork];
-
+    [self updateView];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -70,6 +71,34 @@
     //[self getNextProducts];
 }
 
+-(void)updateView{
+    
+    [self disableButtons];
+    
+    //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
+    UIImageView *productView = [[UIImageView alloc]init]; // container for the image on top of pile
+    [productView setTag:1001];
+    
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002]; //the polaroid that sits on top of the stack
+    [imageView addSubview:productView]; // add product on top of pile to the polaroid
+    productView.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
+    
+    CGRect frame = imageView.frame;
+    frame.size.width = 260;
+    frame.size.height = 250;
+    productView.frame = frame;
+    productView.center = CGPointMake(168,157); // move the image view to the middle of the polaroid
+    
+    /*
+     Add label for product price and title etc. As subview so it moves with pan
+     */
+    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
+    [productLabel setTag:1003];
+    [productLabel setText:@"Loading..."];
+    [imageView addSubview:productLabel];
+
+}
+
 -(void)listenToNetwork
 {
     reachability = [Reachability reachabilityForInternetConnection];
@@ -89,16 +118,12 @@
 }
 
 
--(void)getNextProducts
-{
-    Collection *collection = [Collection instance];
-    collection.calling = self;
-    [collection loadNextCollectionForBrands];
-}
 
 
+// CALLED WHEN THE JSON HAS FINISHED DOWNLOADING
 -(void)downloadFinished
 {
+    NSLog(@"Download finished");
     [hud hide:YES];
 
     Collection *collection = [Collection instance];
@@ -115,63 +140,40 @@
                                               completion:nil];
     } else {
         NSLog(@"Number of products to show: %@", numProducts);
-        Product *p = [collection getNextProduct];
-        currentProduct = p;
-        
-        NSLog(@"Displaying first products: %@", [p getImageUrl]);
-        if(p == nil) {
-            NSLog(@"The product I am trying to display is null");
-        }
-        
-        
-        UIImage *product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                                   [NSURL URLWithString: [p getImageUrl]]]];
-        
-        while(product == nil) {
-            p = [collection getNextProduct];
-            currentProduct = p;
-            product = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                              [NSURL URLWithString: [p getImageUrl]]]];
-        }
-        
-        [self enableButtons];
-        
-        //UIImage *product = [UIImage imageNamed:[currentProduct getImageUrl]]; // image of the product on top of pile
-        UIImageView *productView = [[UIImageView alloc]initWithImage:product]; // container for the image on top of pile
-        [productView setTag:1001];
-        
-        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1002]; //the polaroid that sits on top of the stack
-        [imageView addSubview:productView]; // add product on top of pile to the polaroid
-        productView.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
-        
-        CGRect frame = imageView.frame;
-        frame.size.width = 260;
-        frame.size.height = 250;
-        productView.frame = frame;
-        productView.center = CGPointMake(168,157); // move the image view to the middle of the polaroid
-        
-        /*
-         Add label for product price and title etc. As subview so it moves with pan
-         */
-        UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
-        [productLabel setTag:1003];
-        [productLabel setText:[currentProduct getType]];
-        [imageView addSubview:productLabel];
-        if([[currentProduct getType] length] < 10) {
-            [productLabel setCenter:CGPointMake(220, imageView.frame.size.height-50)];
-        } else if([[currentProduct getType] length] < 16) {
-            [productLabel setCenter:CGPointMake(200, imageView.frame.size.height-50)];
-        } else{
-            [productLabel setCenter:CGPointMake(180, imageView.frame.size.height-50)];
-        }
+        [self showNextProduct];
     }
-
 }
 
-- (void)didReceiveMemoryWarning
+-(void)showNextProduct
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [hud hide:YES];
+    Collection *c = [Collection instance];
+    c.calling = self;
+    Product *p = [c getNextProduct];
+    if(p == nil) {
+        [c loadNextCollectionForBrands];
+    } else {
+        UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
+        [MBProgressHUD showHUDAddedTo:v animated:YES];
+        currentProduct = p;
+        ImageDownloader *img = [[ImageDownloader alloc] init];
+        img.delegate = self;
+        [img downloadImageForProduct:p];
+    }
+}
+
+-(void)finishedDownloadingImageForProduct:(Product *)p
+{
+    UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
+
+    [MBProgressHUD hideHUDForView:v animated:YES];
+    // downloaded the image and saved it to the documents folder - lets display it
+    NSLog(@"%@", [p getImageUrl]);
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
+    UIImage *image = [UIImage imageWithContentsOfFile:[p getImageUrl]];
+    [imageView setImage:image];
+    [self updateLabelsForProduct:p inImageView:imageView];
+    [self enableButtons];
 }
 
 -(IBAction)hitLikeButton:(id)sender
@@ -223,24 +225,17 @@
     [likes addProduct:currentProduct];
     if(p == nil) {
         NSLog(@"Reached the end of the items");
-        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-        UILabel *label = (UILabel *)[self.view viewWithTag:1003];
-        [imageView removeFromSuperview];
-        [label removeFromSuperview];
-      
-        // no products left, lets recall the API
+
         Strings *s = [Strings instance];
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = s.loadingText;
-        [self getNextProducts];
+        [self showNextProduct];
 
         
     } else {
-        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-        //[imageView setImage:[UIImage imageNamed:@"shoe2.jpg"]];
-        currentProduct = p;
         [self saveLikes];
-        [self updateImageView:imageView forProduct:p];
+        currentProduct = p;
+        [self showNextProduct];
     }
 }
 
@@ -252,64 +247,22 @@
      @"Product_Title", [currentProduct getTitle], // Capture author info
      @"Product_Brand", [currentProduct getBrand], // Capture user status
      nil];
+    [ImageDownloader deleteFileAtPath:[currentProduct getImageUrl]];
     
     [Flurry logEvent:@"Dislike_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];
     Product *p = [collection getNextProduct];
     if(p == nil){
         NSLog(@"Reached the end of the items");
-        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-        UILabel *label = (UILabel *)[self.view viewWithTag:1003];
 
-        [imageView removeFromSuperview];
-        [label removeFromSuperview];
-        // no products left, lets recall the API
         Strings *s = [Strings instance];
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = s.loadingText;
-        [self getNextProducts];
+        [self showNextProduct];
     } else {
-        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
         currentProduct = p;
-        [self updateImageView:imageView forProduct:p];
+        [self showNextProduct];
     }
-}
-
--(void)updateImageView:(UIImageView *)imageView forProduct:(Product *)product
-{
-    __block id p = product;
-    Collection *collection = [Collection instance];
-    UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
-    [MBProgressHUD showHUDAddedTo:v animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        // Do something...
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                                 [NSURL URLWithString: [p getImageUrl]]]];
-        while(image == nil) {
-            p = [collection getNextProduct];
-            if(p == nil) {
-                //skip to likes page
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
-                
-                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-                [self.navigationController presentViewController:navController
-                                                        animated:YES
-                                                      completion:nil];
-            }
-            image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                            [NSURL URLWithString: [p getImageUrl]]]];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self enableButtons];
-            [MBProgressHUD hideHUDForView:v animated:YES];
-            [imageView setImage:image];
-
-
-        });
-    });
-
-    [self updateLabelsForProduct:p inImageView:imageView];
 }
 
 -(void)enableButtons
@@ -497,13 +450,15 @@
         case ReachableViaWiFi:
         {
             [self hideNetworkError];
-            [self getNextProducts];
+            //[self getNextProducts];
+            [self showNextProduct];
             break;
         }
         case ReachableViaWWAN:
         {
             [self hideNetworkError];
-            [self getNextProducts];
+            //[self getNextProducts];
+            [self showNextProduct];
             break;
         }
     }

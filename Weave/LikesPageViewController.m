@@ -8,6 +8,7 @@
 
 #import "LikesPageViewController.h"
 #import "AppDelegate.h"
+#import "ImageDownloader.h"
 
 @interface LikesPageViewController ()
 
@@ -95,8 +96,8 @@
     Product *p = [likes objectAtIndex:index];
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
     //thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
-    thumbnailView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                               [NSURL URLWithString: [p getImageUrl]]]];
+    //thumbnailView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: [p getImageUrl]]]];
+    thumbnailView.image = [UIImage imageWithContentsOfFile:[p getImageUrl]];
     thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
@@ -159,8 +160,11 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        Product *p = [likes objectAtIndex:indexPath.row];
         [likes removeProductAtIndex:indexPath.row];
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [ImageDownloader deleteFileAtPath:[p getImageUrl]];
         [self saveLikes];
     }
 
