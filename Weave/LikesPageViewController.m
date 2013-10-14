@@ -102,24 +102,22 @@
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
     titleLabel.text = [p getTitle];
-    
-    UILabel *typeLabel = (UILabel *)[cell viewWithTag:102];
-    typeLabel.text = [p getType];
-    
+        
     UILabel *brandLabel = (UILabel *)[cell viewWithTag:103];
     brandLabel.text = [p getBrand];
     
     UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
     priceLavel.text = [p getPrice];
     
-    UIButton *moreDetailsButton = (UIButton *)[cell viewWithTag:105];
-    moreDetailsButton.accessibilityHint = [p getUrl];
+    //UIButton *moreDetailsButton = (UIButton *)[cell viewWithTag:105];
+    //moreDetailsButton.accessibilityHint = [p getUrl];
     
-    [moreDetailsButton addTarget:self action:@selector(moreDetailsPressed:) forControlEvents:UIControlEventTouchUpInside];
+    //[moreDetailsButton addTarget:self action:@selector(moreDetailsPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
 
+/*
 -(void)moreDetailsPressed:(UIButton *)sender {
     NSString *link = [sender accessibilityHint];
     
@@ -142,6 +140,7 @@
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:trimmedString]];
 }
+ */
 
 
 // Override to support conditional editing of the table view.

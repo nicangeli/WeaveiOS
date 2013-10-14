@@ -15,6 +15,7 @@
 		8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453F17FD9518001A6D68 /* NoLikesViewController.m */; };
 		8925454417FDAF16001A6D68 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454317FDAF16001A6D68 /* Strings.m */; };
 		8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */; };
+		89385E55180C3603000A260C /* EmailLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E54180C3603000A260C /* EmailLikesViewController.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -93,6 +94,8 @@
 		8925454317FDAF16001A6D68 /* Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strings.m; sourceTree = "<group>"; };
 		8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		89385E53180C3603000A260C /* EmailLikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLikesViewController.h; sourceTree = "<group>"; };
+		89385E54180C3603000A260C /* EmailLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLikesViewController.m; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				8925453F17FD9518001A6D68 /* NoLikesViewController.m */,
 				8925453317FB1FC7001A6D68 /* LikesPageViewController.h */,
 				8925453417FB1FC7001A6D68 /* LikesPageViewController.m */,
+				89385E53180C3603000A260C /* EmailLikesViewController.h */,
+				89385E54180C3603000A260C /* EmailLikesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				89907F5718030ED700140A77 /* BrandsViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */,
+				89385E55180C3603000A260C /* EmailLikesViewController.m in Sources */,
 				8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */,
 				8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
