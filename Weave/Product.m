@@ -55,6 +55,10 @@
 -(NSString *)getImageUrl {
     return imageUrl;
 }
+-(void)setImageUrl:(NSString *)newImageURL
+{
+    imageUrl = newImageURL;
+}
 
 -(NSString *)getTitle {
     return title;

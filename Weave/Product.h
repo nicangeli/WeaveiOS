@@ -21,6 +21,7 @@
 -(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand type:(NSString *)myType imageUrl:(NSString *)myImageUrl;
 
 -(NSString *)getImageUrl;
+-(void)setImageUrl:(NSString *)newImageURL;
 -(NSString *)getTitle;
 -(NSString *)getType;
 -(NSString *)getPrice;

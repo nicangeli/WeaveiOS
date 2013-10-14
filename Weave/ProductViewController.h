@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Collection.h"
+#import "ImageDownloader.h"
 
 @class Collection;
 
-@interface ProductViewController : UIViewController {
+@interface ProductViewController : UIViewController <ImageDownloaderProtocol> {
     CGPoint startLocation;
     Product *currentProduct;
     MBProgressHUD *hud;
