@@ -123,6 +123,7 @@
 // CALLED WHEN THE JSON HAS FINISHED DOWNLOADING
 -(void)downloadFinished
 {
+    NSLog(@"Download finished");
     [hud hide:YES];
 
     Collection *collection = [Collection instance];
@@ -145,6 +146,7 @@
 
 -(void)showNextProduct
 {
+    [hud hide:YES];
     Collection *c = [Collection instance];
     c.calling = self;
     Product *p = [c getNextProduct];

@@ -8,6 +8,7 @@
 
 #import "LikesPageViewController.h"
 #import "AppDelegate.h"
+#import "ImageDownloader.h"
 
 @interface LikesPageViewController ()
 
@@ -159,8 +160,11 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        Product *p = [likes objectAtIndex:indexPath.row];
         [likes removeProductAtIndex:indexPath.row];
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [ImageDownloader deleteFileAtPath:[p getImageUrl]];
         [self saveLikes];
     }
 

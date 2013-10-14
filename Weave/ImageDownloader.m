@@ -38,16 +38,12 @@
     int highestSeen = 0;
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     for(count = 0; count < (int)[directoryContent count]; count++) {
-        NSLog(@"File at: %@", [directoryContent objectAtIndex:count]);
         NSString *file = [directoryContent objectAtIndex:count];
         NSArray *fileBits = [file componentsSeparatedByString:@"."];
-        //NSLog(@"First Bit: %@", [fileBits objectAtIndex:0]);
         int number = [[fileBits objectAtIndex:0] intValue];
         if(number > highestSeen) {
-            //NSLog(@"True");
             highestSeen = number;
         }
-        //NSLog(@"Number: %d", number);
     }
     if(highestSeen == 0) {
         highestSeen = 1;
