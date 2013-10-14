@@ -16,6 +16,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Collection.h"
 #import "NoLikesViewController.h"
+#import "ImageDownloader.h"
 
 @interface ProductViewController ()
 
@@ -244,6 +245,7 @@
      @"Product_Title", [currentProduct getTitle], // Capture author info
      @"Product_Brand", [currentProduct getBrand], // Capture user status
      nil];
+    [ImageDownloader deleteFileAtPath:[currentProduct getImageUrl]];
     
     [Flurry logEvent:@"Dislike_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];

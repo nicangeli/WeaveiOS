@@ -19,5 +19,7 @@
 
 @property (nonatomic, retain) id<ImageDownloaderProtocol> delegate;
 -(void)downloadImageForProduct:(Product *)p;
++(void)deleteFileAtPath:(NSString *)path;
+-(NSString *)getNextFileNameAtPath:(NSString *)path;
 
 @end
