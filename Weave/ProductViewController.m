@@ -55,7 +55,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"Selected Brands: %@", self.brandsSelected);
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
         Strings *s = [Strings instance];

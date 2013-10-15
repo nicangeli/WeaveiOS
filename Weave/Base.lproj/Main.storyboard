@@ -69,9 +69,7 @@
                             <outlet property="delegate" destination="m1o-gS-q28" id="2FB-Jx-isk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
-                        <barButtonItem key="leftBarButtonItem" title="Brands" id="0qH-ws-pLN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

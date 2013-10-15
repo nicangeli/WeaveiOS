@@ -98,6 +98,7 @@
         [brandsStrings addObject:[b getName]];
     }
     NSString *brandString = [brandsStrings componentsJoinedByString:@","];
+    NSLog(@"Brand String: %@", brandString);
     return brandString;
 }
 
