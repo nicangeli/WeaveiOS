@@ -55,6 +55,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    NSLog(@"Selected Brands: %@", self.brandsSelected);
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
         Strings *s = [Strings instance];
@@ -151,7 +152,7 @@
     c.calling = self;
     Product *p = [c getNextProduct];
     if(p == nil) {
-        [c loadNextCollectionForBrands];
+        [c loadNextCollectionForBrands:self.brandsSelected];
     } else {
         UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
         [MBProgressHUD showHUDAddedTo:v animated:YES];

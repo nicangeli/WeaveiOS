@@ -12,6 +12,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Mixpanel.h"
 #import "NoLikesViewController.h"
+#import "Brand.h"
 
 @implementation Collection
 
@@ -28,8 +29,6 @@
     }
 }
 
-
-
 -(Product *)getNextProduct
 {
     if([products count] == 0) {
@@ -45,25 +44,16 @@
     return [NSNumber numberWithInt:[products count]];
 }
 
--(void)loadNextCollectionForBrands;
+-(void)loadNextCollectionForBrands:(NSMutableArray *)brands
 {
     NSLog(@"LOAD NEXT COLLECTION FOR BRANDS IS CALLED");
     Strings *s= [Strings instance];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *paramaters;
-    if(![defaults stringArrayForKey:@"brands"]) {
-        paramaters = @{@"UDID": [[Mixpanel sharedInstance] distinctId]};
-    } else {
-        NSArray *keys = [NSArray arrayWithObjects:@"UDID", @"shops", nil];
-        NSArray *brands = [defaults stringArrayForKey:@"brands"];
-        NSString *b = [brands componentsJoinedByString:@","];
-        NSLog(@"%@", b);
-        //        NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
-        NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
+    NSArray *keys = [NSArray arrayWithObjects:@"UDID", @"shops", nil];
+    NSString *b = [self buildBrandStringFromArray:brands];
+    NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
 
-        //NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
-        paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-    }
+    //NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
+    NSDictionary *paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
@@ -99,6 +89,16 @@
             */
             [self.calling showNetworkError];
         }];
+}
+
+-(NSString *)buildBrandStringFromArray:(NSArray *)brands
+{
+    NSMutableArray *brandsStrings = [[NSMutableArray alloc] initWithCapacity:5];
+    for(Brand *b in brands) {
+        [brandsStrings addObject:[b getName]];
+    }
+    NSString *brandString = [brandsStrings componentsJoinedByString:@","];
+    return brandString;
 }
 
 -(void)print

@@ -11,5 +11,6 @@
 @interface BrandsPageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UIView *messageAlert;
 
 @end

@@ -19,6 +19,8 @@
     Reachability *reachability;
 }
 
+@property (nonatomic, strong) NSMutableArray *brandsSelected;
+
 -(IBAction)hitDislikeButton:(id)sender;
 -(IBAction)hitLikeButton:(id)sender;
 -(IBAction)hitInfoButton:(id)sender;

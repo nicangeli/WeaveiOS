@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="197" id="WDP-Yu-vMq">
-                                <rect key="frame" x="0.0" y="22" width="320" height="197"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="197"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDP-Yu-vMq" id="v18-CK-Rfj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
@@ -70,24 +70,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
-                        <barButtonItem key="leftBarButtonItem" title="Brands" id="0qH-ws-pLN">
-                            <connections>
-                                <segue destination="gPo-4Q-Rty" kind="push" id="kAK-hI-zKb"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Brands" id="0qH-ws-pLN"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="99"/>
+            <point key="canvasLocation" x="1763" y="152"/>
         </scene>
         <!--Email Likes View Controller-->
         <scene sceneID="NMg-RX-8hm">
             <objects>
                 <viewController id="vXR-Eh-jUc" customClass="EmailLikesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zjC-pW-ej7"/>
-                        <viewControllerLayoutGuide type="bottom" id="n81-bY-Jcw"/>
+                        <viewControllerLayoutGuide type="top" id="NOr-0f-K1d"/>
+                        <viewControllerLayoutGuide type="bottom" id="s1t-7r-Ai0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fdh-qj-MkY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -131,8 +127,8 @@
             <objects>
                 <viewController storyboardIdentifier="NoLikes" id="Bhx-vY-ujz" customClass="NoLikesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qAu-RO-Y9F"/>
-                        <viewControllerLayoutGuide type="bottom" id="mGv-qy-FLT"/>
+                        <viewControllerLayoutGuide type="top" id="A9b-x0-eLn"/>
+                        <viewControllerLayoutGuide type="bottom" id="bK3-Ee-Pxo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5kB-Ev-3Ro">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -172,11 +168,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nothing Left" id="7r3-ar-2k1">
-                        <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV">
-                            <connections>
-                                <segue destination="gPo-4Q-Rty" kind="push" id="zrh-xj-pld"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV"/>
                         <barButtonItem key="rightBarButtonItem" title="Likes" id="2eA-Fm-nV4">
                             <connections>
                                 <segue destination="m1o-gS-q28" kind="push" identifier="NoLeftToLikes" id="gxU-mc-Qzz"/>
@@ -186,15 +178,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dt9-bn-eG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2392" y="674"/>
+            <point key="canvasLocation" x="1763" y="860"/>
         </scene>
         <!--Product View Controller - Weave-->
         <scene sceneID="feL-58-pYM">
             <objects>
                 <viewController storyboardIdentifier="ProductView" id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lCB-Rh-EIT"/>
-                        <viewControllerLayoutGuide type="bottom" id="EkM-SZ-sj8"/>
+                        <viewControllerLayoutGuide type="top" id="cI9-Nm-zFb"/>
+                        <viewControllerLayoutGuide type="bottom" id="gtQ-sP-iAW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mtx-nu-SId">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -271,40 +263,40 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1908" y="157"/>
+            <point key="canvasLocation" x="1239" y="278"/>
         </scene>
         <!--Brands Page View Controller - Weave-->
         <scene sceneID="bsH-Ps-2xN">
             <objects>
-                <viewController id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HN4-QT-sYZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="ccJ-hv-nC8"/>
+                        <viewControllerLayoutGuide type="top" id="NFA-pW-HUo"/>
+                        <viewControllerLayoutGuide type="bottom" id="ELL-yq-54w"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="16a-go-hsK">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="16a-go-hsK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G3y-37-GLJ">
-                                <rect key="frame" x="20" y="134" width="280" height="414"/>
+                                <rect key="frame" x="15" y="81" width="280" height="406"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TM0-E6-aNk">
-                                    <size key="itemSize" width="107" height="81"/>
+                                    <size key="itemSize" width="253" height="55"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="1" reuseIdentifier="Cell" id="dWt-w1-He2" customClass="BrandCell">
-                                        <rect key="frame" x="0.0" y="64" width="107" height="81"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="1" verticalHuggingPriority="1" reuseIdentifier="Cell" id="dWt-w1-He2" customClass="BrandCell">
+                                        <rect key="frame" x="14" y="64" width="253" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="107" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brand Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koz-KY-ntv">
-                                                    <rect key="frame" x="15" y="20" width="97" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brand Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koz-KY-ntv">
+                                                    <rect key="frame" x="20" y="17" width="219" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
@@ -312,7 +304,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.70751805456441952" green="1" blue="0.67533491212708441" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                         <connections>
                                             <outlet property="brandNameLabel" destination="koz-KY-ntv" id="whW-sX-zxc"/>
@@ -333,12 +325,41 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tV-xF-rn8">
+                                <rect key="frame" x="0.0" y="504" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep selecting brands or:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9Z-Hb-oS2">
+                                        <rect key="frame" x="14" y="20" width="254" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iam-cf-rjB">
+                                        <rect key="frame" x="237" y="14" width="63" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Weave!">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="Ghd-Hh-Gym"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9tV-xF-rn8" secondAttribute="bottom" id="3t8-Pg-jPF"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Weave" id="rqA-fc-rI6"/>
                     <connections>
                         <outlet property="collectionView" destination="G3y-37-GLJ" id="8EE-oE-xcd"/>
+                        <outlet property="messageAlert" destination="9tV-xF-rn8" id="Z2y-ef-xgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azm-Ju-YF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,8 +371,8 @@
             <objects>
                 <viewController id="gPo-4Q-Rty" customClass="BrandsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7o1-et-LaI"/>
-                        <viewControllerLayoutGuide type="bottom" id="IkR-Jt-oG0"/>
+                        <viewControllerLayoutGuide type="top" id="SrG-lo-TAp"/>
+                        <viewControllerLayoutGuide type="bottom" id="bAi-Pq-GWR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ruy-FU-RDs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -413,25 +434,18 @@
                                 <state key="normal" title="Show me the clothes!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="RKw-3t-PVS"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Follow Some Brands..." id="1sV-33-ygX">
                         <barButtonItem key="leftBarButtonItem" id="f4r-Gj-VGr"/>
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="Rmz-xi-dxZ">
-                            <connections>
-                                <segue destination="m1o-gS-q28" kind="push" id="9LF-5c-wYg"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Likes" id="Rmz-xi-dxZ"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9r-Tq-cRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1347" y="292"/>
+            <point key="canvasLocation" x="848" y="-406"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="laS-8m-Yvo">
@@ -470,7 +484,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9LF-5c-wYg"/>
-        <segue reference="kAK-hI-zKb"/>
+        <segue reference="iVo-ez-5yT"/>
     </inferredMetricsTieBreakers>
 </document>
