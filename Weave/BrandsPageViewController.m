@@ -15,6 +15,7 @@
 
 @implementation BrandsPageViewController{
     NSArray *descriptions;
+    NSArray *clickedDescriptions;
 }
 
 @synthesize collectionView;
@@ -35,6 +36,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     descriptions = [[NSArray alloc] initWithObjects:@"Topshop", @"H&M", @"& Other Stories", nil];
+    clickedDescriptions = [[NSArray alloc] initWithObjects:@"Clicked Topshop", @"Clicked H&M", @"Clicked & Other Stories", nil];
 	// Do any additional setup after loading the view.
 }
 
@@ -60,8 +62,18 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"I clicked on %@", [descriptions objectAtIndex:indexPath.item]);
+    /*
+    ShotCell *cell = [self collectionView:cv cellForItemAtIndexPath:indexPath];
+    UILabel *testLabel = UILabel.alloc.init;
+    testLabel.text = @"FooBar";
+    testLabel.sizeToFit;
+    [cell.contentView.addSubview testLabel];
+     */
+    BrandCell *cell = (BrandCell *)[cv cellForItemAtIndexPath:indexPath];
+    cell.brandNameLabel.text = [clickedDescriptions objectAtIndex:indexPath.item];
     
 }
 
