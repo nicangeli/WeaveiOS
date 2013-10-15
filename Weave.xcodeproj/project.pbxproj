@@ -16,6 +16,8 @@
 		8925454417FDAF16001A6D68 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454317FDAF16001A6D68 /* Strings.m */; };
 		8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */; };
 		89385E55180C3603000A260C /* EmailLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E54180C3603000A260C /* EmailLikesViewController.m */; };
+		89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E5A180D59A7000A260C /* BrandsPageViewController.m */; };
+		89385E5E180D63C6000A260C /* BrandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E5D180D63C6000A260C /* BrandCell.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
 		893D303317F8E54000D820D1 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D303017F8E54000D820D1 /* cross.png */; };
@@ -96,6 +98,10 @@
 		8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		89385E53180C3603000A260C /* EmailLikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLikesViewController.h; sourceTree = "<group>"; };
 		89385E54180C3603000A260C /* EmailLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLikesViewController.m; sourceTree = "<group>"; };
+		89385E59180D59A7000A260C /* BrandsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandsPageViewController.h; sourceTree = "<group>"; };
+		89385E5A180D59A7000A260C /* BrandsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandsPageViewController.m; sourceTree = "<group>"; };
+		89385E5C180D63C6000A260C /* BrandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandCell.h; sourceTree = "<group>"; };
+		89385E5D180D63C6000A260C /* BrandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandCell.m; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
 		893D302E17F8E20100D820D1 /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dislike.png; path = ../../../Dropbox/weave/dislike.png; sourceTree = "<group>"; };
 		893D303017F8E54000D820D1 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = ../../../Dropbox/weave/cross.png; sourceTree = "<group>"; };
@@ -221,6 +227,10 @@
 			children = (
 				89907F5518030ED700140A77 /* BrandsViewController.h */,
 				89907F5618030ED700140A77 /* BrandsViewController.m */,
+				89385E59180D59A7000A260C /* BrandsPageViewController.h */,
+				89385E5A180D59A7000A260C /* BrandsPageViewController.m */,
+				89385E5C180D63C6000A260C /* BrandCell.h */,
+				89385E5D180D63C6000A260C /* BrandCell.m */,
 				89A42ABA180B001D00195EB3 /* ImageDownloader.h */,
 				89A42ABB180B001D00195EB3 /* ImageDownloader.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
@@ -560,9 +570,11 @@
 				8925454417FDAF16001A6D68 /* Strings.m in Sources */,
 				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
 				89907F5718030ED700140A77 /* BrandsViewController.m in Sources */,
+				89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */,
 				89385E55180C3603000A260C /* EmailLikesViewController.m in Sources */,
+				89385E5E180D63C6000A260C /* BrandCell.m in Sources */,
 				8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */,
 				8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
