@@ -21,5 +21,7 @@
 -(BOOL)isChecked;
 -(NSString *)getName;
 -(NSString *)getClickedName;
+-(NSString *)getImageName;
+-(NSString *)getImageClickedName;
 
 @end

@@ -37,5 +37,14 @@
 {
     return self.clickedName;
 }
+-(NSString *)getImageName
+{
+    return self.imageName;
+}
+
+-(NSString *)getImageClickedName
+{
+    return self.imageClickedName;
+}
 
 @end

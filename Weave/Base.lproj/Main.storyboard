@@ -293,19 +293,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brand Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koz-KY-ntv">
-                                                    <rect key="frame" x="20" y="17" width="219" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qUx-ks-nGP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.70751805456441952" green="1" blue="0.67533491212708441" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                         <connections>
-                                            <outlet property="brandNameLabel" destination="koz-KY-ntv" id="whW-sX-zxc"/>
+                                            <outlet property="brandLogo" destination="qUx-ks-nGP" id="Chx-8a-b89"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -466,7 +464,7 @@
         <image name="otherstories.png" width="447" height="82"/>
         <image name="polaroid-view.png" width="477" height="557"/>
         <image name="polaroid.png" width="477" height="557"/>
-        <image name="topshop.png" width="447" height="82"/>
+        <image name="topshop.png" width="335" height="103"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -11,5 +11,6 @@
 @interface BrandCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *brandNameLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *brandLogo;
 
 @end

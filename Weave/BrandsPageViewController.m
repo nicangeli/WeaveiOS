@@ -19,7 +19,6 @@
     //NSArray *descriptions;
     //NSArray *clickedDescriptions;
     NSMutableArray *brands;
-    NSMutableArray *selectedState;
 }
 
 @synthesize collectionView;
@@ -40,21 +39,20 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    selectedState = [[NSMutableArray alloc] initWithObjects:@"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", nil];
     
     brands = [[NSMutableArray alloc] initWithCapacity:5];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"ASOS.jpg" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"ASOS.jpg" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"ASOS.jpg" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"topshop.png" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"topshop.png" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"topshop.png" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"topshop.png" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"topshop.png" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"topshop.png" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
 }
 
 
@@ -77,16 +75,18 @@
     BrandCell *cell = [myCollectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     Brand *b = (Brand *)[brands objectAtIndex:indexPath.item];
     NSString *label;
+    UIImage *image;
     if(b.checked) {
         // is b checked?
         label = [b getClickedName];
-        [cell setBackgroundColor:[UIColor blueColor]];
+        image = [UIImage imageNamed:[b getImageClickedName]];
     } else {
         // b is not checked
         label = [b getName];
-        [cell setBackgroundColor:[UIColor greenColor]];
+        image = [UIImage imageNamed:[b getImageName]];
     }
-    cell.brandNameLabel.text = label;
+    //cell.brandNameLabel.text = label;
+    cell.brandLogo.image = image;
     return cell;
 }
 
