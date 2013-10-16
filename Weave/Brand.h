@@ -20,5 +20,6 @@
 
 -(BOOL)isChecked;
 -(NSString *)getName;
+-(NSString *)getClickedName;
 
 @end

@@ -19,6 +19,7 @@
     //NSArray *descriptions;
     //NSArray *clickedDescriptions;
     NSMutableArray *brands;
+    NSMutableArray *selectedState;
 }
 
 @synthesize collectionView;
@@ -39,6 +40,8 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    selectedState = [[NSMutableArray alloc] initWithObjects:@"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", @"NO", nil];
+    
     brands = [[NSMutableArray alloc] initWithCapacity:5];
     [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"ASOS.jpg" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
@@ -73,29 +76,30 @@
     static NSString *cellIdentifier = @"Cell";
     BrandCell *cell = [myCollectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     Brand *b = (Brand *)[brands objectAtIndex:indexPath.item];
-    cell.brandNameLabel.text = b.name;
-    
+    NSString *label;
+    if(b.checked) {
+        // is b checked?
+        label = [b getClickedName];
+        [cell setBackgroundColor:[UIColor blueColor]];
+    } else {
+        // b is not checked
+        label = [b getName];
+        [cell setBackgroundColor:[UIColor greenColor]];
+    }
+    cell.brandNameLabel.text = label;
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BrandCell *cell = (BrandCell *)[cv cellForItemAtIndexPath:indexPath];
     Brand *b = [brands objectAtIndex:indexPath.item];
-    b.checked = !b.checked;
-    if([self isABrandSelected]) {
-        [self.messageAlert setHidden:NO];
-    } else {
-        [self.messageAlert setHidden:YES];
-    }
     if(b.checked) {
-        cell.brandNameLabel.text = b.clickedName;
-        //cell.backgroundColor = [[UIColor alloc] initWithRed:100 green:100 blue:100 alpha:1];
-        cell.backgroundColor = [UIColor blueColor];
+        // b is checked
+        [b setChecked:NO];
     } else {
-        cell.brandNameLabel.text = b.name;
-        cell.backgroundColor = [UIColor greenColor];
+        [b setChecked:YES];
     }
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

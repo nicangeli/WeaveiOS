@@ -33,5 +33,9 @@
 {
     return self.name;
 }
+-(NSString *)getClickedName
+{
+    return self.clickedName;
+}
 
 @end
