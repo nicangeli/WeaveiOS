@@ -99,6 +99,11 @@
     } else {
         [b setChecked:YES];
     }
+    if([self isABrandSelected]) {
+        [self.messageAlert setHidden:NO];
+    } else {
+        [self.messageAlert setHidden:YES];
+    }
     [self.collectionView reloadData];
 }
 
