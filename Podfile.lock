@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.0.0):
     - AFNetworking/NSURLConnection
   - FlurrySDK (4.2.3)
+  - iCarousel (1.7.6)
   - MBProgressHUD (0.8)
   - Reachability (3.1.1)
   - YRDropdownView (0.0.1)
@@ -27,6 +28,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FlurrySDK (~> 4.2.3)
+  - iCarousel (~> 1.7.6)
   - MBProgressHUD (~> 0.8)
   - Reachability (~> 3.1.1)
   - YRDropdownView (~> 0.0.1)
@@ -34,8 +36,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 3fa983b1beaba69566a3374612511e2a6e3fe845
   FlurrySDK: 20b3fd669eeafd005ca8ff65a1406d1befbc8031
+  iCarousel: e23a26d7ba722215a42144e80adb0dcb59bebc41
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
   YRDropdownView: 6cd453679912af8d45cf73ea8d9e079885b99012
 
-COCOAPODS: 0.25.0
+COCOAPODS: 0.26.2

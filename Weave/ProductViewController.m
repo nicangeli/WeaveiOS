@@ -415,10 +415,10 @@
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView
 {
     UILabel *label = (UILabel *)[self.view viewWithTag:1003]; // 1003 is the label that holds the title
-    [label setText:[product getType]];
-    if([[product getType] length] < 10) {
+    [label setText:[product getCategory]];
+    if([[product getCategory] length] < 10) {
         [label setCenter:CGPointMake(220, imageView.frame.size.height+60)];
-    } else if([[product getType] length] < 16) {
+    } else if([[product getCategory] length] < 16) {
         [label setCenter:CGPointMake(200, imageView.frame.size.height+60)];
     } else{
         [label setCenter:CGPointMake(180, imageView.frame.size.height+60)];

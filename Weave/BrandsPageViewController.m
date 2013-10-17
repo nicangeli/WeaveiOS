@@ -41,18 +41,8 @@
     self.collectionView.delegate = self;
     
     brands = [[NSMutableArray alloc] initWithCapacity:5];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"topshop.png" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"topshop.png" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"topshop.png" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"topshop.png" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"New Look" andImageName:@"topshop.png" andClickedName:@"New Look Clicked" andImageClickedName:@"" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"TopShop" andImageName:@"topshop.png" andClickedName:@"TopShop Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Topshop" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Zara" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
 }
 
 

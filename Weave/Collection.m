@@ -64,7 +64,8 @@
         //NSLog(@"%@", jsonArray);
                 
         for(NSDictionary *dic in jsonArray) {
-            Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] type:[dic objectForKey:@"type"] imageUrl:[dic objectForKey:@"imageUrl"]];
+            NSMutableArray *array = [[NSMutableArray alloc] initWithArray:[dic objectForKey:@"images"]];
+            Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] imageUrls:array category:[dic objectForKey:@"category"] subcategory:[dic objectForKey:@"subcategory"] materials:[dic objectForKey:@"materials"] collectionDate:[dic objectForKey:@"collectionDate"]];
                     //NSLog(@"Made new product object: %@", [p getTitle]);
             if(!products) {
                 products = [[NSMutableArray alloc] initWithCapacity:20];
@@ -100,13 +101,6 @@
     NSString *brandString = [brandsStrings componentsJoinedByString:@","];
     NSLog(@"Brand String: %@", brandString);
     return brandString;
-}
-
--(void)print
-{
-    for(Product *p in products) {
-    //    NSLog(@"%@", [p getTitle]);
-    }
 }
 
 @end

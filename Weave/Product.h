@@ -14,18 +14,25 @@
     NSString *price;
     NSString *shop;
     NSString *brand;
-    NSString *type;
-    NSString *imageUrl;
+    NSString *category;
+    NSString *subcategory;
+    NSString *materials;
+    NSMutableArray *imageUrls;
+    NSString *collectionDate;
 }
 
--(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand type:(NSString *)myType imageUrl:(NSString *)myImageUrl;
+-(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand imageUrls:(NSMutableArray *)myImageUrls category:(NSString *)myCategory subcategory:(NSString *)mySubcategory materials:(NSString *)myMaterials collectionDate:(NSString *)myCollectionDate;
 
+-(NSArray *)getImageUrls;
 -(NSString *)getImageUrl;
 -(void)setImageUrl:(NSString *)newImageURL;
 -(NSString *)getTitle;
--(NSString *)getType;
 -(NSString *)getPrice;
 -(NSString *)getBrand;
 -(NSString *)getUrl;
+-(NSString *)getCategory;
+-(NSString *)getSubCategory;
+-(NSString *)getMaterials;
+-(NSString *)getCollectionDate;
 
 @end

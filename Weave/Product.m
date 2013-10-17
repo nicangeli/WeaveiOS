@@ -10,7 +10,7 @@
 
 @implementation Product
 
--(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand type:(NSString *)myType imageUrl:(NSString *)myImageUrl {
+-(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand imageUrls:(NSMutableArray *)myImageUrls category:(NSString *)myCategory subcategory:(NSString *)mySubcategory materials:(NSString *)myMaterials collectionDate:(NSString *)myCollectionDate {
     
     self = [super init];
     if(self != nil) {
@@ -19,8 +19,11 @@
         price = myPrice;
         shop = myShop;
         brand = myBrand;
-        type = myType;
-        imageUrl = myImageUrl;
+        imageUrls = myImageUrls;
+        category = myCategory;
+        subcategory = mySubcategory;
+        materials = myMaterials;
+        collectionDate = myCollectionDate;
     }
     
     return self;
@@ -33,8 +36,11 @@
     [aCoder encodeObject:price forKey:@"price"];
     [aCoder encodeObject:shop forKey:@"shop"];
     [aCoder encodeObject:brand forKey:@"brand"];
-    [aCoder encodeObject:type forKey:@"type"];
-    [aCoder encodeObject:imageUrl forKey:@"imageUrl"];
+    [aCoder encodeObject:imageUrls forKey:@"imageUrls"];
+    [aCoder encodeObject:category forKey:@"category"];
+    [aCoder encodeObject:subcategory forKey:@"subcategory"];
+    [aCoder encodeObject:materials forKey:@"materials"];
+    [aCoder encodeObject:collectionDate forKey:@"collectionDate"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -45,28 +51,48 @@
         price = [aDecoder decodeObjectForKey:@"price"];
         shop = [aDecoder decodeObjectForKey:@"shop"];
         brand = [aDecoder decodeObjectForKey:@"brand"];
-        type = [aDecoder decodeObjectForKey:@"type"];
-        imageUrl = [aDecoder decodeObjectForKey:@"imageUrl"];
-        
+        imageUrls = [aDecoder decodeObjectForKey:@"imageUrls"];
+        category = [aDecoder decodeObjectForKey:@"category"];
+        subcategory = [aDecoder decodeObjectForKey:@"subcategory"];
+        materials = [aDecoder decodeObjectForKey:@"materials"];
+        collectionDate = [aDecoder decodeObjectForKey:@"collectionDate"];
     }
     return self;
 }
 
--(NSString *)getImageUrl {
-    return imageUrl;
+-(NSMutableArray *)getImageUrls {
+    return imageUrls;
 }
+
 -(void)setImageUrl:(NSString *)newImageURL
 {
-    imageUrl = newImageURL;
+    [imageUrls replaceObjectAtIndex:0 withObject:newImageURL];
+}
+
+-(NSString *)getCategory {
+    return category;
+}
+-(NSString *)getSubCategory {
+    return subcategory;
+}
+-(NSString *)getMaterials {
+    return materials;
+}
+
+-(NSString *) getCollectionDate
+{
+    return collectionDate;
+}
+
+
+
+-(NSString *)getImageUrl
+{
+    return [imageUrls objectAtIndex:0];
 }
 
 -(NSString *)getTitle {
     return title;
-}
-
--(NSString *)getType
-{
-    return type;
 }
 
 -(NSString *)getPrice

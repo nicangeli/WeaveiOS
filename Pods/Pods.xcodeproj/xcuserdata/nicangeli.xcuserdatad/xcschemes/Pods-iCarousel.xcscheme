@@ -13,10 +13,10 @@
             buildForAnalyzing = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BlueprintIdentifier = "0D0E1D3D86F9438897A08F0C"
+               BlueprintIdentifier = "A08C7E410EB94AF6AC4B7507"
                BuildableIdentifier = "primary"
-               BlueprintName = "Pods-YRDropdownView"
-               BuildableName = "libPods-YRDropdownView.a"
+               BlueprintName = "Pods-iCarousel"
+               BuildableName = "libPods-iCarousel.a"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

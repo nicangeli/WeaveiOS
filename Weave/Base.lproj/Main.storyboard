@@ -198,6 +198,7 @@
                                 </state>
                                 <connections>
                                     <action selector="hitInfoButton:" destination="sif-dr-Mrf" eventType="touchUpInside" id="Xge-21-hvb"/>
+                                    <segue destination="fjf-ep-ZcI" kind="push" id="X6n-ax-8cb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-AM-2Pg">
@@ -353,6 +354,38 @@
             </objects>
             <point key="canvasLocation" x="854" y="278"/>
         </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="dlr-Er-B1A">
+            <objects>
+                <viewController id="fjf-ep-ZcI" customClass="ProductDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wxp-XV-Ym9"/>
+                        <viewControllerLayoutGuide type="bottom" id="vkf-CU-085"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1wc-UE-NoM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-lM-kUL" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="65" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fjf-ep-ZcI" id="6Fr-WP-Cd0"/>
+                                    <outlet property="delegate" destination="fjf-ep-ZcI" id="YJj-Z2-KUk"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jkw-QR-276"/>
+                    <connections>
+                        <outlet property="carousel" destination="5i0-lM-kUL" id="IjB-yG-I5P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zL-DV-lZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239" y="946"/>
+        </scene>
         <!--Brands View Controller - Follow Some Brands...-->
         <scene sceneID="Vd7-Gl-3Oy">
             <objects>
@@ -472,6 +505,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nth-eb-rqa"/>
+        <segue reference="iVo-ez-5yT"/>
     </inferredMetricsTieBreakers>
 </document>
