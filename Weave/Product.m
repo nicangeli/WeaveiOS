@@ -69,6 +69,18 @@
     [imageUrls replaceObjectAtIndex:0 withObject:newImageURL];
 }
 
+-(void)replaceOldImageUrl:(NSString *)oldUrl withNewImageUrl:(NSString *)newImageUrl
+{
+    // find the oldUrl index
+    //replace it with the new url
+    for(NSInteger i = 0; i < [imageUrls count]; i++) {
+        NSString *myUrl = [imageUrls objectAtIndex:i];
+        if([myUrl isEqualToString:oldUrl]) {
+            [imageUrls replaceObjectAtIndex:i withObject:newImageUrl];
+        }
+    }
+}
+
 -(NSString *)getCategory {
     return category;
 }
@@ -78,6 +90,8 @@
 -(NSString *)getMaterials {
     return materials;
 }
+
+
 
 -(NSString *) getCollectionDate
 {

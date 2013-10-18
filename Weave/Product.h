@@ -23,9 +23,10 @@
 
 -(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand imageUrls:(NSMutableArray *)myImageUrls category:(NSString *)myCategory subcategory:(NSString *)mySubcategory materials:(NSString *)myMaterials collectionDate:(NSString *)myCollectionDate;
 
--(NSArray *)getImageUrls;
+-(NSMutableArray *)getImageUrls;
 -(NSString *)getImageUrl;
 -(void)setImageUrl:(NSString *)newImageURL;
+-(void)replaceOldImageUrl:(NSString *)oldUrl withNewImageUrl:(NSString *)newImageUrl;
 -(NSString *)getTitle;
 -(NSString *)getPrice;
 -(NSString *)getBrand;

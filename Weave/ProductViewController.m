@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Nicholas Angeli. All rights reserved.
 //
 
+
 #import "ProductViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Product.h"
@@ -24,29 +25,27 @@
 
 @implementation ProductViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
+    
     if((self = [super initWithCoder:aDecoder])) {
         [[Mixpanel sharedInstance] track:@"Started Playing"];
     }
+    NSLog(@"Init With Coder");
        return self;
+}
+
+-(void)awakeFromNib
+{
+    NSLog(@"Awake from nib");
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
+    NSLog(@"View did load");
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+    NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
     [self registerForNetworkEvents];
     [self listenToNetwork];
     [self updateView];
@@ -55,6 +54,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    NSLog(@"View Did appear");
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
         Strings *s = [Strings instance];
@@ -62,8 +62,11 @@
         [alert show];
         [defaults setBool:YES forKey:@"seenProductsInstructions"];
     }
-    [self displayLoadingHUD];
-    [self checkNetworkStatus:nil];
+    if(currentProduct == nil) {
+        [self displayLoadingHUD];
+        [self checkNetworkStatus:nil];
+    }
+
     
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     
@@ -478,5 +481,16 @@
     UIView *view = [self.view viewWithTag:1002];
     [YRDropdownView hideDropdownInView:view];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if([segue.identifier isEqualToString:@"MoreDetailsSegue"])
+    {
+        ProductDetailViewController *dvc = segue.destinationViewController;
+        dvc.product = currentProduct;
+    }
+    
+}
+
 
 @end

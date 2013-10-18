@@ -41,8 +41,10 @@
     self.collectionView.delegate = self;
     
     brands = [[NSMutableArray alloc] initWithCapacity:5];
-    [brands addObject:[[Brand alloc] initWithName:@"Topshop" andImageName:@"topshop.png" andClickedName:@"Asos Clicked" andImageClickedName:@"ASOS-CLICKED.jpg" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"Zara" andImageName:@"topshop.png" andClickedName:@"H&M Clicked" andImageClickedName:@"" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Topshop" andImageName:@"topshopblack.png" andClickedName:@"Asos" andImageClickedName:@"topshopred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Zara" andImageName:@"zarablack.png" andClickedName:@"Zara" andImageClickedName:@"zarared.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"h&mblack.png" andClickedName:@"H&M" andImageClickedName:@"h&mred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"mangoblack.png" andClickedName:@"Mango" andImageClickedName:@"mangored.png" andChecked:NO]];
 }
 
 

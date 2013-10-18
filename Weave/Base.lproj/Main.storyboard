@@ -56,9 +56,6 @@
                                                     </fragment>
                                                 </attributedString>
                                             </state>
-                                            <connections>
-                                                <segue destination="vXR-Eh-jUc" kind="modal" id="UEk-b6-Nvo"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -198,7 +195,7 @@
                                 </state>
                                 <connections>
                                     <action selector="hitInfoButton:" destination="sif-dr-Mrf" eventType="touchUpInside" id="Xge-21-hvb"/>
-                                    <segue destination="fjf-ep-ZcI" kind="push" id="X6n-ax-8cb"/>
+                                    <segue destination="fjf-ep-ZcI" kind="push" identifier="MoreDetailsSegue" id="X6n-ax-8cb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-AM-2Pg">
@@ -366,20 +363,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-lM-kUL" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="65" width="320" height="568"/>
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-lM-kUL" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="70" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="fjf-ep-ZcI" id="6Fr-WP-Cd0"/>
                                     <outlet property="delegate" destination="fjf-ep-ZcI" id="YJj-Z2-KUk"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My Label Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbA-Vl-MqP">
+                                <rect key="frame" x="111" y="505" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YbA-Vl-MqP" secondAttribute="bottom" constant="121" id="vB6-iI-3AK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jkw-QR-276"/>
                     <connections>
-                        <outlet property="carousel" destination="5i0-lM-kUL" id="IjB-yG-I5P"/>
+                        <outlet property="aCarousel" destination="5i0-lM-kUL" id="Yt4-Lq-0HH"/>
+                        <outlet property="productLabel" destination="YbA-Vl-MqP" id="BcA-yL-jGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zL-DV-lZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

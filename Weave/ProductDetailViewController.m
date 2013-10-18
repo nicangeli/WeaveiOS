@@ -10,15 +10,13 @@
 
 @interface ProductDetailViewController ()
 
-@property (nonatomic, strong) NSMutableArray *items;
-
 @end
 
 @implementation ProductDetailViewController
 
 @synthesize productImages;
-@synthesize carousel;
-@synthesize items;
+@synthesize aCarousel;
+@synthesize animals;
 
 - (void)awakeFromNib
 {
@@ -27,59 +25,100 @@
     //data of some kind - don't store data in your item views
     //or the recycling mechanism will destroy your data once
     //your item views move off-screen
-    self.items = [NSMutableArray array];
-    for (int i = 0; i < 1000; i++)
-    {
-        [items addObject:@(i)];
-    }
+    self.animals = [NSMutableArray arrayWithObjects:@"Bear.png",
+                    @"Zebra.png",
+                    @"Tiger.png",
+                    @"Goat.png",
+                    @"Birds.png",
+                    @"Giraffe.png",
+                    @"Chimp.png",
+                    nil];
+    
+    self.productImages = [[NSMutableArray alloc] initWithCapacity:5];
+    
 }
 
-
-- (void)dealloc
+-(void)viewDidAppear:(BOOL)animated
 {
-    //it's a good idea to set these to nil here to avoid
-    //sending messages to a deallocated viewcontroller
-    carousel.delegate = nil;
-    carousel.dataSource = nil;
+    [super viewDidAppear:animated];
+    self.productLabel.text = [self.product getCategory];
+    ImageDownloader *img = [[ImageDownloader alloc] init];
+    [img downloadBatchOfImagesForProduct:self.product];
+    img.delegate = self;
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    
+    NSLog(@"Product: %@", [self.product getTitle]);
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewDidLoad
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        self.wrap = NO;
-        productImages = [[NSMutableArray alloc] initWithObjects:@"one.jpg", @"two.jpg", @"three.jpg", nil];
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+
+    aCarousel.type = iCarouselTypeRotary;
+}
+
+-(void)finishedDownloadingBatchOfImagesForProduct:(Product *)p
+{
+    NSLog(@"Did finish downloading batch of images");
+    for(NSString *str in [p getImageUrls]) {
+        NSLog(@"%@", str);
     }
-    return self;
+    self.productImages = [p getImageUrls];
+    [hud hide:YES];
+    [aCarousel reloadData];
+   // [self.view setNeedsDisplay];
+}
+
+- (CGFloat)carouselItemWidth:(iCarousel *)carousel
+{
+    return 200;
 }
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    //return the total number of items in the carousel
-    return [items count];
+    return [productImages count];
 }
+
+- (UIView*)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+{
+    // create a numbered view
+    //view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[productImages objectAtIndex:index]]];
+    view = (UIImageView *)[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 400)];
+    view.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
+    [(UIImageView *)view setImage:[UIImage imageWithContentsOfFile:[productImages objectAtIndex:index]]];
+    return view;
+}
+/*
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
     UILabel *label = nil;
+    UIImageView *imageView = nil;
     
     //create new view if no view is available for recycling
     if (view == nil)
     {
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
+        //((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
         view.contentMode = UIViewContentModeCenter;
         label = [[UILabel alloc] initWithFrame:view.bounds];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = UITextAlignmentCenter;
         label.font = [label.font fontWithSize:50];
         label.tag = 1;
+        
+        imageView = [[UIImageView alloc] init];
+        imageView.tag = 2;
+        
+        [view addSubview:imageView];
         [view addSubview:label];
     }
     else
     {
         //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
+        imageView = (UIImageView *)[view viewWithTag:2];
     }
     
     //set item label
@@ -88,15 +127,13 @@
     //you'll get weird issues with carousel item content appearing
     //in the wrong place in the carousel
     label.text = [items[index] stringValue];
+    //imageView.image = [UIImage imageNamed:@"one.jpg"];
+    imageView.image = [[UIImage alloc] initWithContentsOfFile:@"one.jpg"];
     
     return view;
 }
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.carousel.type = iCarouselTypeLinear;
-}
+ */
+
 
 
 - (void)didReceiveMemoryWarning
