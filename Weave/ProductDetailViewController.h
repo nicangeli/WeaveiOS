@@ -21,5 +21,7 @@
 @property (nonatomic, strong) NSArray *animals;
 @property (nonatomic, strong) Product *product;
 @property (strong, nonatomic) IBOutlet UILabel *productLabel;
+@property (strong, nonatomic) IBOutlet UILabel *productPrice;
+
 
 @end

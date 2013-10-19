@@ -45,6 +45,11 @@
     [brands addObject:[[Brand alloc] initWithName:@"Zara" andImageName:@"zarablack.png" andClickedName:@"Zara" andImageClickedName:@"zarared.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"h&mblack.png" andClickedName:@"H&M" andImageClickedName:@"h&mred.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"mangoblack.png" andClickedName:@"Mango" andImageClickedName:@"mangored.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblack.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antropored.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"newlookblack.png" andClickedName:@"Newlook" andImageClickedName:@"newlookred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"& other Stories" andImageName:@"otherstoriesblack.png" andClickedName:@"
+                       " andImageClickedName:@"mangored.png" andChecked:NO]];
 }
 
 
