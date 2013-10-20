@@ -63,6 +63,7 @@
         [defaults setBool:YES forKey:@"seenProductsInstructions"];
     }
     if(currentProduct == nil) {
+        NSLog(@"Current product is null");
         [self displayLoadingHUD];
         [self checkNetworkStatus:nil];
     }
@@ -127,8 +128,6 @@
 -(void)downloadFinished
 {
     NSLog(@"Download finished");
-    [hud hide:YES];
-
     Collection *collection = [Collection instance];
     NSNumber *numProducts = [collection numberOfProducts];
     if([numProducts isEqualToNumber:[NSNumber numberWithInt:0]]) {
@@ -145,11 +144,13 @@
         NSLog(@"Number of products to show: %@", numProducts);
         [self showNextProduct];
     }
+    [hud hide:YES];
+
 }
 
 -(void)showNextProduct
 {
-    [hud hide:YES];
+    //[hud hide:YES];
     Collection *c = [Collection instance];
     c.calling = self;
     Product *p = [c getNextProduct];

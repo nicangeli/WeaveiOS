@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="197" id="WDP-Yu-vMq">
-                                <rect key="frame" x="0.0" y="86" width="320" height="197"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="197"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDP-Yu-vMq" id="v18-CK-Rfj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
@@ -163,7 +163,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nothing Left" id="7r3-ar-2k1">
-                        <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV"/>
+                        <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV">
+                            <connections>
+                                <segue destination="IIg-9w-PEx" kind="push" id="dH0-xo-9uh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Likes" id="2eA-Fm-nV4">
                             <connections>
                                 <segue destination="m1o-gS-q28" kind="push" identifier="NoLeftToLikes" id="gxU-mc-Qzz"/>
@@ -285,7 +289,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="1" verticalHuggingPriority="1" reuseIdentifier="Cell" id="dWt-w1-He2" customClass="BrandCell">
-                                        <rect key="frame" x="14" y="64" width="253" height="55"/>
+                                        <rect key="frame" x="14" y="0.0" width="253" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
@@ -372,23 +376,27 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-T5-cAA">
-                                <rect key="frame" x="0.0" y="415" width="320" height="153"/>
+                                <rect key="frame" x="0.0" y="411" width="320" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-Ib-iCB">
-                                        <rect key="frame" x="20" y="28" width="42" height="21"/>
+                                        <rect key="frame" x="20" y="32" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95x-se-Z0d">
-                                        <rect key="frame" x="258" y="28" width="42" height="21"/>
+                                        <rect key="frame" x="258" y="32" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ckB-jw-KcA">
+                                        <rect key="frame" x="141" y="0.0" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13040098852040816" green="0.13040098852040816" blue="0.13040098852040816" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -401,6 +409,7 @@
                     <navigationItem key="navigationItem" id="jkw-QR-276"/>
                     <connections>
                         <outlet property="aCarousel" destination="5i0-lM-kUL" id="Yt4-Lq-0HH"/>
+                        <outlet property="pageControl" destination="ckB-jw-KcA" id="xxp-pH-iOp"/>
                         <outlet property="productLabel" destination="jN6-Ib-iCB" id="Gww-W8-FsE"/>
                         <outlet property="productPrice" destination="95x-se-Z0d" id="VF8-Qk-Bx3"/>
                     </connections>
@@ -528,6 +537,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iVo-ez-5yT"/>
+        <segue reference="dH0-xo-9uh"/>
+        <segue reference="nth-eb-rqa"/>
     </inferredMetricsTieBreakers>
 </document>

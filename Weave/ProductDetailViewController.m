@@ -68,6 +68,8 @@
     }
     self.productImages = [p getImageUrls];
     [hud hide:YES];
+    self.pageControl.numberOfPages = [[p getImageUrls] count];
+    self.pageControl.currentPage = 0;
     [aCarousel reloadData];
    // [self.view setNeedsDisplay];
 }
@@ -89,7 +91,14 @@
     view = (UIImageView *)[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
     view.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
     [(UIImageView *)view setImage:[UIImage imageWithContentsOfFile:[productImages objectAtIndex:index]]];
+    //self.pageControl.currentPage = index;
     return view;
+}
+
+-(void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
+{
+    self.pageControl.currentPage = carousel.currentItemIndex / [productImages count];
+
 }
 
 - (void)didReceiveMemoryWarning

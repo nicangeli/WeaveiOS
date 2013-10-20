@@ -48,8 +48,6 @@
     [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblack.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antropored.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"newlookblack.png" andClickedName:@"Newlook" andImageClickedName:@"newlookred.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"& other Stories" andImageName:@"otherstoriesblack.png" andClickedName:@"
-                       " andImageClickedName:@"mangored.png" andChecked:NO]];
 }
 
 

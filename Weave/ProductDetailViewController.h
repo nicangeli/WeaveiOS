@@ -22,6 +22,7 @@
 @property (nonatomic, strong) Product *product;
 @property (strong, nonatomic) IBOutlet UILabel *productLabel;
 @property (strong, nonatomic) IBOutlet UILabel *productPrice;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 
 @end

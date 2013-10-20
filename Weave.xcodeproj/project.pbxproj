@@ -37,7 +37,6 @@
 		8961501018041F1C00E93D01 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500718041F1C00E93D01 /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8961501118041F1C00E93D01 /* ODIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500A18041F1C00E93D01 /* ODIN.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8961501218041F1C00E93D01 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500C18041F1C00E93D01 /* Mixpanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		896A753A1810207D00D9545B /* topshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 896A75391810207D00D9545B /* topshop.png */; };
 		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
@@ -153,7 +152,6 @@
 		8961500A18041F1C00E93D01 /* ODIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIN.m; sourceTree = "<group>"; };
 		8961500B18041F1C00E93D01 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		8961500C18041F1C00E93D01 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
-		896A75391810207D00D9545B /* topshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshop.png; sourceTree = "<group>"; };
 		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -447,7 +445,6 @@
 			children = (
 				89DD087418115BC90053CA9B /* brand_images */,
 				89DD0849181046700053CA9B /* page.png */,
-				896A75391810207D00D9545B /* topshop.png */,
 				89385E64180EB319000A260C /* header.png */,
 				8925452C17FB065D001A6D68 /* weave-nav.png */,
 				8925452D17FB065D001A6D68 /* weave-nav@2x.png */,
@@ -566,7 +563,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				896A753A1810207D00D9545B /* topshop.png in Resources */,
 				89DD088618118BEE0053CA9B /* antropoblack.png in Resources */,
 				89DD086A18115BC10053CA9B /* h&mblack.png in Resources */,
 				89DD089518118BEE0053CA9B /* zarablack.png in Resources */,
