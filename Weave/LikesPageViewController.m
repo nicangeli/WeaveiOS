@@ -32,11 +32,6 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     [[Mixpanel sharedInstance] track:@"Likes page loaded"];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -60,26 +55,25 @@
     [Flurry logEvent:@"Likes_Viewed" withParameters:articleParams];
 }
 
--(IBAction)thumbnailTapped:(id)sender
+
+-(IBAction)handleTap:(UITapGestureRecognizer *)recognizer
 {
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     Likes *l = [Likes instance];
     NSMutableArray *likes = [l getLikes];
-    Product *p = [l objectAtIndex:indexPath.row];
-    //ProductDetailViewController *pdvc = [[ProductDetailViewController alloc] init];
-    NSLog(@"Product is: %@", [p getTitle]);
-    //pdvc.product = p;
-    //[self.navigationController pushViewController:pdvc animated:YES];
+    CGPoint point = [recognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    int index  = [likes count] - indexPath.row -1;
+
+    Product *p = [likes objectAtIndex:index];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     ProductDetailViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"detailView"];
     viewController.product = p;
     [self.navigationController pushViewController:viewController animated:YES];
-    //[self presentViewController:pdvc animated:YES completion:nil];
-   // [self performSegueWithIdentifier:@"MoreDetailsSegue" sender:p];
-}
+    
+    
 
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,10 +109,11 @@
     
     int index  = [likes count] - indexPath.row -1;
     Product *p = [likes objectAtIndex:index];
-    UIButton *thumbnailView = (UIButton *)[cell viewWithTag:100];
-    
-    [[thumbnailView imageView] setContentMode:UIViewContentModeScaleAspectFit];
-    [thumbnailView setBackgroundImage:[UIImage imageWithContentsOfFile:[p getImageUrl]] forState:UIControlStateNormal];
+    UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
+    //thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
+    //thumbnailView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: [p getImageUrl]]]];
+    thumbnailView.image = [UIImage imageWithContentsOfFile:[p getImageUrl]];
+    thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
 
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
@@ -178,18 +173,6 @@
 - (NSString *)dataFilePath
 {
     return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
-    if([segue.identifier isEqualToString:@"MoreDetailsSegue"])
-    {
-        ProductDetailViewController *pvc = segue.destinationViewController;
-        // get product here  = nil;
-        pvc.product = sender;
-        
-    }
-    
 }
 
 @end

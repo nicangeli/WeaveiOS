@@ -24,6 +24,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     NSLog(@"PDVC: View did load");
     self.pageImages = [[NSMutableArray alloc] init];
 }
