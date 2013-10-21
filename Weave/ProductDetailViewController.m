@@ -35,9 +35,19 @@
     if([[self.product getImageUrls] count] == 1) {
         [self setUp];
     } else {
-        ImageDownloader *img = [[ImageDownloader alloc] init];
-        img.delegate = self;
-        [img downloadBatchOfImagesForProduct:self.product];
+        BOOL allLocal = YES;
+        for(NSString *str in [self.product getImageUrls]) {
+            if(![[str substringToIndex:1] isEqualToString:@"/"]) {
+                allLocal = NO;
+            }
+        }
+        if(!allLocal){
+            ImageDownloader *img = [[ImageDownloader alloc] init];
+            img.delegate = self;
+            [img downloadBatchOfImagesForProduct:self.product];
+        } else {
+            [self setUp];
+        }
     }
 }
 
