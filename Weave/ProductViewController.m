@@ -227,6 +227,8 @@
     Product *p = [collection getNextProduct];
     Likes *likes = [Likes instance];
     [likes addProduct:currentProduct];
+    [self updateLikeCountToNumber:[[likes getLikes] count]];
+
     if(p == nil) {
         NSLog(@"Reached the end of the items");
 
@@ -475,6 +477,11 @@
     [YRDropdownView showDropdownInView:view
                                  title:s.internetDownTitle
                                 detail:s.internetDownMessage];
+}
+
+-(void)updateLikeCountToNumber:(NSInteger)newLikeNumber
+{
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"(%d) Likes", newLikeNumber];
 }
 
 -(void)hideNetworkError
