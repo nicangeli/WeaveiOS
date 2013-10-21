@@ -32,14 +32,18 @@
     [super viewWillAppear:animated];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Weaving...";
-    ImageDownloader *img = [[ImageDownloader alloc] init];
-    img.delegate = self;
-    [img downloadBatchOfImagesForProduct:self.product];
+    if([[self.product getImageUrls] count] == 1) {
+        [self setUp];
+    } else {
+        ImageDownloader *img = [[ImageDownloader alloc] init];
+        img.delegate = self;
+        [img downloadBatchOfImagesForProduct:self.product];
+    }
 }
 
 -(void)setUp
 {
-   
+    [hud removeFromSuperview];
     for(NSString *url in [self.product getImageUrls]) {
         [self.pageImages addObject:[UIImage imageWithContentsOfFile:url]];
     }
