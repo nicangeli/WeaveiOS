@@ -54,6 +54,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    Likes *likes = [Likes instance];
+    [self updateLikeCountToNumber:[[likes getLikes] count]];
     NSLog(@"View Did appear");
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
@@ -481,7 +483,11 @@
 
 -(void)updateLikeCountToNumber:(NSInteger)newLikeNumber
 {
-    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"(%d) Likes", newLikeNumber];
+    if(newLikeNumber == 0) {
+        self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Likes"];
+    } else {
+        self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"(%d) Likes", newLikeNumber];
+    }
 }
 
 -(void)hideNetworkError
