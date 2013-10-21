@@ -117,40 +117,12 @@
     return cell;
 }
 
-/*
--(void)moreDetailsPressed:(UIButton *)sender {
-    NSString *link = [sender accessibilityHint];
-    
-    NSDictionary *articleParams =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     @"url", link, // Capture author info
-     nil];
-    
-    [Flurry logEvent:@"Product_Shop_Visited" withParameters:articleParams];
-    NSString *trimmedString;
-    if([link hasPrefix:@" "]) {
-        NSLog(@"I start with a space");
-    }
-    if([link hasPrefix:@"\r\n"]) {
-        NSLog(@"I start with newline characters");
-         trimmedString = [link stringByTrimmingCharactersInSet:
-                                   [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    } else {
-        trimmedString = link;
-    }
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:trimmedString]];
-}
- */
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

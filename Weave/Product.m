@@ -83,10 +83,10 @@
 
 -(NSString *)getCategoryToDisplay
 {
-    if(subcategory == nil) {
+    if(title == nil) {
         return category;
     } else {
-        return subcategory;
+        return title;
     }
 }
 

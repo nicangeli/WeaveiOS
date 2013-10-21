@@ -98,9 +98,13 @@
     /*
      Add label for product price and title etc. As subview so it moves with pan
      */
-    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 50, self.view.frame.size.width/2, self.view.frame.size.height/2)];
+    UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 285, self.view.frame.size.width, 55)];
     [productLabel setTag:1003];
-    [productLabel setText:@"Loading..."];
+    [productLabel setText:@""];
+
+    productLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    productLabel.numberOfLines = 2;
+    [productLabel setTextAlignment:NSTextAlignmentCenter];
     [imageView addSubview:productLabel];
 
 }
@@ -423,15 +427,17 @@
 -(void)updateLabelsForProduct:(Product *)product inImageView:(UIImageView *)imageView
 {
     UILabel *label = (UILabel *)[self.view viewWithTag:1003]; // 1003 is the label that holds the title
-    [label setText:[product getCategory]];
-    if([[product getCategory] length] < 10) {
+    [label setText:[product getCategoryToDisplay]];
+    //[label setCenter:CGPointMake(120, imageView.frame.size.height+60)];
+    /* if([[product getCategoryToDisplay] length] < 10) {
         [label setCenter:CGPointMake(220, imageView.frame.size.height+60)];
-    } else if([[product getCategory] length] < 16) {
+    } else if([[product getCategoryToDisplay] length] < 16) {
         [label setCenter:CGPointMake(200, imageView.frame.size.height+60)];
     } else{
         [label setCenter:CGPointMake(180, imageView.frame.size.height+60)];
     }
-    [self.view bringSubviewToFront:label];
+    */
+    //[self.view bringSubviewToFront:label];
 
 }
 

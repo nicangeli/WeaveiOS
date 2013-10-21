@@ -35,5 +35,6 @@
 -(NSString *)getSubCategory;
 -(NSString *)getMaterials;
 -(NSString *)getCollectionDate;
+-(NSString *)getCategoryToDisplay;
 
 @end
