@@ -489,6 +489,11 @@
     {
         ProductDetailViewController *dvc = segue.destinationViewController;
         dvc.product = currentProduct;
+    } else if([segue.identifier isEqualToString:@"ReturnToBrandsSegue"]) {
+        Collection *c = [Collection instance];
+        [c clearCollection];
+        currentProduct = nil;
+        
     }
     
 }

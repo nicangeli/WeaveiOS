@@ -92,6 +92,11 @@
         }];
 }
 
+-(void)clearCollection
+{
+    products = nil;
+}
+
 -(NSString *)buildBrandStringFromArray:(NSArray *)brands
 {
     NSMutableArray *brandsStrings = [[NSMutableArray alloc] initWithCapacity:5];
