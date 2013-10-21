@@ -81,6 +81,15 @@
     }
 }
 
+-(NSString *)getCategoryToDisplay
+{
+    if(subcategory == nil) {
+        return category;
+    } else {
+        return subcategory;
+    }
+}
+
 -(NSString *)getCategory {
     return category;
 }
