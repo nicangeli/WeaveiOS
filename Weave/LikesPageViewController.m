@@ -9,6 +9,7 @@
 #import "LikesPageViewController.h"
 #import "AppDelegate.h"
 #import "ImageDownloader.h"
+#import "ProductDetailViewController.h"
 
 @interface LikesPageViewController ()
 
@@ -59,6 +60,26 @@
     [Flurry logEvent:@"Likes_Viewed" withParameters:articleParams];
 }
 
+-(IBAction)thumbnailTapped:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    Likes *l = [Likes instance];
+    NSMutableArray *likes = [l getLikes];
+    Product *p = [l objectAtIndex:indexPath.row];
+    //ProductDetailViewController *pdvc = [[ProductDetailViewController alloc] init];
+    NSLog(@"Product is: %@", [p getTitle]);
+    //pdvc.product = p;
+    //[self.navigationController pushViewController:pdvc animated:YES];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    ProductDetailViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"detailView"];
+    viewController.product = p;
+    [self.navigationController pushViewController:viewController animated:YES];
+    //[self presentViewController:pdvc animated:YES completion:nil];
+   // [self performSegueWithIdentifier:@"MoreDetailsSegue" sender:p];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -94,11 +115,11 @@
     
     int index  = [likes count] - indexPath.row -1;
     Product *p = [likes objectAtIndex:index];
-    UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
-    //thumbnailView.image = [UIImage imageNamed:[p getImageUrl]];
-    //thumbnailView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: [p getImageUrl]]]];
-    thumbnailView.image = [UIImage imageWithContentsOfFile:[p getImageUrl]];
-    thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
+    UIButton *thumbnailView = (UIButton *)[cell viewWithTag:100];
+    
+    [[thumbnailView imageView] setContentMode:UIViewContentModeScaleAspectFit];
+    [thumbnailView setBackgroundImage:[UIImage imageWithContentsOfFile:[p getImageUrl]] forState:UIControlStateNormal];
+
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
     titleLabel.text = [p getTitle];
@@ -108,11 +129,6 @@
     
     UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
     priceLavel.text = [p getPrice];
-    
-    //UIButton *moreDetailsButton = (UIButton *)[cell viewWithTag:105];
-    //moreDetailsButton.accessibilityHint = [p getUrl];
-    
-    //[moreDetailsButton addTarget:self action:@selector(moreDetailsPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
@@ -164,32 +180,16 @@
     return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.identifier isEqualToString:@"MoreDetailsSegue"])
+    {
+        ProductDetailViewController *pvc = segue.destinationViewController;
+        // get product here  = nil;
+        pvc.product = sender;
+        
+    }
+    
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

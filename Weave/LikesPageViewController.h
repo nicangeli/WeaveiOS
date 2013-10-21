@@ -10,4 +10,7 @@
 
 @interface LikesPageViewController : UITableViewController
 
+-(IBAction)thumbnailTapped:(id)sender;
+
+
 @end

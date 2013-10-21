@@ -24,6 +24,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"PDVC: View did load");
     self.pageImages = [[NSMutableArray alloc] init];
 }
 

@@ -41,6 +41,7 @@
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
 		898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F17A118041794006A27DF /* SystemConfiguration.framework */; };
+		8997BB1018159C5B00061EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB0E18159C5B00061EF5 /* Main.storyboard */; };
 		89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A42ABB180B001D00195EB3 /* ImageDownloader.m */; };
 		89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AF6A351809F2F400DD74F0 /* Security.framework */; };
 		89DD084A181046700053CA9B /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD0849181046700053CA9B /* page.png */; };
@@ -156,6 +157,7 @@
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		898F17A118041794006A27DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8997BB0F18159C5B00061EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89A42ABA180B001D00195EB3 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		89A42ABB180B001D00195EB3 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		89AF6A351809F2F400DD74F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -271,6 +273,7 @@
 			children = (
 				89385E59180D59A7000A260C /* BrandsPageViewController.h */,
 				89385E5A180D59A7000A260C /* BrandsPageViewController.m */,
+				89E7144017F5A7B6006F1E09 /* Main.storyboard */,
 				89385E5C180D63C6000A260C /* BrandCell.h */,
 				89385E5D180D63C6000A260C /* BrandCell.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
@@ -292,7 +295,7 @@
 		893D30AA17FA396400D820D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				89E7144017F5A7B6006F1E09 /* Main.storyboard */,
+				8997BB0E18159C5B00061EF5 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				89DD087218115BC10053CA9B /* zarablack.png in Resources */,
 				89E7146417F5A86C006F1E09 /* weave.png in Resources */,
 				89DD087018115BC10053CA9B /* topshopblack.png in Resources */,
+				8997BB1018159C5B00061EF5 /* Main.storyboard in Resources */,
 				89E7144717F5A7B6006F1E09 /* Images.xcassets in Resources */,
 				89DD086F18115BC10053CA9B /* otherstoriesred.png in Resources */,
 				89DD088B18118BEE0053CA9B /* h&mred.png in Resources */,
@@ -702,6 +706,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8997BB0E18159C5B00061EF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8997BB0F18159C5B00061EF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		89E7143717F5A7B6006F1E09 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

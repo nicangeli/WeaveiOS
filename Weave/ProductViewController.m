@@ -295,6 +295,13 @@
 }
 
 
+- (IBAction)handleTap:(UITapGestureRecognizer *)recognizer
+{
+    NSLog(@"Handle Tap");
+    [self performSegueWithIdentifier:@"MoreDetailsSegue" sender:self];
+}
+
+
 -(IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
     [MBProgressHUD hideHUDForView:v animated:YES];    UIImage *likeImage = [UIImage imageNamed:@"like.png"];
