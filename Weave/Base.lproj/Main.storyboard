@@ -367,51 +367,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-lM-kUL" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="70" width="320" height="300"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erH-VW-tJw">
+                                <rect key="frame" x="0.0" y="-7" width="320" height="541"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="fjf-ep-ZcI" id="6Fr-WP-Cd0"/>
-                                    <outlet property="delegate" destination="fjf-ep-ZcI" id="YJj-Z2-KUk"/>
+                                    <outlet property="delegate" destination="fjf-ep-ZcI" id="Gix-Gm-DDU"/>
                                 </connections>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-T5-cAA">
-                                <rect key="frame" x="0.0" y="411" width="320" height="157"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zTf-OO-1VA">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-Ib-iCB">
-                                        <rect key="frame" x="20" y="32" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95x-se-Z0d">
-                                        <rect key="frame" x="258" y="32" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ckB-jw-KcA">
-                                        <rect key="frame" x="141" y="0.0" width="39" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </pageControl>
-                                </subviews>
-                                <color key="backgroundColor" red="0.13040098852040816" green="0.13040098852040816" blue="0.13040098852040816" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                                <color key="backgroundColor" red="0.13040098850000001" green="0.13040098850000001" blue="0.13040098850000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gcD-T5-cAA" secondAttribute="bottom" id="SVO-mt-NJd"/>
+                            <constraint firstAttribute="bottom" secondItem="zTf-OO-1VA" secondAttribute="bottom" id="bK8-Z5-zl6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jkw-QR-276"/>
                     <connections>
-                        <outlet property="aCarousel" destination="5i0-lM-kUL" id="Yt4-Lq-0HH"/>
-                        <outlet property="pageControl" destination="ckB-jw-KcA" id="xxp-pH-iOp"/>
-                        <outlet property="productLabel" destination="jN6-Ib-iCB" id="Gww-W8-FsE"/>
-                        <outlet property="productPrice" destination="95x-se-Z0d" id="VF8-Qk-Bx3"/>
+                        <outlet property="pageControl" destination="zTf-OO-1VA" id="tqZ-79-bMv"/>
+                        <outlet property="scrollView" destination="erH-VW-tJw" id="FzG-Ro-miE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zL-DV-lZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

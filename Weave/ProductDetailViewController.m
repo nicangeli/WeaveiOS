@@ -10,96 +10,143 @@
 
 @interface ProductDetailViewController ()
 
+@property (nonatomic, strong) NSMutableArray *pageImages;
+@property (nonatomic, strong) NSMutableArray *pageViews;
+
+- (void)loadVisiblePages;
+- (void)loadPage:(NSInteger)page;
+- (void)purgePage:(NSInteger)page;
+
 @end
 
 @implementation ProductDetailViewController
 
-@synthesize productImages;
-@synthesize aCarousel;
-@synthesize animals;
-
-- (void)awakeFromNib
-{
-    //set up data
-    //your carousel should always be driven by an array of
-    //data of some kind - don't store data in your item views
-    //or the recycling mechanism will destroy your data once
-    //your item views move off-screen
-    self.animals = [NSMutableArray arrayWithObjects:@"Bear.png",
-                    @"Zebra.png",
-                    @"Tiger.png",
-                    @"Goat.png",
-                    @"Birds.png",
-                    @"Giraffe.png",
-                    @"Chimp.png",
-                    nil];
-    
-    self.productImages = [[NSMutableArray alloc] initWithCapacity:5];
-    
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.productLabel.text = [self.product getCategory];
-    self.productPrice.text = [self.product getPrice];
-    ImageDownloader *img = [[ImageDownloader alloc] init];
-    [img downloadBatchOfImagesForProduct:self.product];
-    img.delegate = self;
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading...";
-    
-    NSLog(@"Product: %@", [self.product getTitle]);
-}
-
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
-
-    aCarousel.type = iCarouselTypeLinear;
+    self.pageImages = [[NSMutableArray alloc] init];
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Weaving...";
+    ImageDownloader *img = [[ImageDownloader alloc] init];
+    img.delegate = self;
+    [img downloadBatchOfImagesForProduct:self.product];
+}
+
+-(void)setUp
+{
+    [self.pageImages addObject:[UIImage imageNamed:@"asosred.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"antrored.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"asosblack.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"mangored.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"topshopblack.png"]];
+
+    
+    NSInteger pageCount = self.pageImages.count;
+    
+    // 2
+    self.pageControl.currentPage = 0;
+    self.pageControl.numberOfPages = pageCount;
+    
+    // 3
+    self.pageViews = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < pageCount; ++i) {
+        [self.pageViews addObject:[NSNull null]];
+    }
+    
+    
+    // 4
+    CGSize pagesScrollViewSize = self.scrollView.frame.size;
+    self.scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageImages.count, 200);
+    
+    // 5
+    //[self.view setNeedsDisplay];
+    [self loadVisiblePages];
+}
+
+-(void)loadPage:(NSInteger)page
+{
+    if(page < 0 || page >= self.pageImages.count) {
+        return;
+    }
+    
+    UIView *pageView = [self.pageViews objectAtIndex:page];
+    if((NSNull *)pageView == [NSNull null]) {
+        CGRect frame = self.scrollView.bounds;
+        frame.origin.x = frame.size.width * page;
+        frame.origin.y = 0.0f;
+        
+        UIImageView *newPageView = [[UIImageView alloc] initWithImage:[self.pageImages objectAtIndex:page]];
+        newPageView.contentMode = UIViewContentModeScaleAspectFit;
+        newPageView.frame = frame;
+        [self.scrollView addSubview:newPageView];
+        
+        [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
+        
+    }
+}
+
+- (void)purgePage:(NSInteger)page {
+    if (page < 0 || page >= self.pageImages.count) {
+        // If it's outside the range of what you have to display, then do nothing
+        return;
+    }
+    
+    // Remove a page from the scroll view and reset the container array
+    UIView *pageView = [self.pageViews objectAtIndex:page];
+    if ((NSNull*)pageView != [NSNull null]) {
+        [pageView removeFromSuperview];
+        [self.pageViews replaceObjectAtIndex:page withObject:[NSNull null]];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Load the pages that are now on screen
+    [self loadVisiblePages];
+}
+
+- (void)loadVisiblePages {
+    // First, determine which page is currently visible
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    NSInteger page = (NSInteger)floor((self.scrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
+    
+    // Update the page control
+    self.pageControl.currentPage = page;
+    
+    // Work out which pages you want to load
+    NSInteger firstPage = page - 1;
+    NSInteger lastPage = page + 1;
+    
+    // Purge anything before the first page
+    for (NSInteger i=0; i<firstPage; i++) {
+        [self purgePage:i];
+    }
+    
+	// Load pages in our range
+    for (NSInteger i=firstPage; i<=lastPage; i++) {
+        [self loadPage:i];
+    }
+    
+	// Purge anything after the last page
+    for (NSInteger i=lastPage+1; i<self.pageImages.count; i++) {
+        [self purgePage:i];
+    }
+}
+
 
 -(void)finishedDownloadingBatchOfImagesForProduct:(Product *)p
 {
     NSLog(@"Did finish downloading batch of images");
-    for(NSString *str in [p getImageUrls]) {
-        NSLog(@"%@", str);
-    }
-    self.productImages = [p getImageUrls];
-    [hud hide:YES];
-    self.pageControl.numberOfPages = [[p getImageUrls] count];
-    self.pageControl.currentPage = 0;
-    [aCarousel reloadData];
-   // [self.view setNeedsDisplay];
+    self.product = p;
+    [hud removeFromSuperview]; 
+    [self setUp];
 }
 
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel
-{
-    return 200;
-}
 
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
-{
-    return [productImages count];
-}
-
-- (UIView*)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
-{
-    // create a numbered view
-    //view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[productImages objectAtIndex:index]]];
-    view = (UIImageView *)[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
-    view.contentMode = UIViewContentModeScaleAspectFit; // scale pic to the whole of the avaliable area
-    [(UIImageView *)view setImage:[UIImage imageWithContentsOfFile:[productImages objectAtIndex:index]]];
-    //self.pageControl.currentPage = index;
-    return view;
-}
-
--(void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
-{
-    self.pageControl.currentPage = carousel.currentItemIndex / [productImages count];
-
-}
 
 - (void)didReceiveMemoryWarning
 {

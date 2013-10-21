@@ -11,17 +11,14 @@
 #import "Product.h"
 #import "ImageDownloader.h"
 
-@interface ProductDetailViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, ImageDownloaderProtocol>
+@interface ProductDetailViewController : UIViewController <ImageDownloaderProtocol, UIScrollViewDelegate>
 {
     MBProgressHUD *hud;
 }
 
-@property (nonatomic, strong) NSMutableArray *productImages;
-@property (strong, nonatomic) IBOutlet iCarousel *aCarousel;
-@property (nonatomic, strong) NSArray *animals;
+//@property (nonatomic, strong) NSMutableArray *productImages;
 @property (nonatomic, strong) Product *product;
-@property (strong, nonatomic) IBOutlet UILabel *productLabel;
-@property (strong, nonatomic) IBOutlet UILabel *productPrice;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 
