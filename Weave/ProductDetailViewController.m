@@ -39,11 +39,10 @@
 
 -(void)setUp
 {
-    [self.pageImages addObject:[UIImage imageNamed:@"asosred.png"]];
-    [self.pageImages addObject:[UIImage imageNamed:@"antrored.png"]];
-    [self.pageImages addObject:[UIImage imageNamed:@"asosblack.png"]];
-    [self.pageImages addObject:[UIImage imageNamed:@"mangored.png"]];
-    [self.pageImages addObject:[UIImage imageNamed:@"topshopblack.png"]];
+   
+    for(NSString *url in [self.product getImageUrls]) {
+        [self.pageImages addObject:[UIImage imageWithContentsOfFile:url]];
+    }
 
     
     NSInteger pageCount = self.pageImages.count;
