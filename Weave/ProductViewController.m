@@ -49,6 +49,7 @@
     [self registerForNetworkEvents];
     [self listenToNetwork];
     [self updateView];
+    NSLog(@"Brands sent over: %@", self.brandsSelected);
 }
 
 -(void)viewDidAppear:(BOOL)animated

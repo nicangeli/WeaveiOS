@@ -46,6 +46,9 @@
                                                     </fragment>
                                                 </attributedString>
                                             </state>
+                                            <connections>
+                                                <action selector="moreDetailsPressed:" destination="m1o-gS-q28" eventType="touchUpInside" id="6Cm-f9-bTD"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG9-bz-fDH">
                                             <rect key="frame" x="91" y="243" width="138" height="21"/>
@@ -126,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="2974" y="93"/>
         </scene>
-        <!--No Likes View Controller - Nothing Left-->
+        <!--No Likes View Controller - Products-->
         <scene sceneID="Lq9-fL-7sd">
             <objects>
                 <viewController storyboardIdentifier="NoLikes" id="Bhx-vY-ujz" customClass="NoLikesViewController" sceneMemberID="viewController">
@@ -138,40 +141,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great Job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="215" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-oi-e7A">
-                                <rect key="frame" x="53" y="129" width="215" height="102"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="That's it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="215" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-oi-e7A">
+                                <rect key="frame" x="53" y="67" width="215" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="44"/>
                                 <color key="textColor" red="0.93725490196078431" green="0.22745098039215686" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You've weaved us out!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-32-Bd7">
-                                <rect key="frame" x="66" y="198" width="189" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Come back tomorrow for more new-in items from your favourite stores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-zm-5vb">
-                                <rect key="frame" x="37" y="302" width="246" height="96"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Come back tomorrow to see more new-in items from this brand" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-zm-5vb">
+                                <rect key="frame" x="32" y="152" width="246" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQE-24-H5y">
-                                <rect key="frame" x="66" y="416" width="191" height="30"/>
+                                <rect key="frame" x="65" y="363" width="191" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View the items you've Liked">
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="View your likes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="m1o-gS-q28" kind="push" id="nth-eb-rqa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-L9-X8h">
+                                <rect key="frame" x="20" y="237" width="271" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title=" Weave another brand"/>
+                                <connections>
+                                    <segue destination="IIg-9w-PEx" kind="push" id="0Kv-Aj-cVm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Nothing Left" id="7r3-ar-2k1">
+                    <navigationItem key="navigationItem" title="Products" id="7r3-ar-2k1">
                         <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV">
                             <connections>
                                 <segue destination="IIg-9w-PEx" kind="push" id="dH0-xo-9uh"/>
@@ -328,27 +335,20 @@
                                 <rect key="frame" x="0.0" y="504" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep selecting brands or:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9Z-Hb-oS2">
-                                        <rect key="frame" x="14" y="20" width="254" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzQ-9G-J2k">
+                                        <rect key="frame" x="20" y="11" width="280" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iam-cf-rjB">
-                                        <rect key="frame" x="237" y="14" width="63" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Weave!">
+                                        <state key="normal" backgroundImage="show_me_clothes.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="Ghd-Hh-Gym"/>
+                                            <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="8rs-qk-0Ay"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header.png" translatesAutoresizingMaskIntoConstraints="NO" id="tMZ-6C-3LB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new_in.png" translatesAutoresizingMaskIntoConstraints="NO" id="tMZ-6C-3LB">
                                 <rect key="frame" x="0.0" y="60" width="320" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -506,20 +506,21 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ3-bT-HcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="278"/>
+            <point key="canvasLocation" x="128" y="333"/>
         </scene>
     </scenes>
     <resources>
         <image name="asos.png" width="447" height="82"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="h&amp;m.png" width="447" height="82"/>
-        <image name="header.png" width="480" height="140"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
+        <image name="new_in.png" width="480" height="151"/>
         <image name="newlook.png" width="447" height="82"/>
         <image name="otherstories.png" width="447" height="82"/>
         <image name="polaroid-view.png" width="477" height="557"/>
         <image name="polaroid.png" width="477" height="557"/>
+        <image name="show_me_clothes.png" width="468" height="82"/>
         <image name="topshop.png" width="335" height="103"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -528,7 +529,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dH0-xo-9uh"/>
         <segue reference="nth-eb-rqa"/>
+        <segue reference="dH0-xo-9uh"/>
     </inferredMetricsTieBreakers>
 </document>

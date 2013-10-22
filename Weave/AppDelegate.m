@@ -27,6 +27,11 @@
     return YES;
 }
 
++ (NSString *) appVersion
+{
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

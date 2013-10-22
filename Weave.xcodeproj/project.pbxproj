@@ -42,39 +42,31 @@
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
 		898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F17A118041794006A27DF /* SystemConfiguration.framework */; };
 		8997BB1018159C5B00061EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB0E18159C5B00061EF5 /* Main.storyboard */; };
+		8997BB1618166FFA00061EF5 /* show_me_clothes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1118166FFA00061EF5 /* show_me_clothes.png */; };
+		8997BB1718166FFA00061EF5 /* new_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1218166FFA00061EF5 /* new_in.png */; };
+		8997BB1818166FFA00061EF5 /* mangoredv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1318166FFA00061EF5 /* mangoredv2.png */; };
+		8997BB1918166FFA00061EF5 /* asosblackv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1418166FFA00061EF5 /* asosblackv2.png */; };
+		8997BB1A18166FFA00061EF5 /* topshopredv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1518166FFA00061EF5 /* topshopredv2.png */; };
+		8997BB2E1816D9F000061EF5 /* antropoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1D1816D9F000061EF5 /* antropoblack.png */; };
+		8997BB2F1816D9F000061EF5 /* antrored.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1E1816D9F000061EF5 /* antrored.png */; };
+		8997BB301816D9F000061EF5 /* asosblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB1F1816D9F000061EF5 /* asosblack.png */; };
+		8997BB311816D9F000061EF5 /* asosred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB201816D9F000061EF5 /* asosred.png */; };
+		8997BB321816D9F000061EF5 /* h&mblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB211816D9F000061EF5 /* h&mblack.png */; };
+		8997BB331816D9F000061EF5 /* h&mred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB221816D9F000061EF5 /* h&mred.png */; };
+		8997BB341816D9F000061EF5 /* mangoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB231816D9F000061EF5 /* mangoblack.png */; };
+		8997BB351816D9F000061EF5 /* mangored.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB241816D9F000061EF5 /* mangored.png */; };
+		8997BB361816D9F000061EF5 /* newlookred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB251816D9F000061EF5 /* newlookred.png */; };
+		8997BB371816D9F000061EF5 /* otherstoriesblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB261816D9F000061EF5 /* otherstoriesblack.png */; };
+		8997BB381816D9F000061EF5 /* otherstoriesred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB271816D9F000061EF5 /* otherstoriesred.png */; };
+		8997BB391816D9F000061EF5 /* topshopblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB281816D9F000061EF5 /* topshopblack.png */; };
+		8997BB3A1816D9F000061EF5 /* topshopred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB291816D9F000061EF5 /* topshopred.png */; };
+		8997BB3B1816D9F000061EF5 /* urbanblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB2A1816D9F000061EF5 /* urbanblack.png */; };
+		8997BB3C1816D9F000061EF5 /* urbanoutfittersred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB2B1816D9F000061EF5 /* urbanoutfittersred.png */; };
+		8997BB3D1816D9F000061EF5 /* zarablack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB2C1816D9F000061EF5 /* zarablack.png */; };
+		8997BB3E1816D9F000061EF5 /* zarared.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB2D1816D9F000061EF5 /* zarared.png */; };
 		89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A42ABB180B001D00195EB3 /* ImageDownloader.m */; };
 		89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AF6A351809F2F400DD74F0 /* Security.framework */; };
 		89DD084A181046700053CA9B /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD0849181046700053CA9B /* page.png */; };
-		89DD086718115BC10053CA9B /* antropoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD085A18115BC10053CA9B /* antropoblack.png */; };
-		89DD086818115BC10053CA9B /* asosblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD085B18115BC10053CA9B /* asosblack.png */; };
-		89DD086918115BC10053CA9B /* asosred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD085C18115BC10053CA9B /* asosred.png */; };
-		89DD086A18115BC10053CA9B /* h&mblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD085D18115BC10053CA9B /* h&mblack.png */; };
-		89DD086B18115BC10053CA9B /* h&mred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD085E18115BC10053CA9B /* h&mred.png */; };
-		89DD086C18115BC10053CA9B /* mangoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD085F18115BC10053CA9B /* mangoblack.png */; };
-		89DD086D18115BC10053CA9B /* newlookred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086018115BC10053CA9B /* newlookred.png */; };
-		89DD086E18115BC10053CA9B /* otherstoriesblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086118115BC10053CA9B /* otherstoriesblack.png */; };
-		89DD086F18115BC10053CA9B /* otherstoriesred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086218115BC10053CA9B /* otherstoriesred.png */; };
-		89DD087018115BC10053CA9B /* topshopblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086318115BC10053CA9B /* topshopblack.png */; };
-		89DD087118115BC10053CA9B /* urbanblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086418115BC10053CA9B /* urbanblack.png */; };
-		89DD087218115BC10053CA9B /* zarablack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086518115BC10053CA9B /* zarablack.png */; };
-		89DD087318115BC10053CA9B /* zarared.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD086618115BC10053CA9B /* zarared.png */; };
-		89DD088618118BEE0053CA9B /* antropoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087518118BEE0053CA9B /* antropoblack.png */; };
-		89DD088718118BEE0053CA9B /* antrored.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087618118BEE0053CA9B /* antrored.png */; };
-		89DD088818118BEE0053CA9B /* asosblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087718118BEE0053CA9B /* asosblack.png */; };
-		89DD088918118BEE0053CA9B /* asosred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087818118BEE0053CA9B /* asosred.png */; };
-		89DD088A18118BEE0053CA9B /* h&mblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087918118BEE0053CA9B /* h&mblack.png */; };
-		89DD088B18118BEE0053CA9B /* h&mred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087A18118BEE0053CA9B /* h&mred.png */; };
-		89DD088C18118BEE0053CA9B /* mangoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087B18118BEE0053CA9B /* mangoblack.png */; };
-		89DD088D18118BEE0053CA9B /* mangored.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087C18118BEE0053CA9B /* mangored.png */; };
-		89DD088E18118BEE0053CA9B /* newlookred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087D18118BEE0053CA9B /* newlookred.png */; };
-		89DD088F18118BEE0053CA9B /* otherstoriesblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087E18118BEE0053CA9B /* otherstoriesblack.png */; };
-		89DD089018118BEE0053CA9B /* otherstoriesred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD087F18118BEE0053CA9B /* otherstoriesred.png */; };
-		89DD089118118BEE0053CA9B /* topshopblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD088018118BEE0053CA9B /* topshopblack.png */; };
-		89DD089218118BEE0053CA9B /* topshopred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD088118118BEE0053CA9B /* topshopred.png */; };
-		89DD089318118BEE0053CA9B /* urbanblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD088218118BEE0053CA9B /* urbanblack.png */; };
-		89DD089418118BEE0053CA9B /* urbanoutfittersred.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD088318118BEE0053CA9B /* urbanoutfittersred.png */; };
-		89DD089518118BEE0053CA9B /* zarablack.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD088418118BEE0053CA9B /* zarablack.png */; };
-		89DD089618118BEE0053CA9B /* zarared.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD088518118BEE0053CA9B /* zarared.png */; };
 		89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7142E17F5A7B6006F1E09 /* Foundation.framework */; };
 		89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */; };
 		89E7143317F5A7B6006F1E09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143217F5A7B6006F1E09 /* UIKit.framework */; };
@@ -158,40 +150,32 @@
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		898F17A118041794006A27DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8997BB0F18159C5B00061EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8997BB1118166FFA00061EF5 /* show_me_clothes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = show_me_clothes.png; sourceTree = "<group>"; };
+		8997BB1218166FFA00061EF5 /* new_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_in.png; sourceTree = "<group>"; };
+		8997BB1318166FFA00061EF5 /* mangoredv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mangoredv2.png; sourceTree = "<group>"; };
+		8997BB1418166FFA00061EF5 /* asosblackv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosblackv2.png; sourceTree = "<group>"; };
+		8997BB1518166FFA00061EF5 /* topshopredv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshopredv2.png; sourceTree = "<group>"; };
+		8997BB1D1816D9F000061EF5 /* antropoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antropoblack.png; sourceTree = "<group>"; };
+		8997BB1E1816D9F000061EF5 /* antrored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antrored.png; sourceTree = "<group>"; };
+		8997BB1F1816D9F000061EF5 /* asosblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosblack.png; sourceTree = "<group>"; };
+		8997BB201816D9F000061EF5 /* asosred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosred.png; sourceTree = "<group>"; };
+		8997BB211816D9F000061EF5 /* h&mblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&mblack.png"; sourceTree = "<group>"; };
+		8997BB221816D9F000061EF5 /* h&mred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&mred.png"; sourceTree = "<group>"; };
+		8997BB231816D9F000061EF5 /* mangoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mangoblack.png; sourceTree = "<group>"; };
+		8997BB241816D9F000061EF5 /* mangored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mangored.png; sourceTree = "<group>"; };
+		8997BB251816D9F000061EF5 /* newlookred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlookred.png; sourceTree = "<group>"; };
+		8997BB261816D9F000061EF5 /* otherstoriesblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstoriesblack.png; sourceTree = "<group>"; };
+		8997BB271816D9F000061EF5 /* otherstoriesred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstoriesred.png; sourceTree = "<group>"; };
+		8997BB281816D9F000061EF5 /* topshopblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshopblack.png; sourceTree = "<group>"; };
+		8997BB291816D9F000061EF5 /* topshopred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshopred.png; sourceTree = "<group>"; };
+		8997BB2A1816D9F000061EF5 /* urbanblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanblack.png; sourceTree = "<group>"; };
+		8997BB2B1816D9F000061EF5 /* urbanoutfittersred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanoutfittersred.png; sourceTree = "<group>"; };
+		8997BB2C1816D9F000061EF5 /* zarablack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zarablack.png; sourceTree = "<group>"; };
+		8997BB2D1816D9F000061EF5 /* zarared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zarared.png; sourceTree = "<group>"; };
 		89A42ABA180B001D00195EB3 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		89A42ABB180B001D00195EB3 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		89AF6A351809F2F400DD74F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		89DD0849181046700053CA9B /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
-		89DD085A18115BC10053CA9B /* antropoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antropoblack.png; sourceTree = "<group>"; };
-		89DD085B18115BC10053CA9B /* asosblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosblack.png; sourceTree = "<group>"; };
-		89DD085C18115BC10053CA9B /* asosred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosred.png; sourceTree = "<group>"; };
-		89DD085D18115BC10053CA9B /* h&mblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&mblack.png"; sourceTree = "<group>"; };
-		89DD085E18115BC10053CA9B /* h&mred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&mred.png"; sourceTree = "<group>"; };
-		89DD085F18115BC10053CA9B /* mangoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mangoblack.png; sourceTree = "<group>"; };
-		89DD086018115BC10053CA9B /* newlookred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlookred.png; sourceTree = "<group>"; };
-		89DD086118115BC10053CA9B /* otherstoriesblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstoriesblack.png; sourceTree = "<group>"; };
-		89DD086218115BC10053CA9B /* otherstoriesred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstoriesred.png; sourceTree = "<group>"; };
-		89DD086318115BC10053CA9B /* topshopblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshopblack.png; sourceTree = "<group>"; };
-		89DD086418115BC10053CA9B /* urbanblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanblack.png; sourceTree = "<group>"; };
-		89DD086518115BC10053CA9B /* zarablack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zarablack.png; sourceTree = "<group>"; };
-		89DD086618115BC10053CA9B /* zarared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zarared.png; sourceTree = "<group>"; };
-		89DD087518118BEE0053CA9B /* antropoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antropoblack.png; sourceTree = "<group>"; };
-		89DD087618118BEE0053CA9B /* antrored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antrored.png; sourceTree = "<group>"; };
-		89DD087718118BEE0053CA9B /* asosblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosblack.png; sourceTree = "<group>"; };
-		89DD087818118BEE0053CA9B /* asosred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asosred.png; sourceTree = "<group>"; };
-		89DD087918118BEE0053CA9B /* h&mblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&mblack.png"; sourceTree = "<group>"; };
-		89DD087A18118BEE0053CA9B /* h&mred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "h&mred.png"; sourceTree = "<group>"; };
-		89DD087B18118BEE0053CA9B /* mangoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mangoblack.png; sourceTree = "<group>"; };
-		89DD087C18118BEE0053CA9B /* mangored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mangored.png; sourceTree = "<group>"; };
-		89DD087D18118BEE0053CA9B /* newlookred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlookred.png; sourceTree = "<group>"; };
-		89DD087E18118BEE0053CA9B /* otherstoriesblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstoriesblack.png; sourceTree = "<group>"; };
-		89DD087F18118BEE0053CA9B /* otherstoriesred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherstoriesred.png; sourceTree = "<group>"; };
-		89DD088018118BEE0053CA9B /* topshopblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshopblack.png; sourceTree = "<group>"; };
-		89DD088118118BEE0053CA9B /* topshopred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topshopred.png; sourceTree = "<group>"; };
-		89DD088218118BEE0053CA9B /* urbanblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanblack.png; sourceTree = "<group>"; };
-		89DD088318118BEE0053CA9B /* urbanoutfittersred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanoutfittersred.png; sourceTree = "<group>"; };
-		89DD088418118BEE0053CA9B /* zarablack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zarablack.png; sourceTree = "<group>"; };
-		89DD088518118BEE0053CA9B /* zarared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zarared.png; sourceTree = "<group>"; };
 		89E7142B17F5A7B6006F1E09 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E7142E17F5A7B6006F1E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -354,36 +338,23 @@
 		89DD087418115BC90053CA9B /* brand_images */ = {
 			isa = PBXGroup;
 			children = (
-				89DD087518118BEE0053CA9B /* antropoblack.png */,
-				89DD087618118BEE0053CA9B /* antrored.png */,
-				89DD087718118BEE0053CA9B /* asosblack.png */,
-				89DD087818118BEE0053CA9B /* asosred.png */,
-				89DD087918118BEE0053CA9B /* h&mblack.png */,
-				89DD087A18118BEE0053CA9B /* h&mred.png */,
-				89DD087B18118BEE0053CA9B /* mangoblack.png */,
-				89DD087C18118BEE0053CA9B /* mangored.png */,
-				89DD087D18118BEE0053CA9B /* newlookred.png */,
-				89DD087E18118BEE0053CA9B /* otherstoriesblack.png */,
-				89DD087F18118BEE0053CA9B /* otherstoriesred.png */,
-				89DD088018118BEE0053CA9B /* topshopblack.png */,
-				89DD088118118BEE0053CA9B /* topshopred.png */,
-				89DD088218118BEE0053CA9B /* urbanblack.png */,
-				89DD088318118BEE0053CA9B /* urbanoutfittersred.png */,
-				89DD088418118BEE0053CA9B /* zarablack.png */,
-				89DD088518118BEE0053CA9B /* zarared.png */,
-				89DD085A18115BC10053CA9B /* antropoblack.png */,
-				89DD085B18115BC10053CA9B /* asosblack.png */,
-				89DD085C18115BC10053CA9B /* asosred.png */,
-				89DD085D18115BC10053CA9B /* h&mblack.png */,
-				89DD085E18115BC10053CA9B /* h&mred.png */,
-				89DD085F18115BC10053CA9B /* mangoblack.png */,
-				89DD086018115BC10053CA9B /* newlookred.png */,
-				89DD086118115BC10053CA9B /* otherstoriesblack.png */,
-				89DD086218115BC10053CA9B /* otherstoriesred.png */,
-				89DD086318115BC10053CA9B /* topshopblack.png */,
-				89DD086418115BC10053CA9B /* urbanblack.png */,
-				89DD086518115BC10053CA9B /* zarablack.png */,
-				89DD086618115BC10053CA9B /* zarared.png */,
+				8997BB1D1816D9F000061EF5 /* antropoblack.png */,
+				8997BB1E1816D9F000061EF5 /* antrored.png */,
+				8997BB1F1816D9F000061EF5 /* asosblack.png */,
+				8997BB201816D9F000061EF5 /* asosred.png */,
+				8997BB211816D9F000061EF5 /* h&mblack.png */,
+				8997BB221816D9F000061EF5 /* h&mred.png */,
+				8997BB231816D9F000061EF5 /* mangoblack.png */,
+				8997BB241816D9F000061EF5 /* mangored.png */,
+				8997BB251816D9F000061EF5 /* newlookred.png */,
+				8997BB261816D9F000061EF5 /* otherstoriesblack.png */,
+				8997BB271816D9F000061EF5 /* otherstoriesred.png */,
+				8997BB281816D9F000061EF5 /* topshopblack.png */,
+				8997BB291816D9F000061EF5 /* topshopred.png */,
+				8997BB2A1816D9F000061EF5 /* urbanblack.png */,
+				8997BB2B1816D9F000061EF5 /* urbanoutfittersred.png */,
+				8997BB2C1816D9F000061EF5 /* zarablack.png */,
+				8997BB2D1816D9F000061EF5 /* zarared.png */,
 			);
 			name = brand_images;
 			sourceTree = "<group>";
@@ -446,6 +417,11 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8997BB1118166FFA00061EF5 /* show_me_clothes.png */,
+				8997BB1218166FFA00061EF5 /* new_in.png */,
+				8997BB1318166FFA00061EF5 /* mangoredv2.png */,
+				8997BB1418166FFA00061EF5 /* asosblackv2.png */,
+				8997BB1518166FFA00061EF5 /* topshopredv2.png */,
 				89DD087418115BC90053CA9B /* brand_images */,
 				89DD0849181046700053CA9B /* page.png */,
 				89385E64180EB319000A260C /* header.png */,
@@ -566,52 +542,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89DD088618118BEE0053CA9B /* antropoblack.png in Resources */,
-				89DD086A18115BC10053CA9B /* h&mblack.png in Resources */,
-				89DD089518118BEE0053CA9B /* zarablack.png in Resources */,
-				89DD088718118BEE0053CA9B /* antrored.png in Resources */,
-				89DD088918118BEE0053CA9B /* asosred.png in Resources */,
-				89DD088F18118BEE0053CA9B /* otherstoriesblack.png in Resources */,
 				893D303417F8E54000D820D1 /* heart.png in Resources */,
 				893D304F17F9C99A00D820D1 /* polaroid-view.png in Resources */,
-				89DD088A18118BEE0053CA9B /* h&mblack.png in Resources */,
+				8997BB311816D9F000061EF5 /* asosred.png in Resources */,
+				8997BB2F1816D9F000061EF5 /* antrored.png in Resources */,
 				893D303317F8E54000D820D1 /* cross.png in Resources */,
-				89DD089618118BEE0053CA9B /* zarared.png in Resources */,
+				8997BB371816D9F000061EF5 /* otherstoriesblack.png in Resources */,
 				89385E65180EB319000A260C /* header.png in Resources */,
-				89DD086D18115BC10053CA9B /* newlookred.png in Resources */,
-				89DD087318115BC10053CA9B /* zarared.png in Resources */,
-				89DD088C18118BEE0053CA9B /* mangoblack.png in Resources */,
 				8925452E17FB065D001A6D68 /* weave-nav.png in Resources */,
 				893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */,
-				89DD086718115BC10053CA9B /* antropoblack.png in Resources */,
+				8997BB3C1816D9F000061EF5 /* urbanoutfittersred.png in Resources */,
 				893D302F17F8E20100D820D1 /* dislike.png in Resources */,
-				89DD088E18118BEE0053CA9B /* newlookred.png in Resources */,
-				89DD086C18115BC10053CA9B /* mangoblack.png in Resources */,
-				89DD086818115BC10053CA9B /* asosblack.png in Resources */,
-				89DD087118115BC10053CA9B /* urbanblack.png in Resources */,
+				8997BB3D1816D9F000061EF5 /* zarablack.png in Resources */,
+				8997BB351816D9F000061EF5 /* mangored.png in Resources */,
 				893D303517F8E54000D820D1 /* info.png in Resources */,
-				89DD089318118BEE0053CA9B /* urbanblack.png in Resources */,
-				89DD088D18118BEE0053CA9B /* mangored.png in Resources */,
-				89DD089418118BEE0053CA9B /* urbanoutfittersred.png in Resources */,
-				89DD086918115BC10053CA9B /* asosred.png in Resources */,
-				89DD088818118BEE0053CA9B /* asosblack.png in Resources */,
-				89DD089118118BEE0053CA9B /* topshopblack.png in Resources */,
-				89DD089218118BEE0053CA9B /* topshopred.png in Resources */,
+				8997BB381816D9F000061EF5 /* otherstoriesred.png in Resources */,
+				8997BB391816D9F000061EF5 /* topshopblack.png in Resources */,
+				8997BB1618166FFA00061EF5 /* show_me_clothes.png in Resources */,
+				8997BB3E1816D9F000061EF5 /* zarared.png in Resources */,
+				8997BB2E1816D9F000061EF5 /* antropoblack.png in Resources */,
+				8997BB361816D9F000061EF5 /* newlookred.png in Resources */,
+				8997BB301816D9F000061EF5 /* asosblack.png in Resources */,
+				8997BB1718166FFA00061EF5 /* new_in.png in Resources */,
+				8997BB1A18166FFA00061EF5 /* topshopredv2.png in Resources */,
+				8997BB1818166FFA00061EF5 /* mangoredv2.png in Resources */,
 				89DD084A181046700053CA9B /* page.png in Resources */,
-				89DD087218115BC10053CA9B /* zarablack.png in Resources */,
 				89E7146417F5A86C006F1E09 /* weave.png in Resources */,
-				89DD087018115BC10053CA9B /* topshopblack.png in Resources */,
+				8997BB331816D9F000061EF5 /* h&mred.png in Resources */,
+				8997BB1918166FFA00061EF5 /* asosblackv2.png in Resources */,
+				8997BB341816D9F000061EF5 /* mangoblack.png in Resources */,
 				8997BB1018159C5B00061EF5 /* Main.storyboard in Resources */,
 				89E7144717F5A7B6006F1E09 /* Images.xcassets in Resources */,
-				89DD086F18115BC10053CA9B /* otherstoriesred.png in Resources */,
-				89DD088B18118BEE0053CA9B /* h&mred.png in Resources */,
 				893D302D17F8DC0600D820D1 /* like.png in Resources */,
 				8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */,
+				8997BB321816D9F000061EF5 /* h&mblack.png in Resources */,
 				89E7143917F5A7B6006F1E09 /* InfoPlist.strings in Resources */,
-				89DD089018118BEE0053CA9B /* otherstoriesred.png in Resources */,
-				89DD086E18115BC10053CA9B /* otherstoriesblack.png in Resources */,
-				89DD086B18115BC10053CA9B /* h&mred.png in Resources */,
 				89E7144217F5A7B6006F1E09 /* Main.storyboard in Resources */,
+				8997BB3A1816D9F000061EF5 /* topshopred.png in Resources */,
+				8997BB3B1816D9F000061EF5 /* urbanblack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

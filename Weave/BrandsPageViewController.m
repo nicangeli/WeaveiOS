@@ -10,14 +10,13 @@
 #import "BrandCell.h"
 #import "Brand.h"
 #import "ProductViewController.h"
+#import "AppDelegate.h"
 
 @interface BrandsPageViewController ()
 
 @end
 
 @implementation BrandsPageViewController{
-    //NSArray *descriptions;
-    //NSArray *clickedDescriptions;
     NSMutableArray *brands;
 }
 
@@ -41,13 +40,17 @@
     self.collectionView.delegate = self;
     
     brands = [[NSMutableArray alloc] initWithCapacity:5];
-    [brands addObject:[[Brand alloc] initWithName:@"Topshop" andImageName:@"topshopblack.png" andClickedName:@"Asos" andImageClickedName:@"topshopred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Topshop" andImageName:@"topshopblack.png" andClickedName:@"Asos" andImageClickedName:@"topshopredv2.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Zara" andImageName:@"zarablack.png" andClickedName:@"Zara" andImageClickedName:@"zarared.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"h&mblack.png" andClickedName:@"H&M" andImageClickedName:@"h&mred.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"mangoblack.png" andClickedName:@"Mango" andImageClickedName:@"mangored.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblack.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antropored.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"newlookblack.png" andClickedName:@"Newlook" andImageClickedName:@"newlookred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"mangoblack.png" andClickedName:@"Mango" andImageClickedName:@"mangoredv2.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblackv2.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antrored.png" andChecked:NO]];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [Flurry logEvent:@"Brands_Page_Opened"];
 }
 
 
@@ -88,6 +91,12 @@
 -(void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Brand *b = [brands objectAtIndex:indexPath.item];
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"Brand", [b getName], // Capture user status
+     nil];
+    
+    [Flurry logEvent:@"Brand_Selected" withParameters:articleParams];
     if(b.checked) {
         // b is checked
         [b setChecked:NO];
@@ -113,6 +122,7 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"ShowProducts"])
     {
+        [Flurry logEvent:@"Show_Products_Selected"];
         // Get reference to the destination view controller
         ProductViewController *pvc = [segue destinationViewController];
         pvc.brandsSelected = (NSMutableArray *)[self getSelectedBrands];

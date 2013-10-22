@@ -11,7 +11,7 @@
 @interface LikesPageViewController : UITableViewController
 
 - (IBAction)handleTap:(UITapGestureRecognizer *)recognizer;
-
+-(IBAction)moreDetailsPressed:(UIButton *)sender;
 
 
 @end

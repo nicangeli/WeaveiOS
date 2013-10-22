@@ -125,6 +125,9 @@
     UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
     priceLavel.text = [p getPrice];
     
+    UIButton *buyButton = (UIButton *)[cell viewWithTag:105];
+    buyButton.accessibilityHint = [p getUrl];
+    
     return cell;
 }
 
@@ -174,5 +177,29 @@
 {
     return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
 }
+
+-(IBAction)moreDetailsPressed:(UIButton *)sender {
+    NSString *link = [sender accessibilityHint];
+    
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"url", link, // Capture author info
+     nil];
+    
+    [Flurry logEvent:@"Product_Shop_Visited" withParameters:articleParams];
+    NSString *trimmedString;
+    if([link hasPrefix:@" "]) {
+        NSLog(@"I start with a space");
+    }
+    if([link hasPrefix:@"\r\n"]) {
+        NSLog(@"I start with newline characters");
+        trimmedString = [link stringByTrimmingCharactersInSet:
+                         [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    } else {
+        trimmedString = link;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:trimmedString]];
+}
+
 
 @end

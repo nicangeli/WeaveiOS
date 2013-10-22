@@ -32,7 +32,7 @@
 {
     self = [super init];
     if(self != nil) {
-        self.baseAPIURL = @"http://weavedev.herokuapp.com/api/new";
+        self.baseAPIURL = @"http://www.weaveuk.com/api/get";
 
         self.likeAlertMessage = @"Swiping right indicates that you like this product. It's been saved in your likes.";
         self.likeAlertTitle = @"Great";
