@@ -65,6 +65,8 @@
 		8997BB3E1816D9F000061EF5 /* zarared.png in Resources */ = {isa = PBXBuildFile; fileRef = 8997BB2D1816D9F000061EF5 /* zarared.png */; };
 		8997BB411817DD1200061EF5 /* Basket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB401817DD1200061EF5 /* Basket.m */; };
 		8997BB441817DDD300061EF5 /* BasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB431817DDD300061EF5 /* BasketViewController.m */; };
+		8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB461818014E00061EF5 /* EmailBasketViewController.m */; };
+		8997BB4A1818086000061EF5 /* Emailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB491818086000061EF5 /* Emailer.m */; };
 		89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A42ABB180B001D00195EB3 /* ImageDownloader.m */; };
 		89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AF6A351809F2F400DD74F0 /* Security.framework */; };
 		89DD084A181046700053CA9B /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD0849181046700053CA9B /* page.png */; };
@@ -174,6 +176,10 @@
 		8997BB401817DD1200061EF5 /* Basket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Basket.m; sourceTree = "<group>"; };
 		8997BB421817DDD300061EF5 /* BasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasketViewController.h; sourceTree = "<group>"; };
 		8997BB431817DDD300061EF5 /* BasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasketViewController.m; sourceTree = "<group>"; };
+		8997BB451818014E00061EF5 /* EmailBasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailBasketViewController.h; sourceTree = "<group>"; };
+		8997BB461818014E00061EF5 /* EmailBasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailBasketViewController.m; sourceTree = "<group>"; };
+		8997BB481818086000061EF5 /* Emailer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emailer.h; sourceTree = "<group>"; };
+		8997BB491818086000061EF5 /* Emailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emailer.m; sourceTree = "<group>"; };
 		89A42ABA180B001D00195EB3 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		89A42ABB180B001D00195EB3 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		89AF6A351809F2F400DD74F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -274,6 +280,10 @@
 				8925453417FB1FC7001A6D68 /* LikesPageViewController.m */,
 				89A42ABA180B001D00195EB3 /* ImageDownloader.h */,
 				89A42ABB180B001D00195EB3 /* ImageDownloader.m */,
+				8997BB451818014E00061EF5 /* EmailBasketViewController.h */,
+				8997BB461818014E00061EF5 /* EmailBasketViewController.m */,
+				8997BB481818086000061EF5 /* Emailer.h */,
+				8997BB491818086000061EF5 /* Emailer.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -634,6 +644,8 @@
 			files = (
 				8925454417FDAF16001A6D68 /* Strings.m in Sources */,
 				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
+				8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */,
+				8997BB4A1818086000061EF5 /* Emailer.m in Sources */,
 				89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				89385E61180D83F0000A260C /* Brand.m in Sources */,
