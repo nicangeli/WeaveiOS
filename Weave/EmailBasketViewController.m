@@ -9,6 +9,7 @@
 #import "EmailBasketViewController.h"
 #import "Emailer.h"
 #import "Basket.h"
+#import "Strings.h"
 
 @interface EmailBasketViewController ()
 
@@ -41,10 +42,47 @@
 
 -(IBAction)emailButtonHit:(UIButton *)sender
 {
+    Strings *s = [Strings instance];
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = s.loadingText;
     Basket *b = [Basket instance];
     Emailer *e = [[Emailer alloc] init];
     e.delegate = self;
-    [e sendEmailForBasket:b];
+    [e sendEmailTo:self.emailAddressField.text forBasket:b];
+}
+
+-(IBAction)emailTextChange:(UITextField *)sender
+{
+    NSLog(@"Email text changed and is now: %@", sender.text);
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    //You code here...
+    NSString *email = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if([self validateEmail:email]) {
+        // valid email address
+        self.submitEmailButton.enabled = YES;
+        self.submitEmailButton.backgroundColor = [UIColor colorWithRed:239.0f/255.0f green:58.0f/255.0f blue:66.0f/255.0f alpha:1.0f];
+    } else {
+        self.submitEmailButton.enabled = NO;
+        self.submitEmailButton.backgroundColor = [UIColor grayColor];
+    }
+    return YES;
+}
+
+- (BOOL)validateEmail: (NSString *) candidate {
+    NSString *emailRegex =
+    @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
+    @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
+    @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"
+    @"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"
+    @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
+    @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
+    @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
 }
 
 -(void)didSendEmailForBasket

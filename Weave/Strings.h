@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSString *dislikeAlertTitleButton;
 
 @property (nonatomic, strong) NSString *baseAPIURL;
+@property (nonatomic, strong) NSString *emailBrandsURL;
+
 @property (nonatomic, strong) NSString *loadingText;
 
 @property (nonatomic, strong) NSString *brandsTitle;

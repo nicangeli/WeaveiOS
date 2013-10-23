@@ -33,6 +33,7 @@
     self = [super init];
     if(self != nil) {
         self.baseAPIURL = @"http://localhost:3000/api/get";
+        self.emailBrandsURL = @"http://localhost:3000/api/email_brands";
 
         self.likeAlertMessage = @"Swiping right indicates that you like this product. It's been saved in your likes.";
         self.likeAlertTitle = @"Great";

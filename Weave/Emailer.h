@@ -18,7 +18,7 @@
 
 @property (nonatomic, retain) id<EmailerDelegate> delegate;
 
--(void)sendEmailForBasket:(Basket *)basket;
+-(void)sendEmailTo:(NSString *)emailAddress forBasket:(Basket *)basket;
 
 
 @end

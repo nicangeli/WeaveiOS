@@ -7,11 +7,25 @@
 //
 
 #import "Emailer.h"
-
+#import "AFHTTPRequestOperationManager.h"
+#import "Strings.h"
 @implementation Emailer
 
--(void)sendEmailForBasket:(Basket *)basket
+-(void)sendEmailTo:(NSString *)emailAddress forBasket:(Basket *)basket
 {
+    Strings *s = [Strings instance];
+    NSLog(@"Sending email to: %@", emailAddress);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"foo": @"bar"};
+    
+    
+    
+    [manager POST:s.emailBrandsURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
     
 }
 
