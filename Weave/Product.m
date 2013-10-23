@@ -133,5 +133,14 @@
     return url;
 }
 
+-(float)getNumberPrice
+{
+    if([price hasPrefix:@"£"]) {
+        return [[price substringFromIndex:1] floatValue];
+    } else {
+        return [price floatValue];
+    }
+}
+
 
 @end

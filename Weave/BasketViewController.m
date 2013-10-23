@@ -1,0 +1,93 @@
+//
+//  BasketViewController.m
+//  Weave
+//
+//  Created by Nicholas Angeli on 23/10/2013.
+//  Copyright (c) 2013 Nicholas Angeli. All rights reserved.
+//
+
+#import "BasketViewController.h"
+#import "Basket.h"
+#import "Product.h"
+
+@interface BasketViewController ()
+
+@end
+
+@implementation BasketViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+	// Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    Basket *b = [Basket instance];
+    [self.totalPriceLabel setText:[NSString stringWithFormat:@"£%g", [b basketTotal]]];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"NUM of rows in basket");
+    Basket *basket = [Basket instance];
+    // Return the number of rows in the section.
+    NSLog(@"NUM of rows in basket: %d", [basket.products count]);
+    return [basket.products count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Basket *basket = [Basket instance];
+    static NSString *CellIdentifier = @"BasketCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    int index  = [basket.products count] - indexPath.row -1;
+    Product *p = [basket.products objectAtIndex:index];
+    UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:100];
+    thumbnailView.image = [UIImage imageWithContentsOfFile:[p getImageUrl]];
+    thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    UILabel *priceLabel = (UILabel *)[cell viewWithTag:101];
+    priceLabel.text = [p getPrice];
+    
+    return cell;
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+@end

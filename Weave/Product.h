@@ -36,5 +36,6 @@
 -(NSString *)getMaterials;
 -(NSString *)getCollectionDate;
 -(NSString *)getCategoryToDisplay;
+-(float)getNumberPrice;
 
 @end

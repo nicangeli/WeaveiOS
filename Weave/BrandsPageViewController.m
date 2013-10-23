@@ -46,6 +46,7 @@
     [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"mangoblack.png" andClickedName:@"Mango" andImageClickedName:@"mangoredv2.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblackv2.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antrored.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"& other Stories" andImageName:@"otherstoriesblack.png" andClickedName:@"& other Stories" andImageClickedName:@"otherstoriesred.png" andChecked:NO]];
 }
 
 -(void)viewDidAppear:(BOOL)animated

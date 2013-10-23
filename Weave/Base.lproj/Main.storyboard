@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="272" id="WDP-Yu-vMq">
-                                <rect key="frame" x="0.0" y="22" width="320" height="272"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="272"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDP-Yu-vMq" id="v18-CK-Rfj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="271"/>
@@ -57,13 +57,23 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVC-Vn-bAG">
-                                            <rect key="frame" x="20" y="20" width="280" height="191"/>
+                                            <rect key="frame" x="20" y="20" width="198" height="176"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <gestureRecognizers/>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="jb5-P5-WOd" appends="YES" id="O2c-g0-pc0"/>
                                             </connections>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-K9-qnT">
+                                            <rect key="frame" x="243" y="20" width="65" height="47"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Add to Basket">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addToBasket:" destination="m1o-gS-q28" eventType="touchUpInside" id="Cnk-kI-NyN"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -73,7 +83,13 @@
                             <outlet property="delegate" destination="m1o-gS-q28" id="2FB-Jx-isk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31"/>
+                    <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
+                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve">
+                            <connections>
+                                <segue destination="8h1-as-rax" kind="push" id="cM7-bd-V4p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="jb5-P5-WOd">
@@ -83,6 +99,95 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2166" y="83"/>
+        </scene>
+        <!--Basket View Controller - Basket-->
+        <scene sceneID="e9t-Us-alK">
+            <objects>
+                <viewController id="8h1-as-rax" customClass="BasketViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0pZ-PF-PGO"/>
+                        <viewControllerLayoutGuide type="bottom" id="vn4-hV-iLg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GuT-Bq-Bga">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="122" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R7B-Go-9iG">
+                                <rect key="frame" x="0.0" y="65" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasketCell" id="91E-X7-qO8">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="122"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="91E-X7-qO8" id="qeA-qB-2Lq">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-Kq-9xy">
+                                                    <rect key="frame" x="151" y="20" width="68" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uTG-S1-7qL">
+                                                    <rect key="frame" x="8" y="20" width="110" height="88"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8h1-as-rax" id="Ip6-IS-SrC"/>
+                                    <outlet property="delegate" destination="8h1-as-rax" id="oja-jb-sGs"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P9M-aX-o4L">
+                                <rect key="frame" x="15" y="71" width="292" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNH-eb-VCn">
+                                        <rect key="frame" x="98" y="5" width="94" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Mail my Likes"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.11702704279999999" blue="0.1801769993" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKU-rY-gBd">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Basket Total: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuB-uA-nPc">
+                                        <rect key="frame" x="32" y="9" width="104" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="£X.XX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzH-AI-rYg">
+                                        <rect key="frame" x="214" y="9" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94575095663265307" green="0.79771707795520208" blue="0.74844934707507293" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Basket" id="uDv-Rl-Kgg"/>
+                    <connections>
+                        <outlet property="tableView" destination="R7B-Go-9iG" id="KHT-gN-t6X"/>
+                        <outlet property="totalPriceLabel" destination="bzH-AI-rYg" id="ttg-tx-Y2d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmB-2E-68q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2608" y="675"/>
         </scene>
         <!--Email Likes View Controller-->
         <scene sceneID="NMg-RX-8hm">
@@ -310,7 +415,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="1" verticalHuggingPriority="1" reuseIdentifier="Cell" id="dWt-w1-He2" customClass="BrandCell">
-                                        <rect key="frame" x="14" y="0.0" width="253" height="55"/>
+                                        <rect key="frame" x="14" y="64" width="253" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
@@ -529,7 +634,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nth-eb-rqa"/>
-        <segue reference="dH0-xo-9uh"/>
+        <segue reference="DRD-DG-9VV"/>
+        <segue reference="iVo-ez-5yT"/>
     </inferredMetricsTieBreakers>
 </document>

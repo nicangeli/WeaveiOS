@@ -10,8 +10,9 @@
 
 @interface LikesPageViewController : UITableViewController
 
-- (IBAction)handleTap:(UITapGestureRecognizer *)recognizer;
+-(IBAction)handleTap:(UITapGestureRecognizer *)recognizer;
 -(IBAction)moreDetailsPressed:(UIButton *)sender;
+-(IBAction)addToBasket:(UIButton *)sender;
 
 
 @end
