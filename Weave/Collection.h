@@ -23,5 +23,6 @@
 -(Product *)getNextProduct;
 -(void)loadNextCollectionForBrands:(NSMutableArray *)brands;
 -(void)clearCollection;
+-(NSNumber *)count;
 
 @end

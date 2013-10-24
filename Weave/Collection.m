@@ -45,6 +45,10 @@
     return [NSNumber numberWithInt:[products count]];
 }
 
+-(NSNumber *) count {
+    return [NSNumber numberWithInt:[products count]];
+}
+
 -(void)loadNextCollectionForBrands:(NSMutableArray *)brands
 {
     NSLog(@"LOAD NEXT COLLECTION FOR BRANDS IS CALLED");

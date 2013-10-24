@@ -35,11 +35,6 @@
        return self;
 }
 
--(void)awakeFromNib
-{
-    NSLog(@"Awake from nib");
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,7 +44,6 @@
     [self registerForNetworkEvents];
     [self listenToNetwork];
     [self updateView];
-    NSLog(@"Brands sent over: %@", self.brandsSelected);
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -65,15 +59,21 @@
         [alert show];
         [defaults setBool:YES forKey:@"seenProductsInstructions"];
     }
-    if(currentProduct == nil) {
-        NSLog(@"Current product is null");
-        [self displayLoadingHUD];
-        [self checkNetworkStatus:nil];
+    
+    
+    Collection *c = [Collection instance];
+    if(![[c count] isEqualToNumber:[NSNumber numberWithInt:0]]) { // still got products to show
+        // show them
+        if(currentProduct == nil) { // are we returning from details view page?
+            [self showNextProduct];
+        }
+    } else {
+        // update the collection
+        NSLog(@"Not got products to show...");
+        c.calling = self;
+        [c loadNextCollectionForBrands:self.brandsSelected];
     }
-
-    
     [Flurry logEvent:@"Products_Viewed" timed:YES];
-    
     //params or update existing ones here as well
     //[self getNextProducts];
 }
@@ -110,33 +110,13 @@
 
 }
 
--(void)listenToNetwork
-{
-    reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-}
-
--(void)displayLoadingHUD
-{
-    Strings *s = [Strings instance];
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = s.loadingText;
-}
-
--(void)registerForNetworkEvents
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
-}
-
-
-
 
 // CALLED WHEN THE JSON HAS FINISHED DOWNLOADING
 -(void)downloadFinished
 {
     NSLog(@"Download finished");
     Collection *collection = [Collection instance];
-    NSNumber *numProducts = [collection numberOfProducts];
+    NSNumber *numProducts = [collection count];
     if([numProducts isEqualToNumber:[NSNumber numberWithInt:0]]) {
         NSLog(@"NO PRODUCTS TO SHOW");
         
@@ -160,18 +140,13 @@
     //[hud hide:YES];
     //[hud removeFromSuperview];
     Collection *c = [Collection instance];
-    c.calling = self;
     Product *p = [c getNextProduct];
-    if(p == nil) {
-        [c loadNextCollectionForBrands:self.brandsSelected];
-    } else {
-        UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
-        [MBProgressHUD showHUDAddedTo:v animated:YES];
-        currentProduct = p;
-        ImageDownloader *img = [[ImageDownloader alloc] init];
-        img.delegate = self;
-        [img downloadImageForProduct:p];
-    }
+    currentProduct = p;
+    UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
+    [MBProgressHUD showHUDAddedTo:v animated:YES];
+    ImageDownloader *img = [[ImageDownloader alloc] init];
+    img.delegate = self;
+    [img downloadImageForProduct:p];
 }
 
 -(void)finishedDownloadingImageForProduct:(Product *)p
@@ -518,12 +493,29 @@
         ProductDetailViewController *dvc = segue.destinationViewController;
         dvc.product = currentProduct;
     } else if([segue.identifier isEqualToString:@"ReturnToBrandsSegue"]) {
-        Collection *c = [Collection instance];
-        [c clearCollection];
-        currentProduct = nil;
-        
+        //Collection *c = [Collection instance];
+        //[c clearCollection];
+        //currentProduct = nil;
     }
     
+}
+
+-(void)listenToNetwork
+{
+    reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+}
+
+-(void)displayLoadingHUD
+{
+    Strings *s = [Strings instance];
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = s.loadingText;
+}
+
+-(void)registerForNetworkEvents
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
 }
 
 
