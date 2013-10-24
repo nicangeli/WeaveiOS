@@ -17,6 +17,8 @@
 @property (nonatomic, strong) IBOutlet UITextField *emailAddressField;
 @property (nonatomic, strong) IBOutlet UIButton *submitEmailButton;
 
+@property (nonatomic, strong) NSMutableArray *products;
+
 -(IBAction)emailButtonHit:(UIButton *)sender;
 -(IBAction)emailTextChange:(UITextField *)sender;
 

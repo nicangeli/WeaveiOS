@@ -15,4 +15,6 @@
 @property (nonatomic, strong) Basket *basket;
 @property (nonatomic, strong) IBOutlet UILabel *totalPriceLabel;
 
+-(IBAction)mailAllLikes:(id)sender;
+
 @end

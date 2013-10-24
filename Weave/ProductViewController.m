@@ -151,13 +151,14 @@
         NSLog(@"Number of products to show: %@", numProducts);
         [self showNextProduct];
     }
+//    [hud removeFromSuperViewOnHide];
     [hud hide:YES];
-
 }
 
 -(void)showNextProduct
 {
     //[hud hide:YES];
+    //[hud removeFromSuperview];
     Collection *c = [Collection instance];
     c.calling = self;
     Product *p = [c getNextProduct];

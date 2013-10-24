@@ -8,7 +8,7 @@
         <!--Likes Page View Controller - Your Likes-->
         <scene sceneID="FOg-4K-Zhd">
             <objects>
-                <tableViewController id="m1o-gS-q28" customClass="LikesPageViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="likesPage" id="m1o-gS-q28" customClass="LikesPageViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="272" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZMZ-q8-xTr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,13 +65,33 @@
                                             </connections>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-K9-qnT">
-                                            <rect key="frame" x="243" y="20" width="65" height="47"/>
+                                            <rect key="frame" x="237" y="20" width="65" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add to Basket">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="addToBasket:" destination="m1o-gS-q28" eventType="touchUpInside" id="Cnk-kI-NyN"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpV-4Q-M1s">
+                                            <rect key="frame" x="243" y="89" width="38" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Email">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="shareLike:" destination="m1o-gS-q28" eventType="touchUpInside" id="cOH-DG-edZ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6de-Ya-SVt">
+                                            <rect key="frame" x="243" y="148" width="44" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Delete">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="deleteLike:" destination="m1o-gS-q28" eventType="touchUpInside" id="I4w-Du-6RD"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -125,13 +145,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-Kq-9xy">
-                                                    <rect key="frame" x="151" y="20" width="68" height="37"/>
+                                                    <rect key="frame" x="176" y="20" width="68" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uTG-S1-7qL">
-                                                    <rect key="frame" x="8" y="20" width="110" height="88"/>
+                                                    <rect key="frame" x="8" y="20" width="162" height="86"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -154,7 +174,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Mail my Likes"/>
                                         <connections>
-                                            <segue destination="oqc-fF-QLp" kind="push" id="gND-OX-85l"/>
+                                            <action selector="mailAllLikes:" destination="8h1-as-rax" eventType="touchUpInside" id="vwq-GN-jnf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -198,7 +218,7 @@
         <!--Email Basket View Controller - Email-->
         <scene sceneID="MZM-pP-ROY">
             <objects>
-                <viewController id="oqc-fF-QLp" customClass="EmailBasketViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="emailPage" id="oqc-fF-QLp" customClass="EmailBasketViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dWl-Xa-QGC"/>
                         <viewControllerLayoutGuide type="bottom" id="EsM-yk-O22"/>
@@ -406,7 +426,7 @@
         <!--Brands Page View Controller - Weave-->
         <scene sceneID="bsH-Ps-2xN">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="brandsPage" autoresizesArchivedViewToFullSize="NO" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NFA-pW-HUo"/>
                         <viewControllerLayoutGuide type="bottom" id="ELL-yq-54w"/>

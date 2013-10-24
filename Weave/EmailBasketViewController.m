@@ -10,6 +10,7 @@
 #import "Emailer.h"
 #import "Basket.h"
 #import "Strings.h"
+#import "LikesPageViewController.h"
 
 @interface EmailBasketViewController ()
 
@@ -34,6 +35,17 @@
 	// Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // Get the stored data before the view loads
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *email = [defaults objectForKey:@"email"];
+    if(email != nil) {
+        self.emailAddressField.text = email;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -42,13 +54,16 @@
 
 -(IBAction)emailButtonHit:(UIButton *)sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.emailAddressField.text forKey:@"email"];
     Strings *s = [Strings instance];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = s.loadingText;
     Basket *b = [Basket instance];
     Emailer *e = [[Emailer alloc] init];
     e.delegate = self;
-    [e sendEmailTo:self.emailAddressField.text forBasket:b];
+    //[e sendEmailTo:self.emailAddressField.text forBasket:b];
+    [e sendEmailTo:self.emailAddressField.text forProducts:self.products];
 }
 
 -(IBAction)emailTextChange:(UITextField *)sender
@@ -88,6 +103,11 @@
 -(void)didSendEmailForBasket
 {
     // called when the email is sent successfully...
+    [hud setHidden:YES];
+   [hud removeFromSuperview];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    LikesPageViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

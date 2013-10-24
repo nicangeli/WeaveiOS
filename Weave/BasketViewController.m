@@ -9,6 +9,7 @@
 #import "BasketViewController.h"
 #import "Basket.h"
 #import "Product.h"
+#import "EmailBasketViewController.h"
 
 @interface BasketViewController ()
 
@@ -89,5 +90,15 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
+
+-(IBAction)mailAllLikes:(id)sender
+{
+    NSLog(@"Mailing all likes");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    EmailBasketViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"emailPage"];
+    viewController.products = [[Basket instance] products];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 @end

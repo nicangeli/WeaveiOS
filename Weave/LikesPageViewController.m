@@ -11,6 +11,7 @@
 #import "ImageDownloader.h"
 #import "ProductDetailViewController.h"
 #import "Basket.h"
+#import "EmailBasketViewController.h"
 
 @interface LikesPageViewController ()
 
@@ -140,21 +141,17 @@
     return YES;
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)deleteLikeAtIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
 {
     Likes *likes = [Likes instance];
+    Product *p = [likes objectAtIndex:indexPath.row];
+    [likes removeProductAtIndex:indexPath.row];
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        Product *p = [likes objectAtIndex:indexPath.row];
-        [likes removeProductAtIndex:indexPath.row];
-
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [ImageDownloader deleteFileAtPath:[p getImageUrl]];
-        [self saveLikes];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    for(NSString *image in [p getImageUrls]){
+        [ImageDownloader deleteFileAtPath:image];
     }
-
+    [self saveLikes];
 }
 
 -(void)saveLikes
@@ -220,6 +217,34 @@
         Product *p = [l objectAtIndex:index];
         [b addProduct:p];
     }
+}
+
+-(IBAction)shareLike:(id)sender
+{
+    NSLog(@"Share Like");
+    Likes *l = [Likes instance];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    int index = [l count] - indexPath.row -1;
+    Product *p = [l objectAtIndex:index];
+    // p is the product we clicked on
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    EmailBasketViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"emailPage"];
+    viewController.products = [NSMutableArray arrayWithObject:p];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(IBAction)deleteLike:(id)sender
+{
+    NSLog(@"Deleting like...");
+    Likes *l = [Likes instance];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    [self deleteLikeAtIndexPath:indexPath forTableView:self.tableView];
 }
 
 

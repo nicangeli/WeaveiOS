@@ -14,5 +14,7 @@
 -(IBAction)moreDetailsPressed:(UIButton *)sender;
 -(IBAction)addToBasket:(UIButton *)sender;
 
+-(IBAction)shareLike:(id)sender;
+-(IBAction)deleteLike:(id)sender;
 
 @end
