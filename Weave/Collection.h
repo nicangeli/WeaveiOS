@@ -8,15 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "Product.h"
+#import "Brand.h"
 #import "ProductViewController.h"
 
 @class ProductViewController;
 
+@protocol CollectionDelegate <NSObject>
+
+-(void)didDownloadAllProducts;
+-(void)didFailOnDownloadProducts;
+
+@end
+
 @interface Collection : NSObject {
     NSMutableArray *products;
+    NSMutableArray *archivedProducts;
 }
 
 @property (nonatomic, strong) ProductViewController *calling;
+@property (nonatomic, strong) NSString *lastSeenDate;
+@property (nonatomic, retain) id<CollectionDelegate> delegate;
 
 +(Collection *)instance;
 -(NSNumber *)numberOfProducts;
@@ -24,5 +35,11 @@
 -(void)loadNextCollectionForBrands:(NSMutableArray *)brands;
 -(void)clearCollection;
 -(NSNumber *)count;
+-(void)removeProductsThatAreNotIn:(NSMutableArray *)brands;
+-(NSMutableArray *)getProducts;
+-(NSMutableArray *)getArchivedProducts;
+-(void)setProducts:(NSMutableArray *)myProducts;
+-(void)getAllProducts;
+-(NSInteger)numberOfProductsForBrand:(Brand *)brand;
 
 @end

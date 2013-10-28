@@ -20,6 +20,7 @@
         self.imageName = imageName;
         self.imageClickedName = imageClickedName;
         self.checked = checked;
+        self.numberOfProducts = @"0";
     }
     return self;
 }

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *imageClickedName;
 @property (nonatomic, strong) NSString *clickedName;
 @property BOOL checked;
+@property (nonatomic, strong) NSString *numberOfProducts;
 
 -(id)initWithName:(NSString *)name andImageName:(NSString *)imageName andClickedName:(NSString *)clickedName andImageClickedName:(NSString *)imageClickedName andChecked:(BOOL)checked;
 

@@ -457,6 +457,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQn-6Y-cgJ">
+                                                    <rect key="frame" x="209" y="0.0" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -464,6 +471,7 @@
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                         <connections>
                                             <outlet property="brandLogo" destination="qUx-ks-nGP" id="Chx-8a-b89"/>
+                                            <outlet property="numberOfProductsLabel" destination="uQn-6Y-cgJ" id="0Fr-n9-mpa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

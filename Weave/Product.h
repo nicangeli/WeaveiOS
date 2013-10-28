@@ -29,6 +29,7 @@
 -(void)replaceOldImageUrl:(NSString *)oldUrl withNewImageUrl:(NSString *)newImageUrl;
 -(NSString *)getTitle;
 -(NSString *)getPrice;
+-(NSString *)getShop;
 -(NSString *)getBrand;
 -(NSString *)getUrl;
 -(NSString *)getCategory;

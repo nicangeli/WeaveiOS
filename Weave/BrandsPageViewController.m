@@ -52,6 +52,39 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [Flurry logEvent:@"Brands_Page_Opened"];
+    if([self shouldRefreshCollection]) {
+        // refresh collection
+        [self refreshCollection];
+    } else {
+        [self updateLabels];
+    }
+}
+
+-(BOOL)shouldRefreshCollection
+{
+    Collection *c = [Collection instance];
+    return YES;
+    /*
+    if([c.lastSeenDate isEqualToString:@"PAST"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+     */
+}
+
+-(void)refreshCollection
+{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Weaving...";
+    Collection *c = [Collection instance];
+    c.delegate = self;
+    [c getAllProducts];
+}
+
+-(void)updateLabels
+{
+    [self.collectionView reloadData];
 }
 
 
@@ -84,6 +117,7 @@
         label = [b getName];
         image = [UIImage imageNamed:[b getImageName]];
     }
+    cell.numberOfProductsLabel.text = b.numberOfProducts;
     //cell.brandNameLabel.text = label;
     cell.brandLogo.image = image;
     return cell;
@@ -151,6 +185,18 @@
         }
     }
     return selectedBrands;
+}
+
+-(void)didDownloadAllProducts
+{
+    [hud removeFromSuperview];
+    NSLog(@"Did download all products");
+    [self updateLabels];
+}
+
+-(void)didFailOnDownloadProducts
+{
+    NSLog(@"Did fail on download products");
 }
 
 @end

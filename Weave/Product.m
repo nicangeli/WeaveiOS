@@ -123,6 +123,11 @@
     return price;
 }
 
+-(NSString *)getShop
+{
+    return shop;
+}
+
 -(NSString *)getBrand
 {
     return brand;

@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *brandNameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *brandLogo;
+@property (strong, nonatomic) IBOutlet UILabel *numberOfProductsLabel;
 
 @end

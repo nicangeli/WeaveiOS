@@ -18,6 +18,7 @@
 #import "Collection.h"
 #import "NoLikesViewController.h"
 #import "ImageDownloader.h"
+#import "LikesPageViewController.h"
 
 @interface ProductViewController ()
 
@@ -62,6 +63,9 @@
     
     
     Collection *c = [Collection instance];
+   // [c removeProductsThatAreNotIn:self.brandsSelected];
+    c = [Collection instance];
+    NSLog(@"GOT %d products to show.", [[c count] intValue]);
     if(![[c count] isEqualToNumber:[NSNumber numberWithInt:0]]) { // still got products to show
         // show them
         if(currentProduct == nil) { // are we returning from details view page?
@@ -70,6 +74,8 @@
     } else {
         // update the collection
         NSLog(@"Not got products to show...");
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Weaving...";
         c.calling = self;
         [c loadNextCollectionForBrands:self.brandsSelected];
     }
@@ -115,6 +121,7 @@
 -(void)downloadFinished
 {
     NSLog(@"Download finished");
+    [hud removeFromSuperview];
     Collection *collection = [Collection instance];
     NSNumber *numProducts = [collection count];
     if([numProducts isEqualToNumber:[NSNumber numberWithInt:0]]) {
@@ -214,12 +221,20 @@
 
     if(p == nil) {
         NSLog(@"Reached the end of the items");
-
+        /*
         Strings *s = [Strings instance];
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = s.loadingText;
         [self showNextProduct];
-
+         */
+        // show you the likes page
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        Likes *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self.navigationController presentViewController:navController
+                                                animated:YES
+                                              completion:nil];
         
     } else {
         [self saveLikes];

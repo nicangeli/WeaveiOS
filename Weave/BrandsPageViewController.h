@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Collection.h"
 
-@interface BrandsPageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface BrandsPageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CollectionDelegate>
+{
+    MBProgressHUD *hud;
+}
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIView *messageAlert;

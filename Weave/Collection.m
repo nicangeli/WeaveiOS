@@ -103,4 +103,76 @@
     return brandString;
 }
 
+-(void)removeProductsThatAreNotIn:(NSMutableArray *)brands
+{
+    NSLog(@"Removing products...");
+    NSString *str = [self buildBrandStringFromArray:brands];
+    NSLog(@"Products before: %d", [products count]);
+    for(NSInteger i = 0; i < [products count]; i++) {
+        Product *p = [products objectAtIndex:i];
+        NSString *productShop = [p getShop];
+        if(![brands containsObject:productShop]) {
+            // product is not one we want anymore, remove it
+            NSLog(@"Removing Object from shop: %@", [p getShop]);
+            [products removeObjectAtIndex:i];
+        }
+    }
+    NSLog(@"Products after: %d", [products count]);
+}
+
+-(NSMutableArray *)getProducts
+{
+    return products;
+}
+
+-(NSMutableArray *)getArchivedProducts
+{
+    return archivedProducts;
+}
+
+-(void)setProducts:(NSMutableArray *)myProducts
+{
+    products = myProducts;
+}
+
+-(void)getAllProducts
+{
+    Strings *s= [Strings instance];
+    
+    //NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager GET:s.baseAPIURLAll parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
+        
+        for(NSDictionary *dic in jsonArray) {
+            NSMutableArray *array = [[NSMutableArray alloc] initWithArray:[dic objectForKey:@"images"]];
+            Product *p = [[Product alloc] initWithTitle:[dic objectForKey:@"title"] url:[dic objectForKey:@"url"] price:[dic objectForKey:@"price"] shop:[dic objectForKey:@"shop"] brand:[dic objectForKey:@"brand"] imageUrls:array category:[dic objectForKey:@"category"] subcategory:[dic objectForKey:@"subcategory"] materials:[dic objectForKey:@"materials"] collectionDate:[dic objectForKey:@"collectionDate"]];
+            
+            if(!products) {
+                products = [[NSMutableArray alloc] initWithCapacity:20];
+            } else {
+                [products addObject:p];
+            }
+        }
+        
+        [self.delegate didDownloadAllProducts];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate didFailOnDownloadProducts];
+    }];
+}
+
+-(NSInteger)numberOfProductsForBrand:(Brand *)brand
+{
+    NSInteger count = 0;
+    for(Product *p in products) {
+        if([[p getShop] isEqualToString:[brand getName]]) {
+            count++;
+        }
+    }
+    return count;
+}
+
 @end
