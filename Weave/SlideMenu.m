@@ -8,7 +8,7 @@
 
 #import "SlideMenu.h"
 
-@interface ExampleStaticMenuViewController() <SASlideMenuDataSource,SASlideMenuDelegate>
+@interface SlideMenu() <SASlideMenuDataSource,SASlideMenuDelegate>
 
 @end
 
@@ -23,13 +23,18 @@
 
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        return @"dark";
+        return @"brands";
     }else if (indexPath.row == 1){
-        return @"light";
-    }else{
-        return @"shades";
+        return @"weave";
+    }else if(indexPath.row == 2) {
+        return @"basket";
+    } else if(indexPath.row == 3) {
+        return @"likes";
+    } else {
+        return @"feedback";
     }
 }
+
 
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{
     return YES;
@@ -61,10 +66,11 @@
 }
 -(void) prepareForSwitchToContentViewController:(UINavigationController *)content{
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
-    if ([controller isKindOfClass:[LightViewController class]]) {
+    /*if ([controller isKindOfClass:[LightViewController class]]) {
         LightViewController* lightViewController = (LightViewController*)controller;
         lightViewController.menuViewController = self;
     }
+     */
 }
 
 
