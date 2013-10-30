@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Collection.h"
 #import "ImageDownloader.h"
 
-@class Collection;
+@class Product;
+@class Reachability;
+@class Reachability;
 
 @interface ProductViewController : UIViewController <ImageDownloaderProtocol> {
     CGPoint startLocation;

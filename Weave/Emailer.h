@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Basket.h"
+
+@class Basket;
 
 @protocol EmailerDelegate <NSObject>
 

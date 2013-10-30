@@ -7,6 +7,7 @@
 //
 
 #import "Product.h"
+#import "Collection.h"
 
 @implementation Product
 
@@ -145,6 +146,19 @@
     } else {
         return [price floatValue];
     }
+}
+
+-(BOOL)doesNotExistInCollection:(Collection *)c
+{
+    // get the url, does it exist in the collection
+    NSMutableArray *products = [c getProducts];
+    BOOL notFound = YES;
+    for(Product *p in products){
+        if([[p getUrl] isEqualToString:url]) {
+            notFound = NO;
+        }
+    }
+    return notFound;
 }
 
 

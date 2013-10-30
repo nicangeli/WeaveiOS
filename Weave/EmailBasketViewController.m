@@ -7,10 +7,10 @@
 //
 
 #import "EmailBasketViewController.h"
-#import "Emailer.h"
 #import "Basket.h"
 #import "Strings.h"
 #import "LikesPageViewController.h"
+#import "Emailer.h"
 
 @interface EmailBasketViewController ()
 

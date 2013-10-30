@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Product.h"
+
+
+@class Product;
 
 @interface Basket : NSObject
 

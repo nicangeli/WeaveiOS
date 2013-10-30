@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Basket.h"
+
+@class Basket;
 
 @interface BasketViewController : UIViewController
 

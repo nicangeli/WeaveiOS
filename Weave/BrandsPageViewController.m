@@ -7,10 +7,10 @@
 //
 
 #import "BrandsPageViewController.h"
+#import "Collection.h"
 #import "BrandCell.h"
 #import "Brand.h"
 #import "ProductViewController.h"
-#import "AppDelegate.h"
 
 @interface BrandsPageViewController ()
 
@@ -63,14 +63,15 @@
 -(BOOL)shouldRefreshCollection
 {
     Collection *c = [Collection instance];
-    return YES;
-    /*
-    if([c.lastSeenDate isEqualToString:@"PAST"]) {
-        return YES;
-    } else {
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EE MMM dd YYYY"]; // get date in format Wed Oct 30 2013
+    NSString *dateFormatted = [formatter stringFromDate:currentDate];
+    if([c.lastSeenDate isEqualToString:dateFormatted]) {
         return NO;
+    } else {
+        return YES;
     }
-     */
 }
 
 -(void)refreshCollection

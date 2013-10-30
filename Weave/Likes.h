@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Product.h"
+
+@class Product;
 
 @interface Likes : NSObject <NSCoding> {
     NSMutableArray *likedProducts;

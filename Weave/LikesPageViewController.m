@@ -7,11 +7,12 @@
 //
 
 #import "LikesPageViewController.h"
-#import "AppDelegate.h"
 #import "ImageDownloader.h"
 #import "ProductDetailViewController.h"
 #import "Basket.h"
 #import "EmailBasketViewController.h"
+#import "Likes.h"
+#import "Product.h"
 
 @interface LikesPageViewController ()
 

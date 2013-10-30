@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Emailer.h"
 
+@class MBProgressHUD;
+
 @interface EmailBasketViewController : UIViewController <EmailerDelegate, UITextFieldDelegate>
 {
     MBProgressHUD *hud;

@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Product.h"
-#import "Brand.h"
-#import "ProductViewController.h"
+
 
 @class ProductViewController;
+@class Product;
+@class Brand;
 
 @protocol CollectionDelegate <NSObject>
 

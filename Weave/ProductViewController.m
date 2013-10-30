@@ -8,16 +8,14 @@
 
 
 #import "ProductViewController.h"
-#import <QuartzCore/QuartzCore.h>
+#import "Collection.h"
+#import "ImageDownloader.h"
 #import "Product.h"
 #import "Likes.h"
-#import "AppDelegate.h"
 #import "Strings.h"
 #import "ProductDetailViewController.h"
 #import "AFHTTPRequestOperationManager.h"
-#import "Collection.h"
 #import "NoLikesViewController.h"
-#import "ImageDownloader.h"
 #import "LikesPageViewController.h"
 
 @interface ProductViewController ()

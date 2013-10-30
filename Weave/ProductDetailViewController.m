@@ -7,6 +7,8 @@
 //
 
 #import "ProductDetailViewController.h"
+#import "Product.h"
+#import "ImageDownloader.h"
 
 @interface ProductDetailViewController ()
 

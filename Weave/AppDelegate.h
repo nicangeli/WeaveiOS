@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Likes.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

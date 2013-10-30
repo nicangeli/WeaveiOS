@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iCarousel.h"
-#import "Product.h"
 #import "ImageDownloader.h"
+
+@class MBProgressHUD;
+@class Product;
 
 @interface ProductDetailViewController : UIViewController <ImageDownloaderProtocol, UIScrollViewDelegate>
 {

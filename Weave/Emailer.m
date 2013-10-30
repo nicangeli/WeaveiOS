@@ -7,9 +7,11 @@
 //
 
 #import "Emailer.h"
+#import "Basket.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Strings.h"
 #import "Product.h"
+
 @implementation Emailer
 
 -(void)sendEmailTo:(NSString *)emailAddress forBasket:(Basket *)basket

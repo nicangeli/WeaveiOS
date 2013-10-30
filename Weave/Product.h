@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Collection;
+
 @interface Product : NSObject <NSCoding> {
     NSString *title;
     NSString *url;
@@ -20,6 +22,8 @@
     NSMutableArray *imageUrls;
     NSString *collectionDate;
 }
+
+
 
 -(id)initWithTitle:(NSString *)myTitle url:(NSString *)myUrl price:(NSString *)myPrice shop:(NSString *)myShop brand:(NSString *)myBrand imageUrls:(NSMutableArray *)myImageUrls category:(NSString *)myCategory subcategory:(NSString *)mySubcategory materials:(NSString *)myMaterials collectionDate:(NSString *)myCollectionDate;
 
@@ -38,5 +42,6 @@
 -(NSString *)getCollectionDate;
 -(NSString *)getCategoryToDisplay;
 -(float)getNumberPrice;
+-(BOOL)doesNotExistInCollection:(Collection *)c;
 
 @end
