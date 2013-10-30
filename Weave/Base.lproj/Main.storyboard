@@ -265,7 +265,6 @@
         <!--No Likes View Controller - Products-->
         <scene sceneID="Lq9-fL-7sd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dt9-bn-eG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NoLikes" id="Bhx-vY-ujz" customClass="NoLikesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A9b-x0-eLn"/>
@@ -311,6 +310,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Likes" id="2eA-Fm-nV4"/>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dt9-bn-eG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1605" y="-500"/>
         </scene>
@@ -327,13 +327,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" tag="3003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-po-yhF">
-                                <rect key="frame" x="139" y="412" width="41" height="61"/>
+                                <rect key="frame" x="140" y="412" width="41" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="info.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="hitInfoButton:" destination="sif-dr-Mrf" eventType="touchUpInside" id="Xge-21-hvb"/>
+                                    <segue destination="fjf-ep-ZcI" kind="push" identifier="MoreDetailsSegue" id="9Sb-R7-oJt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-AM-2Pg">
@@ -375,7 +376,6 @@
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weave" id="u99-fz-UI5">
-                        <barButtonItem key="leftBarButtonItem" title="Brands" id="x5b-C6-J7P"/>
                         <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu"/>
                     </navigationItem>
                 </viewController>
@@ -393,7 +393,7 @@
             </objects>
             <point key="canvasLocation" x="1243" y="184"/>
         </scene>
-        <!--Brands Page View Controller - Weave-->
+        <!--Brands Page View Controller - Home-->
         <scene sceneID="bsH-Ps-2xN">
             <objects>
                 <viewController storyboardIdentifier="brandsPage" autoresizesArchivedViewToFullSize="NO" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
@@ -430,8 +430,9 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQn-6Y-cgJ">
                                                     <rect key="frame" x="209" y="0.0" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -451,17 +452,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzQ-9G-J2k">
-                                        <rect key="frame" x="20" y="11" width="280" height="39"/>
+                                        <rect key="frame" x="20" y="12" width="280" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="show_me_clothes.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="jRa-R9-y5S"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new_in.png" translatesAutoresizingMaskIntoConstraints="NO" id="tMZ-6C-3LB">
-                                <rect key="frame" x="0.0" y="60" width="320" height="79"/>
+                                <rect key="frame" x="0.0" y="59" width="320" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -471,7 +475,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Weave" id="rqA-fc-rI6"/>
+                    <navigationItem key="navigationItem" title="Home" id="rqA-fc-rI6"/>
                     <connections>
                         <outlet property="collectionView" destination="G3y-37-GLJ" id="8EE-oE-xcd"/>
                         <outlet property="messageAlert" destination="9tV-xF-rn8" id="Z2y-ef-xgB"/>
@@ -677,6 +681,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBT-9U-uph" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="C3K-Hd-f6W"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KAX-FQ-hen">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -741,4 +746,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="jRa-R9-y5S"/>
+    </inferredMetricsTieBreakers>
 </document>
