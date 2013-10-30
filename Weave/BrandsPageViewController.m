@@ -11,6 +11,7 @@
 #import "BrandCell.h"
 #import "Brand.h"
 #import "ProductViewController.h"
+#import "Likes.h"
 
 @interface BrandsPageViewController ()
 
@@ -34,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadLikes];
     [self.messageAlert setHidden:YES];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     self.collectionView.dataSource = self;
@@ -57,6 +59,22 @@
         [self refreshCollection];
     } else {
         [self updateLabels];
+    }
+}
+
+-(void)loadLikes
+{
+    NSString *path = [self dataFilePath];
+    NSLog(@"Path: %@", path);
+    Likes *likes = [Likes instance];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
+        [likes setLikes:[oldLikes getLikes]];
+        
+        [unarchiver finishDecoding];
     }
 }
 
@@ -199,6 +217,18 @@
 -(void)didFailOnDownloadProducts
 {
     NSLog(@"Did fail on download products");
+}
+
+- (NSString *)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return documentsDirectory;
+}
+
+- (NSString *)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
 }
 
 @end
