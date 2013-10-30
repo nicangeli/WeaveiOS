@@ -32,12 +32,13 @@
 
 -(Product *)getNextProduct
 {
-    if([products count] == 0) {
+    if([self.currentProductSelection count] == 0) {
         return nil;
     }
-    NSUInteger index = arc4random() % [products count];
-    Product *p = [products objectAtIndex:index];
+    NSUInteger index = arc4random() % [self.currentProductSelection count];
+    Product *p = [self.currentProductSelection objectAtIndex:index];
     [products removeObject:p];
+    [self.currentProductSelection removeObject:p];
     return p;
 }
 
@@ -125,10 +126,6 @@
     return products;
 }
 
--(NSMutableArray *)getArchivedProducts
-{
-    return archivedProducts;
-}
 
 -(void)setProducts:(NSMutableArray *)myProducts
 {
@@ -173,6 +170,24 @@
         }
     }
     return count;
+}
+
+-(void)setCurrentProductSelectionForBrands:(NSMutableArray *)brands
+{
+    NSMutableArray *brandStrings = [[NSMutableArray alloc] init];
+    for(Brand *b in brands) {
+        [brandStrings addObject:[b getName]];
+    }
+    for(NSInteger i = 0; i < [products count]; i++) {
+        Product *p = [products objectAtIndex:i];
+        if([brandStrings containsObject:[p getShop]]) {
+            if(!self.currentProductSelection) {
+                self.currentProductSelection = [[NSMutableArray alloc] init];
+            }
+            [self.currentProductSelection addObject:p];
+        }
+    }
+    NSLog(@"%d products in the current selection ", [self.currentProductSelection count]);
 }
 
 @end

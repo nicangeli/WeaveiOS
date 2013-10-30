@@ -117,7 +117,8 @@
         label = [b getName];
         image = [UIImage imageNamed:[b getImageName]];
     }
-    cell.numberOfProductsLabel.text = b.numberOfProducts;
+    Collection *c = [Collection instance];
+    cell.numberOfProductsLabel.text = [NSString stringWithFormat:@"%d", [c numberOfProductsForBrand:b]];
     //cell.brandNameLabel.text = label;
     cell.brandLogo.image = image;
     return cell;

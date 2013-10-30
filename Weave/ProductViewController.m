@@ -63,8 +63,10 @@
     
     
     Collection *c = [Collection instance];
-   // [c removeProductsThatAreNotIn:self.brandsSelected];
+    c.currentProductSelection = [[NSMutableArray alloc] init];
     c = [Collection instance];
+    c.currentProductSelection = nil;
+    [c setCurrentProductSelectionForBrands:self.brandsSelected];
     NSLog(@"GOT %d products to show.", [[c count] intValue]);
     if(![[c count] isEqualToNumber:[NSNumber numberWithInt:0]]) { // still got products to show
         // show them
@@ -73,11 +75,14 @@
         }
     } else {
         // update the collection
-        NSLog(@"Not got products to show...");
-        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Weaving...";
-        c.calling = self;
-        [c loadNextCollectionForBrands:self.brandsSelected];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self.navigationController presentViewController:navController
+                                                animated:YES
+                                              completion:nil];
+        
     }
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     //params or update existing ones here as well
@@ -117,35 +122,8 @@
 }
 
 
-// CALLED WHEN THE JSON HAS FINISHED DOWNLOADING
--(void)downloadFinished
-{
-    NSLog(@"Download finished");
-    [hud removeFromSuperview];
-    Collection *collection = [Collection instance];
-    NSNumber *numProducts = [collection count];
-    if([numProducts isEqualToNumber:[NSNumber numberWithInt:0]]) {
-        NSLog(@"NO PRODUCTS TO SHOW");
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        NoLikesViewController *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoLikes"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        [self.navigationController presentViewController:navController
-                                                animated:YES
-                                              completion:nil];
-    } else {
-        NSLog(@"Number of products to show: %@", numProducts);
-        [self showNextProduct];
-    }
-//    [hud removeFromSuperViewOnHide];
-    [hud hide:YES];
-}
-
 -(void)showNextProduct
 {
-    //[hud hide:YES];
-    //[hud removeFromSuperview];
     Collection *c = [Collection instance];
     Product *p = [c getNextProduct];
     currentProduct = p;
@@ -214,33 +192,11 @@
     
     [Flurry logEvent:@"Like_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];
-    Product *p = [collection getNextProduct];
     Likes *likes = [Likes instance];
     [likes addProduct:currentProduct];
     [self updateLikeCountToNumber:[[likes getLikes] count]];
-
-    if(p == nil) {
-        NSLog(@"Reached the end of the items");
-        /*
-        Strings *s = [Strings instance];
-        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = s.loadingText;
-        [self showNextProduct];
-         */
-        // show you the likes page
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Likes *controller = (NoLikesViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        [self.navigationController presentViewController:navController
-                                                animated:YES
-                                              completion:nil];
-        
-    } else {
-        [self saveLikes];
-        currentProduct = p;
-        [self showNextProduct];
-    }
+    [self saveLikes];
+    [self showNextProduct];
 }
 
 -(void)dislikeItem
@@ -255,18 +211,7 @@
     
     [Flurry logEvent:@"Dislike_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];
-    Product *p = [collection getNextProduct];
-    if(p == nil){
-        NSLog(@"Reached the end of the items");
-
-        Strings *s = [Strings instance];
-        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = s.loadingText;
-        [self showNextProduct];
-    } else {
-        currentProduct = p;
-        [self showNextProduct];
-    }
+    [self showNextProduct];
 }
 
 -(void)enableButtons
@@ -276,6 +221,9 @@
     
     UIButton *dislike = (UIButton *)[self.view viewWithTag:3002];
     [dislike setEnabled:YES];
+    
+    UIButton *info = (UIButton *)[self.view viewWithTag:3003];
+    [info setEnabled:YES];
 }
 
 -(void)disableButtons
@@ -284,6 +232,8 @@
     [like setEnabled:NO];
     UIButton *dislike = (UIButton *)[self.view viewWithTag:3002];
     [dislike setEnabled:NO];
+    UIButton *info = (UIButton *)[self.view viewWithTag:3003];
+    [info setEnabled:NO];
 }
 
 
@@ -427,16 +377,6 @@
 {
     UILabel *label = (UILabel *)[self.view viewWithTag:1003]; // 1003 is the label that holds the title
     [label setText:[product getCategoryToDisplay]];
-    //[label setCenter:CGPointMake(120, imageView.frame.size.height+60)];
-    /* if([[product getCategoryToDisplay] length] < 10) {
-        [label setCenter:CGPointMake(220, imageView.frame.size.height+60)];
-    } else if([[product getCategoryToDisplay] length] < 16) {
-        [label setCenter:CGPointMake(200, imageView.frame.size.height+60)];
-    } else{
-        [label setCenter:CGPointMake(180, imageView.frame.size.height+60)];
-    }
-    */
-    //[self.view bringSubviewToFront:label];
 
 }
 

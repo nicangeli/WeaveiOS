@@ -22,17 +22,19 @@
 
 @interface Collection : NSObject {
     NSMutableArray *products;
-    NSMutableArray *archivedProducts;
 }
 
 @property (nonatomic, strong) ProductViewController *calling;
 @property (nonatomic, strong) NSString *lastSeenDate;
 @property (nonatomic, retain) id<CollectionDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *currentProductSelection;
+
 
 +(Collection *)instance;
 -(NSNumber *)numberOfProducts;
 -(Product *)getNextProduct;
 -(void)loadNextCollectionForBrands:(NSMutableArray *)brands;
+-(void)setCurrentProductSelectionForBrands:(NSMutableArray *)brands;
 -(void)clearCollection;
 -(NSNumber *)count;
 -(void)removeProductsThatAreNotIn:(NSMutableArray *)brands;
