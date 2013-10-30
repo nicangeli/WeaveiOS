@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_Reachability 1
 #define COCOAPODS_VERSION_PATCH_Reachability 1
 
+// SASlideMenu
+#define COCOAPODS_POD_AVAILABLE_SASlideMenu
+#define COCOAPODS_VERSION_MAJOR_SASlideMenu 2
+#define COCOAPODS_VERSION_MINOR_SASlideMenu 0
+#define COCOAPODS_VERSION_PATCH_SASlideMenu 3
+
 // YRDropdownView
 #define COCOAPODS_POD_AVAILABLE_YRDropdownView
 #define COCOAPODS_VERSION_MAJOR_YRDropdownView 0
