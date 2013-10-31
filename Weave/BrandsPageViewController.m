@@ -53,6 +53,7 @@
     [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblackv2.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antrored.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"& other Stories" andImageName:@"otherstoriesblack.png" andClickedName:@"& other Stories" andImageClickedName:@"otherstoriesred.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"DUMMY" andImageName:@"" andClickedName:@"" andImageClickedName:@"" andChecked:NO]];
 }
 
 -(void)registerForNetworkEvents
@@ -177,9 +178,18 @@
         image = [UIImage imageNamed:[b getImageName]];
     }
     Collection *c = [Collection instance];
-    cell.numberOfProductsLabel.text = [NSString stringWithFormat:@"%d", [c numberOfProductsForBrand:b]];
-    //cell.brandNameLabel.text = label;
+    NSInteger count = [c numberOfProductsForBrand:b];
+    cell.numberOfProductsLabel.text = [NSString stringWithFormat:@"%d", count];
+    NSLog(@" %@", [UIFont fontNamesForFamilyName:@"Joti One"]);
+    [cell.numberOfProductsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     cell.brandLogo.image = image;
+    
+    if(count == 0) {
+        cell.numberOfProductsLabel.text = @"✔";
+        if([[b getName] isEqualToString:@"DUMMY"]) {
+            [cell setHidden:YES];
+        }
+    }
     return cell;
 }
 

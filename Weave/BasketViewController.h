@@ -17,5 +17,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *totalPriceLabel;
 
 -(IBAction)mailAllLikes:(id)sender;
+-(IBAction)deleteButtonClicked:(id)sender;
 
 @end

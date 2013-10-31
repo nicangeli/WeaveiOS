@@ -148,6 +148,24 @@
     return YES;
 }
 
+-(IBAction)deleteLike:(id)sender
+{
+    NSLog(@"Deleting like...");
+    Likes *l = [Likes instance];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    Product *p = [l objectAtIndex:[l count] - indexPath.row -1];
+    for(NSString *image in [p getImageUrls]){
+        [ImageDownloader deleteFileAtPath:image];
+    }
+    [l removeProduct:p];
+    [self saveLikes];
+    [self.tableView reloadData];
+    //[self deleteLikeAtIndexPath:indexPath forTableView:self.tableView];
+}
+
+/*
 -(void)deleteLikeAtIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
 {
     Likes *likes = [Likes instance];
@@ -161,7 +179,7 @@
     [self saveLikes];
     [self.tableView reloadData];
 }
-
+*/
 -(void)saveLikes
 {
     NSMutableData *data = [[NSMutableData alloc] init];
@@ -267,16 +285,5 @@
     viewController.products = [NSMutableArray arrayWithObject:p];
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
--(IBAction)deleteLike:(id)sender
-{
-    NSLog(@"Deleting like...");
-    Likes *l = [Likes instance];
-    
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    [self deleteLikeAtIndexPath:indexPath forTableView:self.tableView];
-}
-
 
 @end

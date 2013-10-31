@@ -124,6 +124,18 @@
 {
     Collection *c = [Collection instance];
     Product *p = [c getNextProduct];
+    if(p == nil) {
+        /*
+            Send to the likes page...
+         */
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self.navigationController presentViewController:navController
+                                                animated:YES
+                                              completion:nil];
+    }
     currentProduct = p;
     UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
     [MBProgressHUD showHUDAddedTo:v animated:YES];

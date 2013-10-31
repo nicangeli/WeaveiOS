@@ -82,6 +82,9 @@
     UILabel *priceLabel = (UILabel *)[cell viewWithTag:101];
     priceLabel.text = [p getPrice];
     
+    UILabel *titleLabel = (UILabel *)[cell viewWithTag:102];
+    titleLabel.text = [p getTitle];
+    
     return cell;
 }
 
@@ -91,6 +94,22 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
+
+-(IBAction)deleteButtonClicked:(id)sender
+{
+    Basket *b = [Basket instance];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    NSMutableArray *products = [b products];
+    
+    Product *p = [[b products] objectAtIndex:[products count] - indexPath.row -1];
+    [products removeObject:p];
+    [p setIsInBasket:NO];
+    [self.tableView reloadData];
+}
+
 
 -(IBAction)mailAllLikes:(id)sender
 {
