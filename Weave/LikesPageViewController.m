@@ -130,8 +130,13 @@
     UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
     priceLavel.text = [p getPrice];
     
-    UIButton *buyButton = (UIButton *)[cell viewWithTag:105];
-    buyButton.accessibilityHint = [p getUrl];
+    UIButton *basketButton = (UIButton *)[cell viewWithTag:109];
+    
+    if([p getIsInBasket]) {
+        [basketButton setBackgroundImage:[UIImage imageNamed:@"basketClicked.png"] forState:UIControlStateNormal];
+    } else {
+        [basketButton setBackgroundImage:[UIImage imageNamed:@"basket.png"] forState:UIControlStateNormal];
+    }
     
     return cell;
 }
@@ -205,6 +210,7 @@
 
 -(IBAction)addToBasket:(UIButton *)sender
 {
+    /*
     if([sender.titleLabel.text isEqualToString:@"Add to Basket"]) {
         [sender setTitle:@"Added" forState:UIControlStateNormal];
         sender.enabled = NO;
@@ -212,7 +218,7 @@
         Likes *l = [Likes instance];
         /*
          Which cell have we clicked on?
-         */
+     
         CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
         
@@ -220,6 +226,28 @@
         Product *p = [l objectAtIndex:index];
         [b addProduct:p];
     }
+    */
+    Basket *b = [Basket instance];
+    Likes *l = [Likes instance];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    int index  = [l count] - indexPath.row -1;
+    Product *p = [l objectAtIndex:index];
+    
+    if([p getIsInBasket]) {
+        // remove and set to clicked image
+        [p setIsInBasket:NO];
+        [b removeProduct:p];
+        //[sender setBackgroundImage:[UIImage imageNamed:@"basket.png"] forState:UIControlStateNormal];
+    } else {
+        // add and set to not clicked image
+        [p setIsInBasket:YES];
+        //[sender setBackgroundImage:[UIImage imageNamed:@"basketClicked.png"] forState:UIControlStateNormal];
+        [b addProduct:p];
+    }
+    [self.tableView reloadData];
 }
 
 -(IBAction)shareLike:(id)sender

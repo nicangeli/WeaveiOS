@@ -18,6 +18,7 @@
 +(Basket *)instance;
 
 -(void)addProduct:(Product *)product;
+-(void)removeProduct:(Product *)product;
 -(float)basketTotal;
 
 @end

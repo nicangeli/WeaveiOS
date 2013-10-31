@@ -30,6 +30,10 @@
 		893D305317F9CE0900D820D1 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D305217F9CE0900D820D1 /* Product.m */; };
 		894CE98617F5D3290021307A /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CE98517F5D3290021307A /* ProductViewController.m */; };
 		894CE98917F5DD210021307A /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CE98817F5DD210021307A /* Collection.m */; };
+		895342BF1822ABE40074BDE0 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 895342BB1822ABE40074BDE0 /* delete.png */; };
+		895342C01822ABE40074BDE0 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 895342BC1822ABE40074BDE0 /* mail.png */; };
+		895342C11822ABE40074BDE0 /* basketClicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 895342BD1822ABE40074BDE0 /* basketClicked.png */; };
+		895342C21822ABE40074BDE0 /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 895342BE1822ABE40074BDE0 /* basket.png */; };
 		8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500018041F1C00E93D01 /* MPCJSONDataSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500218041F1C00E93D01 /* MPCJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500418041F1C00E93D01 /* MPCSerializedJSONData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -135,6 +139,10 @@
 		894CE98517F5D3290021307A /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		894CE98717F5DD200021307A /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
 		894CE98817F5DD210021307A /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
+		895342BB1822ABE40074BDE0 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		895342BC1822ABE40074BDE0 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
+		895342BD1822ABE40074BDE0 /* basketClicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basketClicked.png; sourceTree = "<group>"; };
+		895342BE1822ABE40074BDE0 /* basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.png; sourceTree = "<group>"; };
 		89614FFF18041F1C00E93D01 /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
 		8961500018041F1C00E93D01 /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
 		8961500118041F1C00E93D01 /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
@@ -439,6 +447,10 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				895342BB1822ABE40074BDE0 /* delete.png */,
+				895342BC1822ABE40074BDE0 /* mail.png */,
+				895342BD1822ABE40074BDE0 /* basketClicked.png */,
+				895342BE1822ABE40074BDE0 /* basket.png */,
 				8997BB1118166FFA00061EF5 /* show_me_clothes.png */,
 				8997BB1218166FFA00061EF5 /* new_in.png */,
 				8997BB1318166FFA00061EF5 /* mangoredv2.png */,
@@ -580,6 +592,7 @@
 				893D303517F8E54000D820D1 /* info.png in Resources */,
 				8997BB381816D9F000061EF5 /* otherstoriesred.png in Resources */,
 				8997BB391816D9F000061EF5 /* topshopblack.png in Resources */,
+				895342BF1822ABE40074BDE0 /* delete.png in Resources */,
 				8997BB1618166FFA00061EF5 /* show_me_clothes.png in Resources */,
 				8997BB3E1816D9F000061EF5 /* zarared.png in Resources */,
 				8997BB2E1816D9F000061EF5 /* antropoblack.png in Resources */,
@@ -598,7 +611,10 @@
 				893D302D17F8DC0600D820D1 /* like.png in Resources */,
 				8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */,
 				8997BB321816D9F000061EF5 /* h&mblack.png in Resources */,
+				895342C01822ABE40074BDE0 /* mail.png in Resources */,
 				89E7143917F5A7B6006F1E09 /* InfoPlist.strings in Resources */,
+				895342C11822ABE40074BDE0 /* basketClicked.png in Resources */,
+				895342C21822ABE40074BDE0 /* basket.png in Resources */,
 				8997BB3A1816D9F000061EF5 /* topshopred.png in Resources */,
 				8997BB3B1816D9F000061EF5 /* urbanblack.png in Resources */,
 			);

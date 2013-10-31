@@ -25,6 +25,7 @@
         subcategory = mySubcategory;
         materials = myMaterials;
         collectionDate = myCollectionDate;
+        isInBasket = NO;
     }
     
     return self;
@@ -42,6 +43,7 @@
     [aCoder encodeObject:subcategory forKey:@"subcategory"];
     [aCoder encodeObject:materials forKey:@"materials"];
     [aCoder encodeObject:collectionDate forKey:@"collectionDate"];
+    [aCoder encodeBool:isInBasket forKey:@"isInBasket"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -57,6 +59,7 @@
         subcategory = [aDecoder decodeObjectForKey:@"subcategory"];
         materials = [aDecoder decodeObjectForKey:@"materials"];
         collectionDate = [aDecoder decodeObjectForKey:@"collectionDate"];
+        isInBasket = [aDecoder decodeBoolForKey:@"isInBasket"];
     }
     return self;
 }
@@ -82,6 +85,11 @@
     }
 }
 
+-(BOOL)getIsInBasket
+{
+    return isInBasket;
+}
+
 -(NSString *)getCategoryToDisplay
 {
     if(title == nil) {
@@ -99,6 +107,11 @@
 }
 -(NSString *)getMaterials {
     return materials;
+}
+
+-(void)setIsInBasket:(BOOL)toState
+{
+    isInBasket = toState;
 }
 
 

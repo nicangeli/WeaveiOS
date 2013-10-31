@@ -21,6 +21,7 @@
     NSString *materials;
     NSMutableArray *imageUrls;
     NSString *collectionDate;
+    BOOL isInBasket;
 }
 
 
@@ -41,7 +42,9 @@
 -(NSString *)getMaterials;
 -(NSString *)getCollectionDate;
 -(NSString *)getCategoryToDisplay;
+-(void)setIsInBasket:(BOOL)toState;
 -(float)getNumberPrice;
 -(BOOL)doesNotExistInCollection:(Collection *)c;
+-(BOOL)getIsInBasket;
 
 @end

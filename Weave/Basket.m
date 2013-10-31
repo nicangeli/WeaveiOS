@@ -34,6 +34,11 @@
     [self.products addObject:product];
 }
 
+-(void)removeProduct:(Product *)product
+{
+    [self.products removeObject:product];
+}
+
 -(float)basketTotal
 {
     float total = 0.0f;
