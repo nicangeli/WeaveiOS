@@ -376,7 +376,11 @@
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weave" id="u99-fz-UI5">
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu">
+                            <connections>
+                                <segue destination="m1o-gS-q28" kind="push" customClass="SASlideMenuPushSegue" id="QNB-6d-Q6v"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -748,5 +752,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="jRa-R9-y5S"/>
+        <segue reference="QNB-6d-Q6v"/>
     </inferredMetricsTieBreakers>
 </document>

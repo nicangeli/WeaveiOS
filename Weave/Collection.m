@@ -99,9 +99,14 @@
     
     //NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], b, nil];
     
+    NSArray *keys = [NSArray arrayWithObjects:@"UDID", nil];
+    NSArray *objects = [NSArray arrayWithObjects:[[Mixpanel sharedInstance] distinctId], nil];
+
+    NSDictionary *paramaters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    [manager GET:s.baseAPIURLAll parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:s.baseAPIURLAll parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSMutableArray *jsonArray = [NSMutableArray arrayWithArray:responseObject];
         
@@ -117,7 +122,9 @@
                 }
             }
         }
-        self.lastSeenDate = [[jsonArray objectAtIndex:[jsonArray count]-1] objectForKey:@"collectionDate"];
+        if([jsonArray count] != 0) {
+            self.lastSeenDate = [[jsonArray objectAtIndex:[jsonArray count]-1] objectForKey:@"collectionDate"];
+        }
         [self.delegate didDownloadAllProducts];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", [error localizedDescription]);
