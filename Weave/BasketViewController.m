@@ -38,6 +38,7 @@
     [super viewDidAppear:animated];
     Basket *b = [Basket instance];
     [self.totalPriceLabel setText:[NSString stringWithFormat:@"£%g", [b basketTotal]]];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

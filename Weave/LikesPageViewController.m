@@ -154,6 +154,7 @@
         [ImageDownloader deleteFileAtPath:image];
     }
     [self saveLikes];
+    [self.tableView reloadData];
 }
 
 -(void)saveLikes

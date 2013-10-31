@@ -12,6 +12,7 @@
 @interface BrandsPageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CollectionDelegate>
 {
     MBProgressHUD *hud;
+    Reachability *reachability;
 }
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;

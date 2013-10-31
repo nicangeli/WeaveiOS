@@ -12,6 +12,7 @@
 #import "Brand.h"
 #import "ProductViewController.h"
 #import "Likes.h"
+#import "Strings.h"
 
 @interface BrandsPageViewController ()
 
@@ -37,6 +38,8 @@
     [super viewDidLoad];
     [self loadLikes];
     [self loadProducts];
+    [self registerForNetworkEvents];
+    [self listenToNetwork];
     [self.messageAlert setHidden:YES];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     self.collectionView.dataSource = self;
@@ -52,6 +55,17 @@
     [brands addObject:[[Brand alloc] initWithName:@"& other Stories" andImageName:@"otherstoriesblack.png" andClickedName:@"& other Stories" andImageClickedName:@"otherstoriesred.png" andChecked:NO]];
 }
 
+-(void)registerForNetworkEvents
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+}
+
+-(void)listenToNetwork
+{
+    reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [Flurry logEvent:@"Brands_Page_Opened"];
@@ -61,6 +75,7 @@
     } else {
         [self updateLabels];
     }
+    [self checkNetworkStatus:nil];
 }
 
 -(void)saveProducts
@@ -255,6 +270,53 @@
 - (NSString *)dataFilePath
 {
     return [[self documentsDirectory] stringByAppendingPathComponent:@"Weave.plist"];
+}
+
+- (void)checkNetworkStatus:(NSNotification *)notice
+{
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    switch(status) {
+        case NotReachable:
+        {
+            NSLog(@"Not reachable");
+            [hud removeFromSuperview];
+            [self showNetworkError];
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"Reachable via wifi");
+            [self hideNetworkError];
+            [hud removeFromSuperview];
+            //[self getNextProducts];
+            [self refreshCollection];
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"3G");
+            [self hideNetworkError];
+            [hud removeFromSuperview];
+            //[self getNextProducts];
+            [self refreshCollection];
+            break;
+        }
+    }
+}
+
+-(void)showNetworkError
+{
+    Strings *s = [Strings instance];
+    UIView *view = [self.view viewWithTag:202];
+    [YRDropdownView showDropdownInView:view
+                                 title:s.internetDownTitle
+                                detail:s.internetDownMessage];
+}
+
+-(void)hideNetworkError
+{
+    UIView *view = [self.view viewWithTag:202];
+    [YRDropdownView hideDropdownInView:view];
 }
 
 @end
