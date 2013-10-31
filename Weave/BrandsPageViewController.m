@@ -36,6 +36,7 @@
 {
     [super viewDidLoad];
     [self loadLikes];
+    [self loadProducts];
     [self.messageAlert setHidden:YES];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     self.collectionView.dataSource = self;
@@ -62,6 +63,16 @@
     }
 }
 
+-(void)saveProducts
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    Collection *c = [Collection instance];
+    [archiver encodeObject:[c getProducts] forKey:@"Products"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
+}
+
 -(void)loadLikes
 {
     NSString *path = [self dataFilePath];
@@ -74,6 +85,20 @@
         Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
         [likes setLikes:[oldLikes getLikes]];
         
+        [unarchiver finishDecoding];
+    }
+}
+
+-(void)loadProducts
+{
+    NSString *path = [self dataFilePath];
+    Collection *c = [Collection instance];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        NSMutableArray *oldProducts = [unarchiver decodeObjectForKey:@"Products"];
+        [c setProducts:oldProducts];
         [unarchiver finishDecoding];
     }
 }
@@ -211,6 +236,7 @@
 {
     [hud removeFromSuperview];
     NSLog(@"Did download all products");
+    [self saveProducts];
     [self updateLabels];
 }
 

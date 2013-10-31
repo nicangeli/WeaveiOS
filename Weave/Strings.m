@@ -33,7 +33,7 @@
     self = [super init];
     if(self != nil) {
         self.baseAPIURL = @"http://localhost:3000/api/get";
-        self.baseAPIURLAll = @"http://localhost:3000/api/get/all";
+        self.baseAPIURLAll = @"http://weavedev.herokuapp.com/api/get/all";
         
         self.emailBrandsURL = @"http://localhost:3000/api/email_brands";
 

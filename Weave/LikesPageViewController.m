@@ -56,6 +56,7 @@
      nil];
     
     [Flurry logEvent:@"Likes_Viewed" withParameters:articleParams];
+    [self.tableView reloadData];
 }
 
 

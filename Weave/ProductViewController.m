@@ -194,6 +194,7 @@
     [likes addProduct:currentProduct];
     [self updateLikeCountToNumber:[[likes getLikes] count]];
     [self saveLikes];
+    [self saveProducts];
     [self showNextProduct];
 }
 
@@ -209,7 +210,18 @@
     
     [Flurry logEvent:@"Dislike_Item" withParameters:articleParams];
     Collection *collection = [Collection instance];
+    [self saveProducts];
     [self showNextProduct];
+}
+
+-(void)saveProducts
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    Collection *c = [Collection instance];
+    [archiver encodeObject:[c getProducts] forKey:@"Products"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
 -(void)enableButtons
