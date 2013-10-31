@@ -103,6 +103,9 @@
 -(void)didSendEmailForBasket
 {
     // called when the email is sent successfully...
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *email = [defaults objectForKey:@"email"];
+    [Flurry setUserID:email];
     [hud setHidden:YES];
    [hud removeFromSuperview];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
