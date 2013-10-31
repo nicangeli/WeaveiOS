@@ -158,7 +158,7 @@
 {
     NSLog(@"Deleting like...");
    
-    [Flurry logEvent:@"Delete_Like" withParameters:articleParams];
+    [Flurry logEvent:@"Delete_Like"];
     Likes *l = [Likes instance];
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
