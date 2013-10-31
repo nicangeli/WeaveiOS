@@ -122,12 +122,18 @@
 
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:101];
+    [titleLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+
     titleLabel.text = [p getTitle];
         
     UILabel *brandLabel = (UILabel *)[cell viewWithTag:103];
+    [brandLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+
     brandLabel.text = [p getBrand];
     
     UILabel *priceLavel = (UILabel *)[cell viewWithTag:104];
+    [priceLavel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+
     priceLavel.text = [p getPrice];
     
     UIButton *basketButton = (UIButton *)[cell viewWithTag:109];
@@ -162,29 +168,13 @@
     [l removeProduct:p];
     [self saveLikes];
     [self.tableView reloadData];
-    //[self deleteLikeAtIndexPath:indexPath forTableView:self.tableView];
 }
 
-/*
--(void)deleteLikeAtIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView
-{
-    Likes *likes = [Likes instance];
-    Product *p = [likes objectAtIndex:indexPath.row];
-    [likes removeProductAtIndex:indexPath.row];
-    
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    for(NSString *image in [p getImageUrls]){
-        [ImageDownloader deleteFileAtPath:image];
-    }
-    [self saveLikes];
-    [self.tableView reloadData];
-}
-*/
 -(void)saveLikes
 {
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    /* get likes from appdelegate */
+
     Likes *likes = [Likes instance];
     [archiver encodeObject:likes forKey:@"Likes"];
     [archiver finishEncoding];

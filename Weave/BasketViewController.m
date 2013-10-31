@@ -80,9 +80,13 @@
     thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
     
     UILabel *priceLabel = (UILabel *)[cell viewWithTag:101];
+    [priceLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+
     priceLabel.text = [p getPrice];
     
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:102];
+    [titleLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+
     titleLabel.text = [p getTitle];
     
     return cell;

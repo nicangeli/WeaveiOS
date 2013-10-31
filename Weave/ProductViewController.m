@@ -109,6 +109,8 @@
      Add label for product price and title etc. As subview so it moves with pan
      */
     UILabel *productLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 285, self.view.frame.size.width, 55)];
+    [productLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+
     [productLabel setTag:1003];
     [productLabel setText:@""];
 

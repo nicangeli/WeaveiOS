@@ -25,13 +25,11 @@
     if (indexPath.row == 0) {
         return @"brands";
     }else if (indexPath.row == 1){
-        return @"weave";
-    }else if(indexPath.row == 2) {
         return @"basket";
-    } else if(indexPath.row == 3) {
+    }else if(indexPath.row == 2) {
         return @"likes";
     } else {
-        return @"feedback";
+        return @"";
     }
 }
 

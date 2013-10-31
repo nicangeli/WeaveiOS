@@ -56,17 +56,6 @@
     [brands addObject:[[Brand alloc] initWithName:@"DUMMY" andImageName:@"" andClickedName:@"" andImageClickedName:@"" andChecked:NO]];
 }
 
--(void)registerForNetworkEvents
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
-}
-
--(void)listenToNetwork
-{
-    reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-}
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [Flurry logEvent:@"Brands_Page_Opened"];
@@ -77,6 +66,17 @@
         [self updateLabels];
     }
     [self checkNetworkStatus:nil];
+}
+
+-(void)registerForNetworkEvents
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+}
+
+-(void)listenToNetwork
+{
+    reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
 }
 
 -(void)saveProducts
@@ -184,12 +184,9 @@
     [cell.numberOfProductsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     cell.brandLogo.image = image;
     
-    if(count == 0) {
-        cell.numberOfProductsLabel.text = @"✔";
         if([[b getName] isEqualToString:@"DUMMY"]) {
             [cell setHidden:YES];
         }
-    }
     return cell;
 }
 
