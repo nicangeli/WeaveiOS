@@ -34,6 +34,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+   
+    [Flurry logEvent:@"More_Product_Views"];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Weaving...";
     if([[self.product getImageUrls] count] == 1) {

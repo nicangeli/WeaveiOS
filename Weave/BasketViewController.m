@@ -35,6 +35,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [Flurry logEvent:@"Basket_Loaded"];
     [super viewDidAppear:animated];
     Basket *b = [Basket instance];
     [self.totalPriceLabel setText:[NSString stringWithFormat:@"£%g", [b basketTotal]]];
@@ -102,7 +103,7 @@
 -(IBAction)deleteButtonClicked:(id)sender
 {
     Basket *b = [Basket instance];
-    
+    [Flurry logEvent:@"Delete_From_Basket"];
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
@@ -118,6 +119,7 @@
 -(IBAction)mailAllLikes:(id)sender
 {
     NSLog(@"Mailing all likes");
+    [Flurry logEvent:@"Hit_Mail_All_Likes_From_Basket"];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     EmailBasketViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"emailPage"];
     viewController.products = [[Basket instance] products];

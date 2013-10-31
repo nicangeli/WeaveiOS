@@ -157,6 +157,8 @@
 -(IBAction)deleteLike:(id)sender
 {
     NSLog(@"Deleting like...");
+   
+    [Flurry logEvent:@"Delete_Like" withParameters:articleParams];
     Likes *l = [Likes instance];
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
@@ -218,23 +220,8 @@
 
 -(IBAction)addToBasket:(UIButton *)sender
 {
-    /*
-    if([sender.titleLabel.text isEqualToString:@"Add to Basket"]) {
-        [sender setTitle:@"Added" forState:UIControlStateNormal];
-        sender.enabled = NO;
-        Basket *b = [Basket instance];
-        Likes *l = [Likes instance];
-        /*
-         Which cell have we clicked on?
-     
-        CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-        
-        int index  = [l count] - indexPath.row -1;
-        Product *p = [l objectAtIndex:index];
-        [b addProduct:p];
-    }
-    */
+    
+    [Flurry logEvent:@"Add_To_Basket_Hit"];
     Basket *b = [Basket instance];
     Likes *l = [Likes instance];
     
@@ -262,6 +249,7 @@
 {
     NSLog(@"Share Like");
     Likes *l = [Likes instance];
+    [Flurry logEvent:@"Share_Like_Hit"];
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
