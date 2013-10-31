@@ -104,7 +104,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
-                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve"/>
+                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve">
+                            <connections>
+                                <segue destination="8h1-as-rax" kind="push" id="f6m-MN-JEO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -753,5 +757,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="jRa-R9-y5S"/>
         <segue reference="QNB-6d-Q6v"/>
+        <segue reference="f6m-MN-JEO"/>
     </inferredMetricsTieBreakers>
 </document>
