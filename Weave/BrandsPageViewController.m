@@ -51,9 +51,8 @@
     [brands addObject:[[Brand alloc] initWithName:@"H&M" andImageName:@"h&mblack.png" andClickedName:@"H&M" andImageClickedName:@"h&mred.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"Mango" andImageName:@"mangoblack.png" andClickedName:@"Mango" andImageClickedName:@"mangoredv2.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"ASOS" andImageName:@"asosblackv2.png" andClickedName:@"ASOS" andImageClickedName:@"asosred.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"Anthropogie" andImageName:@"antropoblack.png" andClickedName:@"Anthropogie" andImageClickedName:@"antrored.png" andChecked:NO]];
+    [brands addObject:[[Brand alloc] initWithName:@"Anthropologie" andImageName:@"antropoblack.png" andClickedName:@"Anthropologie" andImageClickedName:@"antrored.png" andChecked:NO]];
     [brands addObject:[[Brand alloc] initWithName:@"& other Stories" andImageName:@"otherstoriesblack.png" andClickedName:@"& other Stories" andImageClickedName:@"otherstoriesred.png" andChecked:NO]];
-    [brands addObject:[[Brand alloc] initWithName:@"DUMMY" andImageName:@"" andClickedName:@"" andImageClickedName:@"" andChecked:NO]];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -166,6 +165,7 @@
     static NSString *cellIdentifier = @"Cell";
     BrandCell *cell = [myCollectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     Brand *b = (Brand *)[brands objectAtIndex:indexPath.item];
+    NSLog(@"Displaying brand: %@", [b getName]);
     NSString *label;
     UIImage *image;
     if(b.checked) {
@@ -180,7 +180,7 @@
     Collection *c = [Collection instance];
     NSInteger count = [c numberOfProductsForBrand:b];
     cell.numberOfProductsLabel.text = [NSString stringWithFormat:@"%d", count];
-    NSLog(@" %@", [UIFont fontNamesForFamilyName:@"Joti One"]);
+    //NSLog(@" %@", [UIFont fontNamesForFamilyName:@"Joti One"]);
     [cell.numberOfProductsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     cell.brandLogo.image = image;
     
@@ -193,6 +193,7 @@
 -(void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Brand *b = [brands objectAtIndex:indexPath.item];
+    NSLog(@"Clicking on brand: %@", [b getName]);
     NSDictionary *articleParams =
     [NSDictionary dictionaryWithObjectsAndKeys:
      @"Brand", [b getName], // Capture user status
