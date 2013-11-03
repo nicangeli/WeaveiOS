@@ -40,6 +40,12 @@
 		8961501018041F1C00E93D01 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500718041F1C00E93D01 /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8961501118041F1C00E93D01 /* ODIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500A18041F1C00E93D01 /* ODIN.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8961501218041F1C00E93D01 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961500C18041F1C00E93D01 /* Mixpanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		897DA4C41826631200400880 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4C31826631200400880 /* CFNetwork.framework */; };
+		897DA4C61826632400400880 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4C51826632400400880 /* MobileCoreServices.framework */; };
+		897DA4C81826633B00400880 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4C71826633A00400880 /* libz.dylib */; };
+		897DA4CA1826634700400880 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4C91826634700400880 /* libsqlite3.dylib */; };
+		897DA4CC1826636000400880 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4CB1826636000400880 /* CoreLocation.framework */; };
+		897DA4CE1826663E00400880 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 897DA4CD1826663E00400880 /* AirshipConfig.plist */; };
 		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
@@ -157,6 +163,13 @@
 		8961500A18041F1C00E93D01 /* ODIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIN.m; sourceTree = "<group>"; };
 		8961500B18041F1C00E93D01 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		8961500C18041F1C00E93D01 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
+		897DA4C11826630100400880 /* libPods-UrbanAirship-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-UrbanAirship-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-UrbanAirship-iOS-SDK.a"; sourceTree = "<group>"; };
+		897DA4C31826631200400880 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		897DA4C51826632400400880 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		897DA4C71826633A00400880 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		897DA4C91826634700400880 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		897DA4CB1826636000400880 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		897DA4CD1826663E00400880 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -226,9 +239,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				897DA4CC1826636000400880 /* CoreLocation.framework in Frameworks */,
+				898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */,
+				897DA4CA1826634700400880 /* libsqlite3.dylib in Frameworks */,
+				897DA4C81826633B00400880 /* libz.dylib in Frameworks */,
+				897DA4C61826632400400880 /* MobileCoreServices.framework in Frameworks */,
+				897DA4C41826631200400880 /* CFNetwork.framework in Frameworks */,
 				89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */,
 				898F17A218041794006A27DF /* SystemConfiguration.framework in Frameworks */,
-				898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */,
 				898F179E18041776006A27DF /* AdSupport.framework in Frameworks */,
 				898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */,
 				8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */,
@@ -396,6 +414,7 @@
 		89E7142217F5A7B6006F1E09 = {
 			isa = PBXGroup;
 			children = (
+				897DA4CD1826663E00400880 /* AirshipConfig.plist */,
 				89A8BB461822D8980085F62E /* Raleway-Regular.ttf */,
 				89A8BB441822D7A10085F62E /* JotiOne-Regular.ttf */,
 				89E7143417F5A7B6006F1E09 /* Weave */,
@@ -418,6 +437,12 @@
 		89E7142D17F5A7B6006F1E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				897DA4CB1826636000400880 /* CoreLocation.framework */,
+				897DA4C91826634700400880 /* libsqlite3.dylib */,
+				897DA4C71826633A00400880 /* libz.dylib */,
+				897DA4C51826632400400880 /* MobileCoreServices.framework */,
+				897DA4C31826631200400880 /* CFNetwork.framework */,
+				897DA4C11826630100400880 /* libPods-UrbanAirship-iOS-SDK.a */,
 				89AF6A351809F2F400DD74F0 /* Security.framework */,
 				898F17A118041794006A27DF /* SystemConfiguration.framework */,
 				898F179F18041783006A27DF /* CoreTelephony.framework */,
@@ -597,6 +622,7 @@
 				89A8BB451822D7A10085F62E /* JotiOne-Regular.ttf in Resources */,
 				8997BB351816D9F000061EF5 /* mangored.png in Resources */,
 				893D303517F8E54000D820D1 /* info.png in Resources */,
+				897DA4CE1826663E00400880 /* AirshipConfig.plist in Resources */,
 				8997BB381816D9F000061EF5 /* otherstoriesred.png in Resources */,
 				8997BB391816D9F000061EF5 /* topshopblack.png in Resources */,
 				895342BF1822ABE40074BDE0 /* delete.png in Resources */,
@@ -849,7 +875,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weave/Weave-Prefix.pch";

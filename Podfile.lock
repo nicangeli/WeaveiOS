@@ -24,6 +24,7 @@ PODS:
   - MBProgressHUD (0.8)
   - Reachability (3.1.1)
   - SASlideMenu (2.0.3)
+  - UrbanAirship-iOS-SDK (3.0.1)
   - YRDropdownView (0.0.1)
 
 DEPENDENCIES:
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.8)
   - Reachability (~> 3.1.1)
   - SASlideMenu (~> 2.0.3)
+  - UrbanAirship-iOS-SDK (~> 3.0.1)
   - YRDropdownView (~> 0.0.1)
 
 SPEC CHECKSUMS:
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
   SASlideMenu: a4a4443fa989afdef4fa4b556ea2334e48cc50f1
+  UrbanAirship-iOS-SDK: f896ec9ecaa812c03b1eee2d034f4fa222b97fff
   YRDropdownView: 6cd453679912af8d45cf73ea8d9e079885b99012
 
 COCOAPODS: 0.27.1

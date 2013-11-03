@@ -8,13 +8,13 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForArchiving = "YES"
-            buildForTesting = "YES"
             buildForAnalyzing = "YES"
             buildForRunning = "YES"
+            buildForTesting = "YES"
             buildForProfiling = "YES">
             <BuildableReference
                BuildableName = "libPods-iCarousel.a"
-               BlueprintIdentifier = "4A4626AECF064D429EB6BDD1"
+               BlueprintIdentifier = "24939950C02246EABEEC7D32"
                ReferencedContainer = "container:Pods.xcodeproj"
                BlueprintName = "Pods-iCarousel"
                BuildableIdentifier = "primary">
@@ -24,28 +24,28 @@
    </BuildAction>
    <TestAction
       shouldUseLaunchSchemeArgsEnv = "YES"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       buildConfiguration = "Debug"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      allowLocationSimulation = "YES"
+      ignoresPersistentStateOnLaunch = "NO"
+      buildConfiguration = "Debug"
       useCustomWorkingDirectory = "NO"
       launchStyle = "0"
-      allowLocationSimulation = "YES"
-      ignoresPersistentStateOnLaunch = "NO">
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES"
+      buildConfiguration = "Release"
       useCustomWorkingDirectory = "NO"
       savedToolIdentifier = "">
    </ProfileAction>

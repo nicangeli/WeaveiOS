@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_SASlideMenu 0
 #define COCOAPODS_VERSION_PATCH_SASlideMenu 3
 
+// UrbanAirship-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_UrbanAirship_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_UrbanAirship_iOS_SDK 3
+#define COCOAPODS_VERSION_MINOR_UrbanAirship_iOS_SDK 0
+#define COCOAPODS_VERSION_PATCH_UrbanAirship_iOS_SDK 1
+
 // YRDropdownView
 #define COCOAPODS_POD_AVAILABLE_YRDropdownView
 #define COCOAPODS_VERSION_MAJOR_YRDropdownView 0

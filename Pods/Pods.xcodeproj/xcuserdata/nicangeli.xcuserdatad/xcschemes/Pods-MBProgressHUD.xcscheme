@@ -8,13 +8,13 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForArchiving = "YES"
-            buildForTesting = "YES"
             buildForAnalyzing = "YES"
             buildForRunning = "YES"
+            buildForTesting = "YES"
             buildForProfiling = "YES">
             <BuildableReference
                BuildableName = "libPods-MBProgressHUD.a"
-               BlueprintIdentifier = "7159869004F14738B281EF45"
+               BlueprintIdentifier = "37678EEC49264506A38626C4"
                ReferencedContainer = "container:Pods.xcodeproj"
                BlueprintName = "Pods-MBProgressHUD"
                BuildableIdentifier = "primary">
@@ -24,28 +24,28 @@
    </BuildAction>
    <TestAction
       shouldUseLaunchSchemeArgsEnv = "YES"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       buildConfiguration = "Debug"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      allowLocationSimulation = "YES"
+      ignoresPersistentStateOnLaunch = "NO"
+      buildConfiguration = "Debug"
       useCustomWorkingDirectory = "NO"
       launchStyle = "0"
-      allowLocationSimulation = "YES"
-      ignoresPersistentStateOnLaunch = "NO">
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES"
+      buildConfiguration = "Release"
       useCustomWorkingDirectory = "NO"
       savedToolIdentifier = "">
    </ProfileAction>
