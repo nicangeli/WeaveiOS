@@ -324,7 +324,7 @@
         if(recognizer.view.center.x > 57 && !like) {
             movedEnough = NO;
         }
-        recognizer.view.center = startLocation; // move the image back to the start
+        //recognizer.view.center = startLocation; // move the image back to the start
         if(like && movedEnough) {
             
             /*
@@ -343,7 +343,24 @@
                 [alert show];
                 [defaults setBool:YES forKey:@"likeAlertShownSwipe"];
             }
-            [self likeItem]; // trigger the event that happens when you click on like
+            
+            // animate the view here to fly off to the left
+            
+            [UIView animateWithDuration:0.5
+                                  delay:0.0
+                                options: UIViewAnimationOptionCurveEaseOut
+                             animations:^{
+                                 //self.basketTop.frame = basketTopFrame;
+                                 //self.basketBottom.frame = basketBottomFrame;
+                                 recognizer.view.center = CGPointMake(900.0f, recognizer.view.center.y);
+                             }
+                             completion:^(BOOL finished){
+                                 NSLog(@"Done!");
+                                 UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001]; //the polaroid that sits on top of the stack
+                                 imageView.image = [UIImage imageNamed:@""];
+                                 recognizer.view.center = startLocation; // move the image back to the start
+                                 [self likeItem]; // trigger the event that happens when you click on like
+                             }];
         } else if(!like && movedEnough) {
             
             /* 
@@ -362,7 +379,38 @@
                 [alert show];
                 [defaults setBool:YES forKey:@"dislikeAlertShownSwipe"];
             }
-            [self dislikeItem];
+            
+            [UIView animateWithDuration:0.5
+                                  delay:0.0
+                                options: UIViewAnimationOptionCurveEaseOut
+                             animations:^{
+                                 //self.basketTop.frame = basketTopFrame;
+                                 //self.basketBottom.frame = basketBottomFrame;
+                                 recognizer.view.center = CGPointMake(-200.0f, recognizer.view.center.y);
+                             }
+                             completion:^(BOOL finished){
+                                 NSLog(@"Done!");
+                                 UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001]; //the polaroid that sits on top of the stack
+                                 imageView.image = [UIImage imageNamed:@""];
+                                 recognizer.view.center = startLocation; // move the image back to the start
+                                 [self dislikeItem];
+                             }];
+            
+            // animate the view here to fly off to the right
+  
+        } else if(!movedEnough) {
+            // animate back to the start location as we haven't moved enough yet
+            
+            [UIView animateWithDuration:0.5
+                                  delay:0.0
+                                options: UIViewAnimationOptionCurveEaseOut
+                             animations:^{
+                                 //self.basketTop.frame = basketTopFrame;
+                                 //self.basketBottom.frame = basketBottomFrame;
+                                 recognizer.view.center = startLocation;
+                             }
+                             completion:^(BOOL finished){
+                             }];
         }
     }
 }

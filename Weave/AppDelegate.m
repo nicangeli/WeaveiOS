@@ -13,10 +13,10 @@
 #import "UAConfig.h"
 #import "UAPush.h"
 
-#define MIXPANEL_TOKEN @"631695be4a64754e91c244f279c83246"
-#define FLURRY_TOKEN @"ZP7ZN8QR3Q3SDPZGK5K6"
-//#define FLURRY_TOKEN @""
-//#define MIXPANEL_TOKEN @""
+//#define MIXPANEL_TOKEN @"631695be4a64754e91c244f279c83246"
+//#define FLURRY_TOKEN @"ZP7ZN8QR3Q3SDPZGK5K6"
+#define FLURRY_TOKEN @""
+#define MIXPANEL_TOKEN @""
 
 
 @implementation AppDelegate
