@@ -269,23 +269,30 @@
 
 
 -(IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
+    CGPoint location = [recognizer locationInView:self.view];
+    NSLog(@"%f", location.x);
+
     UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
     [MBProgressHUD hideHUDForView:v animated:YES];    UIImage *likeImage = [UIImage imageNamed:@"like.png"];
     UIImage *dislikeImage = [UIImage imageNamed:@"dislike.png"];
     UIImageView *likeImageView = [[UIImageView alloc] initWithImage:likeImage];
     UIImageView *dislikeImageView = [[UIImageView alloc] initWithImage:dislikeImage];
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001];
-    
-    if(recognizer.state == UIGestureRecognizerStateBegan) { // we have started to "move" the image around
-        startLocation = recognizer.view.center;
-    }
-    
-    //imageView.transform = CGAffineTransformMakeRotation(recognizer.view.center.x/(217));
-    
+   
     CGPoint translation = [recognizer translationInView:self.view];
     //translation.x and translation.y are the distance that they've moved
     // Are we moving left or right?
     CGPoint newLocation = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y + translation.y);
+    if(recognizer.state == UIGestureRecognizerStateBegan) { // we have started to "move" the image around
+        startLocation = recognizer.view.center;
+        UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+        //int random = arc4random() % 2;
+        if(location.x < 140) {
+            stack.transform = CGAffineTransformMakeRotation(M_PI_4/2);
+        } else {
+            stack.transform = CGAffineTransformMakeRotation(-M_PI_4/2);
+        }
+    }
     BOOL like;
     if(newLocation.x < startLocation.x) {
         // we must be moving left of origin
@@ -321,7 +328,8 @@
         if(recognizer.view.center.x < 270.0 && like){
             movedEnough = NO;
         }
-        if(recognizer.view.center.x > 57 && !like) {
+        NSLog(@"%f", recognizer.view.center.x);
+        if(recognizer.view.center.x > 100 && !like) {
             movedEnough = NO;
         }
         //recognizer.view.center = startLocation; // move the image back to the start
@@ -350,16 +358,23 @@
                                   delay:0.0
                                 options: UIViewAnimationOptionCurveEaseOut
                              animations:^{
-                                 //self.basketTop.frame = basketTopFrame;
-                                 //self.basketBottom.frame = basketBottomFrame;
-                                 recognizer.view.center = CGPointMake(900.0f, recognizer.view.center.y);
+                                 UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                 //stack.transform = CGAffineTransformMakeRotation(0);
+                                 stack.center = CGPointMake(900.0f, recognizer.view.center.y);
+                                 //move off to the right
+                                 //recognizer.view.center = CGPointMake(900.0f, recognizer.view.center.y);
+                                
                              }
                              completion:^(BOOL finished){
                                  NSLog(@"Done!");
                                  UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001]; //the polaroid that sits on top of the stack
                                  imageView.image = [UIImage imageNamed:@""];
                                  recognizer.view.center = startLocation; // move the image back to the start
+                                 UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                 // straighten up
+                                 stack.transform = CGAffineTransformMakeRotation(0);
                                  [self likeItem]; // trigger the event that happens when you click on like
+
                              }];
         } else if(!like && movedEnough) {
             
@@ -384,15 +399,18 @@
                                   delay:0.0
                                 options: UIViewAnimationOptionCurveEaseOut
                              animations:^{
-                                 //self.basketTop.frame = basketTopFrame;
-                                 //self.basketBottom.frame = basketBottomFrame;
-                                 recognizer.view.center = CGPointMake(-200.0f, recognizer.view.center.y);
+                                 UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                // stack.transform = CGAffineTransformMakeRotation(0);
+                                 stack.center = CGPointMake(-200.0f, recognizer.view.center.y);
                              }
                              completion:^(BOOL finished){
                                  NSLog(@"Done!");
                                  UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1001]; //the polaroid that sits on top of the stack
                                  imageView.image = [UIImage imageNamed:@""];
                                  recognizer.view.center = startLocation; // move the image back to the start
+                                 UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                 // straighten up
+                                 stack.transform = CGAffineTransformMakeRotation(0);
                                  [self dislikeItem];
                              }];
             
@@ -405,11 +423,16 @@
                                   delay:0.0
                                 options: UIViewAnimationOptionCurveEaseOut
                              animations:^{
-                                 //self.basketTop.frame = basketTopFrame;
-                                 //self.basketBottom.frame = basketBottomFrame;
-                                 recognizer.view.center = startLocation;
+                                 UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                 stack.transform = CGAffineTransformMakeRotation(0);
+                                 stack.center = startLocation;
+                                 //UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                 //stack.transform = CGAffineTransformMakeRotation(M_PI_4/2);
                              }
                              completion:^(BOOL finished){
+                                 //UIImageView *stack = (UIImageView *)[self.view viewWithTag:1002];
+                                 // straighten up
+                                 //stack.transform = CGAffineTransformMakeRotation(0);
                              }];
         }
     }
