@@ -21,13 +21,27 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    // attempt to extract a token from the url
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:self.session];
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Facebook SDK * login flow *
+    // Attempt to handle URLs to complete any auth (e.g., SSO) flow.
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication fallbackHandler:^(FBAppCall *call) {
+        // Facebook SDK * App Linking *
+        // For simplicity, this sample will ignore the link if the session is already
+        // open but a more advanced app could support features like user switching.
+        if (call.accessTokenData) {
+            if ([FBSession activeSession].isOpen) {
+                NSLog(@"INFO: Ignoring app link because current session is open.");
+            }
+            else {
+                [self handleAppLink:call.accessTokenData];
+            }
+        }
+    }];
 }
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -44,6 +58,26 @@
 
     
     return YES;
+}
+
+// Helper method to wrap logic for handling app links.
+- (void)handleAppLink:(FBAccessTokenData *)appLinkToken {
+    // Initialize a new blank session instance...
+    FBSession *appLinkSession = [[FBSession alloc] initWithAppID:nil
+                                                     permissions:nil
+                                                 defaultAudience:FBSessionDefaultAudienceNone
+                                                 urlSchemeSuffix:nil
+                                              tokenCacheStrategy:[FBSessionTokenCachingStrategy nullCacheInstance] ];
+    [FBSession setActiveSession:appLinkSession];
+    // ... and open it from the App Link's Token.
+    [appLinkSession openFromAccessTokenData:appLinkToken
+                          completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                              // Forward any errors to the FBLoginView delegate.
+                              if (error) {
+                                  //[self.loginViewController loginView:nil handleError:error];
+                                  NSLog(@"%@", error);
+                              }
+                          }];
 }
 
 + (NSString *) appVersion
@@ -100,15 +134,14 @@
     // FBSample logic
     // We need to properly handle activation of the application with regards to SSO
     //  (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
-    [FBAppCall handleDidBecomeActiveWithSession:self.session];
+    [FBAppCall handleDidBecomeActive];
 }
 
      
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [self.session close];
+    [FBSession.activeSession close];
 }
-
 
 @end
