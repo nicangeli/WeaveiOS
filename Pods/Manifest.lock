@@ -19,8 +19,8 @@ PODS:
   - AFNetworking/Serialization (2.0.0)
   - AFNetworking/UIKit (2.0.0):
     - AFNetworking/NSURLConnection
+  - Facebook-iOS-SDK (3.9.0)
   - FlurrySDK (4.2.3)
-  - iCarousel (1.7.6)
   - MBProgressHUD (0.8)
   - Reachability (3.1.1)
   - SASlideMenu (2.0.3)
@@ -29,8 +29,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - Facebook-iOS-SDK (~> 3.9.0)
   - FlurrySDK (~> 4.2.3)
-  - iCarousel (~> 1.7.6)
   - MBProgressHUD (~> 0.8)
   - Reachability (~> 3.1.1)
   - SASlideMenu (~> 2.0.3)
@@ -39,8 +39,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 3fa983b1beaba69566a3374612511e2a6e3fe845
+  Facebook-iOS-SDK: 5e1416dbdfc17b2620c2ca31c02e6feec042f2c1
   FlurrySDK: 20b3fd669eeafd005ca8ff65a1406d1befbc8031
-  iCarousel: e23a26d7ba722215a42144e80adb0dcb59bebc41
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
   SASlideMenu: a4a4443fa989afdef4fa4b556ea2334e48cc50f1

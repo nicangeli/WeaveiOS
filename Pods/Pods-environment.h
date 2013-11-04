@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 0
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// Facebook-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
+#define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 9
+#define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 0
+
 // FlurrySDK
 #define COCOAPODS_POD_AVAILABLE_FlurrySDK
 #define COCOAPODS_VERSION_MAJOR_FlurrySDK 4
@@ -83,10 +89,4 @@
 #define COCOAPODS_VERSION_MAJOR_YRDropdownView 0
 #define COCOAPODS_VERSION_MINOR_YRDropdownView 0
 #define COCOAPODS_VERSION_PATCH_YRDropdownView 1
-
-// iCarousel
-#define COCOAPODS_POD_AVAILABLE_iCarousel
-#define COCOAPODS_VERSION_MAJOR_iCarousel 1
-#define COCOAPODS_VERSION_MINOR_iCarousel 7
-#define COCOAPODS_VERSION_PATCH_iCarousel 6
 

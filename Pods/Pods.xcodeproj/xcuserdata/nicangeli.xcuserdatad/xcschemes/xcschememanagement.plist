@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FlurrySDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iCarousel.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FB9436325AC4C528748A2A7</key>
+		<key>02021A78C97946E3917F7A32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24939950C02246EABEEC7D32</key>
+		<key>0309860846014105A9F04EE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>258432D8566E45858D43D226</key>
+		<key>0EE7AF3136F74589B6CFB0D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>344FC93929F34CA8BD5B0C76</key>
+		<key>1C9A697F93CC4514BC260654</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>37678EEC49264506A38626C4</key>
+		<key>31C076B2DC044C168E016225</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E8689C7ED344BC4AC1445F0</key>
+		<key>75E987EC9673435CA3DBA389</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2F6D8705C5B4E93902CE5A2</key>
+		<key>E31BF689CC854445AE5D4BE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8FF119C75744CCF9D4BBA31</key>
+		<key>E7C48D9F689240BCA6E2EC04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFD729B975284703B3AD24A8</key>
+		<key>F58A94FFADB0476886FDB7A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

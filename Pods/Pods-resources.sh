@@ -41,6 +41,7 @@ install_resource()
       ;;
   esac
 }
+install_resource "Facebook-iOS-SDK/src/FBUserSettingsViewResources.bundle"
 install_resource "UrbanAirship-iOS-SDK/Airship/UI/Default/Inbox/Resources/Shared/check.png"
 install_resource "UrbanAirship-iOS-SDK/Airship/UI/Default/Inbox/Resources/Shared/check@2x.png"
 install_resource "UrbanAirship-iOS-SDK/Airship/UI/Default/Inbox/Resources/Shared/down.png"
