@@ -46,6 +46,7 @@
 		897DA4CA1826634700400880 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4C91826634700400880 /* libsqlite3.dylib */; };
 		897DA4CC1826636000400880 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4CB1826636000400880 /* CoreLocation.framework */; };
 		897DA4CE1826663E00400880 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 897DA4CD1826663E00400880 /* AirshipConfig.plist */; };
+		898145431827EE4A00499186 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898145421827EE4A00499186 /* LoginViewController.m */; };
 		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
@@ -163,13 +164,15 @@
 		8961500A18041F1C00E93D01 /* ODIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIN.m; sourceTree = "<group>"; };
 		8961500B18041F1C00E93D01 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		8961500C18041F1C00E93D01 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
-		897DA4C11826630100400880 /* libPods-UrbanAirship-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-UrbanAirship-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-UrbanAirship-iOS-SDK.a"; sourceTree = "<group>"; };
+		897DA4C11826630100400880 /* libPods-UrbanAirship-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UrbanAirship-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-UrbanAirship-iOS-SDK.a"; sourceTree = "<group>"; };
 		897DA4C31826631200400880 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		897DA4C51826632400400880 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		897DA4C71826633A00400880 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		897DA4C91826634700400880 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		897DA4CB1826636000400880 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		897DA4CD1826663E00400880 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		898145411827EE4A00499186 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		898145421827EE4A00499186 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -300,6 +303,8 @@
 		893D30A917FA394E00D820D1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				898145411827EE4A00499186 /* LoginViewController.h */,
+				898145421827EE4A00499186 /* LoginViewController.m */,
 				89385E59180D59A7000A260C /* BrandsPageViewController.h */,
 				89385E5A180D59A7000A260C /* BrandsPageViewController.m */,
 				89A13BB518213C7B008DCD69 /* SlideMenu.h */,
@@ -707,6 +712,7 @@
 				8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */,
 				8997BB4A1818086000061EF5 /* Emailer.m in Sources */,
 				89A13BB718213C7B008DCD69 /* SlideMenu.m in Sources */,
+				898145431827EE4A00499186 /* LoginViewController.m in Sources */,
 				89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */,
 				89D208EC18229408007C197B /* ReachabilityManager.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
