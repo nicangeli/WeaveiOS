@@ -18,4 +18,6 @@
 -(IBAction)shareLike:(id)sender;
 -(IBAction)deleteLike:(id)sender;
 
+-(IBAction)revealMenu:(id)sender;
+
 @end

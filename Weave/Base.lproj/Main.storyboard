@@ -88,11 +88,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Likes" id="Wf2-p4-c31">
-                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve">
+                        <barButtonItem key="leftBarButtonItem" image="menuicon" id="gja-hM-UW0">
                             <connections>
-                                <segue destination="8h1-as-rax" kind="push" id="f6m-MN-JEO"/>
+                                <action selector="revealMenu:" destination="m1o-gS-q28" id="HUJ-Cz-QHn"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -217,7 +218,13 @@
                             <constraint firstAttribute="bottom" secondItem="P9M-aX-o4L" secondAttribute="bottom" constant="458" id="zyf-nN-GNt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Basket" id="uDv-Rl-Kgg"/>
+                    <navigationItem key="navigationItem" title="Basket" id="uDv-Rl-Kgg">
+                        <barButtonItem key="leftBarButtonItem" image="menuicon" id="tdj-U5-Mo9">
+                            <connections>
+                                <action selector="revealMenu:" destination="8h1-as-rax" id="VKK-jL-wpt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="R7B-Go-9iG" id="KHT-gN-t6X"/>
                         <outlet property="totalPriceLabel" destination="bzH-AI-rYg" id="ttg-tx-Y2d"/>
@@ -392,11 +399,12 @@
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weave" id="u99-fz-UI5">
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu">
+                        <barButtonItem key="leftBarButtonItem" image="menuicon" id="Bvg-hK-xr3">
                             <connections>
-                                <segue destination="m1o-gS-q28" kind="push" customClass="SASlideMenuPushSegue" id="QNB-6d-Q6v"/>
+                                <action selector="revealMenu:" destination="sif-dr-Mrf" id="hlF-T0-ICc"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -530,7 +538,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Home" id="rqA-fc-rI6"/>
+                    <navigationItem key="navigationItem" title="Home" id="rqA-fc-rI6">
+                        <barButtonItem key="leftBarButtonItem" image="menuicon" id="v2f-eL-3Kx">
+                            <connections>
+                                <action selector="revealMenu:" destination="IIg-9w-PEx" id="uCK-cL-McA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="G3y-37-GLJ" id="8EE-oE-xcd"/>
                         <outlet property="messageAlert" destination="we0-vd-dAZ" id="1Fc-fw-rB7"/>
@@ -700,7 +714,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fAY-Ne-8oD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBT-9U-uph" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Weave" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JBT-9U-uph" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="C3K-Hd-f6W"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KAX-FQ-hen">
@@ -719,7 +733,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jR6-bA-yn1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uM9-Cw-xms" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Basket" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uM9-Cw-xms" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aQu-Lo-J8W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -737,7 +751,7 @@
         <!--Navigation Controller-->
         <scene sceneID="vnK-vK-WLQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FSI-dQ-c3x" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Likes" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FSI-dQ-c3x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="T2A-SP-Dqu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -779,6 +793,10 @@
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>
         <image name="polaroid.png" width="477" height="557"/>
@@ -789,8 +807,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="QNB-6d-Q6v"/>
-        <segue reference="eEZ-66-eXt"/>
-    </inferredMetricsTieBreakers>
 </document>

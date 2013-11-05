@@ -13,6 +13,8 @@
 #import "EmailBasketViewController.h"
 #import "Likes.h"
 #import "Product.h"
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
 @interface LikesPageViewController ()
 
@@ -32,6 +34,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    /*
+     Set up hamburger
+     */
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if(![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     [[Mixpanel sharedInstance] track:@"Likes page loaded"];
 
@@ -262,6 +279,11 @@
     EmailBasketViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"emailPage"];
     viewController.products = [NSMutableArray arrayWithObject:p];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 @end

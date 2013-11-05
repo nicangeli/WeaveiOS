@@ -19,4 +19,7 @@
 -(IBAction)mailAllLikes:(id)sender;
 -(IBAction)deleteButtonClicked:(id)sender;
 
+-(IBAction)revealMenu:(id)sender;
+
+
 @end

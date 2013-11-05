@@ -32,6 +32,7 @@
 
 -(void)showNetworkError;
 -(void)hideNetworkError;
+-(IBAction)revealMenu:(id)sender;
 
 
 @end

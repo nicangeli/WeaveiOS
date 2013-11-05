@@ -36,6 +36,11 @@
     return self;
 }
 
+-(IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

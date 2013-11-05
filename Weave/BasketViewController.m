@@ -10,6 +10,8 @@
 #import "Basket.h"
 #import "Product.h"
 #import "EmailBasketViewController.h"
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
 @interface BasketViewController ()
 
@@ -29,6 +31,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /*
+     Set up hamburger
+     */
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if(![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
 	// Do any additional setup after loading the view.
 }
@@ -115,6 +131,10 @@
     [self.tableView reloadData];
 }
 
+-(IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
 
 -(IBAction)mailAllLikes:(id)sender
 {

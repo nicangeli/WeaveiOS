@@ -17,6 +17,8 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "NoLikesViewController.h"
 #import "LikesPageViewController.h"
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
 @interface ProductViewController ()
 
@@ -37,6 +39,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    /*
+        Set up hamburger
+     */
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if(![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    
     NSLog(@"View did load");
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
     NSLog(@"UDID: %@", [[Mixpanel sharedInstance] distinctId]);
@@ -85,6 +101,11 @@
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     //params or update existing ones here as well
     //[self getNextProducts];
+}
+
+-(IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 -(void)updateView{
