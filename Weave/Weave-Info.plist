@@ -39,6 +39,8 @@
 	<string>UIStatusBarStyleDefault</string>
 	<key>FacebookAppID</key>
 	<string>189453744573499</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 	<key>FacebookDisplayName</key>
 	<string>Weave iOS
 Weave iOS

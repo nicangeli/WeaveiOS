@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "SlideMenu.h"
 
 @interface LoginViewController ()
 
@@ -39,9 +40,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
     [self.facebookDisclaimer setFont:[UIFont fontWithName:@"Raleway" size:14]];
     self.pageImages = [[NSMutableArray alloc] init];
 	// Do any additional setup after loading the view.
+    [self setUp];
+    
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)loginView:(FBLoginView *)loginView
@@ -89,8 +97,11 @@
 
 -(void)setUp
 {
+    [self.pageImages addObject:[UIImage imageNamed:@"brands.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"tinder.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"likes.png"]];
+    [self.pageImages addObject:[UIImage imageNamed:@"shopping_basket.png"]];
 
-    
     
     NSInteger pageCount = 4;
     
@@ -103,6 +114,7 @@
     for (NSInteger i = 0; i < pageCount; ++i) {
         [self.pageViews addObject:[NSNull null]];
     }
+    
     
     
     // 4
@@ -181,6 +193,19 @@
     for (NSInteger i=lastPage+1; i<self.pageImages.count; i++) {
         [self purgePage:i];
     }
+}
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    // if you become logged in, no longer flag to skip log in
+    //[self transitionToMainViewController];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SASlideMenuRootViewController *controller = (SASlideMenuRootViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SlideMenuRoot"];
+    
+    //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+    //[self.navigationController presentViewController:navController
+                                          //  animated:YES
+                                          //completion:nil];
+    [self presentViewController:controller animated:NO completion:nil];
 }
 
 

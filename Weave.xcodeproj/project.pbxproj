@@ -47,6 +47,10 @@
 		897DA4CC1826636000400880 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897DA4CB1826636000400880 /* CoreLocation.framework */; };
 		897DA4CE1826663E00400880 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 897DA4CD1826663E00400880 /* AirshipConfig.plist */; };
 		898145431827EE4A00499186 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898145421827EE4A00499186 /* LoginViewController.m */; };
+		898145521828660500499186 /* brands.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981454E1828660500499186 /* brands.png */; };
+		898145531828660500499186 /* likes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981454F1828660500499186 /* likes.png */; };
+		898145541828660500499186 /* tinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145501828660500499186 /* tinder.png */; };
+		898145561828666600499186 /* shopping_basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145551828666600499186 /* shopping_basket.png */; };
 		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
@@ -173,6 +177,10 @@
 		897DA4CD1826663E00400880 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		898145411827EE4A00499186 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		898145421827EE4A00499186 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8981454E1828660500499186 /* brands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brands.png; sourceTree = "<group>"; };
+		8981454F1828660500499186 /* likes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likes.png; sourceTree = "<group>"; };
+		898145501828660500499186 /* tinder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinder.png; sourceTree = "<group>"; };
+		898145551828666600499186 /* shopping_basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping_basket.png; sourceTree = "<group>"; };
 		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -392,6 +400,17 @@
 			path = ODIN;
 			sourceTree = "<group>";
 		};
+		8981454C1828625200499186 /* Onboarding_Images */ = {
+			isa = PBXGroup;
+			children = (
+				8981454E1828660500499186 /* brands.png */,
+				898145551828666600499186 /* shopping_basket.png */,
+				8981454F1828660500499186 /* likes.png */,
+				898145501828660500499186 /* tinder.png */,
+			);
+			name = Onboarding_Images;
+			sourceTree = "<group>";
+		};
 		89DD087418115BC90053CA9B /* brand_images */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +438,7 @@
 		89E7142217F5A7B6006F1E09 = {
 			isa = PBXGroup;
 			children = (
+				8981454C1828625200499186 /* Onboarding_Images */,
 				897DA4CD1826663E00400880 /* AirshipConfig.plist */,
 				89A8BB461822D8980085F62E /* Raleway-Regular.ttf */,
 				89A8BB441822D7A10085F62E /* JotiOne-Regular.ttf */,
@@ -613,12 +633,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				893D303417F8E54000D820D1 /* heart.png in Resources */,
+				898145521828660500499186 /* brands.png in Resources */,
 				893D304F17F9C99A00D820D1 /* polaroid-view.png in Resources */,
 				8997BB311816D9F000061EF5 /* asosred.png in Resources */,
 				8997BB2F1816D9F000061EF5 /* antrored.png in Resources */,
 				893D303317F8E54000D820D1 /* cross.png in Resources */,
 				8997BB371816D9F000061EF5 /* otherstoriesblack.png in Resources */,
 				89385E65180EB319000A260C /* header.png in Resources */,
+				898145531828660500499186 /* likes.png in Resources */,
 				8925452E17FB065D001A6D68 /* weave-nav.png in Resources */,
 				893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */,
 				8997BB3C1816D9F000061EF5 /* urbanoutfittersred.png in Resources */,
@@ -633,6 +655,7 @@
 				895342BF1822ABE40074BDE0 /* delete.png in Resources */,
 				8997BB1618166FFA00061EF5 /* show_me_clothes.png in Resources */,
 				8997BB3E1816D9F000061EF5 /* zarared.png in Resources */,
+				898145561828666600499186 /* shopping_basket.png in Resources */,
 				8997BB2E1816D9F000061EF5 /* antropoblack.png in Resources */,
 				8997BB361816D9F000061EF5 /* newlookred.png in Resources */,
 				8997BB301816D9F000061EF5 /* asosblack.png in Resources */,
@@ -645,6 +668,7 @@
 				8997BB1918166FFA00061EF5 /* asosblackv2.png in Resources */,
 				8997BB341816D9F000061EF5 /* mangoblack.png in Resources */,
 				8997BB1018159C5B00061EF5 /* Main.storyboard in Resources */,
+				898145541828660500499186 /* tinder.png in Resources */,
 				89E7144717F5A7B6006F1E09 /* Images.xcassets in Resources */,
 				893D302D17F8DC0600D820D1 /* like.png in Resources */,
 				8925452F17FB065D001A6D68 /* weave-nav@2x.png in Resources */,

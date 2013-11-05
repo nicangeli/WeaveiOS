@@ -12,4 +12,6 @@
 
 @interface SlideMenu : SASlideMenuViewController
 
+-(IBAction)logout:(id)sender;
+
 @end

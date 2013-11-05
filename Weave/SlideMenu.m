@@ -7,6 +7,8 @@
 //
 
 #import "SlideMenu.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "LoginViewController.h"
 
 @interface SlideMenu() <SASlideMenuDataSource,SASlideMenuDelegate>
 
@@ -29,10 +31,22 @@
     }else if(indexPath.row == 2) {
         return @"likes";
     } else {
-        return @"";
+        return nil;
     }
 }
 
+-(IBAction)logout:(id)sender
+{
+    // on log out we reset the main view controller
+    //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    //[appDelegate logout];
+    [FBSession.activeSession closeAndClearTokenInformation];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *controller = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+    
+    [self presentViewController:controller animated:NO completion:nil];
+    // send back to home screen
+}
 
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{
     return YES;
@@ -64,11 +78,6 @@
 }
 -(void) prepareForSwitchToContentViewController:(UINavigationController *)content{
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
-    /*if ([controller isKindOfClass:[LightViewController class]]) {
-        LightViewController* lightViewController = (LightViewController*)controller;
-        lightViewController.menuViewController = self;
-    }
-     */
 }
 
 
