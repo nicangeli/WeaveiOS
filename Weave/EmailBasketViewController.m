@@ -59,7 +59,6 @@
     Strings *s = [Strings instance];
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = s.loadingText;
-    Basket *b = [Basket instance];
     Emailer *e = [[Emailer alloc] init];
     e.delegate = self;
     //[e sendEmailTo:self.emailAddressField.text forBasket:b];

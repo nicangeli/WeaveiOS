@@ -16,6 +16,6 @@
 }
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UIView *messageAlert;
+@property (strong, nonatomic) IBOutlet UIButton *messageAlert;
 
 @end

@@ -68,7 +68,6 @@
 -(void)removeProductsThatAreNotIn:(NSMutableArray *)brands
 {
     NSLog(@"Removing products...");
-    NSString *str = [self buildBrandStringFromArray:brands];
     NSLog(@"Products before: %d", [products count]);
     for(NSInteger i = 0; i < [products count]; i++) {
         Product *p = [products objectAtIndex:i];

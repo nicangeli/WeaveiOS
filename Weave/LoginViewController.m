@@ -36,6 +36,8 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -197,7 +199,6 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     // if you become logged in, no longer flag to skip log in
     //[self transitionToMainViewController];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //SASlideMenuRootViewController *controller = (SASlideMenuRootViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SlideMenuRoot"];
     
     //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
@@ -212,6 +213,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)updateView
+{
+    
+}
+
+-(void)buttonClickHandler:(id)sender
+{
+    
 }
 
 @end
