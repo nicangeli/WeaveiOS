@@ -8,7 +8,6 @@
 
 #import "ImageDownloader.h"
 #import "Product.h"
-#import "AFURLSessionManager.h"
 #import "AFURLConnectionOperation.h"
 #import "AFHTTPRequestOperation.h"
 #import "Collection.h"

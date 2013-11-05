@@ -14,6 +14,8 @@
 #import "Likes.h"
 #import "Strings.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
 @interface BrandsPageViewController ()
 
@@ -37,6 +39,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /*
+        Set up the ECSlidingViewController
+     */
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if(![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
     [self loadLikes];
     [self loadProducts];
     [self registerForNetworkEvents];

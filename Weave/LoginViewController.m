@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
-#import "SlideMenu.h"
 
 @interface LoginViewController ()
 
@@ -199,13 +198,13 @@
     // if you become logged in, no longer flag to skip log in
     //[self transitionToMainViewController];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SASlideMenuRootViewController *controller = (SASlideMenuRootViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SlideMenuRoot"];
+    //SASlideMenuRootViewController *controller = (SASlideMenuRootViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SlideMenuRoot"];
     
     //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
     //[self.navigationController presentViewController:navController
                                           //  animated:YES
                                           //completion:nil];
-    [self presentViewController:controller animated:NO completion:nil];
+    //[self presentViewController:controller animated:NO completion:nil];
 }
 
 

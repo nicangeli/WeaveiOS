@@ -18,12 +18,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_NSURLConnection 0
 #define COCOAPODS_VERSION_PATCH_AFNetworking_NSURLConnection 0
 
-// AFNetworking/NSURLSession
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLSession
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_NSURLSession 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_NSURLSession 0
-#define COCOAPODS_VERSION_PATCH_AFNetworking_NSURLSession 0
-
 // AFNetworking/Reachability
 #define COCOAPODS_POD_AVAILABLE_AFNetworking_Reachability
 #define COCOAPODS_VERSION_MAJOR_AFNetworking_Reachability 2
@@ -48,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 0
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// ECSlidingViewController
+#define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
+#define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 1
+#define COCOAPODS_VERSION_MINOR_ECSlidingViewController 3
+#define COCOAPODS_VERSION_PATCH_ECSlidingViewController 1
+
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
@@ -71,12 +71,6 @@
 #define COCOAPODS_VERSION_MAJOR_Reachability 3
 #define COCOAPODS_VERSION_MINOR_Reachability 1
 #define COCOAPODS_VERSION_PATCH_Reachability 1
-
-// SASlideMenu
-#define COCOAPODS_POD_AVAILABLE_SASlideMenu
-#define COCOAPODS_VERSION_MAJOR_SASlideMenu 2
-#define COCOAPODS_VERSION_MINOR_SASlideMenu 0
-#define COCOAPODS_VERSION_PATCH_SASlideMenu 3
 
 // UrbanAirship-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_UrbanAirship_iOS_SDK

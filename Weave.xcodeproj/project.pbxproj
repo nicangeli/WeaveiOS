@@ -51,6 +51,9 @@
 		898145531828660500499186 /* likes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981454F1828660500499186 /* likes.png */; };
 		898145541828660500499186 /* tinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145501828660500499186 /* tinder.png */; };
 		898145561828666600499186 /* shopping_basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145551828666600499186 /* shopping_basket.png */; };
+		89814559182973A600499186 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89814558182973A600499186 /* NavigationViewController.m */; };
+		8981455C182973C500499186 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8981455B182973C500499186 /* MenuViewController.m */; };
+		89814562182980B800499186 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89814561182980B800499186 /* MainViewController.m */; };
 		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
@@ -82,7 +85,6 @@
 		8997BB441817DDD300061EF5 /* BasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB431817DDD300061EF5 /* BasketViewController.m */; };
 		8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB461818014E00061EF5 /* EmailBasketViewController.m */; };
 		8997BB4A1818086000061EF5 /* Emailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8997BB491818086000061EF5 /* Emailer.m */; };
-		89A13BB718213C7B008DCD69 /* SlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A13BB618213C7B008DCD69 /* SlideMenu.m */; };
 		89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A42ABB180B001D00195EB3 /* ImageDownloader.m */; };
 		89A8BB451822D7A10085F62E /* JotiOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A8BB441822D7A10085F62E /* JotiOne-Regular.ttf */; };
 		89A8BB471822D8980085F62E /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A8BB461822D8980085F62E /* Raleway-Regular.ttf */; };
@@ -181,6 +183,12 @@
 		8981454F1828660500499186 /* likes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likes.png; sourceTree = "<group>"; };
 		898145501828660500499186 /* tinder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinder.png; sourceTree = "<group>"; };
 		898145551828666600499186 /* shopping_basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping_basket.png; sourceTree = "<group>"; };
+		89814557182973A600499186 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		89814558182973A600499186 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		8981455A182973C500499186 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		8981455B182973C500499186 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		89814560182980B800499186 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		89814561182980B800499186 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -216,8 +224,6 @@
 		8997BB461818014E00061EF5 /* EmailBasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailBasketViewController.m; sourceTree = "<group>"; };
 		8997BB481818086000061EF5 /* Emailer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emailer.h; sourceTree = "<group>"; };
 		8997BB491818086000061EF5 /* Emailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emailer.m; sourceTree = "<group>"; };
-		89A13BB518213C7B008DCD69 /* SlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideMenu.h; sourceTree = "<group>"; };
-		89A13BB618213C7B008DCD69 /* SlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideMenu.m; sourceTree = "<group>"; };
 		89A42ABA180B001D00195EB3 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		89A42ABB180B001D00195EB3 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		89A8BB441822D7A10085F62E /* JotiOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JotiOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -313,10 +319,14 @@
 			children = (
 				898145411827EE4A00499186 /* LoginViewController.h */,
 				898145421827EE4A00499186 /* LoginViewController.m */,
+				89814560182980B800499186 /* MainViewController.h */,
+				89814561182980B800499186 /* MainViewController.m */,
+				89814557182973A600499186 /* NavigationViewController.h */,
+				89814558182973A600499186 /* NavigationViewController.m */,
+				8981455A182973C500499186 /* MenuViewController.h */,
+				8981455B182973C500499186 /* MenuViewController.m */,
 				89385E59180D59A7000A260C /* BrandsPageViewController.h */,
 				89385E5A180D59A7000A260C /* BrandsPageViewController.m */,
-				89A13BB518213C7B008DCD69 /* SlideMenu.h */,
-				89A13BB618213C7B008DCD69 /* SlideMenu.m */,
 				89385E5C180D63C6000A260C /* BrandCell.h */,
 				89385E5D180D63C6000A260C /* BrandCell.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
@@ -735,18 +745,20 @@
 				8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */,
 				8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */,
 				8997BB4A1818086000061EF5 /* Emailer.m in Sources */,
-				89A13BB718213C7B008DCD69 /* SlideMenu.m in Sources */,
 				898145431827EE4A00499186 /* LoginViewController.m in Sources */,
 				89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */,
 				89D208EC18229408007C197B /* ReachabilityManager.m in Sources */,
+				8981455C182973C500499186 /* MenuViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				89385E61180D83F0000A260C /* Brand.m in Sources */,
 				8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */,
 				89385E5E180D63C6000A260C /* BrandCell.m in Sources */,
 				8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */,
 				8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */,
+				89814562182980B800499186 /* MainViewController.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				8997BB441817DDD300061EF5 /* BasketViewController.m in Sources */,
+				89814559182973A600499186 /* NavigationViewController.m in Sources */,
 				893D305317F9CE0900D820D1 /* Product.m in Sources */,
 				8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */,
 				8961501218041F1C00E93D01 /* Mixpanel.m in Sources */,
@@ -891,7 +903,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weave/Weave-Prefix.pch";
 				INFOPLIST_FILE = "Weave/Weave-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -910,7 +922,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weave/Weave-Prefix.pch";
 				INFOPLIST_FILE = "Weave/Weave-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
