@@ -12,6 +12,8 @@
 
 @interface SlideMenu : SASlideMenuViewController
 
+@property (nonatomic, strong) IBOutlet UIButton *loginLogoutButton;
+
 -(IBAction)logout:(id)sender;
 
 @end

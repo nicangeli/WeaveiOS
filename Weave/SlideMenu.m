@@ -16,6 +16,16 @@
 
 @implementation SlideMenu
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if([FBSession.activeSession isOpen]) {
+        [self.loginLogoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    } else {
+        [self.loginLogoutButton setTitle:@"Login" forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark -
 #pragma mark SASlideMenuDataSource
 

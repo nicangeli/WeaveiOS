@@ -574,7 +574,7 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="nMJ-xG-FzX">
                                 <rect key="frame" x="0.0" y="429" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.38132983580000002" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y2W-jz-Fl5" customClass="FBLoginView">
                                 <rect key="frame" x="20" y="474" width="280" height="51"/>
@@ -584,15 +584,25 @@
                                     <outlet property="delegate" destination="41U-EQ-pAl" id="wlz-0A-KP8"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll never post anything to Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-Mk-dYp">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll never post anything to Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-Mk-dYp">
                                 <rect key="frame" x="0.0" y="528" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK2-iy-gSt">
+                                <rect key="frame" x="284" y="524" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wYG-bj-drf" kind="modal" id="bnw-6R-5bb"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.38132983576642338" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="facebookDisclaimer" destination="1FM-Mk-dYp" id="Px1-6H-0YW"/>
@@ -618,6 +628,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dw3-Hq-04D"/>
                     <connections>
                         <outlet property="menuView" destination="205-FY-ug1" id="yJU-y9-Fek"/>
                         <segue destination="duR-7o-oki" kind="custom" identifier="leftMenu" customClass="SASlideMenuLeftMenuSegue" id="14c-47-gxl"/>
@@ -715,6 +726,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="loginLogoutButton" destination="pwi-1b-JXT" id="wVL-3l-b9d"/>
                         <segue destination="Nh1-NM-rpV" kind="custom" identifier="brands" customClass="SASlideMenuContentSegue" id="GRN-Kq-fmK"/>
                         <segue destination="JBT-9U-uph" kind="custom" identifier="weave" customClass="SASlideMenuContentSegue" id="FI8-iX-G2d"/>
                         <segue destination="uM9-Cw-xms" kind="custom" identifier="basket" customClass="SASlideMenuContentSegue" id="R5P-Df-9qI"/>
