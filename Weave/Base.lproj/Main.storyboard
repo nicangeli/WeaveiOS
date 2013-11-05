@@ -340,7 +340,7 @@
         <!--Product View Controller - Weave-->
         <scene sceneID="feL-58-pYM">
             <objects>
-                <viewController storyboardIdentifier="ProductView" id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Weave" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cI9-Nm-zFb"/>
                         <viewControllerLayoutGuide type="bottom" id="gtQ-sP-iAW"/>
@@ -421,36 +421,6 @@
             </objects>
             <point key="canvasLocation" x="1243" y="184"/>
         </scene>
-        <!--Main View Controller-->
-        <scene sceneID="1H8-UV-Bpr">
-            <objects>
-                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t7v-Lu-alP" customClass="MainViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="twV-qO-oZe"/>
-                        <viewControllerLayoutGuide type="bottom" id="QR9-yb-Yek"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zMI-iT-J3u">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkW-vq-ad7">
-                                <rect key="frame" x="15" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="revealMenu:" destination="t7v-Lu-alP" eventType="touchUpInside" id="Chb-v1-x0D"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nQe-Mk-1M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-573" y="-822"/>
-        </scene>
         <!--Brands Page View Controller - Home-->
         <scene sceneID="bsH-Ps-2xN">
             <objects>
@@ -522,6 +492,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="tcN-Ij-mnK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -710,25 +683,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5y-Tj-AZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="293" y="531"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fAY-Ne-8oD">
-            <objects>
-                <navigationController storyboardIdentifier="Weave" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JBT-9U-uph" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="C3K-Hd-f6W"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KAX-FQ-hen">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sif-dr-Mrf" kind="relationship" relationship="rootViewController" id="o1t-ZC-4Ko"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M2J-kZ-HrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="883" y="184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jR6-bA-yn1">

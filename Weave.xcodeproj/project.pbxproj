@@ -52,7 +52,6 @@
 		898145561828666600499186 /* shopping_basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145551828666600499186 /* shopping_basket.png */; };
 		89814559182973A600499186 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89814558182973A600499186 /* NavigationViewController.m */; };
 		8981455C182973C500499186 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8981455B182973C500499186 /* MenuViewController.m */; };
-		89814562182980B800499186 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89814561182980B800499186 /* MainViewController.m */; };
 		898145691829A08000499186 /* show_me_clothes.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145651829A08000499186 /* show_me_clothes.png */; };
 		8981456A1829A08000499186 /* show_me_clothes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 898145661829A08000499186 /* show_me_clothes@2x.png */; };
 		8981456D1829A1C900499186 /* new_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981456B1829A1C900499186 /* new_in.png */; };
@@ -189,8 +188,6 @@
 		89814558182973A600499186 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		8981455A182973C500499186 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		8981455B182973C500499186 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		89814560182980B800499186 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		89814561182980B800499186 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		898145651829A08000499186 /* show_me_clothes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = show_me_clothes.png; sourceTree = "<group>"; };
 		898145661829A08000499186 /* show_me_clothes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show_me_clothes@2x.png"; sourceTree = "<group>"; };
 		8981456B1829A1C900499186 /* new_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_in.png; sourceTree = "<group>"; };
@@ -325,8 +322,6 @@
 			children = (
 				898145411827EE4A00499186 /* LoginViewController.h */,
 				898145421827EE4A00499186 /* LoginViewController.m */,
-				89814560182980B800499186 /* MainViewController.h */,
-				89814561182980B800499186 /* MainViewController.m */,
 				89814557182973A600499186 /* NavigationViewController.h */,
 				89814558182973A600499186 /* NavigationViewController.m */,
 				8981455A182973C500499186 /* MenuViewController.h */,
@@ -767,7 +762,6 @@
 				89385E5E180D63C6000A260C /* BrandCell.m in Sources */,
 				8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */,
 				8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */,
-				89814562182980B800499186 /* MainViewController.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
 				8997BB441817DDD300061EF5 /* BasketViewController.m in Sources */,
 				89814559182973A600499186 /* NavigationViewController.m in Sources */,

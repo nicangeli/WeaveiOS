@@ -89,13 +89,23 @@
         }
     } else {
         // update the collection
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
         [self.navigationController presentViewController:navController
                                                 animated:YES
                                               completion:nil];
+         */
+        NSString *identifier = [NSString stringWithFormat:@"%@", @"Likes"];
+        UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+            CGRect frame = self.slidingViewController.topViewController.view.frame;
+            self.slidingViewController.topViewController = newTopViewController;
+            self.slidingViewController.topViewController.view.frame = frame;
+            [self.slidingViewController resetTopView];
+        }];
         
     }
     [Flurry logEvent:@"Products_Viewed" timed:YES];

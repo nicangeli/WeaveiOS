@@ -277,6 +277,20 @@
     }
 }
 
+-(IBAction)showClothes:(id)sender
+{
+    NSString *identifier = @"Weave";
+    //ProductViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    //newTopViewController.brandsSelected = (NSMutableArray *)[self getSelectedBrands];
+    
+    //[self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        //CGRect frame = self.slidingViewController.topViewController.view.frame;
+        //self.slidingViewController.topViewController = newTopViewController;
+        //self.slidingViewController.topViewController.view.frame = frame;
+        //[self.slidingViewController resetTopView];
+    //}];
+}
+
 -(BOOL)isABrandSelected
 {
     BOOL isABrandSelected = NO;

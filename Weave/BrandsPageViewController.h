@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *messageAlert;
 
 -(IBAction)revealMenu:(id)sender;
+-(IBAction)showClothes:(id)sender;
 
 @end
