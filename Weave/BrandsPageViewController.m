@@ -13,6 +13,7 @@
 #import "ProductViewController.h"
 #import "Likes.h"
 #import "Strings.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface BrandsPageViewController ()
 
@@ -65,6 +66,18 @@
         [self updateLabels];
     }
     [self checkNetworkStatus:nil];
+    [self getUserDetails];
+}
+
+-(void)getUserDetails
+{
+    if([FBSession.activeSession isOpen]) {
+        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+            if(!error) {
+                NSLog(@"User: %@", user);
+            }
+        }];
+    }
 }
 
 -(void)registerForNetworkEvents
