@@ -74,7 +74,16 @@
     if([FBSession.activeSession isOpen]) {
         [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
             if(!error) {
-                NSLog(@"User: %@", user);
+                NSLog(@"%@", user);
+                NSString *gender = [user objectForKey:@"gender"];
+                if([gender isEqualToString:@"male"]) {
+                    UIAlertView *genderAlert = [[UIAlertView alloc] initWithTitle:@"Male?" message:@"Whoa - For the time being, Weave only has female clothes. Have a play anyway." delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil, nil];
+                    [genderAlert show];
+                    //[Flurry setUserID:user.email]
+                }
+                [Flurry setGender:gender];
+                [Flurry setUserID:[user objectForKey:@"email"]];
+
             }
         }];
     }
