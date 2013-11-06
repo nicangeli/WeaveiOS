@@ -611,14 +611,17 @@
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK2-iy-gSt">
-                                        <rect key="frame" x="289" y="68" width="31" height="30"/>
+                                        <rect key="frame" x="260" y="77" width="60" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Skip">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="wYG-bj-drf" kind="modal" id="cYK-6h-I2f"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll never post anything to Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-Mk-dYp">
-                                        <rect key="frame" x="0.0" y="76" width="320" height="21"/>
+                                        <rect key="frame" x="0.0" y="76" width="271" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -758,11 +761,15 @@
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="delete.png" width="70" height="69"/>
+        <image name="delete.png" width="70" height="69"/>
         <image name="email.png" width="234" height="41"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
         <image name="mail_likes.png" width="234" height="41"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>
