@@ -758,15 +758,11 @@
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="delete.png" width="70" height="69"/>
-        <image name="delete.png" width="70" height="69"/>
         <image name="email.png" width="234" height="41"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
         <image name="mail_likes.png" width="234" height="41"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>

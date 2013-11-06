@@ -45,8 +45,14 @@
     [self.facebookDisclaimer setFont:[UIFont fontWithName:@"Raleway" size:10]];
     self.pageImages = [[NSMutableArray alloc] init];
 	// Do any additional setup after loading the view.
-    [self setUp];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self setUp];
+
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -120,7 +126,7 @@
     
     // 4
     CGSize pagesScrollViewSize = self.scrollView.frame.size;
-    self.scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageImages.count, 200);
+    self.scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageImages.count, pagesScrollViewSize.height);
     
     // 5
     //[self.view setNeedsDisplay];
@@ -143,6 +149,7 @@
         newPageView.contentMode = UIViewContentModeScaleAspectFit;
         newPageView.frame = frame;
         [self.scrollView addSubview:newPageView];
+        [newPageView reloadInputViews];
         
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
         
