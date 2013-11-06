@@ -57,6 +57,9 @@
     Basket *b = [Basket instance];
     [self.totalPriceLabel setText:[NSString stringWithFormat:@"£%g", [b basketTotal]]];
     [self.tableView reloadData];
+    /*float y = [UIScreen mainScreen].bounds.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.floatingTotal.frame.size.height;
+    [self.floatingTotal setFrame:CGRectMake(0, y, self.floatingTotal.frame.size.width, self.floatingTotal.frame.size.height)];
+     */
 }
 
 - (void)didReceiveMemoryWarning

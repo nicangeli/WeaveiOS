@@ -15,6 +15,7 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) Basket *basket;
 @property (nonatomic, strong) IBOutlet UILabel *totalPriceLabel;
+@property (nonatomic, strong) IBOutlet UIView *floatingTotal;
 
 -(IBAction)mailAllLikes:(id)sender;
 -(IBAction)deleteButtonClicked:(id)sender;
