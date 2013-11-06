@@ -587,7 +587,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4E-FJ-gkg">
-                                <rect key="frame" x="-10" y="-108" width="340" height="474"/>
+                                <rect key="frame" x="-10" y="0.0" width="340" height="361"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="41U-EQ-pAl" id="6ya-aq-QsZ"/>
@@ -626,12 +626,15 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="9XO-sI-NTe"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="K4E-FJ-gkg" firstAttribute="bottom" secondItem="J0W-Zb-RUU" secondAttribute="bottom" constant="-99" id="2RV-ar-jh3"/>
                             <constraint firstAttribute="bottom" secondItem="J0W-Zb-RUU" secondAttribute="bottom" id="Npy-Ml-lkB"/>
-                            <constraint firstItem="J0W-Zb-RUU" firstAttribute="top" secondItem="K4E-FJ-gkg" secondAttribute="bottom" constant="-3" id="Ueh-d9-uzJ"/>
-                            <constraint firstItem="K4E-FJ-gkg" firstAttribute="top" secondItem="DzU-iy-fQ5" secondAttribute="top" constant="-108" id="vzB-hH-Kop"/>
+                            <constraint firstItem="K4E-FJ-gkg" firstAttribute="top" secondItem="DzU-iy-fQ5" secondAttribute="top" id="zAC-z0-1Jw"/>
                         </constraints>
                     </view>
                     <connections>

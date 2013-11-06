@@ -41,7 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setNeedsStatusBarAppearanceUpdate];
+    //[self setNeedsStatusBarAppearanceUpdate];
     [self.facebookDisclaimer setFont:[UIFont fontWithName:@"Raleway" size:10]];
     self.pageImages = [[NSMutableArray alloc] init];
 	// Do any additional setup after loading the view.
