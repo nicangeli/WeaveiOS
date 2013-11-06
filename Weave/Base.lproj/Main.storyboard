@@ -99,6 +99,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="basketButton" destination="RaG-uB-pve" id="6AQ-xV-BCo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="jb5-P5-WOd">
@@ -396,12 +399,15 @@
                                 <action selector="revealMenu:" destination="sif-dr-Mrf" id="hlF-T0-ICc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu">
+                        <barButtonItem key="rightBarButtonItem" title="Likes" style="plain" id="9Ze-pb-dyu">
                             <connections>
                                 <segue destination="m1o-gS-q28" kind="push" id="2Kn-u0-ggW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="likesButton" destination="9Ze-pb-dyu" id="ocO-Ui-e6u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="UqJ-nb-CUV">
@@ -535,8 +541,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erH-VW-tJw">
-                                <rect key="frame" x="0.0" y="-87" width="320" height="0.0"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erH-VW-tJw">
+                                <rect key="frame" x="0.0" y="-50" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="fjf-ep-ZcI" id="Gix-Gm-DDU"/>
@@ -550,13 +556,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zTf-OO-1VA" firstAttribute="leading" secondItem="erH-VW-tJw" secondAttribute="leading" id="Cw6-fi-ca1"/>
-                            <constraint firstItem="wxp-XV-Ym9" firstAttribute="top" secondItem="erH-VW-tJw" secondAttribute="bottom" constant="87" id="K3c-sK-nOu"/>
+                            <constraint firstAttribute="bottom" secondItem="zTf-OO-1VA" secondAttribute="bottom" id="0El-Dn-V20"/>
                             <constraint firstAttribute="bottom" secondItem="zTf-OO-1VA" secondAttribute="bottom" id="bK8-Z5-zl6"/>
+                            <constraint firstItem="zTf-OO-1VA" firstAttribute="top" secondItem="erH-VW-tJw" secondAttribute="bottom" constant="-2" id="e9h-Aa-bXP"/>
                             <constraint firstAttribute="trailing" secondItem="zTf-OO-1VA" secondAttribute="trailing" id="fcr-Jb-cSh"/>
-                            <constraint firstItem="erH-VW-tJw" firstAttribute="top" secondItem="1wc-UE-NoM" secondAttribute="top" constant="-23" id="hID-Gk-eID"/>
-                            <constraint firstItem="zTf-OO-1VA" firstAttribute="trailing" secondItem="erH-VW-tJw" secondAttribute="trailing" id="kSN-aw-tic"/>
                             <constraint firstItem="zTf-OO-1VA" firstAttribute="leading" secondItem="1wc-UE-NoM" secondAttribute="leading" id="yAa-ts-ddT"/>
+                            <constraint firstItem="erH-VW-tJw" firstAttribute="top" secondItem="1wc-UE-NoM" secondAttribute="top" constant="-50" id="zzB-nz-lgP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jkw-QR-276"/>
@@ -739,15 +744,11 @@
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="delete.png" width="70" height="69"/>
-        <image name="delete.png" width="70" height="69"/>
         <image name="email.png" width="234" height="41"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
         <image name="mail_likes.png" width="234" height="41"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>

@@ -21,6 +21,7 @@
 }
 
 @property (nonatomic, strong) NSMutableArray *brandsSelected;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *likesButton;
 
 -(IBAction)hitDislikeButton:(id)sender;
 -(IBAction)hitLikeButton:(id)sender;

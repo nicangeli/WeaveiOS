@@ -19,6 +19,8 @@
 #import "LikesPageViewController.h"
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 
 @interface ProductViewController ()
 
@@ -32,8 +34,7 @@
     if((self = [super initWithCoder:aDecoder])) {
         [[Mixpanel sharedInstance] track:@"Started Playing"];
     }
-    NSLog(@"Init With Coder");
-       return self;
+    return self;
 }
 
 - (void)viewDidLoad
@@ -45,6 +46,14 @@
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        [self.likesButton setTintColor:[UIColor blackColor]];
+    } else {
+        self.navigationController.navigationBar.translucent = NO;
+    }
+
     
     if(![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
@@ -142,6 +151,7 @@
 
     [productLabel setTag:1003];
     [productLabel setText:@""];
+    [productLabel setBackgroundColor:[UIColor clearColor]];
 
     productLabel.lineBreakMode = NSLineBreakByWordWrapping;
     productLabel.numberOfLines = 2;

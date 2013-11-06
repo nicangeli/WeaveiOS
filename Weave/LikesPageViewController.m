@@ -15,6 +15,8 @@
 #import "Product.h"
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 
 @interface LikesPageViewController ()
 
@@ -33,8 +35,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        [self.basketButton setTintColor:[UIColor blackColor]];
+        [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
+    } else {
+        self.navigationController.navigationBar.translucent = NO;
+    }
     
     /*
      Set up hamburger

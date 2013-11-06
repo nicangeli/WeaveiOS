@@ -11,6 +11,8 @@
 
 @interface LikesPageViewController : UITableViewController
 
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *basketButton;
+
 -(IBAction)handleTap:(UITapGestureRecognizer *)recognizer;
 -(IBAction)moreDetailsPressed:(UIButton *)sender;
 -(IBAction)addToBasket:(UIButton *)sender;

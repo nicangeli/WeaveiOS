@@ -11,6 +11,8 @@
 #import "Strings.h"
 #import "LikesPageViewController.h"
 #import "Emailer.h"
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 
 @interface EmailBasketViewController ()
 
@@ -30,6 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
+    } else {
+        self.navigationController.navigationBar.translucent = NO;
+    }
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
 
 	// Do any additional setup after loading the view.

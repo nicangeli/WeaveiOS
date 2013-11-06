@@ -17,6 +17,9 @@
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
 
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+
 @interface BrandsPageViewController ()
 
 @end
@@ -44,8 +47,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent = NO;
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    } else {
+        self.navigationController.navigationBar.translucent = NO;
+    }
 
+    
     /*
         Set up the ECSlidingViewController
      */

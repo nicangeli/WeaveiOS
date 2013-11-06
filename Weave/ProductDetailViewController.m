@@ -9,6 +9,8 @@
 #import "ProductDetailViewController.h"
 #import "Product.h"
 #import "ImageDownloader.h"
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 
 @interface ProductDetailViewController ()
 
@@ -27,6 +29,12 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
+    } else {
+        self.navigationController.navigationBar.translucent = NO;
+    }
     NSLog(@"PDVC: View did load");
     self.pageImages = [[NSMutableArray alloc] init];
 }
