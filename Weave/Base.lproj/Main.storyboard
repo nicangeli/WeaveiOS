@@ -93,7 +93,11 @@
                                 <action selector="revealMenu:" destination="m1o-gS-q28" id="HUJ-Cz-QHn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve"/>
+                        <barButtonItem key="rightBarButtonItem" title="Basket" id="RaG-uB-pve">
+                            <connections>
+                                <segue destination="8h1-as-rax" kind="push" id="V43-q1-OZU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOf-1d-Dti" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,7 +408,11 @@
                                 <action selector="revealMenu:" destination="sif-dr-Mrf" id="hlF-T0-ICc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Likes" id="9Ze-pb-dyu">
+                            <connections>
+                                <segue destination="m1o-gS-q28" kind="push" id="2Kn-u0-ggW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ja-wg-yfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -743,13 +751,9 @@
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="delete.png" width="70" height="69"/>
-        <image name="delete.png" width="70" height="69"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>
@@ -761,4 +765,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="YIZ-a0-gfL"/>
+        <segue reference="V43-q1-OZU"/>
+    </inferredMetricsTieBreakers>
 </document>

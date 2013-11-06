@@ -97,15 +97,13 @@
                                                 animated:YES
                                               completion:nil];
          */
-        NSString *identifier = [NSString stringWithFormat:@"%@", @"Likes"];
-        UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
         
-        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-            CGRect frame = self.slidingViewController.topViewController.view.frame;
-            self.slidingViewController.topViewController = newTopViewController;
-            self.slidingViewController.topViewController.view.frame = frame;
-            [self.slidingViewController resetTopView];
-        }];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self.navigationController presentViewController:navController
+                                                animated:YES
+                                              completion:nil];
         
     }
     [Flurry logEvent:@"Products_Viewed" timed:YES];
@@ -158,16 +156,12 @@
     Collection *c = [Collection instance];
     Product *p = [c getNextProduct];
     if(p == nil) {
-        /*
-            Send to the likes page...
-         */
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        [self.navigationController presentViewController:navController
-                                                animated:YES
-                                              completion:nil];
+
+        UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Likes"];
+        CGRect frame = self.slidingViewController.topViewController.view.frame;
+        self.slidingViewController.topViewController = newTopViewController;
+        self.slidingViewController.topViewController.view.frame = frame;
+        [self.slidingViewController resetTopView];
     }
     currentProduct = p;
     UIImageView *v = (UIImageView *)[self.view viewWithTag:1002];
@@ -573,10 +567,6 @@
     {
         ProductDetailViewController *dvc = segue.destinationViewController;
         dvc.product = currentProduct;
-    } else if([segue.identifier isEqualToString:@"ReturnToBrandsSegue"]) {
-        //Collection *c = [Collection instance];
-        //[c clearCollection];
-        //currentProduct = nil;
     }
     
 }
