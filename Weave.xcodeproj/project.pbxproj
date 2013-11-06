@@ -57,6 +57,10 @@
 		8981456D1829A1C900499186 /* new_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981456B1829A1C900499186 /* new_in.png */; };
 		8981456E1829A1C900499186 /* new_in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981456C1829A1C900499186 /* new_in@2x.png */; };
 		898145701829A75500499186 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8981456F1829A75500499186 /* Default-568h@2x.png */; };
+		89814573182A783F00499186 /* mail_likes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89814571182A783F00499186 /* mail_likes.png */; };
+		89814574182A783F00499186 /* mail_likes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89814572182A783F00499186 /* mail_likes@2x.png */; };
+		89814577182A7CF900499186 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 89814575182A7CF900499186 /* email.png */; };
+		89814578182A7CF900499186 /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89814576182A7CF900499186 /* email@2x.png */; };
 		898F179C1804176E006A27DF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179B1804176E006A27DF /* Accelerate.framework */; };
 		898F179E18041776006A27DF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179D18041776006A27DF /* AdSupport.framework */; };
 		898F17A018041783006A27DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898F179F18041783006A27DF /* CoreTelephony.framework */; };
@@ -193,6 +197,10 @@
 		8981456B1829A1C900499186 /* new_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_in.png; sourceTree = "<group>"; };
 		8981456C1829A1C900499186 /* new_in@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_in@2x.png"; sourceTree = "<group>"; };
 		8981456F1829A75500499186 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		89814571182A783F00499186 /* mail_likes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail_likes.png; sourceTree = "<group>"; };
+		89814572182A783F00499186 /* mail_likes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail_likes@2x.png"; sourceTree = "<group>"; };
+		89814575182A7CF900499186 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		89814576182A7CF900499186 /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
 		898F179B1804176E006A27DF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		898F179D18041776006A27DF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		898F179F18041783006A27DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -514,8 +522,12 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89814575182A7CF900499186 /* email.png */,
+				89814576182A7CF900499186 /* email@2x.png */,
 				898145651829A08000499186 /* show_me_clothes.png */,
 				8981456F1829A75500499186 /* Default-568h@2x.png */,
+				89814571182A783F00499186 /* mail_likes.png */,
+				89814572182A783F00499186 /* mail_likes@2x.png */,
 				898145661829A08000499186 /* show_me_clothes@2x.png */,
 				8981456B1829A1C900499186 /* new_in.png */,
 				8981456C1829A1C900499186 /* new_in@2x.png */,
@@ -657,8 +669,10 @@
 				898145701829A75500499186 /* Default-568h@2x.png in Resources */,
 				8997BB371816D9F000061EF5 /* otherstoriesblack.png in Resources */,
 				898145531828660500499186 /* likes.png in Resources */,
+				89814573182A783F00499186 /* mail_likes.png in Resources */,
 				8925452E17FB065D001A6D68 /* weave-nav.png in Resources */,
 				893D304D17F9C6AB00D820D1 /* polaroid.png in Resources */,
+				89814578182A7CF900499186 /* email@2x.png in Resources */,
 				8997BB3C1816D9F000061EF5 /* urbanoutfittersred.png in Resources */,
 				893D302F17F8E20100D820D1 /* dislike.png in Resources */,
 				8997BB3D1816D9F000061EF5 /* zarablack.png in Resources */,
@@ -673,9 +687,11 @@
 				8997BB3E1816D9F000061EF5 /* zarared.png in Resources */,
 				898145561828666600499186 /* shopping_basket.png in Resources */,
 				8997BB2E1816D9F000061EF5 /* antropoblack.png in Resources */,
+				89814574182A783F00499186 /* mail_likes@2x.png in Resources */,
 				8997BB361816D9F000061EF5 /* newlookred.png in Resources */,
 				8997BB301816D9F000061EF5 /* asosblack.png in Resources */,
 				8997BB1718166FFA00061EF5 /* new_in.png in Resources */,
+				89814577182A7CF900499186 /* email.png in Resources */,
 				8997BB1A18166FFA00061EF5 /* topshopredv2.png in Resources */,
 				8997BB1818166FFA00061EF5 /* mangoredv2.png in Resources */,
 				89DD084A181046700053CA9B /* page.png in Resources */,
