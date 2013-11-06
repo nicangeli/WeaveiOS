@@ -354,7 +354,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" tag="3003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-po-yhF">
-                                <rect key="frame" x="140" y="412" width="41" height="61"/>
+                                <rect key="frame" x="140" y="349" width="41" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="info.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -365,7 +365,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-AM-2Pg">
-                                <rect key="frame" x="69" y="403" width="70" height="80"/>
+                                <rect key="frame" x="69" y="340" width="70" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dislike" image="cross.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -375,7 +375,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-CR-gDk">
-                                <rect key="frame" x="180" y="403" width="70" height="80"/>
+                                <rect key="frame" x="180" y="340" width="70" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
@@ -387,11 +387,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="polaroid.png" translatesAutoresizingMaskIntoConstraints="NO" id="vRU-oG-H1g">
-                                <rect key="frame" x="-6" y="57" width="332" height="363"/>
+                                <rect key="frame" x="-6" y="-6" width="332" height="363"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="polaroid-view.png" translatesAutoresizingMaskIntoConstraints="NO" id="fcT-2f-oWE">
-                                <rect key="frame" x="-6" y="57" width="332" height="363"/>
+                                <rect key="frame" x="-6" y="-6" width="332" height="363"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -751,9 +751,13 @@
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="delete.png" width="70" height="69"/>
+        <image name="delete.png" width="70" height="69"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
+        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>
@@ -766,7 +770,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YIZ-a0-gfL"/>
+        <segue reference="2Kn-u0-ggW"/>
         <segue reference="V43-q1-OZU"/>
     </inferredMetricsTieBreakers>
 </document>
