@@ -8,6 +8,8 @@
 
 #import "MenuViewController.h"
 #import "ECSlidingViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface MenuViewController ()
 
@@ -41,6 +43,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateLoginLabel];
+}
+
+-(void)updateLoginLabel
+{
+    if([FBSession.activeSession isOpen]) {
+        self.loginLogoutButton.titleLabel.text = @"Logout";
+    } else {
+        self.loginLogoutButton.titleLabel.text = @"Login";
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +106,15 @@
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
     }];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"LoginLogout"]) {
+        if([FBSession.activeSession isOpen]) {
+            [FBSession.activeSession closeAndClearTokenInformation];
+        }
+    }
 }
 
 /*

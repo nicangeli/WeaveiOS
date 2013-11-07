@@ -8,6 +8,10 @@
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "MenuViewController.h"
+#import "ECSlidingViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "BrandsPageViewController.h"
 
 @interface LoginViewController ()
 
@@ -52,7 +56,19 @@
 {
     [super viewDidAppear:animated];
     [self setUp];
+    [self moveToLoggedIn];
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+-(void)moveToLoggedIn
+{
+    if([FBSession.activeSession isOpen]) {
+        [self performSegueWithIdentifier:@"MoveToBrands" sender:self];
+    }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

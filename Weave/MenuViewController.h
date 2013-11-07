@@ -10,4 +10,8 @@
 
 @interface MenuViewController : UITableViewController
 
+@property (nonatomic, strong) IBOutlet UIButton *loginLogoutButton;
+
+-(IBAction)loginLogout:(id)sender;
+
 @end

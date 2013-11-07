@@ -426,7 +426,7 @@
         <!--Brands Page View Controller - Home-->
         <scene sceneID="bsH-Ps-2xN">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrandsPage" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NFA-pW-HUo"/>
                         <viewControllerLayoutGuide type="bottom" id="ELL-yq-54w"/>
@@ -577,7 +577,7 @@
         <!--Login View Controller-->
         <scene sceneID="S0w-2j-2XM">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="41U-EQ-pAl" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="41U-EQ-pAl" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZNc-KP-xD5"/>
                         <viewControllerLayoutGuide type="bottom" id="t6T-up-hnj"/>
@@ -610,17 +610,23 @@
                                             <outlet property="delegate" destination="41U-EQ-pAl" id="wlz-0A-KP8"/>
                                         </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK2-iy-gSt">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mK2-iy-gSt">
                                         <rect key="frame" x="260" y="77" width="60" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Skip">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Skip">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                         <connections>
-                                            <segue destination="wYG-bj-drf" kind="modal" id="cYK-6h-I2f"/>
+                                            <segue destination="wYG-bj-drf" kind="modal" identifier="MoveToBrands" id="cYK-6h-I2f"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll never post anything to Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-Mk-dYp">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll never post anything to Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-Mk-dYp">
                                         <rect key="frame" x="0.0" y="76" width="271" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -681,6 +687,23 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="26b-zt-BjE">
+                            <rect key="frame" x="0.0" y="77" width="320" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4i-sm-JpT">
+                                    <rect key="frame" x="8" y="6" width="152" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="XXXXXXXXXX">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="41U-EQ-pAl" kind="modal" identifier="LoginLogout" id="SzK-r8-VVy"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="55" id="MoY-oh-IC2">
                                 <rect key="frame" x="0.0" y="22" width="320" height="55"/>
@@ -697,6 +720,9 @@
                             <outlet property="delegate" destination="duR-7o-oki" id="7Dy-Yl-4au"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="loginLogoutButton" destination="A4i-sm-JpT" id="LNA-zt-3jP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5y-Tj-AZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -761,15 +787,11 @@
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
         <image name="delete.png" width="70" height="69"/>
-        <image name="delete.png" width="70" height="69"/>
         <image name="email.png" width="234" height="41"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
         <image name="mail_likes.png" width="234" height="41"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>
@@ -782,7 +804,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2Kn-u0-ggW"/>
         <segue reference="V43-q1-OZU"/>
+        <segue reference="2Kn-u0-ggW"/>
     </inferredMetricsTieBreakers>
 </document>
