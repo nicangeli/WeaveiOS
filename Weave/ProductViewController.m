@@ -19,6 +19,8 @@
 #import "LikesPageViewController.h"
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 
@@ -36,6 +38,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -61,6 +64,11 @@
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
+    [self loadLikes]; // load your likes that are stored in the plist file
+    [self loadProducts]; // load the products out of the plist file
+    [self registerForNetworkEvents];
+    [self listenToNetwork];
+
     
     NSLog(@"View did load");
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weave-nav.png"]];
@@ -70,12 +78,12 @@
     [self updateView];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     Likes *likes = [Likes instance];
     [self updateLikeCountToNumber:[[likes getLikes] count]];
-    NSLog(@"View Did appear");
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults boolForKey:@"seenProductsInstructions"]) {
         Strings *s = [Strings instance];
@@ -83,41 +91,125 @@
         [alert show];
         [defaults setBool:YES forKey:@"seenProductsInstructions"];
     }
+    Collection *collection = [Collection instance];
+    collection.currentProductSelection = [[NSMutableArray alloc] init];
+    [collection setCurrentProductSelectionForBrands:nil];
+
     
-    
-    Collection *c = [Collection instance];
-    c.currentProductSelection = [[NSMutableArray alloc] init];
-    c = [Collection instance];
-    c.currentProductSelection = nil;
-    [c setCurrentProductSelectionForBrands:self.brandsSelected];
-    NSLog(@"GOT %d products to show.", [[c count] intValue]);
-    if(![[c count] isEqualToNumber:[NSNumber numberWithInt:0]]) { // still got products to show
-        // show them
-        if(currentProduct == nil) { // are we returning from details view page?
-            [self showNextProduct];
-        }
+    if([self shouldRefreshCollection]) {
+        [self refreshCollection];
     } else {
-        // update the collection
-        /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        [self.navigationController presentViewController:navController
-                                                animated:YES
-                                              completion:nil];
-         */
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        [self.navigationController presentViewController:navController
-                                                animated:YES
-                                              completion:nil];
-        
+        if([collection.currentProductSelection count] == 0) { // got no products to show, move to likes
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
+            
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+            [self.navigationController presentViewController:navController
+                                                    animated:YES
+                                                  completion:nil];
+        } else {
+            if(currentProduct == nil) { // are we returning from details view page?
+                [self showNextProduct];
+            }
+        }
     }
+    [self checkNetworkStatus:nil];
+    [self getUserDetails];
+    
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     //params or update existing ones here as well
     //[self getNextProducts];
+}
+
+-(void)didDownloadAllProducts
+{
+    [hud removeFromSuperview];
+    NSLog(@"Did download all products");
+    [self saveProducts];
+    if(currentProduct == nil) {
+        [self showNextProduct];
+    }
+    //[self updateLabels];
+}
+
+-(void)didFailOnDownloadProducts
+{
+    [self showNetworkError];
+    NSLog(@"Did fail on download products");
+}
+
+-(void)getUserDetails
+{
+    if([FBSession.activeSession isOpen]) {
+        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+            if(!error) {
+                NSLog(@"%@", user);
+                NSString *gender = [user objectForKey:@"gender"];
+                if([gender isEqualToString:@"male"]) {
+                    UIAlertView *genderAlert = [[UIAlertView alloc] initWithTitle:@"Male?" message:@"Whoa - For the time being, Weave only has female clothes. Have a play anyway." delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil, nil];
+                    [genderAlert show];
+                    //[Flurry setUserID:user.email]
+                }
+                [Flurry setGender:gender];
+                [Flurry setUserID:[user objectForKey:@"email"]];
+                
+            }
+        }];
+    }
+}
+
+-(BOOL)shouldRefreshCollection
+{
+    Collection *c = [Collection instance];
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EE MMM dd YYYY"]; // get date in format Wed Oct 30 2013
+    NSString *dateFormatted = [formatter stringFromDate:currentDate];
+    if([c.lastSeenDate isEqualToString:dateFormatted]) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+-(void)refreshCollection
+{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Weaving...";
+    Collection *c = [Collection instance];
+    c.delegate = self;
+    [c getAllProducts];
+}
+
+
+-(void)loadLikes
+{
+    NSString *path = [self dataFilePath];
+    NSLog(@"Path: %@", path);
+    Likes *likes = [Likes instance];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
+        [likes setLikes:[oldLikes getLikes]];
+        
+        [unarchiver finishDecoding];
+    }
+}
+
+-(void)loadProducts
+{
+    NSString *path = [self dataFilePath];
+    Collection *c = [Collection instance];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        NSMutableArray *oldProducts = [unarchiver decodeObjectForKey:@"Products"];
+        [c setProducts:oldProducts];
+        [unarchiver finishDecoding];
+    }
 }
 
 -(IBAction)revealMenu:(id)sender
@@ -165,6 +257,7 @@
 {
     Collection *c = [Collection instance];
     Product *p = [c getNextProduct];
+    NSLog(@"Showing product: %@", [p getUrl]);
     if(p == nil) {
 
         UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Likes"];
@@ -534,14 +627,14 @@
         {
             [self hideNetworkError];
             //[self getNextProducts];
-            [self showNextProduct];
+            //[self showNextProduct];
             break;
         }
         case ReachableViaWWAN:
         {
             [self hideNetworkError];
             //[self getNextProducts];
-            [self showNextProduct];
+            //[self showNextProduct];
             break;
         }
     }

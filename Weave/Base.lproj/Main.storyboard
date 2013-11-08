@@ -335,7 +335,7 @@
         <!--Product View Controller - Weave-->
         <scene sceneID="feL-58-pYM">
             <objects>
-                <viewController storyboardIdentifier="Weave" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
+                <viewController id="sif-dr-Mrf" customClass="ProductViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cI9-Nm-zFb"/>
                         <viewControllerLayoutGuide type="bottom" id="gtQ-sP-iAW"/>
@@ -421,7 +421,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1243" y="184"/>
+            <point key="canvasLocation" x="1769" y="184"/>
         </scene>
         <!--Brands Page View Controller - Home-->
         <scene sceneID="bsH-Ps-2xN">
@@ -494,9 +494,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="sif-dr-Mrf" kind="push" identifier="ShowProducts" id="tcN-Ij-mnK"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -572,7 +569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zL-DV-lZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595" y="184"/>
+            <point key="canvasLocation" x="2121" y="184"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="S0w-2j-2XM">
@@ -782,20 +779,34 @@
             </objects>
             <point key="canvasLocation" x="1263" y="-500"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SAU-8d-8cu">
+            <objects>
+                <navigationController storyboardIdentifier="Weave" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VdJ-pZ-v0j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WK2-V7-img">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sif-dr-Mrf" kind="relationship" relationship="rootViewController" id="4aM-3d-zdX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMK-nE-EiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1243" y="184"/>
+        </scene>
     </scenes>
     <resources>
         <image name="basket.png" width="70" height="69"/>
         <image name="cross.png" width="163" height="198"/>
-        <image name="delete.png" width="70" height="69"/>
         <image name="delete.png" width="70" height="69"/>
         <image name="email.png" width="234" height="41"/>
         <image name="heart.png" width="165" height="198"/>
         <image name="info.png" width="117" height="198"/>
         <image name="mail.png" width="70" height="69"/>
         <image name="mail_likes.png" width="234" height="41"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
-        <image name="menuicon" width="24" height="19"/>
         <image name="menuicon" width="24" height="19"/>
         <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>

@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Brands"];
+    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Weave"];
 }
 
 - (void)didReceiveMemoryWarning

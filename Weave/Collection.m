@@ -144,6 +144,12 @@
 
 -(void)setCurrentProductSelectionForBrands:(NSMutableArray *)brands
 {
+    if(brands == nil) {
+        //self.currentProductSelection = [[NSMutableArray alloc] init];
+        self.currentProductSelection = products;
+        return;
+    }
+    
     NSMutableArray *brandStrings = [[NSMutableArray alloc] init];
     for(Brand *b in brands) {
         [brandStrings addObject:[b getName]];
