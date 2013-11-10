@@ -13,13 +13,9 @@
 
 @interface MenuViewController ()
 
-@property (nonatomic, strong) NSArray *menu;
-
 @end
 
 @implementation MenuViewController
-
-@synthesize menu;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,15 +30,16 @@
 {
     [super viewDidLoad];
     
-    self.menu = [NSArray arrayWithObjects:@"Weave", @"Basket", @"Likes", nil];
-    
     [self.slidingViewController setAnchorRightRevealAmount:200.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.weaveLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.findsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.loginLogoutButton setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.shoesLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.jeansLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.lingerieLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.topsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -53,9 +50,9 @@
 -(void)updateLoginLabel
 {
     if([FBSession.activeSession isOpen]) {
-        self.loginLogoutButton.titleLabel.text = @"Logout";
+        self.loginLogoutButton.text = @"Logout";
     } else {
-        self.loginLogoutButton.titleLabel.text = @"Login";
+        self.loginLogoutButton.text = @"Login";
     }
 }
 
@@ -66,46 +63,39 @@
 }
 
 #pragma mark - Table view data source
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
+    NSLog(@"Will select");
+    if ( indexPath.row > 2 ) return nil;
+    
+    return indexPath;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.menu count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
-    UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newTopViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-    }];
+    NSString *identifier;
+    switch (indexPath.row) {
+        case 0:
+            identifier = @"Weave";
+            break;
+        case 1:
+            identifier = @"Likes";
+            break;
+        case 3:
+            // logout
+            NSLog(@"Logout functionality...");
+            break;
+    }
+    if(identifier != nil) {
+        UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+            CGRect frame = self.slidingViewController.topViewController.view.frame;
+            self.slidingViewController.topViewController = newTopViewController;
+            self.slidingViewController.topViewController.view.frame = frame;
+            [self.slidingViewController resetTopView];
+        }];
+    }
+    NSLog(@"%d", indexPath.row);
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

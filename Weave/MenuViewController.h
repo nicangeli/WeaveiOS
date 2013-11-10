@@ -10,7 +10,13 @@
 
 @interface MenuViewController : UITableViewController
 
-@property (nonatomic, strong) IBOutlet UIButton *loginLogoutButton;
+@property (nonatomic, strong) IBOutlet UILabel *weaveLabel;
+@property (nonatomic, strong) IBOutlet UILabel *findsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *loginLogoutButton;
+@property (nonatomic, strong) IBOutlet UILabel *shoesLabel;
+@property (nonatomic, strong) IBOutlet UILabel *topsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *lingerieLabel;
+@property (nonatomic, strong) IBOutlet UILabel *jeansLabel;
 
 -(IBAction)loginLogout:(id)sender;
 
