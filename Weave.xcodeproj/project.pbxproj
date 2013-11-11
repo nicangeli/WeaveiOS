@@ -110,6 +110,7 @@
 		89E7145817F5A7B6006F1E09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89E7145617F5A7B6006F1E09 /* InfoPlist.strings */; };
 		89E7145A17F5A7B6006F1E09 /* WeaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E7145917F5A7B6006F1E09 /* WeaveTests.m */; };
 		89E7146417F5A86C006F1E09 /* weave.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E7146317F5A86C006F1E09 /* weave.png */; };
+		89F199C31831471C004BDEFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F199C21831471C004BDEFC /* User.m */; };
 		CA4B30F659D7498F8F8FE7EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0351FDF9ACB446A4B1FC3B1F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +261,8 @@
 		89E7145717F5A7B6006F1E09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		89E7145917F5A7B6006F1E09 /* WeaveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeaveTests.m; sourceTree = "<group>"; };
 		89E7146317F5A86C006F1E09 /* weave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weave.png; sourceTree = "<group>"; };
+		89F199C11831471C004BDEFC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		89F199C21831471C004BDEFC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +315,8 @@
 			isa = PBXGroup;
 			children = (
 				894CE98717F5DD200021307A /* Collection.h */,
+				89F199C11831471C004BDEFC /* User.h */,
+				89F199C21831471C004BDEFC /* User.m */,
 				894CE98817F5DD210021307A /* Collection.m */,
 				8997BB3F1817DD1200061EF5 /* Basket.h */,
 				8997BB401817DD1200061EF5 /* Basket.m */,
@@ -788,6 +793,7 @@
 				89A42ABC180B001D00195EB3 /* ImageDownloader.m in Sources */,
 				8961501118041F1C00E93D01 /* ODIN.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
+				89F199C31831471C004BDEFC /* User.m in Sources */,
 				8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */,
 				894CE98617F5D3290021307A /* ProductViewController.m in Sources */,
 				89E7143B17F5A7B6006F1E09 /* main.m in Sources */,

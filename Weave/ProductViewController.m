@@ -82,6 +82,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self filters];
     Likes *likes = [Likes instance];
     [self updateLikeCountToNumber:[[likes getLikes] count]];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -109,6 +110,17 @@
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     //params or update existing ones here as well
     //[self getNextProducts];
+}
+
+-(void)filters
+{
+    UIStoryboard *storyoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MenuViewController *mvc = [storyoard instantiateViewControllerWithIdentifier:@"Menu"];
+    if([mvc.topsSwitch state]) {
+        NSLog(@"Tops selected");
+    } else {
+        NSLog(@"Tops not selected");
+    }
 }
 
 -(void)didDownloadAllProducts

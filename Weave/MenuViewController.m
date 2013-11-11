@@ -38,9 +38,16 @@
     [self.weaveLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.findsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.loginLogoutButton setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    
+    [self.dressesLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.coatsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.shoesLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
-    [self.jeansLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.skirtsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.trousersLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.jumpersLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.lingerieLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.swimwearLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.accessoriesLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.topsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
 }
 
