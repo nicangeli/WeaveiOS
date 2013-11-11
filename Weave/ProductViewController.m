@@ -99,19 +99,8 @@
     if([self shouldRefreshCollection]) {
         [self refreshCollection];
     } else {
-        if([collection.currentProductSelection count] == 0) { // got no products to show, move to likes
-           /* UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            LikesPageViewController *controller = (LikesPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"likesPage"];
-            
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-            [self.navigationController presentViewController:navController
-                                                    animated:YES
-                                                  completion:nil];
-            */
-        } else {
-            if(currentProduct == nil) { // are we returning from details view page?
-                [self showNextProduct];
-            }
+        if(currentProduct == nil) { // are we returning from details view page?
+            [self showNextProduct];
         }
     }
     [self checkNetworkStatus:nil];
@@ -257,6 +246,7 @@
 -(void)showNextProduct
 {
     Collection *c = [Collection instance];
+    [c setCurrentProductSelectionForBrands:nil];
     Product *p = [c getNextProduct];
     NSLog(@"Showing product: %@", [p getUrl]);
     if(p == nil) {
