@@ -51,7 +51,8 @@
 
 -(void)updateLoginLabel
 {
-    if([FBSession.activeSession isOpen]) {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if([appDelegate.session isOpen]) {
         self.loginLogoutButton.text = @"Logout";
     } else {
         self.loginLogoutButton.text = @"Login";
