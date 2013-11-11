@@ -82,7 +82,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self filters];
     Likes *likes = [Likes instance];
     [self updateLikeCountToNumber:[[likes getLikes] count]];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -93,8 +92,8 @@
         [defaults setBool:YES forKey:@"seenProductsInstructions"];
     }
     Collection *collection = [Collection instance];
-    collection.currentProductSelection = [[NSMutableArray alloc] init];
-    [collection setCurrentProductSelectionForBrands:nil];
+    //collection.currentProductSelection = [[NSMutableArray alloc] init];
+    //[collection setCurrentProductSelectionForBrands:nil];
 
     
     if([self shouldRefreshCollection]) {
@@ -110,17 +109,6 @@
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     //params or update existing ones here as well
     //[self getNextProducts];
-}
-
--(void)filters
-{
-    UIStoryboard *storyoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MenuViewController *mvc = [storyoard instantiateViewControllerWithIdentifier:@"Menu"];
-    if([mvc.topsSwitch state]) {
-        NSLog(@"Tops selected");
-    } else {
-        NSLog(@"Tops not selected");
-    }
 }
 
 -(void)didDownloadAllProducts
@@ -258,7 +246,7 @@
 -(void)showNextProduct
 {
     Collection *c = [Collection instance];
-    [c setCurrentProductSelectionForBrands:nil];
+    //[c setCurrentProductSelectionForBrands:nil];
     Product *p = [c getNextProduct];
     NSLog(@"Showing product: %@", [p getUrl]);
     if(p == nil) {

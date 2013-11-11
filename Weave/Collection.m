@@ -13,6 +13,7 @@
 #import "Strings.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "NoLikesViewController.h"
+#import "User.h"
 
 @implementation Collection
 
@@ -31,6 +32,10 @@
 
 -(Product *)getNextProduct
 {
+    if(self.currentProductSelection == nil) {
+        self.currentProductSelection = [[NSMutableArray alloc]  initWithArray:products];
+    }
+    
     if([self.currentProductSelection count] == 0) {
         return nil;
     }
@@ -142,6 +147,7 @@
     return count;
 }
 
+/*
 -(void)setCurrentProductSelectionForBrands:(NSMutableArray *)brands
 {
     if(brands == nil) {
@@ -164,6 +170,34 @@
         }
     }
     NSLog(@"%d products in the current selection ", [self.currentProductSelection count]);
+}
+ */
+
+-(void)updateSelectionForCategories
+{
+    User *u = [User instance];
+    NSMutableArray *active = [[NSMutableArray alloc] init];
+    // clear out currentProductSelection
+    // loop over products
+    // if the category is in the brandsFilter and is on
+    // add to currentProductSelection
+    //[c.currentProductSelection removeAllObjects];
+    self.currentProductSelection = nil;
+    self.currentProductSelection = [[NSMutableArray alloc] init];
+    for(id key in u.categoryFilter) {
+        BOOL value = [[u.categoryFilter objectForKey:key] boolValue];
+        if(value) {
+            [active addObject:key];
+        }
+    }
+    
+    for(int i = 0; i < [products count]; i++) {
+        Product *p = [products objectAtIndex:i];
+        if([active containsObject:[p getCategory]]) {
+            [self.currentProductSelection addObject:p];
+        }
+    }
+    
 }
 
 @end

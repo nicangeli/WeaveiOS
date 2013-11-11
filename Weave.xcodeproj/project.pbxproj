@@ -314,9 +314,9 @@
 		893D305017F9CDEA00D820D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				894CE98717F5DD200021307A /* Collection.h */,
 				89F199C11831471C004BDEFC /* User.h */,
 				89F199C21831471C004BDEFC /* User.m */,
+				894CE98717F5DD200021307A /* Collection.h */,
 				894CE98817F5DD210021307A /* Collection.m */,
 				8997BB3F1817DD1200061EF5 /* Basket.h */,
 				8997BB401817DD1200061EF5 /* Basket.m */,

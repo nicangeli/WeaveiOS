@@ -46,4 +46,9 @@
 
 -(IBAction)loginLogout:(id)sender;
 
+-(IBAction)dressesSwitchHit:(id)sender;
+-(IBAction)coatsSwitchHit:(id)sender;
+
+
+
 @end

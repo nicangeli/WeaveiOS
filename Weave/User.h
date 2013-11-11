@@ -10,4 +10,8 @@
 
 @interface User : NSObject
 
+@property (nonatomic, strong) NSMutableDictionary *categoryFilter;
+
++(User *)instance;
+
 @end

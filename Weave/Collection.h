@@ -43,5 +43,6 @@
 -(void)setProducts:(NSMutableArray *)myProducts;
 -(void)getAllProducts;
 -(NSInteger)numberOfProductsForBrand:(Brand *)brand;
+-(void)updateSelectionForCategories;
 
 @end

@@ -11,6 +11,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "User.h"
+#import "Collection.h"
 
 
 @interface MenuViewController ()
@@ -94,15 +96,7 @@
             // logout
             NSLog(@"Logging you in/out");
             UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
-            
-            /*[self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-                CGRect frame = self.slidingViewController.topViewController.view.frame;
-                self.slidingViewController.topViewController = newTopViewController;
-                self.slidingViewController.topViewController.view.frame = frame;
-                [self.slidingViewController resetTopView];
-            }];
-             */
-            //[self.navigationController popToRootViewControllerAnimated:YES];
+
             AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
             [appDelegate.session closeAndClearTokenInformation];
             [self presentViewController:newTopViewController animated:YES completion:nil];
@@ -137,6 +131,157 @@
             [FBSession.activeSession closeAndClearTokenInformation];
         }
     }
+}
+
+-(IBAction)dressesSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedDresses = [[u.categoryFilter objectForKey:@"Dresses"] boolValue];
+    if(selectedDresses) {
+        NSLog(@"Dresses was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Dresses"];
+    } else {
+        NSLog(@"Dresses was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Dresses"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)coatsSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedCoats = [[u.categoryFilter objectForKey:@"Coats"] boolValue];
+    if(selectedCoats) {
+        NSLog(@"Coats was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Coats"];
+    } else {
+        NSLog(@"Coats was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Coats"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)shoesSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedShoes = [[u.categoryFilter objectForKey:@"Shoes"] boolValue];
+    if(selectedShoes) {
+        NSLog(@"Shoes was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Shoes"];
+    } else {
+        NSLog(@"Coats was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Shoes"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)skirtsSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedSkirts = [[u.categoryFilter objectForKey:@"Skirts"] boolValue];
+    if(selectedSkirts) {
+        NSLog(@"Skirts was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Skirts"];
+    } else {
+        NSLog(@"Skirts was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Skirts"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)trousersSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedTrousers = [[u.categoryFilter objectForKey:@"Trousers"] boolValue];
+    if(selectedTrousers) {
+        NSLog(@"Trousers was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Trousers"];
+    } else {
+        NSLog(@"Trousers was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Trousers"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+
+-(IBAction)jumpersSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedJumpers = [[u.categoryFilter objectForKey:@"Jumpers"] boolValue];
+    if(selectedJumpers) {
+        NSLog(@"Jumpers was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Jumpers"];
+    } else {
+        NSLog(@"Jumpers was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Jumpers"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)lingerieSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedLingerie = [[u.categoryFilter objectForKey:@"Jumpers"] boolValue];
+    if(selectedLingerie) {
+        NSLog(@"Lingerie was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Lingerie"];
+    } else {
+        NSLog(@"Lingerie was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Lingerie"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)swimwearSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedSwimwear = [[u.categoryFilter objectForKey:@"Swimwear"] boolValue];
+    if(selectedSwimwear) {
+        NSLog(@"Swimwear was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Swimwear"];
+    } else {
+        NSLog(@"Swimwear was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Swimwear"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)accessoriesSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedAccessories = [[u.categoryFilter objectForKey:@"Accessories"] boolValue];
+    if(selectedAccessories) {
+        NSLog(@"Accessories was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Accessories"];
+    } else {
+        NSLog(@"Accessories was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Accessories"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
+}
+
+-(IBAction)topsSwitchHit:(id)sender
+{
+    User *u = [User instance];
+    BOOL selectedTops = [[u.categoryFilter objectForKey:@"Tops"] boolValue];
+    if(selectedTops) {
+        NSLog(@"Tops was on - now you are off");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Tops"];
+    } else {
+        NSLog(@"Tops was off - now you are on");
+        [u.categoryFilter setObject:[NSNumber numberWithBool:YES] forKey:@"Tops"];
+    }
+    Collection *c = [Collection instance];
+    [c updateSelectionForCategories];
 }
 
 
