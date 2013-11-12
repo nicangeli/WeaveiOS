@@ -15,7 +15,6 @@
 		8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453F17FD9518001A6D68 /* NoLikesViewController.m */; };
 		8925454417FDAF16001A6D68 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454317FDAF16001A6D68 /* Strings.m */; };
 		8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */; };
-		89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E5A180D59A7000A260C /* BrandsPageViewController.m */; };
 		89385E5E180D63C6000A260C /* BrandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E5D180D63C6000A260C /* BrandCell.m */; };
 		89385E61180D83F0000A260C /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E60180D83F0000A260C /* Brand.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
@@ -141,8 +140,6 @@
 		8925454317FDAF16001A6D68 /* Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strings.m; sourceTree = "<group>"; };
 		8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
-		89385E59180D59A7000A260C /* BrandsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandsPageViewController.h; sourceTree = "<group>"; };
-		89385E5A180D59A7000A260C /* BrandsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandsPageViewController.m; sourceTree = "<group>"; };
 		89385E5C180D63C6000A260C /* BrandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandCell.h; sourceTree = "<group>"; };
 		89385E5D180D63C6000A260C /* BrandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandCell.m; sourceTree = "<group>"; };
 		89385E5F180D83F0000A260C /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
@@ -341,8 +338,6 @@
 				89814558182973A600499186 /* NavigationViewController.m */,
 				8981455A182973C500499186 /* MenuViewController.h */,
 				8981455B182973C500499186 /* MenuViewController.m */,
-				89385E59180D59A7000A260C /* BrandsPageViewController.h */,
-				89385E5A180D59A7000A260C /* BrandsPageViewController.m */,
 				89385E5C180D63C6000A260C /* BrandCell.h */,
 				89385E5D180D63C6000A260C /* BrandCell.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
@@ -778,7 +773,6 @@
 				8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */,
 				8997BB4A1818086000061EF5 /* Emailer.m in Sources */,
 				898145431827EE4A00499186 /* LoginViewController.m in Sources */,
-				89385E5B180D59A7000A260C /* BrandsPageViewController.m in Sources */,
 				89D208EC18229408007C197B /* ReachabilityManager.m in Sources */,
 				8981455C182973C500499186 /* MenuViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
