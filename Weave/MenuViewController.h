@@ -13,6 +13,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *weaveLabel;
 @property (nonatomic, strong) IBOutlet UILabel *findsLabel;
 @property (nonatomic, strong) IBOutlet UILabel *loginLogoutButton;
+@property (nonatomic, strong) IBOutlet UILabel *filterByLabel;
 
 @property (nonatomic, strong) IBOutlet UILabel *dressesLabel;
 @property (nonatomic, strong) IBOutlet UISwitch *dressesSwitch;

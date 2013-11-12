@@ -338,54 +338,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weave/Collection.m"
-            timestampString = "405892258.023353"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "@implementation Collection"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Weave/Collection.m"
-            timestampString = "405892258.023353"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "@implementation Collection"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Weave/Collection.m"
-            timestampString = "405892258.023353"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "@implementation Collection"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Weave/BrandsPageViewController.m"
             timestampString = "405443468.96615"
             startingColumnNumber = "9223372036854775807"
@@ -753,11 +705,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weave/MenuViewController.m"
-            timestampString = "405891006.718255"
+            timestampString = "405951444.988152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -913,11 +865,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weave/Collection.m"
-            timestampString = "405892258.023353"
+            timestampString = "405954549.686889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-updateSelectionForCategories"
             landmarkType = "5">
          </BreakpointContent>
@@ -929,11 +881,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weave/Collection.m"
-            timestampString = "405892258.023353"
+            timestampString = "405954549.686889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-updateSelectionForCategories"
             landmarkType = "5">
          </BreakpointContent>

@@ -40,6 +40,7 @@
     [self.weaveLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.findsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.loginLogoutButton setFont:[UIFont fontWithName:@"Raleway" size:17]];
+    [self.filterByLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     
     [self.dressesLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
     [self.coatsLabel setFont:[UIFont fontWithName:@"Raleway" size:17]];
@@ -227,7 +228,7 @@
 -(IBAction)lingerieSwitchHit:(id)sender
 {
     User *u = [User instance];
-    BOOL selectedLingerie = [[u.categoryFilter objectForKey:@"Jumpers"] boolValue];
+    BOOL selectedLingerie = [[u.categoryFilter objectForKey:@"Lingerie"] boolValue];
     if(selectedLingerie) {
         NSLog(@"Lingerie was on - now you are off");
         [u.categoryFilter setObject:[NSNumber numberWithBool:NO] forKey:@"Lingerie"];
@@ -283,6 +284,5 @@
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
 }
-
 
 @end

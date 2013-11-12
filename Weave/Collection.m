@@ -147,32 +147,6 @@
     return count;
 }
 
-/*
--(void)setCurrentProductSelectionForBrands:(NSMutableArray *)brands
-{
-    if(brands == nil) {
-        //self.currentProductSelection = [[NSMutableArray alloc] init];
-        self.currentProductSelection = products;
-        return;
-    }
-    
-    NSMutableArray *brandStrings = [[NSMutableArray alloc] init];
-    for(Brand *b in brands) {
-        [brandStrings addObject:[b getName]];
-    }
-    for(NSInteger i = 0; i < [products count]; i++) {
-        Product *p = [products objectAtIndex:i];
-        if([brandStrings containsObject:[p getShop]]) {
-            if(!self.currentProductSelection) {
-                self.currentProductSelection = [[NSMutableArray alloc] init];
-            }
-            [self.currentProductSelection addObject:p];
-        }
-    }
-    NSLog(@"%d products in the current selection ", [self.currentProductSelection count]);
-}
- */
-
 -(void)updateSelectionForCategories
 {
     User *u = [User instance];
@@ -191,13 +165,16 @@
         }
     }
     
-    for(int i = 0; i < [products count]; i++) {
-        Product *p = [products objectAtIndex:i];
-        if([active containsObject:[p getCategory]]) {
-            [self.currentProductSelection addObject:p];
+    if([active count] == 0) { // no active categories selected, show everything
+        self.currentProductSelection = products;
+    } else { // something is selected - filter to only show those products...
+        for(int i = 0; i < [products count]; i++) {
+            Product *p = [products objectAtIndex:i];
+            if([active containsObject:[p getCategory]]) {
+                [self.currentProductSelection addObject:p];
+            }
         }
     }
-    
 }
 
 @end
