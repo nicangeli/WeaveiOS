@@ -280,58 +280,6 @@
             </objects>
             <point key="canvasLocation" x="1636" y="1087"/>
         </scene>
-        <!--No Likes View Controller - Products-->
-        <scene sceneID="Lq9-fL-7sd">
-            <objects>
-                <viewController storyboardIdentifier="NoLikes" id="Bhx-vY-ujz" customClass="NoLikesViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="A9b-x0-eLn"/>
-                        <viewControllerLayoutGuide type="bottom" id="bK3-Ee-Pxo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5kB-Ev-3Ro">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="That's it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="215" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-oi-e7A">
-                                <rect key="frame" x="53" y="67" width="215" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="44"/>
-                                <color key="textColor" red="0.93725490196078431" green="0.22745098039215686" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Come back tomorrow to see more new-in items from this brand" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-zm-5vb">
-                                <rect key="frame" x="32" y="152" width="246" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQE-24-H5y">
-                                <rect key="frame" x="65" y="363" width="191" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="View your likes">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-L9-X8h">
-                                <rect key="frame" x="20" y="237" width="271" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title=" Weave another brand"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Products" id="7r3-ar-2k1">
-                        <barButtonItem key="leftBarButtonItem" title="Brands" id="PeV-Zv-bxV"/>
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="2eA-Fm-nV4"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dt9-bn-eG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2131" y="-500"/>
-        </scene>
         <!--Product View Controller - Weave-->
         <scene sceneID="feL-58-pYM">
             <objects>
@@ -422,109 +370,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1769" y="184"/>
-        </scene>
-        <!--Brands Page View Controller - Home-->
-        <scene sceneID="bsH-Ps-2xN">
-            <objects>
-                <viewController storyboardIdentifier="BrandsPage" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IIg-9w-PEx" customClass="BrandsPageViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NFA-pW-HUo"/>
-                        <viewControllerLayoutGuide type="bottom" id="ELL-yq-54w"/>
-                    </layoutGuides>
-                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="16a-go-hsK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="new_in.png" translatesAutoresizingMaskIntoConstraints="NO" id="tMZ-6C-3LB">
-                                <rect key="frame" x="40" y="4" width="240" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G3y-37-GLJ">
-                                <rect key="frame" x="20" y="88" width="280" height="347"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="347" id="lJB-Oz-YGD"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TM0-E6-aNk">
-                                    <size key="itemSize" width="253" height="55"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="1" verticalHuggingPriority="1" reuseIdentifier="Cell" id="dWt-w1-He2" customClass="BrandCell">
-                                        <rect key="frame" x="14" y="0.0" width="253" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qUx-ks-nGP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQn-6Y-cgJ">
-                                                    <rect key="frame" x="205" y="0.0" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.93725490199999995" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                        <connections>
-                                            <outlet property="brandLogo" destination="qUx-ks-nGP" id="Chx-8a-b89"/>
-                                            <outlet property="numberOfProductsLabel" destination="uQn-6Y-cgJ" id="0Fr-n9-mpa"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we0-vd-dAZ">
-                                <rect key="frame" x="20" y="443" width="280" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="R3z-d2-qUS"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="show_me_clothes.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="we0-vd-dAZ" secondAttribute="bottom" constant="31" id="1sS-Tp-jHL"/>
-                            <constraint firstItem="we0-vd-dAZ" firstAttribute="trailing" secondItem="G3y-37-GLJ" secondAttribute="trailing" id="BmI-Ah-G6H"/>
-                            <constraint firstItem="we0-vd-dAZ" firstAttribute="top" secondItem="G3y-37-GLJ" secondAttribute="bottom" constant="8" id="Ced-un-qPR"/>
-                            <constraint firstItem="we0-vd-dAZ" firstAttribute="leading" secondItem="G3y-37-GLJ" secondAttribute="leading" id="NoM-rO-qgd"/>
-                            <constraint firstItem="tMZ-6C-3LB" firstAttribute="top" secondItem="16a-go-hsK" secondAttribute="top" constant="4" id="P1M-1O-gFm"/>
-                            <constraint firstAttribute="trailing" secondItem="we0-vd-dAZ" secondAttribute="trailing" constant="20" symbolic="YES" id="RiF-c4-U5x"/>
-                            <constraint firstItem="we0-vd-dAZ" firstAttribute="top" secondItem="G3y-37-GLJ" secondAttribute="bottom" constant="8" symbolic="YES" id="cMK-MQ-kIM"/>
-                            <constraint firstItem="we0-vd-dAZ" firstAttribute="leading" secondItem="16a-go-hsK" secondAttribute="leading" constant="20" symbolic="YES" id="eSt-wr-p0X"/>
-                            <constraint firstItem="G3y-37-GLJ" firstAttribute="top" secondItem="16a-go-hsK" secondAttribute="top" constant="88" id="iQt-w5-jkt"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Home" id="rqA-fc-rI6">
-                        <barButtonItem key="leftBarButtonItem" image="menuicon" id="v2f-eL-3Kx">
-                            <connections>
-                                <action selector="revealMenu:" destination="IIg-9w-PEx" id="uCK-cL-McA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="collectionView" destination="G3y-37-GLJ" id="8EE-oE-xcd"/>
-                        <outlet property="messageAlert" destination="we0-vd-dAZ" id="1Fc-fw-rB7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Azm-Ju-YF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1789" y="-500"/>
         </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="dlr-Er-B1A">
@@ -1054,24 +899,6 @@
             <point key="canvasLocation" x="857" y="1562"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="dU5-08-oEj">
-            <objects>
-                <navigationController storyboardIdentifier="Brands" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VON-m0-FD8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TAZ-8g-vrK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="IIg-9w-PEx" kind="relationship" relationship="rootViewController" id="5O3-u1-4Xr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u0j-kc-RT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1263" y="-500"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="SAU-8d-8cu">
             <objects>
                 <navigationController storyboardIdentifier="Weave" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VdJ-pZ-v0j" sceneMemberID="viewController">
@@ -1101,10 +928,8 @@
         <image name="mail.png" width="70" height="69"/>
         <image name="mail_likes.png" width="234" height="41"/>
         <image name="menuicon" width="24" height="19"/>
-        <image name="new_in.png" width="240" height="76"/>
         <image name="polaroid-view.png" width="477" height="557"/>
         <image name="polaroid.png" width="477" height="557"/>
-        <image name="show_me_clothes.png" width="234" height="41"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

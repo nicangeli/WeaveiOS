@@ -12,10 +12,8 @@
 		8925453217FB0D0F001A6D68 /* Likes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453117FB0D0F001A6D68 /* Likes.m */; };
 		8925453517FB1FC7001A6D68 /* LikesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453417FB1FC7001A6D68 /* LikesPageViewController.m */; };
 		8925453717FC32DF001A6D68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8925453617FC32DF001A6D68 /* CoreData.framework */; };
-		8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925453F17FD9518001A6D68 /* NoLikesViewController.m */; };
 		8925454417FDAF16001A6D68 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454317FDAF16001A6D68 /* Strings.m */; };
 		8925454717FDCE3A001A6D68 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */; };
-		89385E5E180D63C6000A260C /* BrandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E5D180D63C6000A260C /* BrandCell.m */; };
 		89385E61180D83F0000A260C /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = 89385E60180D83F0000A260C /* Brand.m */; };
 		893D302D17F8DC0600D820D1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302C17F8DC0600D820D1 /* like.png */; };
 		893D302F17F8E20100D820D1 /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 893D302E17F8E20100D820D1 /* dislike.png */; };
@@ -94,7 +92,6 @@
 		89A8BB451822D7A10085F62E /* JotiOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A8BB441822D7A10085F62E /* JotiOne-Regular.ttf */; };
 		89A8BB471822D8980085F62E /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A8BB461822D8980085F62E /* Raleway-Regular.ttf */; };
 		89AF6A361809F2F400DD74F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AF6A351809F2F400DD74F0 /* Security.framework */; };
-		89D208EC18229408007C197B /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D208EB18229408007C197B /* ReachabilityManager.m */; };
 		89DD084A181046700053CA9B /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 89DD0849181046700053CA9B /* page.png */; };
 		89E7142F17F5A7B6006F1E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7142E17F5A7B6006F1E09 /* Foundation.framework */; };
 		89E7143117F5A7B6006F1E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E7143017F5A7B6006F1E09 /* CoreGraphics.framework */; };
@@ -134,14 +131,10 @@
 		8925453317FB1FC7001A6D68 /* LikesPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesPageViewController.h; sourceTree = "<group>"; };
 		8925453417FB1FC7001A6D68 /* LikesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesPageViewController.m; sourceTree = "<group>"; };
 		8925453617FC32DF001A6D68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8925453E17FD9518001A6D68 /* NoLikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoLikesViewController.h; sourceTree = "<group>"; };
-		8925453F17FD9518001A6D68 /* NoLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoLikesViewController.m; sourceTree = "<group>"; };
 		8925454217FDAF16001A6D68 /* Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strings.h; sourceTree = "<group>"; };
 		8925454317FDAF16001A6D68 /* Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strings.m; sourceTree = "<group>"; };
 		8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
-		89385E5C180D63C6000A260C /* BrandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandCell.h; sourceTree = "<group>"; };
-		89385E5D180D63C6000A260C /* BrandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandCell.m; sourceTree = "<group>"; };
 		89385E5F180D83F0000A260C /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
 		89385E60180D83F0000A260C /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brand.m; sourceTree = "<group>"; };
 		893D302C17F8DC0600D820D1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../../Dropbox/weave/like.png; sourceTree = "<group>"; };
@@ -239,8 +232,6 @@
 		89A8BB441822D7A10085F62E /* JotiOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JotiOne-Regular.ttf"; sourceTree = "<group>"; };
 		89A8BB461822D8980085F62E /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		89AF6A351809F2F400DD74F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		89D208EA18229408007C197B /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
-		89D208EB18229408007C197B /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
 		89DD0849181046700053CA9B /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		89E7142B17F5A7B6006F1E09 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E7142E17F5A7B6006F1E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -338,18 +329,12 @@
 				89814558182973A600499186 /* NavigationViewController.m */,
 				8981455A182973C500499186 /* MenuViewController.h */,
 				8981455B182973C500499186 /* MenuViewController.m */,
-				89385E5C180D63C6000A260C /* BrandCell.h */,
-				89385E5D180D63C6000A260C /* BrandCell.m */,
 				894CE98417F5D3290021307A /* ProductViewController.h */,
 				894CE98517F5D3290021307A /* ProductViewController.m */,
 				8997BB421817DDD300061EF5 /* BasketViewController.h */,
 				8997BB431817DDD300061EF5 /* BasketViewController.m */,
-				89D208EA18229408007C197B /* ReachabilityManager.h */,
-				89D208EB18229408007C197B /* ReachabilityManager.m */,
 				8925454517FDCE3A001A6D68 /* ProductDetailViewController.h */,
 				8925454617FDCE3A001A6D68 /* ProductDetailViewController.m */,
-				8925453E17FD9518001A6D68 /* NoLikesViewController.h */,
-				8925453F17FD9518001A6D68 /* NoLikesViewController.m */,
 				8925453317FB1FC7001A6D68 /* LikesPageViewController.h */,
 				8925453417FB1FC7001A6D68 /* LikesPageViewController.m */,
 				89A42ABA180B001D00195EB3 /* ImageDownloader.h */,
@@ -773,12 +758,10 @@
 				8997BB471818014E00061EF5 /* EmailBasketViewController.m in Sources */,
 				8997BB4A1818086000061EF5 /* Emailer.m in Sources */,
 				898145431827EE4A00499186 /* LoginViewController.m in Sources */,
-				89D208EC18229408007C197B /* ReachabilityManager.m in Sources */,
 				8981455C182973C500499186 /* MenuViewController.m in Sources */,
 				8925453217FB0D0F001A6D68 /* Likes.m in Sources */,
 				89385E61180D83F0000A260C /* Brand.m in Sources */,
 				8961500F18041F1C00E93D01 /* MPCSerializedJSONData.m in Sources */,
-				89385E5E180D63C6000A260C /* BrandCell.m in Sources */,
 				8961500E18041F1C00E93D01 /* MPCJSONSerializer.m in Sources */,
 				8961500D18041F1C00E93D01 /* MPCJSONDataSerializer.m in Sources */,
 				894CE98917F5DD210021307A /* Collection.m in Sources */,
@@ -792,7 +775,6 @@
 				8961501118041F1C00E93D01 /* ODIN.m in Sources */,
 				89E7143F17F5A7B6006F1E09 /* AppDelegate.m in Sources */,
 				89F199C31831471C004BDEFC /* User.m in Sources */,
-				8925454017FD9518001A6D68 /* NoLikesViewController.m in Sources */,
 				894CE98617F5D3290021307A /* ProductViewController.m in Sources */,
 				89E7143B17F5A7B6006F1E09 /* main.m in Sources */,
 				8997BB411817DD1200061EF5 /* Basket.m in Sources */,
