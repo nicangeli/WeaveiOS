@@ -48,7 +48,7 @@
 {
     [super viewDidLoad];
     //[self setNeedsStatusBarAppearanceUpdate];
-    [self.facebookDisclaimer setFont:[UIFont fontWithName:@"Raleway" size:10]];
+    [self.facebookDisclaimer setFont:[UIFont fontWithName:@"Raleway" size:17]];
     self.pageImages = [[NSMutableArray alloc] init];
     
     [self updateView];
@@ -79,7 +79,8 @@
 {
     [super viewDidAppear:animated];
     [self setUp];
-    [self moveToLoggedIn];
+    [self updateView];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -87,12 +88,6 @@
     [super viewWillAppear:animated];
 }
 
--(void)moveToLoggedIn
-{
-    if([FBSession.activeSession isOpen]) {
-        [self performSegueWithIdentifier:@"MoveToBrands" sender:self];
-    }
-}
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -268,7 +263,6 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-        [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
         [self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
                                       appDelegate.session.accessTokenData.accessToken]];
         [self performSegueWithIdentifier:@"MoveToBrands" sender:nil];
@@ -276,7 +270,6 @@
         
     } else {
         // login-needed account UI is shown whenever the session is closed
-        [self.buttonLoginLogout setTitle:@"Log in" forState:UIControlStateNormal];
         [self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 }

@@ -111,6 +111,7 @@
 		89E7145A17F5A7B6006F1E09 /* WeaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E7145917F5A7B6006F1E09 /* WeaveTests.m */; };
 		89E7146417F5A86C006F1E09 /* weave.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E7146317F5A86C006F1E09 /* weave.png */; };
 		89F199C31831471C004BDEFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F199C21831471C004BDEFC /* User.m */; };
+		89F199C71832688D004BDEFC /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F199C61832688D004BDEFC /* fb.png */; };
 		CA4B30F659D7498F8F8FE7EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0351FDF9ACB446A4B1FC3B1F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +264,7 @@
 		89E7146317F5A86C006F1E09 /* weave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weave.png; sourceTree = "<group>"; };
 		89F199C11831471C004BDEFC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		89F199C21831471C004BDEFC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		89F199C61832688D004BDEFC /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +529,7 @@
 		89E7143517F5A7B6006F1E09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89F199C61832688D004BDEFC /* fb.png */,
 				89814575182A7CF900499186 /* email.png */,
 				89814576182A7CF900499186 /* email@2x.png */,
 				898145651829A08000499186 /* show_me_clothes.png */,
@@ -703,6 +706,7 @@
 				89E7146417F5A86C006F1E09 /* weave.png in Resources */,
 				8997BB331816D9F000061EF5 /* h&mred.png in Resources */,
 				8997BB1918166FFA00061EF5 /* asosblackv2.png in Resources */,
+				89F199C71832688D004BDEFC /* fb.png in Resources */,
 				8997BB341816D9F000061EF5 /* mangoblack.png in Resources */,
 				8997BB1018159C5B00061EF5 /* Main.storyboard in Resources */,
 				898145541828660500499186 /* tinder.png in Resources */,
