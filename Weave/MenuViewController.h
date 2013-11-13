@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol NavigationDelegate <NSObject>
+-(void)didRefreshCategories;
+@end
+
 @interface MenuViewController : UITableViewController
+
+@property (nonatomic, retain) id<NavigationDelegate> delegate;
 
 @property (nonatomic, strong) IBOutlet UILabel *weaveLabel;
 @property (nonatomic, strong) IBOutlet UILabel *findsLabel;

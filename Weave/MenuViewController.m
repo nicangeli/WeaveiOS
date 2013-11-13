@@ -147,6 +147,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)coatsSwitchHit:(id)sender
@@ -162,6 +164,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)shoesSwitchHit:(id)sender
@@ -177,6 +181,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)skirtsSwitchHit:(id)sender
@@ -192,6 +198,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)trousersSwitchHit:(id)sender
@@ -207,6 +215,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 
@@ -223,6 +233,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)lingerieSwitchHit:(id)sender
@@ -238,6 +250,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)swimwearSwitchHit:(id)sender
@@ -253,6 +267,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)accessoriesSwitchHit:(id)sender
@@ -268,6 +284,8 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
+
 }
 
 -(IBAction)topsSwitchHit:(id)sender
@@ -283,6 +301,7 @@
     }
     Collection *c = [Collection instance];
     [c updateSelectionForCategories];
+    [self.delegate didRefreshCategories];
 }
 
 @end

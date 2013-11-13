@@ -11,7 +11,16 @@
 @interface User : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *categoryFilter;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *facebookUrl;
+@property (nonatomic, strong) NSString *gender;
+@property (nonatomic, strong) NSString *birthday;
+@property (nonatomic, strong) NSString *email;
 
 +(User *)instance;
+
+-(void)getUserDetails;
+-(void)setUser:(User *)user;
+
 
 @end

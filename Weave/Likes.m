@@ -51,6 +51,7 @@
 -(NSMutableArray *)getLikes {
     return likedProducts;
 }
+
 -(void)setLikes:(NSMutableArray *)likes
 {
     NSLog(@"Set likes is called");

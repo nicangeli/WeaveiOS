@@ -12,14 +12,15 @@
 #import "ImageDownloader.h"
 #import "Product.h"
 #import "Likes.h"
+#import "User.h"
 #import "Strings.h"
 #import "ProductDetailViewController.h"
 #import "AFHTTPRequestOperationManager.h"
-#import "NoLikesViewController.h"
 #import "LikesPageViewController.h"
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "AppDelegate.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -59,13 +60,16 @@
 
     
     if(![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+        MenuViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+        mvc.delegate = self;
+        self.slidingViewController.underLeftViewController = mvc;
     }
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     [self loadLikes]; // load your likes that are stored in the plist file
     [self loadProducts]; // load the products out of the plist file
+    [self loadUser];
     [self registerForNetworkEvents];
     [self listenToNetwork];
 
@@ -104,8 +108,10 @@
         }
     }
     [self checkNetworkStatus:nil];
-    [self getUserDetails];
-    
+    User *u = [User instance];
+    if(u.email == nil) {
+        [u getUserDetails];
+    }
     [Flurry logEvent:@"Products_Viewed" timed:YES];
     //params or update existing ones here as well
     //[self getNextProducts];
@@ -128,25 +134,6 @@
     NSLog(@"Did fail on download products");
 }
 
--(void)getUserDetails
-{
-    if([FBSession.activeSession isOpen]) {
-        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-            if(!error) {
-                NSLog(@"%@", user);
-                NSString *gender = [user objectForKey:@"gender"];
-                if([gender isEqualToString:@"male"]) {
-                    UIAlertView *genderAlert = [[UIAlertView alloc] initWithTitle:@"Male?" message:@"Whoa - For the time being, Weave only has female clothes. Have a play anyway." delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil, nil];
-                    [genderAlert show];
-                    //[Flurry setUserID:user.email]
-                }
-                [Flurry setGender:gender];
-                [Flurry setUserID:[user objectForKey:@"email"]];
-                
-            }
-        }];
-    }
-}
 
 -(BOOL)shouldRefreshCollection
 {
@@ -183,6 +170,21 @@
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         Likes *oldLikes = [unarchiver decodeObjectForKey:@"Likes"];
         [likes setLikes:[oldLikes getLikes]];
+        
+        [unarchiver finishDecoding];
+    }
+}
+
+-(void)loadUser
+{
+    NSString *path = [self dataFilePath];
+    NSLog(@"Path: %@", path);
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        User *old = [unarchiver decodeObjectForKey:@"User"];
+        //[old setLikes:[oldLikes getLikes]];
         
         [unarchiver finishDecoding];
     }
@@ -246,6 +248,7 @@
 -(void)showNextProduct
 {
     Collection *c = [Collection instance];
+    User *u = [User instance];
     //[c setCurrentProductSelectionForBrands:nil];
     Product *p = [c getNextProduct];
     NSLog(@"Showing product: %@", [p getUrl]);
@@ -683,5 +686,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
 }
 
+-(void)didRefreshCategories
+{
+    [self showNextProduct];
+}
 
 @end

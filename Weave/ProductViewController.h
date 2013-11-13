@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ImageDownloader.h"
 #import "Collection.h"
+#import "MenuViewController.h"
 
 @class Product;
 @class Reachability;
 @class Reachability;
 
-@interface ProductViewController : UIViewController <ImageDownloaderProtocol, CollectionDelegate> {
+@interface ProductViewController : UIViewController <ImageDownloaderProtocol, CollectionDelegate, NavigationDelegate> {
     CGPoint startLocation;
     Product *currentProduct;
     MBProgressHUD *hud;

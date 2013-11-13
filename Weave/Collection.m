@@ -12,7 +12,6 @@
 #import "ProductViewController.h"
 #import "Strings.h"
 #import "AFHTTPRequestOperationManager.h"
-#import "NoLikesViewController.h"
 #import "User.h"
 
 @implementation Collection

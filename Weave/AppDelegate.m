@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Likes.h"
-#import "ReachabilityManager.h"
 #import "UAirship.h"
 #import "UAConfig.h"
 #import "UAPush.h"
