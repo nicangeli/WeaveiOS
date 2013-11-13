@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *baseAPIURL;
 @property (nonatomic, strong) NSString *baseAPIURLAll;
 @property (nonatomic, strong) NSString *emailBrandsURL;
+@property (nonatomic, strong) NSString *facebookURL;
 
 @property (nonatomic, strong) NSString *loadingText;
 

@@ -8,6 +8,8 @@
 
 #import "User.h"
 #import "AppDelegate.h"
+#import "Strings.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @implementation User
 
@@ -61,6 +63,7 @@
                 
                 [Flurry setGender:gender];
                 [Flurry setUserID:[user objectForKey:@"email"]];
+                [self sendUserToServer];
                 
             }
             else {
@@ -92,6 +95,26 @@
     self.facebookUrl = user.facebookUrl;
 }
 
+-(void)sendUserToServer
+{
+        Strings *s = [Strings instance];
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+        NSArray *objects = [NSArray arrayWithObjects:self.gender, self.birthday, self.name, self.email, self.facebookUrl,  [[Mixpanel sharedInstance] distinctId], nil];
+        NSArray *keys = [NSArray arrayWithObjects:@"gender", @"birthday", @"name", @"email", @"facebookUrl", @"UDID", nil];
+        
+        NSDictionary *params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+        
+        [manager POST:s.facebookURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            // successfully sent email
+            //[self.delegate didSendEmailForBasket];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+}
 
 -(void)saveUser
 {

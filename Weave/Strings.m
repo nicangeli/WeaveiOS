@@ -36,6 +36,7 @@
         self.baseAPIURLAll = @"http://www.weaveuk.com/api/get/all";
         
         self.emailBrandsURL = @"http://www.weaveuk.com/api/email_brands";
+        self.facebookURL = @"http://localhost:3000/api/facebook_user";
 
         self.likeAlertMessage = @"Swiping right indicates that you like this product. It's been saved in your likes.";
         self.likeAlertTitle = @"Great";
